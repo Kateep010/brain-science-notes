@@ -1253,9 +1253,9 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 
   <section class="topic" id="w2-t8">
     <h3>8. 膠細胞登場：髓鞘與跳躍式傳導</h3>
-    <p>Glia 這個字源自「膠（glue）」，以前認為它只是把神經元黏在一起、做支持。老師說這不能算全錯，但現在知道 glia 會主動影響傳導、突觸訊號、恆定與免疫。</p>
+    <p>Glia 這個字源自「膠（glue）」，以前認為它只是把神經元黏在一起、做支持。老師說這不能算全錯，但現在知道 glia 會主動影響傳導、突觸訊號、恆定與免疫。具體來說，膠細胞直接參與髓鞘形成、離子與神經傳導物質的恆定（homeostasis）、免疫、血腦障壁（BBB）和腦脊髓液（CSF）——後面各節會一個一個對上。</p>
     <div class="video" data-yt="AwES6R1_9PM" data-title="2 分鐘神經科學:膠細胞" data-note="先總覽 astrocyte、oligodendrocyte、Schwann cell、microglia、ependymal cell 各做什麼,再看下面各節細節。"></div>
-    <p>（說明：第三堂開頭「膠細胞總論、髓鞘、astrocyte 前兩項功能」這段沒有收進課堂錄音，以下依簡報與同學整理的逐字稿重建。）</p>
+    <p>（說明：第二、三堂之間「膠細胞總論、髓鞘、astrocyte 前兩項功能」這段錄音缺漏，以下內容依同學筆記與簡報補足；已與簡報核對，數字與細節以簡報為準。）</p>
 
     <h4>誰來包髓鞘：CNS 與 PNS 不同</h4>
     <div class="tablewrap"><table>
@@ -1294,7 +1294,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <text x="22" y="72" font-size="12" fill="currentColor">本體側</text>
       <text x="598" y="72" font-size="12" fill="currentColor">→ 末梢</text>
     </svg>
-    <p>好處：傳導更快；而且每個 node 都重新產生一次動作電位，所以軸突再長，訊號也不衰減。另外，<strong>軸突越粗傳導越快</strong>（接回第 5 節：neurofilament 決定口徑）。</p>
+    <p>好處：傳導更快；而且每個 node 都重新產生一次動作電位，所以軸突再長，訊號也不衰減。另外，有髓鞘時只有 node 處的膜需要讓離子進出，之後要把 Na⁺、K⁺ 梯度「還原」的離子幫浦（Na⁺/K⁺-ATPase）工作量少很多，所以也<strong>比較省 ATP</strong>（同學筆記的補充；屬教科書常識，老師口述未必有講）。<strong>軸突越粗傳導越快</strong>（接回第 5 節：neurofilament 決定口徑）。</p>
     <div class="box bridge"><p>把軸突當成一條會漏電的同軸電纜：軸漿是芯線(軸向電阻 r<sub>i</sub>)，膜是絕緣層(膜電阻 r<sub>m</sub>、膜電容 c<sub>m</sub>)。被動訊號能傳多遠由長度常數 λ=√(r<sub>m</sub>/r<sub>i</sub>) 決定。髓鞘把 r<sub>m</sub> 拉高、c<sub>m</sub> 壓低，所以 λ 變長、充電變快；軸突變粗則 r<sub>i</sub> 下降（∝1/d²），λ 也變長。node 就像長距離通訊每隔一段放一個中繼放大器（repeater），把衰減的訊號重新拉回滿振幅。類比失效處：這不是電磁波沿傳輸線傳播，而是擴散型的 RC 充電，所以速度只有每秒幾十到一百公尺上下，遠低於光速；「跳躍」也只是看起來像跳，internode 中間的電位仍是連續變化的。</p></div>
     <p>簡報上關於 node 的分子細節（Caspr2、ankyrin G、NrCAM、paranodal loop）標為進階參考，不用背。老師只補充一點：CNS 的 node 旁邊會有 astrocyte 的突起（perinodal process）靠過來。</p>
     <div class="video" data-yt="5V7RZwDpmXE" data-title="2 分鐘神經科學:髓鞘" data-note="複習 oligodendrocyte 與 Schwann cell 的差別、node of Ranvier 與 saltatory conduction。"></div>
@@ -1316,7 +1316,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p><span class="term" data-def="astrocyte 星狀膠細胞:CNS 中數量很多、突起高度分支的膠細胞;astro 是星星的意思。">Astrocyte</span> 是 CNS 裡數量非常多的膠細胞，名字裡的 astro 就是「星」：它伸出許多高度分支的突起，同時接觸神經元、突觸與微血管。相鄰的 astrocyte 各有自己的地盤，只在邊界處稍微重疊（螢光圖中紅綠交疊成黃色的窄帶），但彼此有連結。老師挑四個代表功能講。</p>
 
     <h4>(1) K⁺ buffering 鉀離子緩衝</h4>
-    <p>神經元放電時 Na⁺ 流入、K⁺ 流出。如果連續放電，K⁺ 會在狹窄的細胞外空間累積；細胞外 K⁺ 太高會改變神經元的興奮性，影響它再次放電的能力。Astrocyte 在活躍的突觸旁把多餘的 K⁺ 吸收（uptake）進來，再透過 astrocyte 之間的網路以及和血管的接觸重新分配出去，讓細胞外環境回到恆定（homeostasis）。</p>
+    <p>神經元放電時 Na⁺ 流入、K⁺ 流出。如果連續放電，K⁺ 會在狹窄的細胞外空間累積；細胞外 K⁺ 太高會改變神經元的興奮性，影響它再次放電的能力（K⁺ 外流本來就是讓膜電位「復極化 repolarization」回來的力量，外面 K⁺ 變多，這個驅動力就變弱）。Astrocyte 在活躍的突觸旁把多餘的 K⁺ 吸收（uptake）進來，再透過 astrocyte 之間的網路以及和血管的接觸重新分配出去，讓細胞外環境回到恆定（homeostasis）。</p>
     <div class="box bridge"><p>為什麼這麼敏感？膜的靜止電位大致跟著鉀的 Nernst 電位走：E<sub>K</sub>=(RT/F)·ln([K⁺]<sub>外</sub>/[K⁺]<sub>內</sub>)。細胞外 K⁺ 平常只有約 4 mM，而且細胞外間隙體積很小——就像混合層很淺時，同樣的通量會造成很大的濃度變化。[K⁺]<sub>外</sub> 從 4 升到 8 mM,E<sub>K</sub> 就上移約 18 mV，整群神經元一起變得更靠近閾值。Astrocyte 的角色是把這個小儲庫接到一個大儲庫，增加系統的等效熱容量。</p></div>
 
     <h4>(2) 清除突觸間隙的 glutamate</h4>
@@ -1342,6 +1342,11 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ul>
     <p>腦仍需要從血液拿原料，例如葡萄糖，靠的是特定的 transporter(glucose transporter)與通道——是<strong>選擇性運輸，不是單純擴散</strong>。老師另外提到 astrocyte 還有滋養、抗氧化等功能，細節不講。</p>
     <div class="box plain"><p>容易背錯的地方：BBB 的「牆」是內皮細胞之間的 tight junction;astrocyte 的 end-feet 是在牆外包覆並維護它，不是牆本身。</p></div>
+    <div class="quiz" data-answer="4">
+      <p class="q">神經元連續高頻放電時，Astrocyte 的 K⁺ buffering 主要在解決什麼問題？</p>
+      <ol><li>細胞內 K⁺ 不足，導致神經元無法合成蛋白質</li><li>突觸間隙的 glutamate 過多</li><li>髓鞘上的 node 數量不夠</li><li>狹窄的細胞外空間 K⁺ 累積，改變 K⁺ 濃度梯度與靜止膜電位，干擾復極化與後續放電</li></ol>
+      <p class="explain">解析：放電時 K⁺ 外流，細胞外間隙小，K⁺ 容易堆高；astrocyte 吸收並經網路重新分配，維持細胞外離子恆定。選項 2 是 glutamate 清除的問題，不是 K⁺ buffering。</p>
+    </div>
     <div class="quiz" data-answer="3">
       <p class="q">Astrocyte 清除突觸間隙 glutamate 的意義，何者正確？</p>
       <ol><li>增加 NMDA 受體活化，以加強毒性反應</li><li>把 glutamate 直接分解成 CO₂ 排出</li><li>把 glutamate 轉成 glutamine 送回神經元再利用，並限制 excitotoxicity</li><li>讓細胞外 K⁺ 持續累積</li></ol>
@@ -1540,10 +1545,11 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   <section class="topic" id="w3a-t3">
     <h3>3. 磷酸化：kinase、phosphatase，以及為什麼要繞這麼多層</h3>
     <p>訊號路徑是一串蛋白質，每一個去改變下一個的形狀（構型，conformation）。改變形狀最常用的手法是 <span class="term" data-def="磷酸化:把一個磷酸根接到蛋白質的特定胺基酸上,改變其電荷與構型,因而改變活性">phosphorylation（磷酸化）</span>。</p>
+    <p>（說明：第一份錄音停在「訊號放大」，第二份從 NO 氣體開始，中間關於調控點、phosphatase、hydrolysis、tyrosine 帶 OH、小分子訊號分子這一段錄音缺漏，本節後半與下一節的相關內容依同學筆記與簡報補足。）</p>
     <ul>
       <li><span class="term" data-def="激酶:把 ATP 上的磷酸根轉接到蛋白質上的酵素">kinase（激酶）</span>:<strong>加</strong>磷酸根的酵素。老師的記法：ki- 像 kinetic，讓東西「動起來、活化」。</li>
       <li><span class="term" data-def="磷酸酶:把蛋白質上的磷酸根移除的酵素,作用與 kinase 相反">phosphatase（磷酸酶）</span>:<strong>拿掉</strong>磷酸根的酵素。兩者相反，讓蛋白質可以快速、可逆地開關。</li>
-      <li>能被接上磷酸的胺基酸要有 –OH 基。老師舉 <span class="term" data-def="酪胺酸:20 種胺基酸之一,側鏈帶 OH,可被磷酸化">tyrosine（酪胺酸）</span>為例；簡報後面提到 PKC 磷酸化的是 serine 與 threonine。</li>
+      <li>能被接上磷酸的胺基酸要有 –OH 基；課堂強調的常見三種是 <strong>serine、threonine、tyrosine</strong>（側鏈末端都帶 OH，磷酸根就接在這個 OH 上）。老師舉 <span class="term" data-def="酪胺酸:20 種胺基酸之一,側鏈帶 OH,可被磷酸化">tyrosine（酪胺酸）</span>為例；簡報後面提到 PKC 磷酸化的是 serine 與 threonine，而 RTK 磷酸化的是 tyrosine（第 7 節）。</li>
       <li><span class="term" data-def="水解:用水分子參與把化學鍵切斷的反應,例如 GTP 水解成 GDP 加一個磷酸">hydrolysis（水解）</span>：老師說這個字聽起來可怕，其實就是用水把鍵切開。</li>
     </ul>
     <p>磷酸根哪裡來？來自 ATP。老師強調生物很會「一物多用」：A、T、C、G 這些核苷酸既是 DNA/RNA 的零件，帶三個磷酸的 ATP 又是能量貨幣（切斷磷酸之間的鍵會放出能量），切下來的磷酸根還能拿去貼在蛋白質上當開關；後面還會看到 GTP 當 G protein 的開關、ATP 變成 cAMP 當 second messenger。他說這堂課是把分子生物、生化、細胞生物「打通任督二脈」。</p>
@@ -1556,6 +1562,11 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ol>
     <p>第三個理由老師留到最後才揭曉：只有走完這一串，短暫的訊號才能變成長期的改變（見第 9 節）。</p>
     <div class="box bridge"><p>這比較像<strong>多級放大器</strong>：總增益是各級增益的乘積，三級各放大 100 倍就是 10⁶。它和對流不穩定那種「自己餵自己」的正回饋不同：級聯是前饋的，輸入一停、各級都有關閉機制（phosphatase、GTP 水解），輸出就會衰減回去，不會自己失控長大。真正的正回饋在本課只出現在鈣離子（簡報提到的 calcium-induced calcium release，見第 8 節延伸）。</p></div>
+    <div class="quiz" data-answer="2">
+      <p class="q">蛋白質上哪些胺基酸最常被 kinase 接上磷酸根？為什麼？</p>
+      <ol><li>alanine、valine、leucine，因為側鏈疏水</li><li>serine、threonine、tyrosine，因為側鏈帶有 –OH 基可接上磷酸</li><li>只有 glycine，因為它最小</li><li>所有胺基酸機率相同，與側鏈無關</li></ol>
+      <p class="explain">解析：磷酸根接在側鏈的 –OH 上，所以是 Ser、Thr、Tyr。疏水側鏈的 Ala、Val、Leu 沒有 OH 可接。PKC、PKA 偏好 Ser/Thr,RTK 專作用於 Tyr。</p>
+    </div>
     <div class="quiz" data-answer="4">
       <p class="q">關於蛋白質磷酸化，下列何者正確？</p>
       <ol><li>phosphatase 負責把磷酸根加到蛋白質上</li><li>磷酸化一定會讓蛋白質永久失去功能</li><li>磷酸根來自 DNA 的鹼基</li><li>磷酸根帶電，接上後改變蛋白質構型，因而改變其活性</li></ol>
