@@ -310,7 +310,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <h4>鹼基配對（base pairing）</h4>
     <p><strong>A 只配 T（RNA 裡配 U），G 只配 C。</strong>原因是形狀：這兩組的結構剛好對得上，中間形成<span class="term" data-def="氫鍵;一種比共價鍵弱的吸引力,DNA 兩股之間就是靠鹼基間的氫鍵拉住,所以需要時可以拉開">氫鍵（hydrogen bond）</span>把兩股拉在一起。老師說「鴛鴦不能亂點」：硬把 G 配 T 或 A 配 C，那一段雙股就不穩定，容易斷裂或產生突變。DNA 對 RNA 配對時規則一樣，只是 DNA 上的 A 對到 RNA 上的 U。</p>
     <div class="box teacher"><p>不考畫結構，但配對規則 <strong>A–T(U)、G–C</strong> 一定要會，後面複製、轉錄、tRNA 認 codon、RNAi 全部建立在這條規則上。</p></div>
-    <div class="mol" data-pdb="1BNA" data-title="B 型 DNA 雙螺旋" data-caption="看什麼:兩條骨架(糖與磷酸)在外側反向纏繞,鹼基兩兩配對疊在內側,像旋轉樓梯的踏板。"></div>
+    <div class="mol" data-pdb="1BNA" data-style="球棍" data-rotate="x90" data-title="B 型 DNA 雙螺旋" data-caption="看什麼:兩條骨架(糖與磷酸)在外側反向纏繞,鹼基兩兩配對疊在內側,像旋轉樓梯的踏板。"></div>
     <div class="mol" data-pdb="1AOI" data-title="核小體:DNA 纏在組蛋白上" data-style="依鏈上色" data-caption="看什麼:這就是老師說的捲線器。DNA 繞著中間一團蛋白質(組蛋白,histone)纏了將近兩圈,染色體就是這種單位一路往上堆疊收納。"></div>
 
     <h4>DNA 複製：半保留複製</h4>
@@ -3580,10 +3580,10 @@ $$('.mol').forEach(m=>{
       '實心球':()=>viewer.setStyle({}, {sphere:{}})};
     const first=m.dataset.style&&styles[m.dataset.style]?m.dataset.style:'卡通';
     $3Dmol.download('pdb:'+pdb,viewer,{},()=>{
-      const apply=n=>{styles[n](); if(n!=='實心球'&&n!=='球棍') viewer.setStyle({hetflag:true},{stick:{colorscheme:'greenCarbon',radius:.25}}); viewer.render(); $$('.btn',ctrl).forEach(b=>b.classList.toggle('on',b.textContent===n))};
+      const apply=n=>{styles[n](); if(n!=='實心球'&&n!=='球棍') viewer.setStyle({hetflag:true},{stick:{colorscheme:'greenCarbon',radius:.25}}); viewer.setStyle({resn:'HOH'},{}); viewer.render(); $$('.btn',ctrl).forEach(b=>b.classList.toggle('on',b.textContent===n))};
       Object.keys(styles).forEach(n=>{const b=document.createElement('button'); b.className='btn'; b.textContent=n; b.onclick=()=>apply(n); ctrl.appendChild(b)});
       const sp=document.createElement('button'); sp.className='btn'; sp.textContent='自動旋轉'; let on=false; sp.onclick=()=>{on=!on; viewer.spin(on?'y':false); sp.classList.toggle('on',on)}; ctrl.appendChild(sp);
-      viewer.zoomTo(); apply(first);
+      viewer.zoomTo(); if(m.dataset.rotate){const [ax,deg]=[m.dataset.rotate[0],+m.dataset.rotate.slice(1)]; viewer.rotate(deg,ax);} apply(first);
     });
   };
 });
