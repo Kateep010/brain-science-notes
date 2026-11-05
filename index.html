@@ -159,6 +159,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   .topbar .brand span{display:none}
 }
 @media print{.topbar,nav.side,.progress,.media,.flowbtn{display:none}.layout{display:block}.quiz .explain{display:block}ol.flow>li{opacity:1}ol.flow>li>span{display:block}}
+
+/* mobile: keep diagram text legible by letting wide SVGs scroll sideways */
+.svgscroll{max-width:100%}
+@media (max-width:600px){
+  .svgscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+  .svgscroll>svg{min-width:540px}
+}
 </style>
 </head>
 <body>
@@ -3661,6 +3668,9 @@ const W={
  }
 };
 $$('.widget[data-widget]').forEach(el=>{const f=W[el.dataset.widget]; if(f)f(el)});
+/* wrap SVG diagrams so they can scroll sideways on phones */
+$$('main svg').forEach(s=>{ if(s.closest('.svgscroll,.stage')||s.parentNode.classList.contains('svgscroll')) return;
+  const w=document.createElement('div'); w.className='svgscroll'; s.parentNode.insertBefore(w,s); w.appendChild(s); });
 /* search */
 const sIn=$('#search'); let marks=[];
 function clearMarks(){marks.forEach(m=>{const p=m.parentNode; if(p){p.replaceChild(document.createTextNode(m.textContent),m); p.normalize()}}); marks=[]}

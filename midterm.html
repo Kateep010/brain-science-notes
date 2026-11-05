@@ -182,8 +182,8 @@ figure.demo,figure.fig{margin:16px 0;border:1px solid var(--line);border-radius:
 figure.demo .dh{font-size:15px;margin-bottom:8px}
 figure.demo .dh b{color:var(--accent);margin-right:6px}
 .ctrls{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin:8px 0}
-.ctrl{display:flex;gap:8px;align-items:center;font-size:14px}
-.ctrl input[type=range]{width:min(260px,60vw)}
+.ctrl{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-size:14px;max-width:100%}
+.ctrl input[type=range]{width:min(260px,50vw)}
 .ctrl .v{font-weight:700;color:var(--accent);min-width:3.5em;display:inline-block}
 .seg{display:inline-flex;flex-wrap:wrap;gap:6px}
 .seg button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer}
@@ -197,6 +197,13 @@ figure.fig svg{width:100%;max-width:760px;height:auto;display:block;margin:auto}
 .lvmap td:first-child{white-space:nowrap}
 .clip-index{columns:2;column-gap:24px;font-size:13.5px}
 @media (max-width:700px){.clip-index{columns:1}}
+
+/* mobile: keep diagram text legible by letting wide SVGs scroll sideways */
+.svgscroll{max-width:100%}
+@media (max-width:600px){
+  .svgscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+  .svgscroll>svg{min-width:540px}
+}
 </style>
 </head>
 <body>
@@ -2928,6 +2935,9 @@ const W={
  }
 };
 $$('.widget[data-widget]').forEach(el=>{const f=W[el.dataset.widget]; if(f)f(el)});
+/* wrap SVG diagrams so they can scroll sideways on phones */
+$$('main svg').forEach(s=>{ if(s.closest('.svgscroll,.stage')||s.parentNode.classList.contains('svgscroll')) return;
+  const w=document.createElement('div'); w.className='svgscroll'; s.parentNode.insertBefore(w,s); w.appendChild(s); });
 /* search */
 const sIn=$('#search'); let marks=[];
 function clearMarks(){marks.forEach(m=>{const p=m.parentNode; if(p){p.replaceChild(document.createTextNode(m.textContent),m); p.normalize()}}); marks=[]}
