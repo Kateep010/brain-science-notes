@@ -174,7 +174,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 <main id="main">
 <div class="hero">
   <h1>115-1 基礎腦科學概論　互動筆記</h1>
-  <p>國立陽明交通大學 腦科學研究所｜第 1、2、3、5 週（2026/09/08 – 10/06）｜依課堂錄影口述與簡報整理；第 4 週（09/29 Animal Models）待補</p>
+  <p>國立陽明交通大學 腦科學研究所｜第 1–5 週（2026/09/08 – 10/06）｜依課堂錄影口述與簡報整理</p>
   <p>這份筆記是為<strong>大氣科學背景</strong>的跨領域讀者寫的：每個生物學概念都先給白話說明，再盡量用你熟悉的物理、流體、遙測與數值模式語言搭一座橋。</p>
   <div class="legend">
     <span style="background:var(--plain-soft);color:var(--plain)">💡 白話說明</span>
@@ -2505,6 +2505,496 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       </ul>
       <p><strong>如何確認</strong>：先用居家血氧計或穿戴裝置做篩檢（數血氧下降次數，準確率約八成多，因為不是每次事件都會掉血氧）；確診要到醫院睡眠中心做整夜 PSG（口鼻氣流、胸腹動作、血氧、睡姿、鼾聲與腦波），計算 AHI 並判定嚴重度。可再補一句治療：行為調整（減重、側睡、不喝酒）、第一線 CPAP、口內裝置、手術。</p>
     </details>
+  </section>
+</article>
+<article class="week" id="w4">
+  <div class="week-head">
+    <div class="tag">WEEK 4</div>
+    <h2>腦科學的動物模型 Animal Models for Brain Science</h2>
+    <div class="meta">授課：張家祥 老師（姓名依講義標示，錄音聽起來為「張嘉祥」，待確認；今年自 UCSF 回台任教）｜2026/09/29｜為何需要動物模型、腦的複雜度與細胞類型、烏賊 / 海兔 / 線蟲 / 斑馬魚 / 非洲爪蛙 / 果蠅 / 小鼠與靈長類、基因工具（Gal4-UAS、optogenetics、Cre-lox、CRISPR）、iPSC 與類器官、轉譯價值</div>
+  </div>
+  <div class="overview"><h4>這一週在講什麼</h4><p>前三週講的分子、細胞、訊號傳遞，全都得在某個「活的系統」裡驗證；這一週回答：<strong>拿什麼動物來驗證、為什麼</strong>。故事線是一條「由簡到繁」的旅程：先說明人腦有 860 億顆神經元、超過 3,000 種細胞類型，複雜到無法直接拆解，所以需要動物模型；然後依「海洋 → 淡水 → 陸地」帶你認識烏賊（大軸突）、海兔（學習與記憶）、線蟲（302 顆神經元）、斑馬魚（透明）、非洲爪蛙（大卵）、果蠅、小鼠與靈長類；沿途夾帶基本技術（電生理、螢光感測器、Gal4-UAS、光遺傳、Cre-lox、CRISPR）；最後談 iPSC、類器官，以及把人類類器官種進小鼠腦的最新研究。老師反覆強調的核心思想：<strong>沒有最好的動物，只有最適合你這個問題的動物</strong>。對大氣背景的你，這很像在選模式階層——從一維箱形模式到全球環流模式，每一層都是用「可操弄、可重複」換「真實度」。</p></div>
+
+  <section class="topic" id="w4-t1">
+    <h3>1. 課程定位、考試線索（星號頁），以及為什麼需要動物模型</h3>
+    <div class="box teacher"><p><strong>老師開場最重要的一句話：投影片上有星星（★）形狀的頁面，考試會從那些頁面出題。</strong>老師說這堂課是為「第一次接觸腦科學」的人設計；對已經有基礎的同學，他會補一些比較深入的內容，但那些<strong>不會放星號</strong>，有興趣的人自己去看投影片上的參考文獻。換句話說：沒有星號的深入內容，不用為了考試去背。錄音裡老師沒有講題型（選擇題或其他）和考試日期。（同學整理檔另有一處轉述成「心形標誌旁寫 molecular」，與錄音「星星形狀」不一致，以錄音為準。）</p></div>
+    <p>老師預告的三個重點：（1） 為什麼要用動物模型做神經科學研究；（2） 走過幾個重要的模式生物，看它們各自在神經科學研究上做出什麼貢獻；（3） 順便帶一些基本技術。課程目標（Learning Objectives）也是同樣四件事：why animal models、major species、basic techniques、translational value（轉譯價值，即研究結果能不能用到人類疾病）。</p>
+
+    <h4>人腦有多大、有多少神經元</h4>
+    <p>老師請大家把兩個拳頭併在一起——人腦的體積只比這再大一點點。這麼小的東西要負責動作（例如從新竹到台北的整趟移動）、感覺、疲憊或興奮的情緒、還有中秋節家人團聚這種記憶。一百多年來科學家著迷的就是：這麼緊密的結構是怎麼做到的。</p>
+    <p>老師接著講 <strong>Santiago Ramón y Cajal</strong>（卡哈爾，西班牙人，20 世紀初得諾貝爾獎）：他用 <span class="term" data-def="Golgi staining，高基氏染色法：只隨機染黑少數神經元，但把整顆細胞連突起都染得很清楚，因此能看見單顆神經元的完整形態">Golgi staining（高基氏染色）</span>描繪大鼠、小鼠等許多動物的腦，發現神經元不是連成一整塊，而是一顆顆獨立的細胞，透過大量組件組成網路。畫出來的圖密到像一團亂麻。</p>
+    <p>那到底有幾顆？老師讓全班猜（十億？一百億？），然後公布做法——<span class="term" data-def="isotropic fractionator，等向分餾法：把腦組織打成均勻的細胞核懸液，取一小份計數再按比例放大，是估計腦內細胞總數的方法">isotropic fractionator</span>:</p>
+    <ol class="flow">
+      <li><b>捐贈人腦 + 均質化 homogenize</b><span>用玻璃研磨棒（Dounce 的概念：杵在管裡上下磨）把組織磨成液態，細胞膜破碎、但細胞核保持完整。</span></li>
+      <li><b>離心、取一小份</b><span>離心去掉不要的碎屑，把細胞核懸浮在已知總體積的液體裡；假設磨得夠均勻，就只取幾微升（µL）出來計數，並做重複（duplicate / triplicate）取平均。</span></li>
+      <li><b>DAPI 染細胞核，數總細胞數</b><span><span class="term" data-def="DAPI，一種會結合 DNA 的藍色螢光染劑，用來標出所有細胞核，不分細胞種類">DAPI</span> 把所有細胞核染成藍點，在顯微鏡下於格子裡數點，按「取樣體積 / 總體積」放大回整顆腦的總細胞數。</span></li>
+      <li><b>NeuN 染色，算神經元比例</b><span>腦裡不只有神經元，還有膠細胞（glia）、支持細胞、發炎細胞，所以要再用 <span class="term" data-def="NeuN，神經元細胞核裡的標記蛋白，用抗體染色可分辨神經元與非神經元">NeuN</span> 標出神經元；NeuN 陽性占 DAPI 陽性的比例乘上總細胞數，就是神經元總數。</span></li>
+      <li><b>答案</b><span>人腦約 <strong>860 億（86 billion）顆神經元</strong>。（★ 投影片上的數字：86,000,000,000 neurons。）</span></li>
+    </ol>
+    <div class="box bridge"><p>這個方法其實就是質量守恆加上「均勻混合」的假設：先把整團東西攪成均勻懸浮液，量一小份的濃度，再乘上總體積。和你用一瓶水樣的濃度推全湖的總量是同一個邏輯。失效的地方也一樣——假設不均勻（核沉在底部、組織沒磨勻），推出來的總數就有偏差；它也只給你「總數」，丟掉了每顆細胞原來在哪裡。</p></div>
+
+    <h4>光知道 860 億不夠：細胞類型有 3,000 多種</h4>
+    <p>老師接著說，有了數量，還要知道「每一顆在做什麼」。2015 年左右有人提出可以用 <span class="term" data-def="single-cell / single-nucleus transcriptomics，單細胞（單細胞核）轉錄體學：把每個細胞（核）分開，讀出它在表現哪些基因的 mRNA，以基因表現型態當作該細胞的身分證">single-cell transcriptomics（單細胞轉錄體學）</span>:</p>
+    <ul>
+      <li>同樣先把組織磨碎，取出細胞核（所以常稱 single-nucleus）；</li>
+      <li>用像晶片一樣的平台把細胞核一顆一顆分開（老師打趣說台灣最擅長做晶片），在每個小隔間裡給 mRNA 加上條碼（barcoding）、反轉錄成 <span class="term" data-def="cDNA，互補 DNA：以 mRNA 為模板由反轉錄酶合成的 DNA，比 RNA 穩定，適合拿去定序">cDNA</span>，再送去定序；</li>
+      <li>結果每顆細胞都有一份「基因表現清單」，再依清單的相似度分群，就得到細胞類型。</li>
+    </ul>
+    <p>2023 年(Yao et al., <em>Nature</em>)的腦細胞圖譜把老鼠腦的細胞核分類後，發現<strong>超過 3,000 種細胞類型</strong>——兩個拳頭大的空間裡住了三千多個「物種」。光是「神經元」就有興奮性的、抑制性的，還有既不單純興奮也不單純抑制、但會調節整個腦如何感知外界的那些。</p>
+    <div class="box bridge"><p>這就是「把高維資料投影後做聚類分析」：每顆細胞是一個點，座標是幾萬個基因的表現量；降維後相近的點聚成一群，每一群定義為一種細胞類型。和氣象裡把多變數的環流型態分群成天氣型（weather regime）很像。要小心的是：類型數目取決於你設的解析度與分群門檻，「3,000 種」不是自然界給定的整數，而是一個隨資料與方法變動的結果。</p></div>
+    <p>再來是 <span class="term" data-def="MERFISH，Multiplexed Error-Robust Fluorescence In Situ Hybridization：用一組帶螢光標記的互補核酸探針，直接在組織切片裡標出許多種 RNA 的位置，同時保留空間資訊">MERFISH</span>（哈佛團隊）：RNA 有特定序列，設計互補的探針、接上螢光，就能在切片上直接看到哪些細胞表現哪些 RNA。老師給的是小鼠腦切片的圖，各種顏色（紅、紫紅、洋紅、淡綠、青色）代表不同細胞類型的空間分布。<strong>單細胞定序告訴你「有哪些類型」，MERFISH 告訴你「它們各在哪裡」。</strong></p>
+
+    <h4>★ 為什麼需要動物模型：四個理由</h4>
+    <p>老師把這張投影片標為「非常重要」（星號頁）。理由有四個：</p>
+    <ol>
+      <li><strong>Limited access to living brain tissue（活體人腦組織取得有限）：</strong>想看每個細胞的基因表現、分子路徑，只能靠死後捐贈的腦組織。NIH、UK Biobank 之類的腦庫量有限，而且有些樣本已存放二三十年，品質（sample quality）不佳，得經過特殊處理才可用。</li>
+      <li><strong>Ethical constraints（倫理限制）：</strong>不能為了實驗在人身上破壞特定腦區、植入基因突變或誘發疾病。（這一項見於同學整理的星號頁條目；老師口述時主要談的是前面的組織取得與對照組問題。）</li>
+      <li><strong>Complexity of neural circuits（神經迴路太複雜）：</strong>860 億顆、3,000 種，迴路根本拆不開，需要較簡單的模型先把原理搞懂。</li>
+      <li><strong>Need for controlled experimentation（需要受控實驗）：</strong>想「活化某些神經元、抑制某些神經元」就必須設計適當的對照組；動物可以控制基因型、環境、時間，人不行。</li>
+    </ol>
+    <div class="box bridge"><p>這和氣候研究為什麼要用模式做「敏感度實驗」完全同構：地球只有一個，你不能把大氣 CO<sub>2</sub> 調高再調回來看看；所以建一個可操弄的替代系統，只改一個變因，看結果的差。動物模型就是神經科學的敏感度實驗平台：改一個基因、關一群神經元、其他條件不變，才能推因果。同時它也共享模式的老問題——模式不等於真實（模式偏差），結果要外推回人類時總有一道落差。</p></div>
+    <div class="box teacher"><p><strong>老師的例子：怎麼確定某個突變真的造成疾病？</strong>臨床上發現病人帶有某基因突變，不代表那個基因就是原因。流程大致是：（1） 全基因體定序，得到成千上萬個變異；（2） 拿去和健康族群比對，篩出少數異常的 SNP（單一核苷酸多型性）；（3） 用預測模型判斷突變是否會改變蛋白質結構或功能；（4） 把該基因在細胞系統中表現，測蛋白質功能有沒有變；（5） <strong>回到動物模型，製造一模一樣的突變，看動物是否出現同樣的疾病表現型（phenotype）</strong>——這才是從「相關」走到「因果」。教科書上「某基因 → 某疾病」的對應（老師舉 APOE 與腦退化疾病為例），背後都經過這種層層驗證。</p></div>
+    <div class="quiz" data-answer="4">
+      <p class="q">下列何者「不是」老師在星號頁列出的使用動物模型的核心理由？</p>
+      <ol><li>活體人腦組織取得有限</li><li>神經迴路過於複雜</li><li>可進行有適當對照組的受控實驗</li><li>動物腦與人腦完全相同，所以結果可直接套用</li></ol>
+      <p class="explain">解析：動物不等於人，物種差異反而是轉譯上的限制。前三項都是星號頁的理由；倫理限制也是其中之一。</p>
+    </div>
+    <div class="quiz" data-answer="2">
+      <p class="q">用 isotropic fractionator 估算神經元數量時，NeuN 染色的作用是？</p>
+      <ol><li>標出所有細胞核以估算總細胞數</li><li>標出神經元，以便算出神經元占總細胞的比例</li><li>測量動作電位</li><li>把細胞核分離出來</li></ol>
+      <p class="explain">解析：DAPI 標所有細胞核（總細胞數）；NeuN 是神經元標記，用 NeuN 陽性比例推出神經元數目，最終得到約 860 億。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t2">
+    <h3>2. 烏賊 Squid：巨大軸突與動作電位</h3>
+    <p>老師說，一百多年前的科學家多半是「通才」，同時懂生物與物理，想知道生命與世界運作的原理；地表 70% 是海洋，所以最早的模式生物很多來自海裡。第一站是英國 Plymouth 的 Marine Biological Association（MBA，海洋生物學會）：他們把英吉利海峽捕到的烏賊（<em>Loligo</em>）送進實驗室，<strong>J. Z. Young（1930 年代）</strong>發現烏賊體內有一條粗到肉眼可見的軸突，稱為 <span class="term" data-def="squid giant axon，烏賊巨大軸突：負責控制噴水推進逃跑反應的神經纖維，直徑可達約 1 mm，粗到可以用肉眼看見並插入電極">squid giant axon（烏賊巨大軸突）</span>。</p>
+    <div class="box teacher"><p><strong>★ 必背數字：</strong>squid giant axon 直徑約 <strong>400–1,000 μm</strong>（最粗約 1 mm，老師比喻成吸管的粗細）；人類軸突只有 <strong>0.5–2 μm</strong>。巨大軸突肉眼可見，是研究軸突生物特性的理想模型。老師的論點：如果當年 Hodgkin 與 Huxley 一開始就拿人的軸突來做，在那個年代根本插不進去，我們可能到現在都還不知道神經是靠電訊號傳遞。</p></div>
+    <div class="box plain"><p>想像要研究一條水管裡的水流，你會想先找一條粗到可以伸手進去量的管子，而不是頭髮粗的毛細管。烏賊的巨大軸突就是那條「可以伸手進去量」的神經：它之所以粗，是因為需要快速收縮外套膜、噴水逃命，粗的軸突傳導得快。</p></div>
+    <h4>Hodgkin 與 Huxley 的故事（老師的版本）</h4>
+    <ul>
+      <li>兩人起初帶著「物理學家」的想法：把軸突取出，往裡面滴水銀、用毛細管注射，想從黏滯性（viscosity）與擴散來推算神經訊號傳導的物理性質，希望導出公式。這個構想<strong>失敗了</strong>（水銀的內聚力太強，注射不進去）。</li>
+      <li>於是改接電極、偵測電流，意外發現軸突裡有電訊號在傳。<strong>1939 年他們在 <em>Nature</em> 發表了史上第一個細胞內記錄到的動作電位（action potential）</strong>，是一張經典圖。</li>
+      <li>但發表後幾週，德國入侵波蘭，二戰爆發，實驗室關閉，兩人各自投入戰時研究（老師說包括雷達等系統）。戰後才重新聯絡，<strong>1946–1952 年</strong>繼續研究，釐清動作電位背後的離子通道（ion channel）與離子成分，這就是後來 Hodgkin–Huxley 模型的基礎，他們因此獲得諾貝爾獎。</li>
+    </ul>
+    <div class="box bridge"><p>這個故事的科學邏輯很像觀測儀器的尺度問題：量測要成功，探針得比被量的結構小，或被量的結構得比探針大。巨大軸突讓當年粗糙的電極能夠「放進系統而不嚴重擾動它」。你熟悉的遙測與現場觀測也一樣：沒有夠細的探針，就先找一個夠大的系統把原理搞清楚，再發展儀器去量小的。</p></div>
+    <details class="deep"><summary>延伸：補充——軸突直徑與傳導速度（非老師內容）</summary>
+      <p>補充：對沒有髓鞘的軸突，把它當成圓柱形電纜，直徑越大，軸向電阻（沿著軸突內部流的電阻）越小，訊號傳導速度大約正比於直徑的平方根。烏賊靠「變粗」換速度；脊椎動物靠「包髓鞘」換速度，所以人類的軸突才能那麼細。這是演化對同一個物理限制的兩種答案。</p>
+    </details>
+    <h4>烏賊巨大軸突的第二個貢獻：軸突運輸（axonal transport）</h4>
+    <p>老師接著講 Ronald Vale（現任職 UCSF；講的是他在 UC Santa Barbara 求學時期的故事）：Santa Barbara 靠海，漁船捕上來多餘的烏賊會送到大學。他把巨大軸突取出、收集起來，原本是要做另一個設計好的實驗，也失敗了，但在顯微鏡下<strong>意外看到軸突裡有許多小泡泡沿著軸突來回移動</strong>。後續研究證明那些是細胞器（organelles，如粒線體與有膜包覆的囊泡）；它們沿著 <span class="term" data-def="microtubule，微管：細胞骨架的中空管狀纖維，可當作軌道，讓馬達蛋白拖著貨物走">microtubule（微管）</span>這條「軌道」移動，由 <span class="term" data-def="kinesin，驅動蛋白：沿微管行走、搬運囊泡與細胞器的馬達蛋白；另有 dynein 往相反方向走">kinesin</span> 這類馬達蛋白（motor protein）拖著走，到了目的地才卸貨。</p>
+    <p>這顛覆了「細胞器像教科書插圖一樣固定不動」的想像：<strong>細胞器是高度動態的</strong>。對神經元尤其重要，因為軸突很長（人可長到好幾公尺），蛋白質在細胞本體製造後必須長途運送到遠端。老師在這裡再度提醒：Vale 的原始實驗其實也「失敗」了，但失敗的過程中發現了新現象。</p>
+    <div class="video" data-yt="TUoCQTwewVo" data-title="Whole cell patch clamp(全細胞膜片鉗)" data-note="烏賊軸突時代用的是粗電極插進軸突；現代用玻璃微電極貼住單顆細胞記錄電訊號。看電極怎麼貼上細胞膜、記錄到什麼訊號。老師沒講此技術細節,僅供背景。"></div>
+    <div class="box teacher"><p>老師總結：烏賊的貢獻集中在一個字「大」：在沒有精密儀器的年代，巨大軸突讓動作電位、離子通道、軸突運輸這些基本現象能被直接研究。這是「模式生物的價值常在於提供夠大的結構，讓原本做不到的量測變得可行」。</p></div>
+    <div class="quiz" data-answer="3">
+      <p class="q">烏賊巨大軸突為何適合早期的電生理研究？</p>
+      <ol><li>只有 302 顆神經元，迴路完整</li><li>身體透明</li><li>軸突直徑約 400–1,000 μm，肉眼可見、易插入電極</li><li>基因體很小</li></ol>
+      <p class="explain">解析：星號頁重點是巨大軸突（人類軸突僅 0.5–2 μm）。302 顆神經元是線蟲；透明是線蟲與斑馬魚。</p>
+    </div>
+    <div class="quiz" data-answer="1">
+      <p class="q">下列何者與烏賊巨大軸突的研究歷史相符？</p>
+      <ol><li>1939 年記錄到動作電位，後續 1946–1952 年釐清離子通道基礎</li><li>1939 年證明 CREB 調控長期記憶</li><li>用它發展出 CRISPR</li><li>最先用它建立 iPSC</li></ol>
+      <p class="explain">解析：Hodgkin 與 Huxley 於 1939 年記錄動作電位；戰爭中斷後在 1946–1952 年完成離子基礎的研究。其餘是別的主題。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t3">
+    <h3>3. 海兔 Aplysia：學習與記憶的細胞機制</h3>
+    <p>第二站同樣在海裡：<span class="term" data-def="Aplysia californica，加州海兔（sea hare / sea slug）：一種軟體動物，神經元少而大，是研究學習記憶的經典模式生物">Aplysia（海兔，又叫 sea hare、sea slug）</span>。受外界刺激時牠會釋放物質（老師說是用來嚇退敵人）；科學家好奇牠的神經系統怎麼感知並反應。<strong>Eric Kandel</strong> 以海兔研究學習與記憶，獲得 <strong>2000 年諾貝爾生理醫學獎</strong>。（老師提到，在鄭老師實驗室做過實習的同學對這段應該很熟。）</p>
+    <h4>★ Why Sea Slugs? 三個優勢</h4>
+    <div class="tablewrap"><table>
+      <thead><tr><th>優勢</th><th>內容</th><th>為什麼有用</th></tr></thead>
+      <tbody>
+        <tr><td>Simple nervous system</td><td>約 <strong>20,000</strong> 顆神經元（人腦 860 億）</td><td>數量少，系統簡單</td></tr>
+        <tr><td>Large neurons</td><td>直徑 <strong>100–1,000 μm</strong>（哺乳類神經元約 10–20 μm）</td><td>大到某些細胞肉眼就看得到；容易插電極、注射</td></tr>
+        <tr><td>Identifiable circuits</td><td>特定細胞與連接在不同個體間大致相同</td><td>每次都能找到同一顆細胞；迴路模式可預測、可重複</td></tr>
+      </tbody>
+    </table></div>
+    <div class="box teacher"><p>老師對比顯微鏡倍率：觀察哺乳類神經元（約 10–20 μm）常用 40 倍物鏡，要看細胞核內部細節得放大到 1,200 倍左右；海兔的大神經元則可能肉眼就能看到一個點。<strong>神經元聚集成的塊狀結構叫 ganglion（神經節）</strong>——周邊神經系統用 ganglion，腦中神經元聚集處則叫 nucleus（神經核）。投影片列出海兔各 ganglia（buccal、cerebral、pleural、pedal、abdominal 等）的位置，老師說這幾個名稱<strong>不會考</strong>，僅供之後做海兔實驗的人參考。真正要記的是「少、大、迴路可辨識」三項。</p></div>
+    <h4>Kandel 的發現：serotonin → cAMP → 基因表現</h4>
+    <ol class="flow">
+      <li><b>刺激（5-HT）</b><span>神經元大，可在周圍直接注射神經傳遞物質 serotonin（5-HT，血清素，與情緒、警覺有關）。</span></li>
+      <li><b>受體與 cAMP</b><span>serotonin 結合 G protein-coupled receptor（GPCR），使細胞內 cAMP 上升——這就是第 3 週蔡老師講的 second messenger（第二傳訊者），把細胞外的訊號放大成細胞內的訊號。</span></li>
+      <li><b>PKA / MAPK → CREB → 細胞核</b><span>訊號一路傳到細胞核，啟動轉錄、轉譯，製造更多蛋白質並送到突觸。</span></li>
+      <li><b>突觸變強、長出新連結</b><span>短暫刺激造成較短期的突觸強化；反覆刺激則引發轉錄與蛋白質合成，形成長期、結構性的改變（長出新的突觸連結）。</span></li>
+    </ol>
+    <p>老師還講了 <span class="term" data-def="synaptic capture，突觸捕捉：一個突觸被局部刺激後產生標記，之後由細胞本體送來的生長相關蛋白質，只會被有標記的突觸捕捉，使結構改變具突觸專一性">synapse-specific 的捕捉（capture）</span>：在同一顆神經元的某個位置給反覆刺激，之後在同一顆神經元的另一個突觸給一個單次刺激，也足以讓那個突觸長出新連結——像是細胞「記得」並能把訊號轉到神經元的其他區域。這回答了「一顆細胞怎麼知道哪個突觸該被加強」。老師強調這些通路<strong>不用背</strong>（他放大那張訊號圖只是要說明這些是怎麼在海兔上發現的）。</p>
+    <div class="box bridge"><p>cAMP 級聯就是你熟悉的訊號放大：一個受體分子觸發酵素產生大量 cAMP，再放大成大量蛋白質磷酸化，類似小擾動經對流不穩定被放大成大尺度結果。差別在於生物版本有「記憶」：短刺激只改變現有蛋白質的狀態（可恢復），長刺激則改寫基因表現（持久），好比一次短暫的擾動 vs 改變了模式本身的參數。</p></div>
+    <h4>Roger Tsien 與綠色螢光蛋白（GFP）：看見 cAMP</h4>
+    <p>老師接著秀了一張 1993 年發表在 <em>Science</em> 的圖：在海兔感覺神經元裡放一個<strong>改造過的螢光蛋白感測器</strong>，加入 serotonin 後，細胞顏色從藍色（cAMP 低）變成紅到紫色（cAMP 高），再隨時間下降。感測器的原料來自水母等海洋生物的螢光蛋白，由 <strong>Roger Tsien</strong>（也是諾貝爾獎得主）改造。這個概念後來擴展到 Ca<sup>2+</sup> 指示劑，甚至膜電位（voltage）感測器——換句話說，只要在動物體內表達一種設計好的螢光蛋白，就能直接看到神經元是否在放電。</p>
+    <div class="mol" data-pdb="1EMA" data-title="綠色螢光蛋白 GFP" data-caption="看什麼:一個 β 桶（桶狀的薄片結構）把發光的發色團包在正中央；感測器就是在這個桶上改造,讓它隨 cAMP 或 Ca2+ 改變顏色或亮度。"></div>
+    <details class="deep"><summary>延伸：補充——這類 cAMP 感測器多為 FRET 式</summary>
+      <p>補充（老師沒細講）：早期 cAMP 感測器常用 FRET（螢光共振能量轉移）：兩個螢光團靠近時能量從一個傳到另一個，cAMP 結合使距離改變，兩個顏色的比值就改變。所以圖上的顏色是兩個通道的比值，而不是單一螢光的亮度。這類似用兩個波段的比值消除路徑長度影響的遙測做法。</p>
+    </details>
+    <div class="quiz" data-answer="2">
+      <p class="q">下列何者最符合老師星號頁對 Aplysia（海兔）優勢的描述？</p>
+      <ol><li>302 顆神經元且完整 connectome</li><li>約 20,000 顆神經元、神經元直徑 100–1,000 μm、迴路可辨識</li><li>全身透明，可做活體光遺傳</li><li>腦有高度皺褶</li></ol>
+      <p class="explain">解析：302 顆是線蟲，透明是線蟲/斑馬魚，皺褶（gyrencephalic）是靈長類。</p>
+    </div>
+    <div class="quiz" data-answer="4">
+      <p class="q">在海兔的學習與記憶研究中，下列路徑哪一條最接近課堂內容？</p>
+      <ol><li>DAPI → NeuN → 神經元計數</li><li>Gal4 → UAS → 目標基因</li><li>Cre → loxP → 敲除</li><li>serotonin → GPCR → cAMP → PKA/MAPK → CREB → 基因表現與突觸生長</li></ol>
+      <p class="explain">解析：其他三項分別是細胞計數、轉基因系統與 Cre-lox。海兔的經典框架是 serotonin-cAMP-PKA/CREB 與突觸可塑性。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t4">
+    <h3>4. 線蟲 C. elegans:302 顆神經元的完整地圖</h3>
+    <p>老師用雷文霍克（Leeuwenhoek）的故事轉場：他是荷蘭布商，為了檢查布料紋理發展出顯微鏡，一個雨天一滴水掉進鏡下，意外發現水裡有許多會游動的小生物。老師順手出了回家作業：把印表機印出來的紙放到普通顯微鏡下看看，會有意想不到的發現。<span class="term" data-def="C. elegans（秀麗隱桿線蟲）：約 1 mm 長的透明線蟲，神經系統僅 302 顆神經元，是第一個完整繪出連接圖的動物">C. elegans</span> 就是這類水中微小生物之一。（老師稱它來自池塘水，教科書上它主要是土壤線蟲，這點不影響結論。）</p>
+    <h4>★ 為什麼線蟲是好模型：考試高頻組合</h4>
+    <div class="tablewrap"><table>
+      <thead><tr><th>特色</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr><td>與人類基因相似</td><td>約 <strong>60–80%</strong> 同源（老師後來口誤成 40–60%，以投影片 60–80% 為準）；人類疾病相關基因常可在線蟲中找到對應</td></tr>
+        <tr><td>基因體很小，已完整定序</td><td>whole genome sequencing 早已完成</td></tr>
+        <tr><td>Short lifespan</td><td>生活史僅 <strong>2–3 週</strong>；小鼠光懷孕就約 18 天，到成熟要 2–3 個月</td></tr>
+        <tr><td>Defined nervous system</td><td><strong>302 顆神經元</strong>，connectome（連接圖）已建立，連 AI 還沒出現的年代就已解構出完整迴路</td></tr>
+        <tr><td>Genetic tractability</td><td>可用 CRISPR-Cas9、基因剔除或過度表現，2–3 週就得到新的轉基因品系</td></tr>
+        <tr><td>Transparent body</td><td>身體透明，用螢光蛋白可直接在活體內看到特定細胞</td></tr>
+      </tbody>
+    </table></div>
+    <div class="box teacher"><p>老師的重點：「我們對線蟲神經系統的了解，比對人類還完整」。你可以在顯微鏡下把它的神經元數完。哺乳類組織放在解剖顯微鏡下大概只能看到一片組織；線蟲不需切片就能直接看到結構。</p></div>
+    <h4>運動迴路：一正一負控制肌肉</h4>
+    <p>線蟲靠身體彎曲游動或蠕動，來覓食或逃離。腹側神經索（ventral nerve cord，VNC）與背側神經索（dorsal nerve cord，DNC）裡的運動神經元控制肌肉：<strong>釋放 acetylcholine（乙醯膽鹼）的神經元使肌肉收縮；釋放 GABA 的神經元使肌肉放鬆</strong>，一正一負，協調出身體的波浪狀擺動。這與哺乳類周邊神經用乙醯膽鹼控制骨骼肌是同一套原理。因為迴路已知，研究者可以針對特定的興奮性或抑制性神經元／受體改基因，直接看運動表現型。</p>
+    <div class="box bridge"><p>興奮與抑制交替就像波動方程裡的恢復力：只有單向推動，系統只會卡在一邊；兩個方向的力輪流作用，才得到穩定的行進波。線蟲的游動是 ACh 與 GABA 在空間上交錯形成的一種行波。</p></div>
+    <h4>疾病模型</h4>
+    <p>神經退化與神經肌肉接合處（neuromuscular junction）密切相關，所以研究者在線蟲神經元裡表現人類的致病蛋白：<strong>amyloid-β → Alzheimer's disease（AD）模型；α-synuclein → Parkinson's disease（PD）模型</strong>；另有 Huntington's disease 與 ALS（肌萎縮性脊髓側索硬化症）模型。因為只有 302 顆，可以直接追蹤「這 302 顆還在不在、隨時間會不會消失、給某處理能不能救回來」。</p>
+    <h4>感覺神經元：能偵測什麼</h4>
+    <p>線蟲要在環境中偵測氧氣、二氧化碳、鹽、碰觸，趨利避害。投影片的對照：氧氣主要由 URX、AQR、PQR；二氧化碳由 BAG 為主（AFD、ASE 也參與）；鹽由 ASEL / ASER；輕觸（gentle touch）由 ALM、AVM、PLM、PVM 等機械感覺神經元（mechanosensory neurons）。老師說<strong>名稱不用背</strong>，重點是「這麼小的系統仍能把不同感覺模態分配給特定神經元」。</p>
+    <ul>
+      <li><strong>感覺神經病變（sensory neuropathy）：</strong>臨床上有些病人皮膚碰觸或冷熱都辨別不了，可以用線蟲研究。</li>
+      <li><strong>神經與膠細胞的互動：</strong>感覺神經元的細胞本體在身體中段，卻有一條很長的樹突延伸到頭部。在發育過程中，周圍的 glial cell（膠細胞，如 AMsh、AMso 等支持細胞）會釋放小分子，告訴神經元「現在可以長出去了」。所以線蟲也是研究神經發育及 neuron-glia interaction 的好模型。</li>
+      <li><strong>缺氧（hypoxia）：</strong>把線蟲放進低氧艙，看神經元是否活化，移除受體後是否還能辨識缺氧。老師說這個模型對「缺氧訊息路徑」這項諾貝爾獎相關研究有貢獻。</li>
+    </ul>
+    <h4>透明 + 基因工程：gene → neuron → circuit → behavior</h4>
+    <p>老師展示螢光顯微影像：讓多巴胺神經元表現紅色螢光、多巴胺受體表現神經元表現綠色螢光，等於同時把「給訊息的人」和「收訊息的人」都標出來。再搭配 CRISPR 改受體，並用碰觸（老師放影片：蟲碰到棒子後縮回去）或缺氧等行為實驗檢查，就把基因 → 神經元 → 迴路 → 行為串成一條因果鏈。</p>
+    <div class="video" data-yt="2pp17E4E-O8" data-title="用 CRISPR-Cas9 編輯基因體" data-note="線蟲、斑馬魚、小鼠都靠這項工具快速改基因。看 guide RNA 如何引導 Cas9 到目標序列並切開 DNA。"></div>
+    <div class="quiz" data-answer="3">
+      <p class="q">下列何者最「不」符合 C. elegans 的特色？</p>
+      <ol><li>身體透明</li><li>生活史約 2–3 週</li><li>具高度皺褶的大腦皮質（gyrencephalic cortex）</li><li>302 顆神經元且 connectome 已知</li></ol>
+      <p class="explain">解析：線蟲沒有哺乳類的皮質；皺褶腦是靈長類的特徵。</p>
+    </div>
+    <div class="quiz" data-answer="1">
+      <p class="q">老師為何在線蟲運動迴路強調 acetylcholine 與 GABA?</p>
+      <ol><li>兩者分別使肌肉收縮與放鬆，一正一負協調運動</li><li>兩者都是抑制性，讓蟲不動</li><li>兩者都是細胞內第二傳訊者</li><li>兩者是染色劑</li></ol>
+      <p class="explain">解析：乙醯膽鹼使肌肉收縮，GABA 使肌肉放鬆，線蟲才得以產生波浪狀擺動。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t5">
+    <h3>5. 斑馬魚 Zebrafish 與再生模型（Axolotl）</h3>
+    <p>老師說魚類另有一個好處：游泳與群體行為（例如沙丁魚群、虎鯨或鯊魚追捕時的集體反應），所以斑馬魚在行為學上也很好用。與人類的基因相似度約 <strong>70%</strong>，其中約 <strong>80%</strong> 的基因與人類疾病有關。斑馬魚有肝、胰、腦、脊髓等脊椎動物器官，所以能做線蟲做不到的器官疾病模型。</p>
+    <h4>★ 三大優勢</h4>
+    <ol>
+      <li><strong>Short developmental period（發育快）：</strong>受精後 30 分鐘成 2 細胞，約 2 小時 64 細胞，約 2.5 小時 128 細胞（囊胚）；<strong>約 25 小時（一天）</strong>就長出尾巴、腦與眼睛，主要體型大致成形。</li>
+      <li><strong>Transparency（透明）：</strong>發育約 72 小時內整隻透明，用一般光學顯微鏡就能看到器官和腦的變化；成魚長出鱗片後就不透明了。所以神經科學論文中的斑馬魚多是早期胚胎／仔魚，標示 hpf（hours post fertilization，受精後小時）。（★ 考試：至少成魚前／早期透明。）</li>
+      <li><strong>Genetic accessibility（基因工具成熟）：</strong>老師引用 2024 年的研究：統計論文使用小鼠與斑馬魚的數量，斑馬魚的使用量約在 2015 年左右明顯趕上並超車。</li>
+    </ol>
+    <h4>Gal4-UAS：在「哪裡」表現「什麼」</h4>
+    <p>老師說這張只是給實驗者做參考，但他用「where + what」把概念講得很清楚。這是斑馬魚與果蠅最常見的系統：</p>
+    <ol class="flow">
+      <li><b>品系 A（driver）：where</b><span>選一個只在特定組織（例如腦、眼）活化的 promoter（啟動子），驅動 Gal4 這種轉錄因子；因此 Gal4 只出現在那個組織。</span></li>
+      <li><b>品系 B（responder）：what</b><span>另一品系把你想表現的基因放在 UAS 序列後面。UAS 是另一段啟動子序列，只有 Gal4 能活化它。</span></li>
+      <li><b>兩品系交配</b><span>子代同時帶有 A 與 B：只有 Gal4 所在的組織，Gal4 才會結合 UAS、啟動基因表現。其他組織即使有 UAS 也不表現。</span></li>
+    </ol>
+    <div class="box bridge"><p>這就是一個 AND 邏輯閘：必須「有鑰匙（Gal4，由組織專一的啟動子決定在哪裡）」且「有鎖（UAS）」基因才會開。好處是把「在哪裡」和「表現什麼」拆成兩條獨立的品系，像模式裡把邊界條件與物理參數化模組分開：換一個 driver 就換位置，換一個 responder 就換內容，不必每次重建全套。</p></div>
+    <h4>Optogenetics（光遺傳學）：用光開關神經元</h4>
+    <p>老師接著講：2000 年代中期，MIT 的 Edward Boyden 與 Stanford 的 Karl Deisseroth 不約而同注意到藻類（algae）細胞裡的一種離子通道 <span class="term" data-def="channelrhodopsin（ChR）：來自藻類的光敏離子通道，被藍光照射會打開，讓陽離子進入神經元使其興奮">channelrhodopsin（ChR）</span>：給藍光，通道打開，興奮性離子流入神經元，神經元被活化。另一類 <span class="term" data-def="halorhodopsin（NpHR）：來自古菌的光敏氯離子泵／通道，被光照射後把氯離子送進細胞，使神經元被抑制">halorhodopsin</span> 來自古菌（archaea，生活在海洋或硫磺噴發處），給黃綠光後讓氯離子（負電荷）進入細胞，使神經元被抑制。一開一關，正好形成互補的工具。</p>
+    <p>用 Gal4-UAS 把這些 opsin（光敏蛋白）限制在特定神經元，再打光，就能測試「活化／抑制這群神經元會不會改變行為」。斑馬魚早期透明，光容易到達腦，所以特別好用。小鼠就麻煩得多：要把光纖手術植入腦裡；魚很小，手術容易讓牠活不下來。</p>
+    <div class="mol" data-pdb="3UG9" data-title="Channelrhodopsin（光敏離子通道）" data-caption="看什麼:穿膜的螺旋束圍成通道，中央包著吸光分子 retinal；吸光後構型改變，通道打開讓離子通過。"></div>
+    <div class="video" data-yt="0jX8hSWQMkA" data-title="光遺傳學:神經元的光開關" data-note="看光敏通道如何被送進特定神經元、用光控制放電，對應上面 channelrhodopsin 與 halorhodopsin。"></div>
+    <div class="video" data-yt="eKkaYDTOauQ" data-title="斑馬魚全腦成像（HHMI）" data-note="看透明的斑馬魚幼魚如何在活體狀態下同時記錄全腦神經元活動。對應透明 + 螢光指示劑的優勢。"></div>
+    <div class="box bridge"><p>光遺傳學是神經科學版本的強迫實驗：不是被動觀測，而是主動在特定位置、特定時間「施加強迫（forcing）」，看系統的響應。你熟悉的敏感度實驗也是如此。它的長處是時間與空間解析度高，缺點跟模式一樣——你看到的是「把這群細胞打開」的結果，不一定等於自然狀態下它們的功能。</p></div>
+    <h4>成魚不透明怎麼辦？Danionella</h4>
+    <p>老師引用今年的 <em>Science</em> 報導：有研究者逛水族館時發現某種小魚（錄音聽起來是 <em>Danionella</em>，名字聽寫可能有誤）長大後身體仍然透明，把牠買回實驗室繁殖後，現在 HHMI 的實驗室用牠研究成體的神經迴路，並結合 AI 重建迴路（錄音提到 HHMI 投入大量資源，具體金額聽不清楚）。重點是：<strong>科學家仍在持續探索自然界，模式生物的選擇會隨需求改變</strong>。</p>
+    <h4>★ 再生：斑馬魚與 Axolotl</h4>
+    <p>老師說這一頁右上角有星星（錄音有明確提到這點）。斑馬魚的視網膜受損（可以誘導視網膜退化）後能重新長出來，神經再生能力強。另一個物種是 <strong>axolotl（墨西哥鈍口螈，老師稱「六角恐龍」，頭後有六條外鰓）</strong>：把腦部的神經細胞用機械方式破壞造成缺口，腦室周圍的 reactive neural stem cells（反應性神經幹細胞）會被活化並補回缺損；斷手、斷尾也能完整再長，甚至腦也可再長。科學家想找出這些再生因子，期望未來能幫助人類受損的神經組織恢復。這提醒我們：很多模型的價值來自「牠有而人類缺乏的能力」。</p>
+    <div class="quiz" data-answer="2">
+      <p class="q">下列何者是斑馬魚的「核心優勢」組合（星號頁）？</p>
+      <ol><li>302 顆神經元、成魚透明、無基因工具</li><li>發育快、早期透明、基因工具成熟</li><li>巨大軸突、壽命長、皺褶腦</li><li>卵極大、可注射 cRNA、成魚壽命很短</li></ol>
+      <p class="explain">解析：斑馬魚三大優勢即 short developmental period、transparency（成魚前／早期）、genetic accessibility。第四項描述的是非洲爪蛙的特色。</p>
+    </div>
+    <div class="quiz" data-answer="3">
+      <p class="q">在 Gal4-UAS 系統中，組織專一的 promoter 主要決定什麼？</p>
+      <ol><li>表現何種蛋白質</li><li>動物壽命</li><li>Gal4 在哪裡表現（where）</li><li>UAS 的長度</li></ol>
+      <p class="explain">解析：driver 品系的 promoter 決定 Gal4 在哪裡；UAS 後面接的基因決定表現什麼。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t6">
+    <h3>6. 非洲爪蛙 Xenopus：大卵、離子通道與早期神經發育</h3>
+    <p>從魚類來到兩生類。老師整理了一張斑馬魚 vs Xenopus 的比較表（星號頁），並指出 Xenopus 有兩項最重要的用途：<strong>電生理（electrophysiology）</strong>與<strong>神經發育（neurodevelopment）</strong>。</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>項目</th><th>Zebrafish</th><th>Xenopus</th></tr></thead>
+      <tbody>
+        <tr><td>胚胎透明度</td><td>仔魚非常透明</td><td>早期胚胎可觀察，透明度較有限</td></tr>
+        <tr><td>胚胎操作（microinjection / 移植）</td><td>可做</td><td><strong>胚胎大，特別容易</strong></td></tr>
+        <tr><td>電生理</td><td>神經元較小，較困難</td><td><strong>卵母細胞（oocyte）大，容易記錄</strong></td></tr>
+        <tr><td>神經發育</td><td>重要</td><td>重要，歷史上是早期 neural induction / patterning 的代表</td></tr>
+        <tr><td>成本與空間</td><td>較低</td><td>中等</td></tr>
+        <tr><td>再生</td><td>成體 CNS 再生強</td><td>主要用於發育期再生，成體 CNS 用得較少</td></tr>
+      </tbody>
+    </table></div>
+    <div class="box teacher"><p>★ 老師的結論：Xenopus 的特色是<strong>胚胎／卵大、好操弄</strong>，適合 microinjection、transplantation 與 electrophysiology；斑馬魚的特色是<strong>透明</strong>與<strong>成體 CNS 再生</strong>。</p></div>
+    <h4>離子通道電生理：在卵母細胞裡「表現再量」</h4>
+    <p>Xenopus 的卵直徑約 1 mm（老師比喻成夜市「青蛙下蛋」飲料裡的那一顆那麼大），很容易用針扎進去。做法：</p>
+    <ol class="flow">
+      <li><b>取得 oocyte</b><span>卵母細胞大，操作容易。</span></li>
+      <li><b>注射 cRNA</b><span>把某種離子通道的 cRNA（人工合成的 RNA）注射進去。DNA → RNA → 蛋白質，所以只要給 RNA，細胞自己就會製造通道蛋白。</span></li>
+      <li><b>通道表現到細胞膜</b><span>等一兩天，通道蛋白被運到膜上。</span></li>
+      <li><b>量膜電位／電流</b><span>用電極記錄，看通道什麼條件下打開、讓哪些離子通過、對膜電位有什麼影響。</span></li>
+    </ol>
+    <p>老師說，上週講過的許多離子通道性質，大多就是在 Xenopus 卵母細胞上研究出來的，是 20 多年前非常常用的做法。</p>
+    <div class="box bridge"><p>這像是把待測的感測器裝進一個「標準風洞」：卵母細胞本身幾乎沒有干擾的通道，所以背景乾淨，你放進什麼通道就量到什麼。代價是它是離體、簡化的系統，沒有真實神經元的細胞環境和網路，量到的是通道的內在性質，而不是它在腦中的完整行為。</p></div>
+    <h4>神經發育：切下來、移植，看長出什麼</h4>
+    <p>Xenopus 胚胎的腦有清楚的分區：前腦（telencephalon）、間腦（diencephalon，含下視丘 hypothalamus）、中腦（mesencephalon）、後腦（rhombencephalon）。約 20 年前的經典做法：把胚胎某一區切下，移植到另一個胚胎，看會長成什麼。老師舉例：把 telencephalon 移植過去，蝌蚪會長出兩個頭（兩套前端腦結構）；若把後腦區移植到前端，前端就長出後腦結構。由此知道「各腦區在發育中被指定的命運」。（老師的描述偏口語，細節以講義為準。）</p>
+    <p>老師還提到，人類腦發育需要約 38–40 週孕期，小腦甚至要到出生後才逐步成形；而 Xenopus 蝌蚪依 <strong>Nieuwkoop and Faber（NF）分期</strong>，到 NF 50 左右腦大致發育完成，約只需 <strong>15 天</strong>，所以是研究神經發育的高效率平台。老師放了一篇 UCSF 學者（錄音聽寫為 Helen Willsey 等人，以投影片為準）的 Xenopus 神經發育 review。</p>
+    <div class="quiz" data-answer="1">
+      <p class="q">比較 Xenopus 與斑馬魚，下列何者最符合老師的星號頁結論？</p>
+      <ol><li>Xenopus 的胚胎／卵大，適合 microinjection、移植與電生理；斑馬魚的透明與 CNS 再生更突出</li><li>斑馬魚的卵最大，適合電生理</li><li>Xenopus 成體永遠透明</li><li>兩者在所有面向都相同</li></ol>
+      <p class="explain">解析：這是老師點明的比較題重點。</p>
+    </div>
+    <div class="quiz" data-answer="4">
+      <p class="q">在 Xenopus 卵母細胞研究離子通道，正確做法是？</p>
+      <ol><li>直接把通道蛋白噴在細胞外</li><li>先把卵殺死再記錄</li><li>注射抗體</li><li>注射編碼該通道的 cRNA，等通道表現到細胞膜後記錄電流／膜電位</li></ol>
+      <p class="explain">解析：RNA 在細胞內被轉譯為蛋白質，通道表現到膜上後即可做電生理記錄。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t7">
+    <h3>7. 果蠅 Drosophila：緊湊但夠複雜的神經系統</h3>
+    <p>最後一個「小動物」是陸地上、餐桌旁最常見的果蠅（老師打趣說牠很討厭）。把牠的頭部放在顯微鏡下，會看到巨大的複眼；剖開腦會發現眼睛後面有一群感覺處理系統，其中一個結構叫 <span class="term" data-def="mushroom body，蕈狀體：果蠅腦中形似香菇的結構，是嗅覺等感覺資訊整合、聯想學習與記憶的重要中心">mushroom body（蕈狀體）</span>。</p>
+    <div class="box teacher"><p>★ <strong>Drosophila 重點事實：</strong>神經元約 <strong>140,000–166,000 顆</strong>（老師口述 14 萬到 16 萬），神經迴路已相當清楚（established neural circuitry），maturation time（成熟時間）短，基因操作容易（Gal4-UAS）。</p></div>
+    <ul>
+      <li><strong>蕈狀體：</strong>接受外界的感覺輸入（如嗅覺），整合後送往腦的其他區域，是感覺處理與聯想學習的中心；上面有很多多巴胺受體。</li>
+      <li><strong>獎賞與動機：</strong>果蠅喜歡聞氣味，聞到就飛過去舔甜的東西；研究者可以透過蕈狀體上的多巴胺受體與迴路，研究腦如何接受獎賞（reward）與動機（motivation）——多巴胺除了運動協調，也是獎賞系統的關鍵。老師說，果蠅對理解獎賞系統的貢獻最重要。</li>
+      <li><strong>其他可研究功能（投影片表）：</strong>學習與記憶（嗅覺制約、求偶記憶）、睡眠調控、感覺處理（視、嗅、味、聽、機械、溫度）、進食與代謝、社會行為、導航與運動控制、老化與神經退化（類 AD / PD / Huntington 模型）。</li>
+      <li><strong>Connectome:</strong>果蠅全腦的神經連接圖已大致解開（老師提到台灣學者的貢獻，錄音聽起來像清大江安世院士團隊，待確認）；結合 optogenetics，可以活化某一段迴路並看獎賞行為的變化。</li>
+      <li><strong>生活史極短：</strong>老師說胚胎約 20 小時完成，幼蟲期約 1–3 天，再過幾天就變成成蟲，下一代很快出現。（實驗室標準條件下由卵到成蟲約 10 天；老師口述的「4 天」是指蛹期之類的階段，聽寫不確定。）</li>
+    </ul>
+    <div class="box plain"><p>為什麼果蠅有 14 萬顆神經元卻仍是好模型？因為「夠多，可以有複雜的行為與學習；又夠少，可以逐一描繪」。位置介於線蟲（302）和小鼠（約 7 千萬）之間，用最低的成本研究睡眠、獎賞、社交這類看似「高等」的功能。</p></div>
+    <div class="quiz" data-answer="3">
+      <p class="q">下列哪組描述最符合 Drosophila（星號頁）？</p>
+      <ol><li>302 顆神經元、成體透明</li><li>約 20,000 顆大型神經元</li><li>約 14–16.6 萬顆神經元、迴路已相當清楚、成熟快、可用 Gal4-UAS</li><li>860 億顆神經元、皺褶腦</li></ol>
+      <p class="explain">解析：302 是線蟲，約 20,000 是海兔，860 億是人。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t8">
+    <h3>8. 哺乳類：小鼠、狨猴、獼猴，以及小鼠基因工具</h3>
+    <p>進入哺乳類，老師先畫了演化時間軸：恐龍滅絕前後（侏儸紀、白堊紀）已有早期哺乳類（小鼠的祖先），靈長類則要到新生代才出現。這三個物種是「最接近人腦的哺乳類模型」：<strong>小鼠 mouse（含大鼠）、狨猴 marmoset（南美小型猿猴）、獼猴 macaque（猴）</strong>。</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>項目</th><th>Mouse</th><th>Marmoset</th><th>Macaque</th></tr></thead>
+      <tbody>
+        <tr><td>腦重</td><td>約 0.4–0.5 g</td><td>約 8–10 g</td><td>約 80–100 g</td></tr>
+        <tr><td>皮質</td><td>平滑（lissencephalic），前額葉有限</td><td>平滑但稍擴張，前額葉中等</td><td>高度皺褶（gyrencephalic），前額葉高度發展</td></tr>
+        <tr><td>成熟時間</td><td>約 2–3 個月</td><td>約 12–18 個月</td><td>約 3–5 年</td></tr>
+        <tr><td>壽命</td><td>約 2–3 年</td><td>約 10–15 年</td><td>約 25–40 年</td></tr>
+        <tr><td>基因工具／飼養</td><td>最成熟、飼養簡單</td><td>轉基因工具快速增加</td><td>飼養與操作最昂貴困難</td></tr>
+        <tr><td>適合</td><td>遺傳學、迴路、神經退化</td><td>社會複雜度較高，適合精神／發育問題</td><td>視覺、運動、高等認知、溝通；神經生理 gold standard</td></tr>
+      </tbody>
+    </table></div>
+    <p>(錄音中老師講「猴子完全發育需要 25–40 年、狨猴 10–15 年」，與講義表中 25–40 年是<strong>壽命</strong>相符，應是口誤；成熟時間是上表的 3–5 年與 12–18 個月。)</p>
+    <div class="box teacher"><p><strong>皺褶（gyrification）：</strong>小鼠與大鼠的皮質是平的（lissencephalic，老師講的 decent cephalic 為聽寫誤差）；靈長類有腦迴（gyrencephalic）。這三個物種都適合研究「皺褶是怎麼來的」：例如用 single-cell transcriptomics 比較靈長類有、小鼠幾乎沒有的基因，把它們在小鼠表現，真的會出現皺褶（老師說有人活化某條發育訊號路徑，小鼠腦出現一個皺褶，但只在特定區域，顯示我們的了解仍很有限）。老師也提到綿羊腦也有許多皺褶，有人用來研究。<strong>皺褶多一定比較聰明嗎？</strong>老師拋出這個問題請大家想想（用「羊群效應」的玩笑帶過）。</p></div>
+    <ul>
+      <li><strong>狨猴：</strong>介於小鼠與獼猴之間——皺褶中等、成熟時間不太長也不太短；日本實驗室已大量使用，也開始發展轉基因工具研究基因對靈長類的影響。老師說上個月 TSFN（台灣神經科學年會）有很多相關報告。</li>
+      <li><strong>獼猴：</strong>老師說陽明交大山上有猴房養台灣獼猴，需要特殊申請並經農委會同意才能做動物實驗。養猴最麻煩的是麻醉：小鼠可抓起來放進異氟醚（isoflurane）腔室，猴子則要遠距離用吹箭注射麻醉劑。因為猴子非常珍貴，多半做「不需犧牲動物」的電生理實驗，例如記錄腦電或植入電極，偵測迴路活動。</li>
+    </ul>
+    <div class="box bridge"><p>這是典型的模式階層取捨：小鼠像快速、便宜、參數可調的簡化模式——可以跑上百個敏感度實驗，但物理（腦的組織方式）簡化較多；獼猴像高解析度全物理的模式——最接近真實，但一次實驗昂貴、次數有限。沒有「最好」的模式，只有最適合問題的那一層。轉譯落差（translational gap）也像模式偏差：越遠離人類，外推越需要小心。</p></div>
+    <h4>★ 小鼠基因模型：Knockout、Knock-in、CRISPR</h4>
+    <div class="tablewrap"><table>
+      <thead><tr><th>模型</th><th>做什麼</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>Knockout（KO）</td><td>移除或破壞某基因</td><td>研究該基因的功能；模擬功能喪失（loss-of-function）的疾病</td></tr>
+        <tr><td>Knock-in（KI）</td><td>插入基因：人源化基因（humanized）或特定突變基因</td><td>更接近臨床上「不是整個基因消失，而是帶有特定變異」的情況</td></tr>
+        <tr><td>CRISPR-Cas9 mutagenesis</td><td>精準編輯基因體、產生特定突變或對偶基因</td><td>高效率建立人類突變</td></tr>
+      </tbody>
+    </table></div>
+    <p>老師在這裡用 <strong>Cre-loxP 系統</strong>說明「在哪個細胞做基因操作」（錄音裡他把 Cre 和 CRISPR 的說法講得有點混在一起，以下依標準機制整理）：</p>
+    <ol class="flow">
+      <li><b>在基因兩側／前面放 loxP 位點</b><span>例如在目標基因前面放一段「stop」序列，兩端夾 loxP（稱為 floxed）；平時這段 stop 擋住基因，使基因不表現（knock-in 情況）。</span></li>
+      <li><b>用組織專一的 promoter 表現 Cre</b><span>Cre 是一種重組酶（recombinase），像剪刀，認得 loxP。promoter 決定哪些細胞表現 Cre（where）。</span></li>
+      <li><b>Cre 剪掉 loxP 之間的序列</b><span>在有 Cre 的細胞，stop 被剪掉，基因得以表現（knock-in 版）；或把基因本身剪掉，就成了條件式 knockout。</span></li>
+    </ol>
+    <div class="box bridge"><p>Cre-lox 與 Gal4-UAS 一樣是「兩把鑰匙」的設計：組織專一的 Cre 決定位置，floxed 基因決定內容。差別是 Cre 的剪切是永久且遺傳的（細胞一旦被剪過，後代細胞也都剪過），Gal4-UAS 是持續活化。像一個是「寫入記憶體」，一個是「持續送訊號」。</p></div>
+    <div class="video" data-yt="pk2Z5T5jaS0" data-title="Cre-loxP 技術" data-note="看 Cre 重組酶如何辨認兩個 loxP 位點並剪掉中間序列，對應上面 flow 的第三步。"></div>
+    <div class="video" data-yt="PooN1OvgDKE" data-title="Knockout mice（基因剔除小鼠）" data-note="看基因剔除小鼠怎麼製造，以及如何用它研究基因功能。"></div>
+    <div class="mol" data-pdb="4OO8" data-style="依鏈上色" data-title="Cas9 – guide RNA – 目標 DNA" data-caption="看什麼:Cas9 蛋白把 guide RNA 與目標 DNA 夾在中間，RNA 與 DNA 配對的地方就是被切開的位置；依鏈上色可分辨蛋白、RNA、兩股 DNA。"></div>
+    <p>老師感謝 <strong>Emmanuelle Charpentier 與 Jennifer Doudna</strong>（2020 諾貝爾獎）：他們研究細菌如何抵禦病毒入侵時，意外發現 CRISPR-Cas9 這套系統。老師藉此強調：科學常常是借用自然界中我們看不到的生物機制，才發展出研究神經系統的工具。</p>
+    <div class="quiz" data-answer="2">
+      <p class="q">下列關於小鼠、狨猴、獼猴的敘述，何者正確？</p>
+      <ol><li>獼猴的飼養最簡單、成熟最快</li><li>小鼠的基因工具最成熟；獼猴在視覺、運動與高等認知最接近人類但成本最高</li><li>小鼠皮質比獼猴更皺褶</li><li>狨猴完全沒有社會行為</li></ol>
+      <p class="explain">解析：小鼠皮質平滑（lissencephalic）；獼猴為皺褶皮質（gyrencephalic）。</p>
+    </div>
+    <div class="quiz" data-answer="1">
+      <p class="q">想研究「帶有某個特定患者突變（而非整個基因消失）」的疾病，最適合的小鼠模型是？</p>
+      <ol><li>Knock-in，導入特定突變</li><li>Knockout，把基因整個移除</li><li>只改變飲食</li><li>不需要任何基因操作</li></ol>
+      <p class="explain">解析：knock-in 可導入人源化或特定突變基因，較貼近臨床；knockout 是功能喪失。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t9">
+    <h3>9. iPSC 與類器官、人類類器官小鼠（xenocortication），以及行為測試</h3>
+    <p>老師拋出問題：能不能在體外直接模擬人腦？答案是 <span class="term" data-def="iPSC，induced pluripotent stem cell，誘導性多能幹細胞：把成熟細胞（如皮膚細胞）加入轉錄因子重新編程回到幹細胞狀態，之後可再分化成各種細胞">iPSC（induced pluripotent stem cell，誘導性多能幹細胞）</span>。</p>
+    <ol class="flow">
+      <li><b>取細胞</b><span>從健康人或病人取皮膚細胞（臨床上本來就常做）。</span></li>
+      <li><b>重新編程</b><span>加入轉錄因子（Yamanaka factors），使成熟細胞回到多能（pluripotent）幹細胞狀態。（John Gurdon 與山中伸彌，2012 諾貝爾獎。）</span></li>
+      <li><b>分化</b><span>用固定的配方（protocol）誘導成神經元、星狀膠細胞、寡突膠細胞、微膠細胞，或 3D 的腦類器官（organoid）。</span></li>
+    </ol>
+    <div class="video" data-yt="xUbbehjvIck" data-title="從幹細胞到腦模型" data-note="看幹細胞如何被誘導成神經元與腦類器官，對應上面 flow。"></div>
+    <div class="video" data-yt="PMN2H6oVGyM" data-title="什麼是腦類器官？" data-note="看類器官長得多像腦、能做什麼、有什麼限制。"></div>
+    <h4>★ iPSC vs 小鼠：互補，不是取代</h4>
+    <div class="tablewrap"><table>
+      <thead><tr><th></th><th>Human iPSC / 類器官</th><th>Transgenic mouse</th></tr></thead>
+      <tbody>
+        <tr><td>物種相關性</td><td>真正的<strong>人類基因</strong>與細胞，保留 patient-specific 突變</td><td>小鼠與人類基因有差異，部分人類特有表現型可能無法重現</td></tr>
+        <tr><td>迴路</td><td>迴路不完整；即使讓皮質與小腦類神經元一起培養，會產生連結，但與在體內的迴路仍不同</td><td>完整的 in vivo 神經迴路與全腦細胞互動</td></tr>
+        <tr><td>行為</td><td><strong>無法</strong>測行為</td><td><strong>可以</strong>做 behavioral analysis</td></tr>
+        <tr><td>藥物篩選</td><td>適合 high-throughput screening（大量藥物快速篩選）</td><td>通量低、成本高</td></tr>
+        <tr><td>其他</td><td>人類特有的發育特徵</td><td>系統生理、發育、老化與長期疾病進程</td></tr>
+      </tbody>
+    </table></div>
+    <div class="box teacher"><p>老師的重點：iPSC 最大缺點是<strong>做不出與真實活體腦一樣功能的迴路，所以不能做行為測試</strong>；強項是人類基因與高通量藥物篩選（例如帶人類突變的細胞，用很多藥看哪些能挽回缺陷）。動物模型則可以測行為。兩個系統並行，互相加成。</p></div>
+    <div class="box bridge"><p>這又是模式階層：iPSC 像「單柱模式」——很適合快速測試物理參數化（細胞機制、藥物）；小鼠像「完整耦合模式」——有完整的反饋與交互作用，但改動成本高、物種偏差。想知道人類細胞怎麼了，用前者；想知道整個系統的行為，用後者；兩者結果一致才有說服力。</p></div>
+    <h4>最新研究：Developmental xenocortication（外來皮質）</h4>
+    <p>老師介紹了一篇 Stanford 團隊於 9 月 16 日在 <em>Nature</em> 線上發表的論文（Kaganovsky et al., 2026；課堂說「快兩個月前」，實際約兩週前，以投影片為準）。標題的 <em>xeno</em> 指外來的，<em>cortication</em> 指皮質形成。</p>
+    <ol class="flow">
+      <li><b>製造沒有皮質的小鼠</b><span>先前這個團隊用基因工具（錄音提到兩個基因名稱，聽不清楚，不用記），讓小鼠腦沒有大腦皮質（老師稱 Apaleo mouse，字源為 pallium，意思是「沒有外罩／頂蓋的小鼠」）。這種小鼠仍然能活下來。</span></li>
+      <li><b>種入人類腦類器官</b><span>把 human iPSC 長出的 cerebral organoid（腦類器官）移植到這隻缺皮質小鼠的腦中。</span></li>
+      <li><b>結果</b><span>切片可看到用螢光標示的人類細胞形成完整的皮質樣結構；MRI 追蹤纖維發現，人類類器官的神經纖維與小鼠的腦幹、小腦、中腦等區域形成連結。</span></li>
+    </ol>
+    <p>接著大家被問：這隻有人類皮質的小鼠，是變得比較聰明，還是比較笨？老師請同學舉手表態（有人說變笨），然後看行為測試的結果：</p>
+    <h4>三種小鼠行為測試</h4>
+    <div class="tablewrap"><table>
+      <thead><tr><th>測試</th><th>怎麼做／量什麼</th><th>老師講的結果（對照：正常對照鼠 vs 無皮質鼠 vs 種入人類類器官鼠）</th></tr></thead>
+      <tbody>
+        <tr><td>Open field test（開放場域）</td><td>把鼠放進固定大小的場地。總移動距離反映活動力與探索；在中央區域待的比例反映焦慮／膽小（小鼠先沿邊緣探索，才逐漸走到中間）</td><td>總移動距離三組<strong>沒有顯著差異</strong>；種入人類類器官的小鼠，<strong>待在中央的時間顯著變短</strong>（老師開玩笑說「膽小如鼠」可以改成「膽小如人」）</td></tr>
+        <tr><td>Contextual fear conditioning（情境恐懼制約）</td><td>在有條紋格子等特定情境中，配對聲音與電擊；之後只給聲音或情境，看僵直不動（freezing）的百分比，代表學習與記憶</td><td>對照鼠隨著次數增加越來越會僵直；無皮質鼠的記憶大幅下降；種入人類類器官後，表現回到與對照鼠相近的分布，<strong>沒有比對照更好</strong></td></tr>
+        <tr><td>Social tests（社交測試，三箱）</td><td>中間箱放受試鼠，一側放一隻陌生鼠，另一側放無生命物體，量與陌生鼠互動的時間（sociability）。再放一隻新陌生鼠，看是否偏好新鼠（social novelty）</td><td>正常鼠互動約 100 秒，無皮質鼠約 50 秒（顯著降低）；種入類器官後<strong>統計上無顯著差異</strong>，只有一隻離群值表現很好。Social novelty：無皮質鼠分不出新舊，種入後與野生型對照相近</td></tr>
+      </tbody>
+    </table></div>
+    <div class="box teacher"><p>老師的結論：<strong>人類的神經元並沒有讓小鼠「變得更聰明」</strong>，至少在這些測試中沒有；結果多半是回到對照水準。他留了兩個問題給大家想：人類基因做出的神經元真的保證比其他物種更聰明嗎？人類這個物種又為何如此特別？另外他回答了一個同學的問題：圖上的星號（*）代表兩組之間統計上有顯著差異。這個例子的重點是示範「iPSC / 類器官 + 動物模型」結合的新方向——也要注意這樣的雜交模型帶來的倫理與解讀限制。</p></div>
+    <div class="quiz" data-answer="3">
+      <p class="q">human iPSC 相較於 transgenic mouse，主要「優勢」是？</p>
+      <ol><li>可以直接測量完整動物的行為</li><li>具有完整的 in vivo 神經迴路</li><li>保留人類／病人專一的基因背景，適合高通量藥物篩選</li><li>飼養成本最高但最準確</li></ol>
+      <p class="explain">解析：iPSC 的強項是人類基因與高通量篩選；缺點是迴路不完整、無法測行為。完整迴路與行為是小鼠的優勢。</p>
+    </div>
+    <div class="quiz" data-answer="2">
+      <p class="q">在 xenocortication 研究的 open field 結果中，種入人類類器官的小鼠與無皮質鼠相比，最明顯的差異是？</p>
+      <ol><li>總移動距離大幅增加</li><li>待在中央區域的時間顯著變短</li><li>完全失去記憶</li><li>社交互動時間增加兩倍</li></ol>
+      <p class="explain">解析：老師講總移動距離三組沒有顯著差異，但待在中央的時間顯著變短（較膽小）。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t10">
+    <h3>10. 如何選模型、諾貝爾獎對照與展望</h3>
+    <p>老師最後把課程總結成「這些科學家與他們用的模型」：Cajal（Golgi 染色、各種動物）、Hodgkin 與 Huxley（烏賊巨大軸突）、Kandel（海兔）、Tsien（螢光蛋白，用於 cAMP 感測）、Charpentier 與 Doudna（CRISPR）、Gurdon 與山中伸彌（iPSC）。他們都值得獲獎，而且<strong>很多重大發現來自失敗實驗中的意外</strong>。</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>如果你的問題是…</th><th>首選模型</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td>動作電位、軸突生物物理、軸突運輸</td><td>Squid</td><td>巨大軸突（400–1,000 μm）</td></tr>
+        <tr><td>突觸學習機制</td><td>Aplysia</td><td>~20,000 大神經元、迴路可辨識</td></tr>
+        <tr><td>完整 connectome、快速基因—行為因果</td><td>C. elegans</td><td>302 顆、透明、2–3 週</td></tr>
+        <tr><td>透明脊椎動物發育、光遺傳、再生</td><td>Zebrafish</td><td>發育快、早期透明、基因工具成熟</td></tr>
+        <tr><td>胚胎操作、卵母細胞電生理</td><td>Xenopus</td><td>卵與胚胎大</td></tr>
+        <tr><td>快速遺傳學 + 複雜行為（睡眠、獎賞）</td><td>Drosophila</td><td>14–16 萬顆、Gal4-UAS</td></tr>
+        <tr><td>哺乳類遺傳與全動物行為</td><td>Mouse</td><td>工具最成熟</td></tr>
+        <tr><td>靈長類視覺、運動、認知</td><td>Marmoset / Macaque</td><td>最接近人腦</td></tr>
+        <tr><td>病人專一的人類細胞、藥物篩選</td><td>iPSC / 類器官</td><td>人類基因、高通量</td></tr>
+      </tbody>
+    </table></div>
+    <div class="box teacher"><p>老師的選擇原則：評估五個面向——神經系統複雜度、基因操作容易度、發育與繁殖速度、影像／電生理可及性、與人類的轉譯相似度。<strong>先問「我要量什麼、操弄什麼、需要哪一層複雜度」，再選物種，不是先選動物再找問題。</strong>考題若問「Why this model？」，不要只背動物名稱；至少要回答該物種的結構／生活史／透明度／基因工具，以及因此能回答哪一類問題。</p></div>
+    <div class="box bridge"><p>這個思維與選模式階層完全一致：想知道某個物理過程的機制，用簡化的理想化模式；想知道全球響應，用耦合 GCM。每個層級有自己能回答的問題，結論要標明「在這一層模型成立」。轉譯價值（translational value）就是問：從這一層到人類，外推的不確定性有多大。</p></div>
+    <p>最後一個展望：未來動物模型會和 AI 緊密結合。例如用 AI 在電腦裡模擬實驗（老師舉 in silico 模擬 Gibson cloning，提高實驗成功率）；用 AI 重建神經迴路——而訓練這些 AI 的資料，就來自動物模型。</p>
+    <div class="quiz" data-answer="4">
+      <p class="q">老師建議選擇動物模型時，最合理的原則是？</p>
+      <ol><li>永遠選最接近人類的物種</li><li>永遠選最便宜的物種</li><li>永遠選基因體最小的物種</li><li>依研究問題，在複雜度、基因操作、發育速度、量測可及性與轉譯相似度之間取捨</li></ol>
+      <p class="explain">解析：沒有最好的動物，只有最適合問題的；越接近人類不一定越好。</p>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t11">
+    <h3>11. 本週總複習（翻卡）</h3>
+    <div class="cards">
+      <div class="card"><div class="front">動物模型的四個理由（★）</div><div class="back">Limited access to living brain tissue；ethical constraints；complexity of neural circuits；need for controlled experimentation。</div></div>
+      <div class="card"><div class="front">人腦神經元數與細胞類型數</div><div class="back">約 860 億神經元；單細胞轉錄體學顯示 3,000 多種細胞類型。</div></div>
+      <div class="card"><div class="front">isotropic fractionator 流程</div><div class="back">均質化 → 離心 → DAPI 數總細胞核 → NeuN 算神經元比例 → 推算 860 億。</div></div>
+      <div class="card"><div class="front">MERFISH vs 單細胞定序</div><div class="back">MERFISH 用螢光探針保留 RNA／細胞類型的空間位置；單細胞定序告訴你有哪些類型。</div></div>
+      <div class="card"><div class="front">Squid giant axon(★)</div><div class="back">直徑約 400–1,000 μm（人類 0.5–2 μm），肉眼可見；動作電位（1939）、離子通道、軸突運輸。</div></div>
+      <div class="card"><div class="front">Aplysia 三優勢（★）</div><div class="back">約 20,000 神經元；直徑 100–1,000 μm；迴路可辨識。Kandel 2000 諾貝爾獎。</div></div>
+      <div class="card"><div class="front">海兔學習記憶通路</div><div class="back">5-HT → GPCR → cAMP → PKA/MAPK → CREB → 基因表現 → 突觸強化／生長。</div></div>
+      <div class="card"><div class="front">C. elegans 重點（★）</div><div class="back">302 神經元、connectome、透明、2–3 週、基因工具；與人類基因 60–80% 相似。</div></div>
+      <div class="card"><div class="front">線蟲運動迴路</div><div class="back">乙醯膽鹼使肌肉收縮，GABA 使肌肉放鬆；一正一負協調游動。</div></div>
+      <div class="card"><div class="front">Zebrafish 三優勢（★）</div><div class="back">發育快（約 1 天成形）、早期透明（約 72 小時）、基因工具成熟；基因約 70% 與人類相似。</div></div>
+      <div class="card"><div class="front">Gal4-UAS 的 where / what</div><div class="back">組織專一 promoter 驅動 Gal4（where）；UAS 後接目標基因（what）；兩品系交配後在特定組織表現。</div></div>
+      <div class="card"><div class="front">channelrhodopsin vs halorhodopsin</div><div class="back">前者來自藻類，藍光開啟、使神經元興奮；後者來自古菌，光照使氯離子進入、抑制神經元。</div></div>
+      <div class="card"><div class="front">Xenopus vs 斑馬魚（★）</div><div class="back">Xenopus：胚胎／卵大，適合 microinjection、移植、電生理；斑馬魚：透明、成體 CNS 再生強。</div></div>
+      <div class="card"><div class="front">Drosophila 重點（★）</div><div class="back">14–16.6 萬神經元；迴路清楚；成熟快；Gal4-UAS；mushroom body 與獎賞。</div></div>
+      <div class="card"><div class="front">Mouse / Marmoset / Macaque</div><div class="back">小鼠：平滑皮質、工具最成熟；狨猴：中間橋梁；獼猴：皺褶皮質，視覺、運動、認知最接近人。</div></div>
+      <div class="card"><div class="front">KO / KI / CRISPR(★)</div><div class="back">KO：移除基因看功能；KI：插入人源化或突變基因；CRISPR-Cas9：精準編輯。</div></div>
+      <div class="card"><div class="front">iPSC vs transgenic mouse(★)</div><div class="back">iPSC：人類／病人基因、高通量藥篩，但迴路不完整、無行為；小鼠：完整迴路與行為，但有物種差異。</div></div>
+      <div class="card"><div class="front">xenocortication 的結果</div><div class="back">人類類器官種入無皮質小鼠；open field 中央停留變短，恐懼記憶／社交多半回到對照水準，並未變聰明。</div></div>
+    </div>
+  </section>
+
+  <section class="topic" id="w4-t12">
+    <h3>12. 模擬考題</h3>
+    <p>老師在錄音中沒有說明考試題型，以下題目依星號頁的重點與投影片命題。</p>
+    <div class="quiz" data-answer="2">
+      <p class="q">下列何者是使用動物模型研究神經科學的星號頁理由？</p>
+      <ol><li>動物腦與人腦完全相同</li><li>活體人腦組織難取得、倫理限制、迴路複雜、需要受控實驗</li><li>動物實驗成本一定比人體低</li><li>動物不需要對照組</li></ol>
+      <p class="explain">解析：這是星號頁的四個理由。物種差異本身是轉譯的限制，不是理由；動物實驗仍需對照組。</p>
+    </div>
+    <div class="quiz" data-answer="1">
+      <p class="q">烏賊巨大軸突直徑約 400–1,000 μm，而人類軸突約？</p>
+      <ol><li>0.5–2 μm</li><li>10–20 μm</li><li>100–1,000 μm</li><li>5–10 mm</li></ol>
+      <p class="explain">解析：100–1,000 μm 是海兔神經元；10–20 μm 是一般哺乳類神經元胞體。</p>
+    </div>
+    <div class="quiz" data-answer="3">
+      <p class="q">下列何者是 Aplysia 的特色？</p>
+      <ol><li>302 神經元</li><li>全身透明</li><li>約 20,000 個大型神經元，迴路可辨識，Kandel 用來研究學習記憶</li><li>14 萬個神經元</li></ol>
+      <p class="explain">解析：302 是線蟲；14 萬是果蠅。</p>
+    </div>
+    <div class="quiz" data-answer="4">
+      <p class="q">C. elegans 被視為神經科學好模型，下列哪一項描述「錯誤」？</p>
+      <ol><li>302 顆神經元且 connectome 已知</li><li>生活史約 2–3 週</li><li>身體透明，可用螢光蛋白直接觀察</li><li>成體具有高度皺褶的大腦皮質</li></ol>
+      <p class="explain">解析：線蟲沒有哺乳類皮質。</p>
+    </div>
+    <div class="quiz" data-answer="2">
+      <p class="q">斑馬魚在神經科學的核心優勢（星號頁）是？</p>
+      <ol><li>卵極大、可做電生理</li><li>發育快、早期透明、基因工具成熟</li><li>與人類神經元數量相同</li><li>成體永遠透明且壽命很長</li></ol>
+      <p class="explain">解析：卵大屬 Xenopus。</p>
+    </div>
+    <div class="quiz" data-answer="3">
+      <p class="q">在 Gal4-UAS 系統中，若想只在眼睛表現某基因，應？</p>
+      <ol><li>用眼睛專一的 promoter 驅動 UAS，再接 Gal4</li><li>把基因放在所有組織都表現的 promoter 後面</li><li>用眼睛專一的 promoter 驅動 Gal4（where），另一品系把目標基因接在 UAS 後（what），兩品系交配</li><li>用 Cas9 直接剪眼睛</li></ol>
+      <p class="explain">解析：promoter 決定 Gal4 在哪裡，UAS 後面是要表現的基因。</p>
+    </div>
+    <div class="quiz" data-answer="1">
+      <p class="q">下列何者最符合 Xenopus 相較斑馬魚的優勢？</p>
+      <ol><li>卵／胚胎大，適合 microinjection、移植與卵母細胞電生理</li><li>成體 CNS 再生遠比斑馬魚強</li><li>成本最低</li><li>永遠透明</li></ol>
+      <p class="explain">解析：這是老師點出的比較題。再生與透明是斑馬魚較突出，成本也是斑馬魚較低。</p>
+    </div>
+    <div class="quiz" data-answer="4">
+      <p class="q">Drosophila 的星號頁重點為？</p>
+      <ol><li>302 神經元，成體透明</li><li>約 20,000 個大神經元</li><li>860 億神經元</li><li>約 14–16.6 萬神經元、迴路清楚、成熟快、可用 Gal4-UAS</li></ol>
+      <p class="explain">解析：其餘為線蟲、海兔、人類。</p>
+    </div>
+    <div class="quiz" data-answer="2">
+      <p class="q">Knock-in 與 knockout 的差別是？</p>
+      <ol><li>knock-in 把基因整個移除，knockout 插入基因</li><li>knockout 移除或破壞基因看功能；knock-in 導入人源化或特定突變基因</li><li>兩者完全相同</li><li>兩者都只能用在果蠅</li></ol>
+      <p class="explain">解析：KO 是功能喪失；KI 插入特定基因／突變，更貼近臨床變異。</p>
+    </div>
+    <div class="quiz" data-answer="3">
+      <p class="q">human iPSC 與 transgenic mouse 的比較，何者正確？</p>
+      <ol><li>iPSC 可直接做動物行為測試</li><li>小鼠保留病人專一的人類基因背景</li><li>iPSC 保留人類／病人基因，適合高通量藥篩，但迴路不完整、無法測行為；小鼠有完整迴路與行為，但有物種差異</li><li>兩者沒有差別</li></ol>
+      <p class="explain">解析：兩者互補，不是取代。</p>
+    </div>
+    <div class="quiz" data-answer="1">
+      <p class="q">下列配對何者正確？</p>
+      <ol><li>Hodgkin 與 Huxley – 烏賊巨大軸突；Kandel – 海兔</li><li>Kandel – 烏賊；Hodgkin 與 Huxley – 海兔</li><li>Charpentier 與 Doudna – iPSC；Gurdon 與山中 – CRISPR</li><li>Tsien – 線蟲 connectome</li></ol>
+      <p class="explain">解析：Charpentier 與 Doudna 為 CRISPR；Gurdon 與山中伸彌為重新編程（iPSC）；Tsien 為螢光蛋白。</p>
+    </div>
   </section>
 </article>
 <article class="week" id="w5">
