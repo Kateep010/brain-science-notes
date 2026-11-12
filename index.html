@@ -26,7 +26,7 @@
   }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tb,58px) + 24px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
 a{color:var(--accent)}
 .topbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;padding:8px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
@@ -37,10 +37,10 @@ a{color:var(--accent)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 :root[data-theme="dark"] .btn.primary{color:#08262a}
 #menuBtn{display:none}
-.progress{height:3px;background:var(--line);position:sticky;top:49px;z-index:19}
+.progress{height:3px;background:var(--line);position:sticky;top:var(--tb,58px);z-index:19}
 .progress i{display:block;height:100%;width:0;background:var(--accent)}
 .layout{display:grid;grid-template-columns:280px minmax(0,1fr);max-width:1280px;margin:0 auto}
-nav.side{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:16px 12px 40px 16px;border-right:1px solid var(--line);font-size:14px}
+nav.side{position:sticky;top:calc(var(--tb,58px) + 3px);align-self:start;height:calc(100vh - var(--tb,58px) - 3px);overflow:auto;padding:16px 12px 40px 16px;border-right:1px solid var(--line);font-size:14px}
 nav.side .wk{margin-bottom:6px}
 nav.side .wk>a{display:block;font-weight:700;color:var(--ink);text-decoration:none;padding:6px 8px;border-radius:6px}
 nav.side .wk>a small{display:block;font-weight:400;color:var(--muted)}
@@ -151,7 +151,7 @@ mark{background:#ffe27a;color:#222;border-radius:3px}
 footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:900px){
   .layout{grid-template-columns:1fr}
-  nav.side{position:fixed;left:0;top:53px;width:290px;background:var(--panel);z-index:18;transform:translateX(-100%);transition:transform .2s}
+  nav.side{position:fixed;left:0;top:var(--tb,58px);width:290px;background:var(--panel);z-index:18;transform:translateX(-100%);transition:transform .2s}
   nav.side.show{transform:none;box-shadow:4px 0 20px rgba(0,0,0,.2)}
   #menuBtn{display:inline-block}
   main{padding:16px 16px 100px}
@@ -173,7 +173,7 @@ figure.photo img{display:block;width:100%;max-height:520px;object-fit:contain;ba
 figure.photo figcaption{padding:10px 14px;font-size:14px;color:var(--ink);line-height:1.7}
 figure.photo .credit{display:block;margin-top:4px;font-size:12px;color:var(--muted)}
 figure.photo .broken{padding:18px;text-align:center;color:var(--muted);font-size:14px}
-#lightbox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#lightbox{position:fixed;inset:0;z-index:60;background:#05080b;display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
 #lightbox.show{display:flex}
 #lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
 
@@ -258,9 +258,9 @@ figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-heig
         <path d="M258 93 l-9 -5 v10 z" fill="currentColor"/>
         <path d="M375 93 H483" stroke="currentColor" stroke-width="2" fill="none"/>
         <path d="M483 93 l-9 -5 v10 z" fill="currentColor"/>
-        <text x="204" y="82" font-size="13">transcription 轉錄</text>
+        <text x="204" y="68" font-size="12">transcription</text><text x="204" y="82" font-size="12">轉錄</text>
         <text x="204" y="112" font-size="12" fill="var(--muted)">RNA polymerase</text>
-        <text x="429" y="82" font-size="13">translation 轉譯</text>
+        <text x="429" y="68" font-size="12">translation</text><text x="429" y="82" font-size="12">轉譯</text>
         <text x="429" y="112" font-size="12" fill="var(--muted)">ribosome</text>
         <path d="M70 70 C50 20 140 20 120 66" stroke="currentColor" stroke-width="2" fill="none"/>
         <path d="M120 68 l-1 -11 l9 5 z" fill="currentColor"/>
@@ -2599,7 +2599,7 @@ figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-heig
     <div class="box bridge"><p>睡眠分期就是時間序列分類：把連續訊號切成固定長度的窗（30 秒），每窗依特徵貼一個離散標籤，跟天氣型態分類或雲型判識是同一類問題。共同的毛病也一樣：（1）真實狀態是連續過渡的，硬切成幾類一定有邊界模糊的窗；（2）規則裡有「佔 50%」「佔 20%」這種門檻，差一點就換類；（3）人工判讀有判讀者間差異；（4）標籤之間有時間脈絡（N1 要等看到 N2 才回頭確認），不是每窗獨立。你若做過 Sleep-EDF 的自動分期，N1 的準確率最差，原因就在這裡。</p></div>
 
     <h4>一夜的結構：睡眠週期圖（hypnogram）</h4>
-    <svg viewBox="0 0 640 230" style="width:100%;max-width:640px" role="img" aria-label="年輕成人一夜睡眠週期示意圖">
+    <svg viewBox="0 0 690 230" style="width:100%;max-width:690px" role="img" aria-label="年輕成人一夜睡眠週期示意圖">
       <g font-size="12" fill="currentColor">
         <text x="8" y="44">清醒 W</text><text x="8" y="74">REM</text><text x="8" y="104">N1</text><text x="8" y="134">N2</text><text x="8" y="164">N3</text>
         <text x="60" y="205">0</text><text x="127" y="205">1</text><text x="197" y="205">2</text><text x="267" y="205">3</text><text x="337" y="205">4</text><text x="407" y="205">5</text><text x="477" y="205">6</text><text x="547" y="205">7</text><text x="610" y="205">8 小時</text>
@@ -4006,8 +4006,8 @@ figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-heig
       <!-- lamp -->
       <line x1="250" y1="345" x2="250" y2="300" stroke="currentColor" stroke-width="2" marker-end="url(#w5a2)"/><text x="262" y="345" font-size="12" fill="var(--muted)">光源</text>
       <!-- legend -->
-      <line x1="440" y1="215" x2="480" y2="215" stroke="var(--sky)" stroke-width="2.5"/><text x="488" y="219" font-size="12" fill="currentColor">直射光(沒被樣本偏折)</text>
-      <line x1="440" y1="238" x2="480" y2="238" stroke="var(--warm)" stroke-width="2" stroke-dasharray="5 3"/><text x="488" y="242" font-size="12" fill="currentColor">被樣本折射、散射的光</text>
+      <line x1="440" y1="128" x2="480" y2="128" stroke="var(--sky)" stroke-width="2.5"/><text x="488" y="132" font-size="12" fill="currentColor">直射光(沒被樣本偏折)</text>
+      <line x1="440" y1="146" x2="480" y2="146" stroke="var(--warm)" stroke-width="2" stroke-dasharray="5 3"/><text x="488" y="150" font-size="12" fill="currentColor">被樣本折射、散射的光</text>
       </g></svg><figcaption>示意圖（原創，簡化，省略聚光鏡與物鏡的折射細節）：相位差的兩個必備零件就是 <strong>condenser annulus</strong>（聚光鏡處，只讓一圈環形光通過）與 <strong>phase plate</strong>（物鏡後方，環形鍍膜）。直射光（藍）被環形光闌安排成一個環，穿過樣本後剛好落在相位板的環上，被推遲約 ¼ 波長；被樣本偏折、散射的光（橘）散布在整個孔徑，多半避開那一圈、沒被額外推遲。兩者重新疊合時，原本看不見的相位差就變成亮暗差。兩個零件的環要<strong>對準（match）</strong>，所以物鏡上的 Ph1、Ph2 要配聚光鏡轉盤上相同編號。</figcaption></figure>
     <div class="video" data-yt="f9aQdIJ9nZw" data-title="相位差顯微鏡的原理(The Principle of Phase Contrast Microscopy)" data-note="ibidi 公司(細胞培養耗材,常做教學動畫)的短片,對照上圖:看環狀光闌的直射光如何通過相位環、被推遲後與散射光干涉。"></div>
     <h4>DIC（differential interference contrast;Nomarski,1950 年代）</h4>
@@ -4230,7 +4230,7 @@ figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-heig
     </ol>
     <p><strong>缺點：慢。</strong>點偵測，一次一個點，掃一張可能二十秒，一整疊就是幾分鐘；老師說學生常常坐在裡面半小時掃一個樣本。</p>
     <div class="video" data-yt="QFtZFbug1SA" data-title="共軛焦顯微鏡原理動畫" data-note="看針孔如何只讓焦平面的光通過,以及雷射光點逐點掃描、逐層疊成 3D 的過程。"></div>
-    <figure class="fig"><svg viewBox="0 0 640 340" role="img" aria-label="共軛焦顯微鏡光路:雷射、雙色鏡、物鏡、針孔與偵測器">
+    <figure class="fig"><svg viewBox="0 0 640 396" role="img" aria-label="共軛焦顯微鏡光路:雷射、雙色鏡、物鏡、針孔與偵測器">
       <g font-size="13" fill="currentColor">
       <!-- detector & pinhole -->
       <rect x="230" y="6" width="60" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="300" y="18" fill="currentColor">偵測器(PMT)</text>
@@ -4238,7 +4238,7 @@ figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-heig
       <!-- tube lens -->
       <ellipse cx="260" cy="100" rx="45" ry="6" fill="none" stroke="currentColor" stroke-width="2"/><text x="315" y="104" font-size="12" fill="var(--muted)">管透鏡</text>
       <!-- dichroic -->
-      <line x1="235" y1="135" x2="285" y2="185" stroke="var(--accent)" stroke-width="4"/><text x="296" y="150" fill="currentColor"><tspan font-weight="700">dichroic mirror</tspan></text><text x="296" y="166" font-size="12" fill="var(--muted)">反射雷射、讓長波長螢光通過</text>
+      <line x1="235" y1="135" x2="285" y2="185" stroke="var(--accent)" stroke-width="4"/><text x="322" y="150" fill="currentColor"><tspan font-weight="700">dichroic mirror</tspan></text><text x="322" y="166" font-size="12" fill="var(--muted)">反射雷射、讓長波長螢光通過</text>
       <!-- laser -->
       <rect x="20" y="148" width="60" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="50" y="164" text-anchor="middle" font-size="12">雷射</text>
       <line x1="80" y1="160" x2="260" y2="160" stroke="var(--sky)" stroke-width="2.5"/><line x1="260" y1="160" x2="260" y2="222" stroke="var(--sky)" stroke-width="2.5"/>
@@ -4257,9 +4257,9 @@ figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-heig
       <line x1="260" y1="265" x2="222" y2="238" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="260" y1="265" x2="298" y2="238" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
       <line x1="222" y1="238" x2="207" y2="104" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="298" y1="238" x2="313" y2="104" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
       <line x1="207" y1="104" x2="226" y2="52" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="313" y1="104" x2="294" y2="52" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <text x="470" y="250" font-size="12" fill="var(--sky)">藍:激發雷射</text>
-      <text x="470" y="268" font-size="12" fill="var(--accent)">綠:焦點發出的螢光,聚在針孔的洞口通過</text>
-      <text x="470" y="286" font-size="12" fill="var(--muted)">灰虛線:焦點上方的失焦螢光,到針孔處是大光斑,多被擋掉</text>
+      <text x="20" y="350" font-size="12" fill="var(--sky)">藍:激發雷射</text>
+      <text x="20" y="368" font-size="12" fill="var(--accent)">綠:焦點發出的螢光,聚在針孔的洞口通過</text>
+      <text x="20" y="386" font-size="12" fill="var(--muted)">灰虛線:焦點上方的失焦螢光,到針孔處是大光斑,多被擋掉</text>
       </g></svg><figcaption>示意圖（原創，簡化）：共軛焦的「共軛」指針孔與焦點在光學上互為共軛——只有從焦點發出的螢光會剛好聚在針孔洞口、通過後被偵測；焦點上下方的失焦螢光到針孔處散成大光斑，絕大部分被擋掉。因此一次只取一個點的訊號，靠雷射逐點掃描一層層疊成 3D。老師給的數字：共軛焦約 150 µm 深，雙光子約 400–500 µm。</figcaption></figure>
     <div class="video" data-yt="j1Krn0kkSUg" data-title="寬場與共軛焦螢光顯微鏡(Widefield and Confocal Fluorescence Microscopy)" data-note="Professor Dave Explains 的講解:對照「寬場螢光整個樣本一起亮、失焦光糊成一片」與共軛焦「針孔擋掉失焦光」的差別。"></div>
     <div class="box bridge"><p>兩個對應。（1）<strong>掃描方式</strong>：寬場螢光顯微鏡像凝視型的面陣列相機，一次曝光拿到整張；共軛焦像掃描式輻射儀（whiskbroom），單一偵測器配掃描鏡逐點掃出影像——換到了乾淨的單點量測，代價是時間。（2）<strong>3D 重建</strong>：一層掃完換一層再疊起來，就是雷達體積掃描：每個仰角一張 PPI，疊出 3D 回波場。類比失效處：雷達和光達的深度資訊來自<strong>時間閘</strong>（回波延遲）；顯微鏡的尺度太小，光走 1 μm 只要幾飛秒，無法用時間分辨深度，所以共軛焦改用<strong>空間濾波</strong>——針孔的角色等同望遠鏡或光達接收端的視場光闌，把不是從目標體積來的光擋在外面。</p></div>
@@ -4462,6 +4462,8 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)retur
   const a=$(`a[href="#${id}"]`,nav); if(a){a.classList.add('active'); const wk=a.closest('.wk'); $$('.wk',nav).forEach(x=>x.classList.toggle('open',x===wk)); $(':scope>a',wk).classList.add('active');}
 })},{rootMargin:'-70px 0px -70% 0px'});
 topics.forEach(t=>io.observe(t));
+/* keep sticky offsets in sync with the real top bar height */
+(function(){const tb=$('.topbar'); const set=()=>document.documentElement.style.setProperty('--tb',tb.offsetHeight+'px'); set(); addEventListener('resize',set); addEventListener('load',set);})();
 /* tooltips */
 const tip=$('#tip');
 function showTip(el){tip.textContent=el.dataset.def; tip.style.display='block'; const r=el.getBoundingClientRect(); const tw=tip.offsetWidth, thh=tip.offsetHeight;
@@ -4567,7 +4569,7 @@ $$('main svg').forEach(s=>{ if(s.closest('.svgscroll,.stage')||s.parentNode.clas
   const w=document.createElement('div'); w.className='svgscroll'; s.parentNode.insertBefore(w,s); w.appendChild(s); });
 /* licensed photos: click to enlarge, graceful fallback if an image cannot load */
 (function(){
-  const lb=document.createElement('div'); lb.id='lightbox'; lb.innerHTML='<img alt="">'; document.body.appendChild(lb);
+  const lb=document.createElement('div'); lb.id='lightbox'; lb.innerHTML='<button type="button" aria-label="關閉" style="position:absolute;top:12px;right:14px;border:1px solid #555;background:#111;color:#fff;border-radius:8px;padding:4px 12px;font-size:20px;cursor:pointer">×</button><img alt="">'; document.body.appendChild(lb);
   const lbi=lb.querySelector('img');
   lb.onclick=()=>lb.classList.remove('show');
   document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('show')});

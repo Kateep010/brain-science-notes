@@ -26,7 +26,7 @@
   }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tb,58px) + 24px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
 a{color:var(--accent)}
 .topbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;padding:8px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
@@ -37,10 +37,10 @@ a{color:var(--accent)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 :root[data-theme="dark"] .btn.primary{color:#08262a}
 #menuBtn{display:none}
-.progress{height:3px;background:var(--line);position:sticky;top:49px;z-index:19}
+.progress{height:3px;background:var(--line);position:sticky;top:var(--tb,58px);z-index:19}
 .progress i{display:block;height:100%;width:0;background:var(--accent)}
 .layout{display:grid;grid-template-columns:280px minmax(0,1fr);max-width:1280px;margin:0 auto}
-nav.side{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:16px 12px 40px 16px;border-right:1px solid var(--line);font-size:14px}
+nav.side{position:sticky;top:calc(var(--tb,58px) + 3px);align-self:start;height:calc(100vh - var(--tb,58px) - 3px);overflow:auto;padding:16px 12px 40px 16px;border-right:1px solid var(--line);font-size:14px}
 nav.side .wk{margin-bottom:6px}
 nav.side .wk>a{display:block;font-weight:700;color:var(--ink);text-decoration:none;padding:6px 8px;border-radius:6px}
 nav.side .wk>a small{display:block;font-weight:400;color:var(--muted)}
@@ -151,7 +151,7 @@ mark{background:#ffe27a;color:#222;border-radius:3px}
 footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:900px){
   .layout{grid-template-columns:1fr}
-  nav.side{position:fixed;left:0;top:53px;width:290px;background:var(--panel);z-index:18;transform:translateX(-100%);transition:transform .2s}
+  nav.side{position:fixed;left:0;top:var(--tb,58px);width:290px;background:var(--panel);z-index:18;transform:translateX(-100%);transition:transform .2s}
   nav.side.show{transform:none;box-shadow:4px 0 20px rgba(0,0,0,.2)}
   #menuBtn{display:inline-block}
   main{padding:16px 16px 100px}
@@ -211,7 +211,7 @@ figure.photo img{display:block;width:100%;max-height:520px;object-fit:contain;ba
 figure.photo figcaption{padding:10px 14px;font-size:14px;color:var(--ink);line-height:1.7}
 figure.photo .credit{display:block;margin-top:4px;font-size:12px;color:var(--muted)}
 figure.photo .broken{padding:18px;text-align:center;color:var(--muted);font-size:14px}
-#lightbox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#lightbox{position:fixed;inset:0;z-index:60;background:#05080b;display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
 #lightbox.show{display:flex}
 #lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
 </style>
@@ -385,8 +385,8 @@ figure.photo .broken{padding:18px;text-align:center;color:var(--muted);font-size
         <g fill="currentColor" font-size="17" text-anchor="middle"><text x="105" y="78" font-weight="700">DNA</text><text x="105" y="100" font-size="13">正本・細胞核・雙股</text><text x="380" y="78" font-weight="700">RNA</text><text x="380" y="100" font-size="13">副本・單股・短命</text><text x="655" y="78" font-weight="700">蛋白質</text><text x="655" y="100" font-size="13">做事的產品</text>
         <text x="242" y="40" font-size="14">transcription</text><text x="242" y="145" font-size="12" fill="var(--muted)">RNA polymerase</text>
         <text x="517" y="40" font-size="14">translation</text><text x="517" y="145" font-size="12" fill="var(--muted)">ribosome</text>
-        <text x="105" y="25" font-size="14">replication（DNA polymerase）</text></g>
-        <g stroke="currentColor" stroke-width="2" fill="none"><path d="M182 81H300" marker-end="url(#m1-ar)"/><path d="M457 81H575" marker-end="url(#m1-ar)"/><path d="M60 50C60 30 150 30 150 50" marker-end="url(#m1-ar)"/></g>
+        <text x="105" y="17" font-size="14">replication（DNA polymerase）</text></g>
+        <g stroke="currentColor" stroke-width="2" fill="none"><path d="M182 81H300" marker-end="url(#m1-ar)"/><path d="M457 81H575" marker-end="url(#m1-ar)"/><path d="M60 50C60 34 150 34 150 50" marker-end="url(#m1-ar)"/></g>
       </svg>
       <figcaption>示意圖：中心法則的三個步驟、各自的「聚合酶／工廠」與所在位置。</figcaption>
     </figure>
@@ -667,7 +667,7 @@ draw();
         <g style="stroke-width:2"><rect x="20" y="75" width="150" height="56" rx="10" style="fill:var(--panel);stroke:var(--muted)"/><rect x="300" y="15" width="200" height="56" rx="10" style="fill:var(--ok-soft);stroke:var(--ok)"/><rect x="300" y="140" width="200" height="56" rx="10" style="fill:var(--bad-soft);stroke:var(--bad)"/><rect x="580" y="140" width="160" height="56" rx="10" style="fill:var(--bad-soft);stroke:var(--bad)"/><rect x="580" y="15" width="160" height="56" rx="10" style="fill:var(--accent-soft);stroke:var(--accent)"/></g>
         <g fill="currentColor" font-size="15" text-anchor="middle"><text x="95" y="100" font-weight="700">多肽鏈</text><text x="95" y="120" font-size="12">剛離開核糖體</text><text x="400" y="40" font-weight="700">正確摺疊</text><text x="400" y="60" font-size="12">疏水藏內、可溶、有功能</text><text x="400" y="165" font-weight="700">錯誤摺疊</text><text x="400" y="185" font-size="12">疏水外露</text><text x="660" y="165" font-weight="700">聚集(aggregation)</text><text x="660" y="185" font-size="12">毒性、神經退化</text><text x="660" y="40" font-weight="700">用完→降解回收</text><text x="660" y="60" font-size="12">胺基酸再利用</text></g>
         <g stroke="currentColor" stroke-width="2" fill="none"><path d="M172 90L298 50" marker-end="url(#m1-ar2)"/><path d="M172 116L298 160" marker-end="url(#m1-ar2)"/><path d="M502 43H578" marker-end="url(#m1-ar2)"/><path d="M502 168H578" marker-end="url(#m1-ar2)"/><path d="M420 138C440 100 540 90 600 73" stroke-dasharray="5 4" marker-end="url(#m1-ar2)"/></g>
-        <g fill="currentColor" font-size="12"><text x="440" y="108">被降解 = 救援</text></g>
+        <g fill="currentColor" font-size="12"><text x="312" y="116">被降解 = 救援</text></g>
       </svg>
       <figcaption>示意圖：新合成的多肽鏈的去向。細胞的最高原則是不要走到右下的聚集，錯的就降解掉。</figcaption>
     </figure>
@@ -936,7 +936,7 @@ draw();
       <circle cx="140" cy="108" r="30" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/><circle cx="140" cy="108" r="10" fill="var(--accent)" opacity=".5"/>
       <g fill="var(--warm)" opacity=".85"><rect x="225" y="100" width="75" height="16" rx="8"/><rect x="312" y="100" width="75" height="16" rx="8"/><rect x="399" y="100" width="75" height="16" rx="8"/><rect x="486" y="100" width="75" height="16" rx="8"/></g>
       <g fill="var(--sky)"><circle cx="656" cy="66" r="9"/><circle cx="668" cy="108" r="9"/><circle cx="656" cy="152" r="9"/></g>
-      <g fill="currentColor" font-size="13" text-anchor="middle"><text x="55" y="30">Input 樹突</text><text x="140" y="164">Soma(整合)</text><text x="190" y="84" fill="var(--accent)">hillock/AIS</text><text x="395" y="84">Conduction 軸突(髓鞘+node)</text><text x="640" y="184">Output 末梢</text><text x="395" y="196" fill="var(--muted)">橘色=髓鞘,節與節之間的縫=node of Ranvier</text></g></svg>
+      <g fill="currentColor" font-size="13" text-anchor="middle"><text x="55" y="30">Input 樹突</text><text x="140" y="164">Soma(整合)</text><text x="214" y="90" fill="var(--accent)">hillock/AIS</text><text x="395" y="84">Conduction 軸突(髓鞘+node)</text><text x="640" y="184">Output 末梢</text><text x="395" y="196" fill="var(--muted)">橘色=髓鞘,節與節之間的縫=node of Ranvier</text></g></svg>
     <figcaption>示意圖（非實際比例）：四個功能區。AIS 為青色粗線，無髓鞘。</figcaption></figure>
     <div class="box bridge"><p>整合像條件性不穩定的對流觸發：興奮輸入像抬升氣塊，抑制輸入像 CIN，過了 LFC 才爆發且自我維持（Na⁺ 通道正回饋）。把抑制性突觸放在軸丘，等於把逆溫蓋壓在唯一出口。失效處：動作電位全有全無，資訊靠頻率與時序，不像對流強度隨 CAPE 連續變化。</p></div>
     <div class="quiz" data-answer="1"><p class="q">動作電位通常在神經元的哪個位置啟動？</p><ol><li>Axon initial segment</li><li>樹突棘頭部</li><li>軸突末梢</li><li>細胞核</li></ol><p class="explain">各處輸入在本體/軸丘整合後，由無髓鞘的 AIS 啟動。</p></div>
@@ -1178,13 +1178,20 @@ draw();
       </figcaption>
     </figure>
     <div class="video" data-yt="e9sN9gOEdG4" data-title="2 分鐘神經科學:血腦障壁(Blood-Brain Barrier)" data-note="對應本節 BBB 的構造與功能,兩分鐘速覽;看的時候留意主要屏障是內皮細胞與 tight junction,而 astrocyte 在外側的角色。"></div>
-    <figure class="fig"><svg viewBox="0 0 760 230" role="img" aria-label="血腦障壁示意">
+    <figure class="fig"><svg viewBox="0 0 760 250" role="img" aria-label="血腦障壁示意">
       <rect x="40" y="95" width="360" height="40" fill="var(--sky-soft)" stroke="var(--sky)" stroke-width="2"/><text x="220" y="120" text-anchor="middle" font-size="13" fill="currentColor">微血管管腔(血液)</text>
       <g fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"><rect x="40" y="60" width="170" height="35" rx="8"/><rect x="230" y="60" width="170" height="35" rx="8"/><rect x="40" y="135" width="170" height="35" rx="8"/><rect x="230" y="135" width="170" height="35" rx="8"/></g>
       <rect x="208" y="58" width="24" height="39" fill="var(--bad)"/><rect x="208" y="133" width="24" height="39" fill="var(--bad)"/>
       <path d="M30 50 Q220 12 410 50 M30 180 Q220 218 410 180" fill="none" stroke="var(--warm)" stroke-width="10" stroke-linecap="round"/>
-      <path d="M220 12 L220 0" stroke="var(--warm)" stroke-width="4"/><circle cx="560" cy="115" r="38" fill="var(--warm-soft)" stroke="var(--warm)" stroke-width="2"/><path d="M522 115 L430 60 M522 115 L430 170" stroke="var(--warm)" stroke-width="3" fill="none"/>
-      <g fill="currentColor" font-size="13"><text x="500" y="119">Astrocyte</text><text x="440" y="40">end-feet 包住血管</text><text x="180" y="208">紅色=內皮細胞間 tight junction</text><text x="440" y="226">葡萄糖走 GLUT transporter(非擴散)</text></g></svg>
+      <path d="M220 12 L220 0" stroke="var(--warm)" stroke-width="4"/>
+      <circle cx="590" cy="115" r="44" fill="var(--warm-soft)" stroke="var(--warm)" stroke-width="2"/>
+      <path d="M546 115 L420 56 M546 115 L420 174" stroke="var(--warm)" stroke-width="3" fill="none"/>
+      <g fill="currentColor" font-size="13">
+        <text x="590" y="120" text-anchor="middle">Astrocyte</text>
+        <text x="440" y="34">end-feet 包住血管</text>
+        <rect x="40" y="226" width="14" height="14" fill="var(--bad)"/><text x="62" y="238">紅色 = 內皮細胞之間的 tight junction</text>
+        <text x="440" y="212">葡萄糖走 GLUT transporter(非擴散)</text>
+      </g></svg>
     <figcaption>示意圖（橫斷面，非實際比例）：內皮細胞以 tight junction 封縫；astrocyte end-feet 包覆血管外側。</figcaption></figure>
     <div class="box bridge"><p>細胞外 K⁺ 約 4 mM 且空間很小，像混合層很淺時同樣通量造成大濃度變化。由 Nernst 式 E_K=(RT/F)ln([K]o/[K]i),[K]o 由 4 升到 8 mM 會使 E_K 上移約 18 mV，讓整群神經元更接近閾值。Astrocyte 像把小儲庫接到大儲庫（估計值，簡報未給此數字）。</p></div>
     <div class="quiz" data-answer="1"><p class="q">關於血腦障壁（BBB），何者正確？</p><ol><li>主要物理屏障是內皮細胞間的 tight junction,astrocyte end-feet 包在外面協助維持</li><li>內皮細胞以 gap junction 相連，所以小分子可自由通過</li><li>葡萄糖以單純擴散穿過 BBB</li><li>BBB 由 microglia 構成</li></ol><p class="explain">tight junction 封、gap junction 通；葡萄糖須靠 transporter。</p></div>
@@ -1396,7 +1403,7 @@ const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim
         <li>三種模式的差別是距離與管道，不是分子種類（補充：同一種分子可以走不同模式）。</li>
       </ul></div>
     </div>
-    <figure class="fig"><svg viewBox="0 0 720 160" role="img" aria-label="三種訊息傳播模式示意">
+    <figure class="fig"><svg viewBox="0 0 720 174" role="img" aria-label="三種訊息傳播模式示意">
       <defs><marker id="m3-ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="currentColor"/></marker></defs>
       <g stroke="currentColor" fill="none" stroke-width="1.6" marker-end="url(#m3-ah)">
         <path d="M80 52C120 6 20 6 52 48"/>
@@ -1552,20 +1559,38 @@ const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim
         <li>同一個 GPCR 家族，選 AC 還是 PLC 取決於偶聯的 G protein 種類。</li>
       </ul></div>
     </div>
-    <figure class="fig"><svg viewBox="0 0 760 240" role="img" aria-label="PLC-β 路徑示意">
+    <figure class="fig"><svg viewBox="0 0 760 260" role="img" aria-label="PLC-β 路徑示意">
       <defs><marker id="m3-ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="currentColor"/></marker></defs>
-      <path d="M0 60H760M0 84H760" stroke="var(--line)" stroke-width="1.6" fill="none"/>
-      <g stroke-width="1.6"><rect x="50" y="44" width="36" height="58" rx="8" stroke="var(--sky)" fill="var(--sky-soft)"/><rect x="190" y="46" width="64" height="48" rx="8" stroke="var(--accent)" fill="var(--accent-soft)"/>
-        <circle cx="68" cy="26" r="8" fill="var(--warm)" stroke="none"/><circle cx="130" cy="112" r="16" stroke="var(--accent)" fill="var(--accent-soft)"/>
-        <ellipse cx="540" cy="205" rx="170" ry="26" stroke="var(--sky)" fill="var(--sky-soft)"/><rect x="520" y="170" width="40" height="16" rx="4" stroke="var(--warm)" fill="var(--warm-soft)"/>
-        <rect x="610" y="96" width="70" height="30" rx="8" stroke="var(--accent)" fill="var(--accent-soft)"/></g>
-      <g stroke="var(--warm)" stroke-width="3"><path d="M290 84v8M300 84v8M310 84v8"/></g>
-      <g fill="var(--warm)"><circle cx="500" cy="150" r="3.5"/><circle cx="548" cy="142" r="3.5"/><circle cx="586" cy="152" r="3.5"/><circle cx="522" cy="128" r="3.5"/><circle cx="568" cy="124" r="3.5"/></g>
-      <g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#m3-ah2)"><path d="M148 108L186 96"/><path d="M262 70L330 120"/><path d="M360 128L510 168"/><path d="M330 100L600 112"/></g>
-      <g fill="currentColor" font-size="12" text-anchor="middle">
-        <text x="68" y="14">配體</text><text x="68" y="120">GPCR</text><text x="130" y="116">α-GTP</text><text x="222" y="74">PLC-β</text><text x="302" y="108" fill="var(--warm)">PIP2</text>
-        <text x="372" y="140">IP3</text><text x="420" y="108">DAG</text><text x="645" y="116">PKC</text><text x="540" y="182" fill="var(--warm)">IP3 受體</text><text x="540" y="209">內質網 ER(Ca²⁺ 倉庫)</text><text x="640" y="150" fill="var(--warm)">Ca²⁺ 釋放</text>
-        <text x="380" y="20" fill="var(--muted)">細胞外</text><text x="700" y="76" fill="var(--muted)">細胞膜</text><text x="240" y="232" fill="var(--muted)">細胞質(示意圖,自繪)</text>
+      <path d="M0 70H760M0 94H760" stroke="var(--line)" stroke-width="1.6" fill="none"/>
+      <g stroke-width="1.6">
+        <rect x="50" y="52" width="36" height="58" rx="8" stroke="var(--sky)" fill="var(--sky-soft)"/>
+        <rect x="190" y="52" width="70" height="48" rx="8" stroke="var(--accent)" fill="var(--accent-soft)"/>
+        <circle cx="68" cy="30" r="8" fill="var(--warm)" stroke="none"/>
+        <circle cx="118" cy="150" r="22" stroke="var(--accent)" fill="var(--accent-soft)"/>
+        <ellipse cx="470" cy="226" rx="160" ry="26" stroke="var(--sky)" fill="var(--sky-soft)"/>
+        <rect x="450" y="190" width="40" height="16" rx="4" stroke="var(--warm)" fill="var(--warm-soft)"/>
+        <rect x="612" y="104" width="76" height="30" rx="8" stroke="var(--accent)" fill="var(--accent-soft)"/>
+      </g>
+      <g stroke="var(--warm)" stroke-width="3"><path d="M300 94v10M310 94v10M320 94v10"/></g>
+      <g fill="var(--warm)"><circle cx="500" cy="176" r="3.5"/><circle cx="530" cy="160" r="3.5"/><circle cx="560" cy="174" r="3.5"/><circle cx="520" cy="140" r="3.5"/><circle cx="556" cy="148" r="3.5"/></g>
+      <g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#m3-ah2)">
+        <path d="M76 112L100 134"/><path d="M138 138L196 104"/><path d="M262 78L294 94"/><path d="M322 104L455 189"/><path d="M330 88L606 112"/>
+      </g>
+      <g fill="currentColor" font-size="12">
+        <text x="88" y="34">配體</text>
+        <text x="44" y="86" text-anchor="end">GPCR</text>
+        <text x="118" y="154" font-size="11" text-anchor="middle">Gα·GTP</text>
+        <text x="225" y="80" text-anchor="middle">PLC-β</text>
+        <text x="310" y="124" text-anchor="middle" fill="var(--warm)">PIP2</text>
+        <text x="398" y="128">IP3</text>
+        <text x="460" y="84">DAG</text>
+        <text x="650" y="123" text-anchor="middle">PKC</text>
+        <text x="500" y="196" fill="var(--warm)">IP3 受體</text>
+        <text x="470" y="232" text-anchor="middle">內質網 ER(Ca²⁺ 倉庫)</text>
+        <text x="578" y="168" fill="var(--warm)">Ca²⁺ 釋放</text>
+        <text x="20" y="20" fill="var(--muted)">細胞外</text>
+        <text x="740" y="64" text-anchor="end" fill="var(--muted)">細胞膜</text>
+        <text x="20" y="252" fill="var(--muted)">細胞質(示意圖,自繪)</text>
       </g>
     </svg><figcaption>示意圖：PLC-β 把膜內層的 PIP2 切開；IP3 去 ER 放出 Ca²⁺,DAG 留在膜上活化 PKC。</figcaption></figure>
         <figure class="photo">
@@ -2274,16 +2299,16 @@ draw();
     <div class="video" data-yt="Nb07TLkJ3Ww" data-title="光遺傳學解說(Explained: Optogenetics,MIT)" data-note="與上面兩支不同角度的短講解:光敏蛋白如何被送進特定神經元、用光控制活動;對照老師講的 Boyden(MIT)與 Deisseroth(Stanford)。"></div>
     <figure class="fig"><svg viewBox="0 0 760 250" role="img" aria-label="Gal4-UAS 雙品系示意圖">
       <g font-size="14" fill="currentColor">
-        <rect x="14" y="20" width="330" height="86" rx="10" fill="var(--panel)" stroke="var(--sky)" stroke-width="2"/>
+        <rect x="14" y="20" width="350" height="86" rx="10" fill="var(--panel)" stroke="var(--sky)" stroke-width="2"/>
         <text x="28" y="44" font-weight="700">品系 A(driver):where</text>
-        <rect x="30" y="58" width="120" height="30" rx="6" fill="var(--sky)" opacity=".28" stroke="var(--sky)"/><text x="40" y="78">組織專一 promoter</text>
-        <path d="M150 73h26" stroke="currentColor" stroke-width="2"/><polygon points="176,68 186,73 176,78"/>
-        <rect x="188" y="58" width="130" height="30" rx="6" fill="var(--sky)" stroke="var(--sky)"/><text x="215" y="78" fill="#fff">Gal4</text>
-        <rect x="416" y="20" width="330" height="86" rx="10" fill="var(--panel)" stroke="var(--warm)" stroke-width="2"/>
-        <text x="430" y="44" font-weight="700">品系 B(responder):what</text>
-        <rect x="432" y="58" width="90" height="30" rx="6" fill="var(--warm)" opacity=".28" stroke="var(--warm)"/><text x="470" y="78">UAS</text>
-        <path d="M522 73h24" stroke="currentColor" stroke-width="2"/><polygon points="546,68 556,73 546,78"/>
-        <rect x="558" y="58" width="170" height="30" rx="6" fill="var(--warm)" stroke="var(--warm)"/><text x="570" y="78" fill="#fff">目標基因(如 opsin)</text>
+        <rect x="30" y="58" width="156" height="30" rx="6" fill="var(--sky)" opacity=".28" stroke="var(--sky)"/><text x="38" y="78">組織專一 promoter</text>
+        <path d="M186 73h26" stroke="currentColor" stroke-width="2"/><polygon points="212,68 222,73 212,78"/>
+        <rect x="224" y="58" width="124" height="30" rx="6" fill="var(--sky)" stroke="var(--sky)"/><text x="286" y="78" text-anchor="middle" fill="#fff">Gal4</text>
+        <rect x="396" y="20" width="350" height="86" rx="10" fill="var(--panel)" stroke="var(--warm)" stroke-width="2"/>
+        <text x="410" y="44" font-weight="700">品系 B(responder):what</text>
+        <rect x="412" y="58" width="90" height="30" rx="6" fill="var(--warm)" opacity=".28" stroke="var(--warm)"/><text x="457" y="78" text-anchor="middle">UAS</text>
+        <path d="M502 73h24" stroke="currentColor" stroke-width="2"/><polygon points="526,68 536,73 526,78"/>
+        <rect x="538" y="58" width="190" height="30" rx="6" fill="var(--warm)" stroke="var(--warm)"/><text x="633" y="78" text-anchor="middle" fill="#fff">目標基因(如 opsin)</text>
         <text x="380" y="132" text-anchor="middle" font-size="22">交配 ⇩</text>
         <rect x="120" y="148" width="520" height="86" rx="10" fill="var(--accent)" opacity=".13" stroke="var(--accent)" stroke-width="2"/>
         <text x="140" y="174" font-weight="700">子代:Gal4 只在 A 的組織出現 → 結合 UAS → 只在該組織表現目標基因</text>
@@ -2861,22 +2886,22 @@ st.onchange=draw;gr.onchange=draw;draw();
         <li>老師錄音裡把 DAPI 唸成「Dephi」（轉錄為 BEP/Dephi），依內容是 DAPI。<span class="t">1006-3 25:53</span></li>
       </ul></div>
     </div>
-    <figure class="fig"><svg viewBox="0 0 760 270" role="img" aria-label="螢光顯微鏡 filter cube 光路示意">
-      <g fill="currentColor" font-size="13" text-anchor="middle">
-        <rect x="30" y="105" width="70" height="40" rx="6" fill="var(--panel)" stroke="currentColor"/><text x="65" y="130">短波長光源</text>
-        <rect x="150" y="100" width="14" height="50" fill="var(--sky)" opacity=".7"/><text x="157" y="175">excitation</text><text x="157" y="190">filter</text>
-        <line x1="332" y1="150" x2="408" y2="100" stroke="currentColor" stroke-width="5"/><text x="470" y="170" text-anchor="start">dichroic mirror(短反射、長穿透)</text>
-        <rect x="360" y="40" width="14" height="40" transform="rotate(90 367 60)" fill="var(--warm)" opacity=".7"/><text x="450" y="64" text-anchor="start">emission filter</text>
-        <rect x="335" y="2" width="70" height="22" rx="5" fill="var(--panel)" stroke="currentColor"/><text x="370" y="18">偵測器/相機</text>
-        <path d="M345 205 L395 205 L385 232 L355 232 Z" fill="var(--panel)" stroke="currentColor"/><text x="370" y="222">物鏡</text>
-        <rect x="320" y="245" width="100" height="14" rx="3" fill="var(--accent)" opacity=".6"/><text x="370" y="241" font-size="12">樣本(含螢光染劑)</text>
+    <figure class="fig"><svg viewBox="0 0 760 290" role="img" aria-label="螢光顯微鏡 filter cube 光路示意">
+      <g fill="currentColor" font-size="13">
+        <rect x="30" y="110" width="70" height="40" rx="6" fill="var(--panel)" stroke="currentColor"/><text x="65" y="135" text-anchor="middle">短波長光源</text>
+        <rect x="150" y="105" width="14" height="50" fill="var(--sky)" opacity=".7"/><text x="157" y="175" text-anchor="middle">excitation</text><text x="157" y="190" text-anchor="middle">filter</text>
+        <line x1="340" y1="152" x2="402" y2="108" stroke="currentColor" stroke-width="5"/><text x="420" y="140">dichroic mirror(短反射、長穿透)</text>
+        <rect x="345" y="56" width="50" height="12" fill="var(--warm)" opacity=".7"/><text x="410" y="66">emission filter</text>
+        <rect x="335" y="6" width="70" height="24" rx="5" fill="var(--panel)" stroke="currentColor"/><text x="370" y="23" text-anchor="middle">偵測器/相機</text>
+        <path d="M345 214 L395 214 L387 242 L353 242 Z" fill="var(--panel)" stroke="currentColor"/><text x="410" y="232">物鏡</text>
+        <rect x="320" y="262" width="100" height="14" rx="3" fill="var(--accent)" opacity=".6"/><text x="430" y="274">樣本(含螢光染劑)</text>
       </g>
       <g fill="none" stroke-width="3">
-        <path d="M100 125 H370" stroke="var(--sky)"/><path d="M370 125 V245" stroke="var(--sky)"/>
-        <path d="M376 245 V24" stroke="var(--warm)" stroke-dasharray="6 3"/>
+        <path d="M100 130 H370" stroke="var(--sky)"/><path d="M370 130 V262" stroke="var(--sky)"/>
+        <path d="M382 262 V30" stroke="var(--warm)" stroke-dasharray="6 3"/>
       </g>
-      <g font-size="12" fill="var(--sky)"><text x="210" y="118">激發光(短)</text></g>
-      <g font-size="12" fill="var(--warm)"><text x="384" y="210" text-anchor="start">螢光(長)</text></g>
+      <g font-size="12" fill="var(--sky)"><text x="215" y="122">激發光(短)</text></g>
+      <g font-size="12" fill="var(--warm)"><text x="394" y="92">螢光(長)</text></g>
     </svg><figcaption>示意圖：激發光（藍）經 excitation filter，被雙色鏡反射到樣本；螢光（橘，波長較長）回程穿透雙色鏡，再經 emission filter 到偵測器。三片元件合稱一個 filter cube。</figcaption></figure>
     <figure class="demo"><div class="dh"><b>互動・螢光濾光片探索</b>選染劑，拖動光源波長，看 Stokes shift 與三元件各該選的波段</div>
       <div class="ctrls"><div class="ctrl"><label for="m5-fl-dye">染劑</label><select id="m5-fl-dye"><option value="0">DAPI（藍，染 DNA）</option><option value="1">FITC（綠）</option><option value="2">Texas Red（紅）</option></select></div>
@@ -2992,7 +3017,7 @@ try{new MutationObserver(draw).observe(document.documentElement,{attributes:true
         <path d="M80 112 L160 120 L340 190 M80 128 L160 120 L340 50" stroke="var(--warm)" stroke-width="1.8" stroke-dasharray="5 3" fill="none"/>
         <rect x="222" y="60" width="6" height="52" fill="currentColor"/><rect x="222" y="128" width="6" height="52" fill="currentColor"/><text x="225" y="200">pinhole</text>
         <circle cx="260" cy="120" r="9" fill="var(--accent)"/><text x="300" y="124" text-anchor="start" fill="var(--accent)">焦點光通過</text>
-        <text x="300" y="75" text-anchor="start" fill="var(--warm)">失焦光被擋(約 99%)</text>
+        <text x="350" y="50" text-anchor="start" fill="var(--warm)">失焦光被擋(約 99%)</text>
         <text x="570" y="18" font-weight="bold">單光子 vs 雙光子激發</text>
         <path d="M470 40 L570 120 L470 200 Z" fill="var(--sky)" opacity=".25"/><text x="500" y="226">單光子:整條光錐都發光</text>
         <path d="M650 40 L730 120 L650 200 Z" fill="none" stroke="var(--sky)"/><ellipse cx="730" cy="120" rx="10" ry="16" fill="var(--sky)"/><text x="680" y="226">雙光子:只有焦點發光</text>
@@ -3118,6 +3143,8 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)retur
   const a=$(`a[href="#${id}"]`,nav); if(a){a.classList.add('active'); const wk=a.closest('.wk'); $$('.wk',nav).forEach(x=>x.classList.toggle('open',x===wk)); $(':scope>a',wk).classList.add('active');}
 })},{rootMargin:'-70px 0px -70% 0px'});
 topics.forEach(t=>io.observe(t));
+/* keep sticky offsets in sync with the real top bar height */
+(function(){const tb=$('.topbar'); const set=()=>document.documentElement.style.setProperty('--tb',tb.offsetHeight+'px'); set(); addEventListener('resize',set); addEventListener('load',set);})();
 /* tooltips */
 const tip=$('#tip');
 function showTip(el){tip.textContent=el.dataset.def; tip.style.display='block'; const r=el.getBoundingClientRect(); const tw=tip.offsetWidth, thh=tip.offsetHeight;
@@ -3223,7 +3250,7 @@ $$('main svg').forEach(s=>{ if(s.closest('.svgscroll,.stage')||s.parentNode.clas
   const w=document.createElement('div'); w.className='svgscroll'; s.parentNode.insertBefore(w,s); w.appendChild(s); });
 /* licensed photos: click to enlarge, graceful fallback if an image cannot load */
 (function(){
-  const lb=document.createElement('div'); lb.id='lightbox'; lb.innerHTML='<img alt="">'; document.body.appendChild(lb);
+  const lb=document.createElement('div'); lb.id='lightbox'; lb.innerHTML='<button type="button" aria-label="關閉" style="position:absolute;top:12px;right:14px;border:1px solid #555;background:#111;color:#fff;border-radius:8px;padding:4px 12px;font-size:20px;cursor:pointer">×</button><img alt="">'; document.body.appendChild(lb);
   const lbi=lb.querySelector('img');
   lb.onclick=()=>lb.classList.remove('show');
   document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('show')});
