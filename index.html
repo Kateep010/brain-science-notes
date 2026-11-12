@@ -166,6 +166,21 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   .svgscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
   .svgscroll>svg{min-width:540px}
 }
+
+/* licensed photos / figures from Wikimedia Commons */
+figure.photo{margin:16px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
+figure.photo img{display:block;width:100%;max-height:520px;object-fit:contain;background:#fff;cursor:zoom-in}
+figure.photo figcaption{padding:10px 14px;font-size:14px;color:var(--ink);line-height:1.7}
+figure.photo .credit{display:block;margin-top:4px;font-size:12px;color:var(--muted)}
+figure.photo .broken{padding:18px;text-align:center;color:var(--muted);font-size:14px}
+#lightbox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#lightbox.show{display:flex}
+#lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+
+/* original diagrams wrapped in <figure class="fig"> */
+figure.fig{margin:16px 0;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--bg)}
+figure.fig svg{width:100%;max-width:760px;height:auto;display:block;margin:auto}
+figure.fig figcaption{font-size:13px;color:var(--muted);margin:8px 0 0;line-height:1.7}
 </style>
 </head>
 <body>
@@ -321,6 +336,20 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <div class="mol" data-pdb="1BNA" data-style="球棍" data-rotate="x90" data-title="B 型 DNA 雙螺旋" data-caption="看什麼:兩條骨架(糖與磷酸)在外側反向纏繞,鹼基兩兩配對疊在內側,像旋轉樓梯的踏板。"></div>
     <div class="mol" data-pdb="1AOI" data-title="核小體:DNA 纏在組蛋白上" data-style="球棍" data-caption="看什麼:這就是老師說的捲線器。DNA 繞著中間一團蛋白質(組蛋白,histone)纏了將近兩圈,染色體就是這種單位一路往上堆疊收納。"></div>
 
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Nucleosome_structure.png/960px-Nucleosome_structure.png" alt="組蛋白八聚體由 H3-H4 四聚體與兩個 H2A-H2B 二聚體組成,DNA 纏在外面形成核小體" loading="lazy">
+      <figcaption>說明：示意圖顯示核小體怎麼組裝：兩個 H3-H4 二聚體先成四聚體，再加上兩個 H2A-H2B 二聚體，得到八個組蛋白組成的「線軸」（histone octamer）；右上小圖是 DNA 繞在這個線軸外面將近兩圈的樣子。這就是老師說的「DNA 纏在捲線器上」，也是長長的 DNA 能收進細胞核的第一層包裝。四種組蛋白的名稱不用背，抓住「DNA + 組蛋白 = 染色質」即可。
+        <span class="credit">圖：Richard Wheeler (Zephyris)｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Nucleosome_structure.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="gbSIBhFwQ4s" data-title="DNA 如何被包裝(How DNA is Packaged,DNA Learning Center)" data-note="對應核小體→染色質→染色體的多層包裝:看 DNA 先纏在組蛋白上,再一層層折疊成染色體。留意「包得越緊、越不容易被讀取」這個概念,和後面轉錄要把染色體局部打開互相呼應。"></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/NHGRI_human_male_karyotype.png/960px-NHGRI_human_male_karyotype.png" alt="人類男性核型:23 對染色體經染色後呈現橫帶紋" loading="lazy">
+      <figcaption>說明：這是真實的人類男性染色體核型照片：把分裂期細胞中的染色體拍下來、按大小配對排好，共 23 對（46 條，其中一對是性染色體）。每條染色體就是「一條超長的 DNA 加上蛋白質包裝」，上面有成百上千個基因；橫向的明暗帶紋是染色後的特徵，用來辨認是哪一條。呼應老師說的 genome、chromosome 與 gene 的大小關係。
+        <span class="credit">圖：National Human Genome Research Institute(NHGRI)｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:NHGRI_human_male_karyotype.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+
     <h4>DNA 複製：半保留複製</h4>
     <p>複製是三個步驟裡最保守、最不能錯的。RNA 抄錯沒有修復機制也無所謂；DNA 要跟你一輩子還要傳給小孩，所以細胞用最嚴謹的方式複製，而且有抄錯後的修補機制（細節這門課不講）。</p>
     <ol class="flow">
@@ -332,6 +361,59 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>半保留的額外好處：東西放久了會壞，重新合成一股新的時候可以順便修補舊損傷。當然這時候也可能抄錯，有些錯誤反而是演化的材料。</p>
     <div class="box bridge"><p>雙股互補其實就是一份內建的備援：兩股存的是同一份資訊的兩種表示法，任一股壞了可以由另一股完整重建，很像資料儲存裡的鏡像備份加同位元檢查。半保留複製則保證每一份新拷貝都有一半是直接沿用的原件，錯誤不會在「拷貝的拷貝」之間無限制累積。失效處：細胞的修復不是純比對位元，它得先判斷哪一股才是舊的、正確的那股，這需要額外的化學標記。</p></div>
     <div class="video" data-yt="TNKWgcFPHqw" data-title="DNA 複製(3D 動畫)" data-note="看雙股怎麼被拉開、兩股各自當模板長出新股;動畫裡兩股合成方式不同的細節(leading/lagging)老師沒教,不用記。"></div>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 280" width="100%" style="max-width:640px" role="img" aria-label="DNA 複製叉示意圖:前導股連續合成、延遲股以岡崎片段不連續合成">
+        <g font-size="13" fill="currentColor">
+          <!-- parent duplex -->
+          <g transform="translate(420,140)">
+            <line x1="0" y1="0" x2="200" y2="0" stroke="var(--line)" stroke-width="12" stroke-dasharray="1.5 7"/>
+            <line x1="0" y1="-6" x2="200" y2="-6" stroke="var(--accent)" stroke-width="3"/>
+            <line x1="0" y1="6" x2="200" y2="6" stroke="var(--accent)" stroke-width="3"/>
+          </g>
+          <!-- top arm: leading strand -->
+          <g transform="translate(420,140) rotate(20)">
+            <line x1="-300" y1="-6" x2="0" y2="-6" stroke="var(--accent)" stroke-width="3"/>
+            <line x1="-300" y1="1" x2="-34" y2="1" stroke="var(--line)" stroke-width="14" stroke-dasharray="1.5 7"/>
+            <line x1="-300" y1="8" x2="-34" y2="8" stroke="var(--warm)" stroke-width="3"/>
+            <path d="M-34 8 l-8 -5 v10 z" transform="rotate(180 -34 8)" fill="var(--warm)"/>
+            <ellipse cx="-44" cy="8" rx="17" ry="12" fill="var(--panel)" stroke="currentColor" stroke-width="1.5"/>
+          </g>
+          <!-- bottom arm: lagging strand -->
+          <g transform="translate(420,140) rotate(-20)">
+            <line x1="-300" y1="6" x2="0" y2="6" stroke="var(--accent)" stroke-width="3"/>
+            <g stroke="var(--line)" stroke-width="14" stroke-dasharray="1.5 7">
+              <line x1="-100" y1="-1" x2="-34" y2="-1"/><line x1="-185" y1="-1" x2="-115" y2="-1"/><line x1="-270" y1="-1" x2="-200" y2="-1"/>
+            </g>
+            <g stroke="var(--warm)" stroke-width="3">
+              <line x1="-100" y1="-8" x2="-34" y2="-8"/><line x1="-185" y1="-8" x2="-115" y2="-8"/><line x1="-270" y1="-8" x2="-200" y2="-8"/>
+            </g>
+            <g fill="var(--warm)">
+              <path d="M-100 -8 l8 -5 v10 z" transform="rotate(180 -100 -8)"/><path d="M-185 -8 l8 -5 v10 z" transform="rotate(180 -185 -8)"/><path d="M-270 -8 l8 -5 v10 z" transform="rotate(180 -270 -8)"/>
+            </g>
+            <ellipse cx="-110" cy="-8" rx="17" ry="12" fill="var(--panel)" stroke="currentColor" stroke-width="1.5"/>
+          </g>
+          <!-- helicase -->
+          <circle cx="420" cy="140" r="11" fill="var(--panel)" stroke="var(--sky)" stroke-width="2.5"/>
+          <!-- fork movement -->
+          <path d="M455 205 H540" stroke="currentColor" stroke-width="2"/><path d="M540 205 l-9 -5 v10 z" fill="currentColor"/>
+          <text x="497" y="224" text-anchor="middle" font-size="12" fill="var(--muted)">複製叉前進方向</text>
+          <!-- strand-end labels -->
+          <g font-size="12" font-weight="700">
+            <text x="598" y="124" fill="var(--accent)">5'</text><text x="598" y="166" fill="var(--accent)">3'</text>
+            <text x="122" y="36" fill="var(--accent)">3'</text><text x="122" y="62" fill="var(--warm)">5'</text>
+            <text x="122" y="252" fill="var(--accent)">5'</text><text x="122" y="226" fill="var(--warm)">3'</text>
+          </g>
+          <text x="500" y="108" font-size="12" fill="var(--muted)">親代雙股</text>
+          <text x="170" y="14" font-size="13" font-weight="700" fill="var(--warm)">前導股 leading:連續合成</text>
+          <text x="170" y="274" font-size="13" font-weight="700" fill="var(--warm)">延遲股 lagging:一段一段合成(岡崎片段)</text>
+          <text x="436" y="136" font-size="11" fill="var(--sky)" font-weight="700" transform="translate(0,-28)">helicase</text>
+          <text x="330" y="84" font-size="11" text-anchor="middle" fill="var(--muted)">DNA polymerase</text>
+          <text x="330" y="208" font-size="11" text-anchor="middle" fill="var(--muted)">DNA polymerase</text>
+        </g>
+      </svg>
+      <figcaption>示意圖（原創，補充）：複製叉（replication fork）。青綠色是舊股、橘褐色是新合成的股；舊股在兩個子代雙螺旋裡各佔一半，這就是半保留複製。DNA polymerase 只能把新核苷酸接在 3' 端，所以新股一律 5'→3' 生長；而兩條舊股方向相反，結果只有一條新股（前導股）能順著複製叉前進方向連續長，另一條（延遲股）得等叉打開一段後倒著補一小段，形成不連續的岡崎片段（Okazaki fragments）。老師課堂沒有講 leading/lagging，放在這裡是讓你看到「只能 5'→3' 合成」這條規則的直接後果。</figcaption>
+    </figure>
 
     <div class="quiz" data-answer="4">
       <p class="q">一段 DNA 其中一股是 5'-ATGCCA-3'，它的互補股由 5' 讀到 3' 是？</p>
@@ -454,6 +536,15 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>目標 mRNA 被切斷或被卡住</b><span>RISC 直接切斷 mRNA（斷口沒有保護，很快被吃掉）；或者不切、只是卡在上面讓核糖體無法轉譯。兩種結果都是蛋白質做不出來。</span></li>
     </ol>
     <div class="box teacher"><p>老師提到：之後聽實驗組同學報 paper，常會看到「送 shRNA 進去 knock down 某個蛋白質」，就是利用這條內建的 RNAi 路徑。課堂上放了一段 RNAi 動畫。</p></div>
+
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/RNAi.png/960px-RNAi.png" alt="RNA 干擾示意圖:雙股 RNA 被切成 siRNA,裝入 RISC 後配對並切斷目標 mRNA" loading="lazy">
+      <figcaption>說明：把老師講的 RNAi 流程畫成一張圖：雙股 RNA(dsRNA)被切成短的 siRNA，一股進入 RISC 當「通緝令」，靠鹼基配對抓住序列互補的 mRNA（來自細胞核），把它切成碎片，蛋白質就做不出來。圖為簡化版：切 dsRNA 的酵素（Dicer）沒有畫出來，也沒有畫「不切、只卡住 mRNA 讓核糖體無法轉譯」那種結果（這種較常見於 miRNA）。
+        <span class="credit">圖：Robinson R｜CC BY 2.5｜<a href="https://commons.wikimedia.org/wiki/File:RNAi.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="cK-OGB1_ELE" data-title="RNA 干擾 RNAi(Nature Video)" data-note="對應上面 RNAi 流程:留意雙股 RNA 如何被切成小片段、其中一股如何帶領 RISC 找到序列互補的 mRNA。這是 Nature 出的動畫,概念對應老師課堂放的 RNAi 動畫,可當複習。"></div>
+    <div class="video" data-yt="tzlGU5EI9rU" data-title="RNAi:切、剪、送進你的細胞(RNAi: Slicing, dicing and serving your cells,TED-Ed)" data-note="TED-Ed 的 RNAi 科普動畫(Alex Dainis):看 RNA 干擾怎麼讓特定基因「安靜」下來,以及它為什麼對研究與治療有用。可和 Nature 那支擇一觀看。"></div>
     <details class="deep"><summary>延伸：兩個諾貝爾獎（補充）</summary><p>老師提到這兩項研究都拿過諾貝爾獎：RNA interference 是 2006 年生理醫學獎（Fire 與 Mello），microRNA 是 2024 年生理醫學獎（Ambros 與 Ruvkun）。年份為補充，不是考點。</p></details>
     <div class="box bridge"><p>miRNA 找目標的方式很像匹配濾波：手上拿一段已知波形（那股小 RNA），只對序列互補的 mRNA 有強響應，其他的幾乎不理。失效處：miRNA 對目標常常只是部分配對（投影片寫 partial pairing），所以一種 miRNA 可以同時壓低很多種 mRNA，選擇性沒有理想濾波器那麼尖。</p></div>
 
@@ -507,6 +598,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>所以 tRNA 一手認核酸語言、一手拿胺基酸，是兩種語言之間的轉接頭。</p>
     <div class="mol" data-pdb="1EHZ" data-style="球棍" data-rotate="x90" data-title="tRNA(酵母菌 tRNA-Phe)" data-caption="看什麼:整體呈 L 形。L 的一端是 anticodon(去配 mRNA),另一端是接胺基酸的位置,兩端離得很遠。"></div>
 
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Scheme_of_transfer_RNA_%28tRNA%29_charged_with_an_amino_acid.png/960px-Scheme_of_transfer_RNA_%28tRNA%29_charged_with_an_amino_acid.png" alt="tRNA 的二維三葉草結構與三維 L 形結構,anticodon 與 mRNA codon 配對" loading="lazy">
+      <figcaption>說明：左邊是 tRNA 攤平成平面的「三葉草」：一端（3'）接胺基酸，另一端是 anticodon，和下方 mRNA 的 codon 以 A–U、G–C 配對（圖中 anticodon CUC 配 mRNA 的 GAG，帶的是 Glu）。右邊是真實三維樣子，摺成 L 形，和上面 3D 模型是同一種形狀。圖上胺基酸的化學結構式不用管（老師說結構式不考），重點是「一端認密碼、一端拿胺基酸」。
+        <span class="credit">圖：OpenStax(Rice University)｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Scheme_of_transfer_RNA_(tRNA)_charged_with_an_amino_acid.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+
     <h4>核糖體與轉譯流程</h4>
     <p><span class="term" data-def="核糖體;由大小兩個次單元組成、含多種蛋白質與 rRNA 的大型複合體,沿 mRNA 移動並催化胺基酸之間形成胜肽鍵">ribosome（核糖體）</span>是蛋白質合成工廠，由一大（60S）一小（40S）兩個次單元組成，mRNA 夾在中間；裡面除了很多蛋白質，還有 <span class="term" data-def="核糖體 RNA;構成核糖體的 RNA,是細胞中含量最多的 RNA">rRNA(ribosomal RNA)</span>。細胞需要大量核糖體，所以 rRNA 是細胞裡最多的 RNA（80% 以上），量多又穩定，實驗上常拿它（例如 18S、28S）來定量或鑑定。</p>
     <ol class="flow">
@@ -516,6 +614,20 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>往下移一個 codon</b><span>核糖體沿 mRNA 往 3' 方向移動三個核苷酸，新的 tRNA 進來，已經接好的鏈整串轉接到新來的胺基酸上。如此重複，可以接到幾百個以上。</span></li>
       <li><b>終止</b><span>遇到 stop codon（如 UGA），沒有 tRNA 可配，改由 release factor 進來，核糖體打開，多肽鏈和 mRNA 都放出來。這條 mRNA 可以再被別的核糖體從頭讀。</span></li>
     </ol>
+    <figure class="fig">
+      <svg viewBox="0 0 640 215" width="100%" style="max-width:640px" role="img" aria-label="轉譯三階段示意圖:起始、延長、終止">
+        <g font-size="13" fill="currentColor" text-anchor="middle"><g transform="translate(0,0)"><text x="100" y="22" font-weight="700" font-size="14">1. 起始</text><text x="100" y="38" font-size="11" fill="var(--muted)">initiation</text><rect x="8" y="58" width="88" height="62" rx="16" fill="var(--panel)" stroke="var(--muted)" stroke-width="2"/><rect x="8" y="162" width="88" height="22" rx="10" fill="var(--panel)" stroke="var(--muted)" stroke-width="2"/><text x="52" y="78" font-size="10" fill="var(--muted)">大次單元</text><text x="52" y="197" font-size="10" fill="var(--muted)">小次單元</text><line x1="4" y1="141" x2="196" y2="141" stroke="currentColor" stroke-width="2"/><rect x="8" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="29" y="146" font-size="12" font-weight="700">AUG</text><rect x="54" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="75" y="146" font-size="12" font-weight="700">GUU</text><rect x="100" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="121" y="146" font-size="12" font-weight="700">AGU</text><rect x="146" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--warm)" stroke-width="1.5"/><text x="167" y="146" font-size="12" font-weight="700">UGA</text><text x="4" y="124" font-size="10" fill="var(--muted)" text-anchor="start">5'</text><text x="196" y="124" font-size="10" fill="var(--muted)" text-anchor="end">3'</text><line x1="29" y1="131" x2="29" y2="96" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/><circle cx="29" cy="88" r="10" fill="var(--accent)"/><text x="29" y="92" font-size="9" fill="#fff" font-weight="700">Met</text></g><g transform="translate(213,0)"><text x="100" y="22" font-weight="700" font-size="14">2. 延長</text><text x="100" y="38" font-size="11" fill="var(--muted)">elongation</text><rect x="8" y="58" width="88" height="62" rx="16" fill="var(--panel)" stroke="var(--muted)" stroke-width="2"/><rect x="8" y="162" width="88" height="22" rx="10" fill="var(--panel)" stroke="var(--muted)" stroke-width="2"/><text x="52" y="78" font-size="10" fill="var(--muted)">大次單元</text><text x="52" y="197" font-size="10" fill="var(--muted)">小次單元</text><line x1="4" y1="141" x2="196" y2="141" stroke="currentColor" stroke-width="2"/><rect x="8" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="29" y="146" font-size="12" font-weight="700">AUG</text><rect x="54" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="75" y="146" font-size="12" font-weight="700">GUU</text><rect x="100" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="121" y="146" font-size="12" font-weight="700">AGU</text><rect x="146" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--warm)" stroke-width="1.5"/><text x="167" y="146" font-size="12" font-weight="700">UGA</text><text x="4" y="124" font-size="10" fill="var(--muted)" text-anchor="start">5'</text><text x="196" y="124" font-size="10" fill="var(--muted)" text-anchor="end">3'</text><line x1="29" y1="131" x2="29" y2="96" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/><circle cx="29" cy="88" r="10" fill="var(--accent)"/><text x="29" y="92" font-size="9" fill="#fff" font-weight="700">Met</text><line x1="75" y1="131" x2="75" y2="96" stroke="var(--sky)" stroke-width="5" stroke-linecap="round"/><circle cx="75" cy="88" r="10" fill="var(--sky)"/><text x="75" y="92" font-size="9" fill="#fff" font-weight="700">Val</text><path d="M39 88 H65" stroke="var(--warm)" stroke-width="3"/></g><g transform="translate(426,0)"><text x="100" y="22" font-weight="700" font-size="14">3. 終止</text><text x="100" y="38" font-size="11" fill="var(--muted)">termination</text><rect x="100" y="58" width="88" height="62" rx="16" fill="var(--panel)" stroke="var(--muted)" stroke-width="2"/><rect x="100" y="162" width="88" height="22" rx="10" fill="var(--panel)" stroke="var(--muted)" stroke-width="2"/><text x="144" y="78" font-size="10" fill="var(--muted)">大次單元</text><text x="144" y="197" font-size="10" fill="var(--muted)">小次單元</text><line x1="4" y1="141" x2="196" y2="141" stroke="currentColor" stroke-width="2"/><rect x="8" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="29" y="146" font-size="12" font-weight="700">AUG</text><rect x="54" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="75" y="146" font-size="12" font-weight="700">GUU</text><rect x="100" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="121" y="146" font-size="12" font-weight="700">AGU</text><rect x="146" y="131" width="42" height="20" rx="4" fill="var(--panel)" stroke="var(--warm)" stroke-width="1.5"/><text x="167" y="146" font-size="12" font-weight="700">UGA</text><text x="4" y="124" font-size="10" fill="var(--muted)" text-anchor="start">5'</text><text x="196" y="124" font-size="10" fill="var(--muted)" text-anchor="end">3'</text><line x1="121" y1="131" x2="121" y2="96" stroke="var(--warm)" stroke-width="5" stroke-linecap="round"/><g fill="var(--warm)"><circle cx="121" cy="88" r="9"/></g><g fill="var(--sky)"><circle cx="102" cy="80" r="9"/></g><g fill="var(--accent)"><circle cx="86" cy="68" r="9"/></g><path d="M121 88 L102 80 L86 68" stroke="var(--muted)" stroke-width="2" fill="none"/><rect x="153" y="84" width="34" height="26" rx="6" fill="var(--warm)" opacity="0.9"/><text x="170" y="101" font-size="11" fill="#fff" font-weight="700">RF</text><path d="M170 112 V129" stroke="var(--warm)" stroke-width="3"/></g>
+        </g>
+      </svg>
+      <figcaption>示意圖（原創，高度簡化）：轉譯的三個階段，對應老師講的流程。起始：核糖體在 mRNA 上找到 AUG,Met-tRNA 配對；延長：第二個 codon 的 tRNA 進來、胜肽鍵形成、核糖體往 3' 方向移動一個 codon，如此循環；終止：遇到 stop codon(UGA)，沒有 tRNA 可配，由 release factor(RF)進來，鏈與 mRNA 釋放。圖中只畫兩個 tRNA 位置，忽略 E 位、起始因子與延長因子等細節；tRNA 是 L 形的立體結構，這裡簡化成棒狀。</figcaption>
+    </figure>
+
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ribosome_mRNA_translation_en.svg/960px-Ribosome_mRNA_translation_en.svg.png" alt="核糖體沿 mRNA 轉譯:tRNA 帶胺基酸進入 A 位與 P 位,新生蛋白質鏈從大次單元長出" loading="lazy">
+      <figcaption>說明：卡通式的轉譯全景圖。mRNA 夾在大、小兩個次單元之間；核糖體裡有兩個 tRNA 的位置（A site 讓新 tRNA 進來，P site 握著延長中的鏈），就是老師說「核糖體可以同時容納兩個 tRNA」的那兩格。tRNA 一端認 mRNA 上的 codon、一端帶胺基酸，胺基酸一顆顆接成頂端那條「新生蛋白質」。A、P site 的名稱是補充，考試不要求。
+        <span class="credit">圖：LadyofHats(Mariana Ruiz Villarreal)｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Ribosome_mRNA_translation_en.svg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="video" data-yt="TfYf_rPWUdY" data-title="mRNA 轉譯(進階版 3D 動畫)" data-note="看 tRNA 一個個進入核糖體、舊鏈被接到新胺基酸上、空的 tRNA 被踢出去;對應上面流程第 2 到 4 步的循環。"></div>
 
     <h4>親手玩：翻譯機</h4>
@@ -575,7 +687,54 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td><span class="term" data-def="四級結構;兩條以上各自摺好的多肽鏈再組裝成的多次單元複合體">quaternary（四級）</span></td><td>兩條以上的蛋白質組在一起形成更大的複合體</td></tr>
     </table></div>
     <div class="box teacher"><p><strong>織毛線的比喻：</strong>不會一口氣直接摺到最終形狀。像織毛衣，先織出幾種固定花紋的小片（二級結構），再把小片拼成衣服或袋子（三級結構）。</p></div>
+    <figure class="fig">
+      <svg viewBox="0 0 640 230" width="100%" style="max-width:640px" role="img" aria-label="蛋白質四個結構層級示意圖">
+        <g font-size="13" fill="currentColor" text-anchor="middle">
+          <!-- titles -->
+          <g font-weight="700" font-size="14">
+            <text x="80" y="22">一級結構</text><text x="240" y="22">二級結構</text><text x="400" y="22">三級結構</text><text x="560" y="22">四級結構</text>
+          </g>
+          <g font-size="11" fill="var(--muted)">
+            <text x="80" y="38">primary</text><text x="240" y="38">secondary</text><text x="400" y="38">tertiary</text><text x="560" y="38">quaternary</text>
+          </g>
+          <!-- arrows between -->
+          <g stroke="var(--muted)" stroke-width="1.5" fill="var(--muted)">
+            <path d="M148 100 H164"/><path d="M164 100 l-6 -4 v8 z"/>
+            <path d="M308 100 H324"/><path d="M324 100 l-6 -4 v8 z"/>
+            <path d="M468 100 H484"/><path d="M484 100 l-6 -4 v8 z"/>
+          </g>
+          <!-- 1: beads -->
+          <g stroke="var(--muted)" stroke-width="2" fill="none"><path d="M26 80 L48 112 L70 80 L92 112 L114 80 L136 112"/></g>
+          <g stroke="currentColor" stroke-width="1.3">
+            <circle cx="26" cy="80" r="8" fill="var(--accent)"/><circle cx="48" cy="112" r="8" fill="var(--warm)"/><circle cx="70" cy="80" r="8" fill="var(--sky)"/>
+            <circle cx="92" cy="112" r="8" fill="var(--accent)"/><circle cx="114" cy="80" r="8" fill="var(--warm)"/><circle cx="136" cy="112" r="8" fill="var(--sky)"/>
+          </g>
+          <text x="26" y="66" font-size="11">N 端</text><text x="136" y="134" font-size="11">C 端</text>
+          <text x="80" y="170">胺基酸排列順序</text>
+          <!-- 2: helix + strands -->
+          <path d="M185.0 92.0 L186.8 96.7 L188.7 100.7 L190.5 103.6 L192.3 104.9 L194.2 104.6 L196.0 102.5 L197.8 99.1 L199.7 94.7 L201.5 90.0 L203.3 85.5 L205.2 81.9 L207.0 79.6 L208.8 79.0 L210.7 80.1 L212.5 82.8 L214.3 86.7 L216.2 91.3 L218.0 96.0 L219.8 100.2 L221.7 103.3 L223.5 104.8 L225.3 104.7 L227.2 102.9 L229.0 99.6 L230.8 95.4 L232.7 90.6 L234.5 86.1 L236.3 82.3 L238.2 79.9 L240.0 79.0 L241.8 79.9 L243.7 82.3 L245.5 86.1 L247.3 90.6 L249.2 95.4 L251.0 99.6 L252.8 102.9 L254.7 104.7 L256.5 104.8 L258.3 103.3 L260.2 100.2 L262.0 96.0 L263.8 91.3 L265.7 86.7 L267.5 82.8 L269.3 80.1 L271.2 79.0 L273.0 79.6 L274.8 81.9 L276.7 85.5 L278.5 90.0 L280.3 94.7 L282.2 99.1 L284.0 102.5 L285.8 104.6 L287.7 104.9 L289.5 103.6 L291.3 100.7 L293.2 96.7 L295.0 92.0" stroke="var(--accent)" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <text x="240" y="70" font-size="12">α-helix</text>
+          <g fill="var(--warm)"><path d="M188 128 H262 V122 L278 132 L262 142 V136 H188 z"/><path d="M278 150 H204 V144 L188 154 L204 164 V158 H278 z" transform="translate(0,0)"/></g>
+          <text x="240" y="184" font-size="12">β-strand 並排成 β-sheet</text>
+          <text x="240" y="204" font-size="11" fill="var(--muted)">靠主鏈間的氫鍵</text>
+          <!-- 3: folded chain -->
+          <path d="M345 70 C330 100 350 118 372 104 C392 92 372 66 398 66 C430 66 440 94 424 112 C410 128 386 124 380 140 C374 158 400 166 424 156" stroke="var(--accent)" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <g fill="var(--warm)" opacity="0.85"><circle cx="394" cy="98" r="5"/><circle cx="406" cy="108" r="5"/><circle cx="398" cy="114" r="5"/></g>
+          <text x="400" y="184" font-size="12">整條鏈摺成一個立體形狀</text>
+          <text x="400" y="204" font-size="11" fill="var(--muted)">疏水(橘點)藏在核心</text>
+          <!-- 4: two subunits -->
+          <path d="M512 90 C500 70 530 60 546 72 C560 84 556 110 538 122 C520 132 500 118 512 90 z" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+          <path d="M552 98 C560 76 596 70 608 92 C618 112 598 138 576 134 C556 130 546 118 552 98 z" fill="none" stroke="var(--sky)" stroke-width="3.5"/>
+          <text x="530" y="150" font-size="11" fill="var(--accent)">亞基 1</text><text x="590" y="152" font-size="11" fill="var(--sky)">亞基 2</text>
+          <text x="560" y="184" font-size="12">多條鏈組合成複合體</text>
+          <text x="560" y="204" font-size="11" fill="var(--muted)">例:血紅素有 4 條鏈</text>
+        </g>
+      </svg>
+      <figcaption>示意圖（原創）：蛋白質的四個結構層級。一級是胺基酸序列（DNA 密碼決定），二級是局部規則摺法（α-helix、β-sheet），三級是整條鏈摺成的立體形狀，四級是兩條以上摺好的鏈再組裝（老師用血紅素當四級例子）。每往右一層都建立在前一層之上，所以一級序列錯了（突變），往後各層都可能跟著出問題。</figcaption>
+    </figure>
+
     <div class="mol" data-pdb="2HHB" data-title="血紅素(四級結構範例)" data-style="依鏈上色" data-caption="看什麼:四條鏈各自摺好後組在一起就是四級結構;每條鏈內部幾乎全是 α-helix。"></div>
+    <div class="mol" data-pdb="1MBN" data-title="肌紅蛋白 myoglobin(α-helix 範例)" data-caption="看什麼:幾乎整條鏈都是 α-helix(圖中的螺旋柱,共約八段),中間夾著一個結合氧的 heme。和下一個 GFP 的 β-barrel 並排對照,就能分辨兩種二級結構。(補充範例,PDB 1MBN)" data-style="卡通"></div>
     <div class="mol" data-pdb="1EMA" data-title="綠色螢光蛋白 GFP(β-sheet 範例)" data-caption="看什麼:十一條 β-strand 圍成一個桶子(β-barrel),和上面血紅素的螺旋對照,認得 α-helix 與 β-sheet 兩種二級結構的樣子。"></div>
 
     <h4>為什麼會摺：疏水藏裡面、親水放外面</h4>
@@ -598,8 +757,18 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <div class="mol" data-pdb="1AON" data-title="GroEL/GroES 伴護蛋白(補充)" data-style="依鏈上色" data-caption="看什麼:兩層桶狀結構加一個蓋子,中間的空腔就是讓單一條多肽鏈安靜摺疊的隔離室。"></div>
     </details>
 
+    <div class="video" data-yt="sD6vyfTtE4U" data-title="六微秒的蛋白質摺疊(Six Microseconds of Protein Folding,UIUC)" data-note="分子動力學電腦模擬一條小蛋白質從伸展狀態自行摺成緊實結構的過程(來自 UIUC TCBG 研究群)。留意它不是「一步到位」,而是在能量地形上一路扭動、找到穩定形狀;模擬時間只有六微秒,對應老師說的「摺疊靠熱力學穩定、結構很靈活」。"></div>
+
     <h4>二級結構為什麼重要：Aβ 從 α-helix 變 β-sheet</h4>
     <p><span class="term" data-def="β 類澱粉胜肽;由 APP 切出來的 40 到 42 個胺基酸的胜肽,聚集後形成阿茲海默症的類澱粉斑塊">Aβ(amyloid-β)</span>正常時以 α-helix 為主。當它轉成富含 β-sheet 的構形，一片片 β-sheet 會互相疊起來排成纖維（fibril），很多纖維再纏在一起，就是阿茲海默症腦中的<strong>類澱粉斑塊（amyloid plaque）</strong>。所以做 Aβ 研究的人會量 α-helix 與 β-sheet 的比例；病理切片上有些染劑專門染 β-sheet 結構（不染 α-helix），染到越多代表沉積越嚴重。</p>
+
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Histopathology_of_amyloid_plaque_in_Alzheimer%27s_disease_-_annotated.jpg/960px-Histopathology_of_amyloid_plaque_in_Alzheimer%27s_disease_-_annotated.jpg" alt="阿茲海默症腦組織切片上的類澱粉斑塊(箭頭之間的淡粉紅團塊)" loading="lazy">
+      <figcaption>說明：阿茲海默症大腦皮質的 H&E 染色切片，兩個箭頭之間那團顆粒狀、淡粉紅色的物質就是類澱粉斑塊（amyloid plaque），位在神經元的外面（細胞外），周圍可以看到深紫色的細胞核。斑塊的主要成分是 Aβ 聚集成的纖維；H&E 看得到但不專一，實驗室會用專門染 β-sheet 結構或抗 Aβ 抗體的染色來定量。
+        <span class="credit">圖：Mikael Häggström, M.D.｜CC0｜<a href="https://commons.wikimedia.org/wiki/File:Histopathology_of_amyloid_plaque_in_Alzheimer%27s_disease_-_annotated.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="2BEG" data-title="Aβ(1-42) 纖維(補充)" data-caption="看什麼:Aβ 片段一條條疊成階梯狀的 β-sheet 纖維核心(NMR 模型,五條鏈堆疊),纖維方向就是 β-strand 一層層堆起來的方向。這就是斑塊裡的纖維長相;結構細節不考。" data-style="依鏈上色"></div>
 
     <h4>變性（denaturation）與聚集（aggregation）</h4>
     <p><span class="term" data-def="變性;摺疊好的蛋白質在非生理條件下失去原本的立體結構,通常也失去功能">denaturation（變性）</span>是摺疊的反向：在不適合的條件下，原本摺好的蛋白質被打開，通常就失去功能。變性因子包括溫度、壓力、剪力、pH、有機溶劑、清潔劑、高鹽。例如高溫會把原本正負電相吸的地方硬拉開。打開後疏水區暴露出來，它們「很難過」，就抓住旁邊別條鏈的疏水區躲在一起，本來不該碰在一起的鏈亂七八糟黏成一坨，這就是 <span class="term" data-def="聚集;錯誤摺疊或變性的蛋白質靠暴露的疏水區互相黏在一起,形成沒有功能的團塊">aggregation（聚集）</span>。</p>
@@ -766,6 +935,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <div class="mol" data-pdb="1UBQ" data-title="泛素 ubiquitin" data-caption="看什麼:只有 76 個胺基酸,卻摺得很緊實,裡面同時有一段 α-helix 和幾條 β-strand,是認識二級結構的好例子。"></div>
     <div class="video" data-yt="jbc1QCu9hFg" data-title="泛素系統動畫(2004 諾貝爾化學獎)" data-note="看 E1、E2、E3 怎麼接力把 ubiquitin 貼到目標蛋白質上、串成一條鏈,對應上面流程的第 1 到 4 步。"></div>
     <div class="video" data-yt="Gl4jEVewNSQ" data-title="蛋白酶體降解蛋白質動畫" data-note="看被貼上 ubiquitin 鏈的蛋白質如何被 proteasome 認出、拉直送進桶狀內部切碎,對應第 5 步。"></div>
+    <div class="video" data-yt="ECXbJah2m6Q" data-title="蛋白酶體(The Proteasome,WEHI 2024)" data-note="WEHI 的 3D 蛋白酶體動畫(Etsuko Uno):看這個桶狀複合體如何把蛋白質拉進內部切成短片段。對應「被貼上 polyubiquitin 的蛋白質進 proteasome 被降解」;和上面那支搭配看,留意桶狀結構把降解反應關在內部。"></div>
 
     <p><strong>這條路徑什麼時候用？</strong>不只清壞掉的蛋白質，更常用來清「任務結束、現在不需要了」的正常蛋白質：</p>
     <ul>
@@ -795,6 +965,21 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>結果</strong>：形成 <span class="term" data-def="神經纖維糾結;過度磷酸化的 Tau 在神經元內聚集成的纖維狀團塊,是阿茲海默症的主要病理特徵之一">neurofibrillary tangle（神經纖維糾結）</span>，是阿茲海默症的主要病理特徵。磷酸化 Tau 的量（不管在血液或腦中）被認為是和臨床病程最相關的 biomarker。</li>
       <li>Tau 的問題不限於阿茲海默症；不同位點的磷酸化、不同的 3R/4R 比例，對應到很多種不同的神經退化疾病（統稱 tauopathy）。投影片最後那張疾病對照圖不考。</li>
     </ul>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Histopathology_of_neurofibrillary_tangles_in_Alzheimer%27s_disease_-_annotated.jpg" alt="阿茲海默症腦組織中一個含神經纖維糾結的神經元(箭頭處)" loading="lazy">
+      <figcaption>說明：同樣是 H&E 染色。這個神經元的細胞核在下方，箭頭所指、從細胞體往上延伸的那團粉紫色絲狀物質就是神經纖維糾結（neurofibrillary tangle），位在神經元「裡面」（細胞內）。對照上一張：Aβ 斑塊在細胞外、Tau 糾結在細胞內，是老師強調別混淆的兩種病理。
+        <span class="credit">圖：Mikael Häggström, M.D.｜CC0｜<a href="https://commons.wikimedia.org/wiki/File:Histopathology_of_neurofibrillary_tangles_in_Alzheimer%27s_disease_-_annotated.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Neurofibrillary_tangles_in_the_Hippocampus_of_an_old_person_with_Alzheimer-related_pathology%2C_immunohistochemistry_for_tau_protein.JPG/960px-Neurofibrillary_tangles_in_the_Hippocampus_of_an_old_person_with_Alzheimer-related_pathology%2C_immunohistochemistry_for_tau_protein.JPG" alt="海馬迴切片的 Tau 免疫染色,紅色處為含 Tau 糾結的神經元" loading="lazy">
+      <figcaption>說明：老年人海馬迴的 Tau 蛋白免疫組織化學染色：抗 Tau 的抗體把異常聚集的 Tau 標成紅色，藍色小點是細胞核。紅色集中在少數神經元的細胞體與突起，形成火焰狀或三角形的輪廓，周圍其他細胞並沒有被染到。這就是臨床上用「磷酸化 Tau」當病理與 biomarker 的影像基礎；海馬迴是記憶形成的重要區域，也是糾結最早出現的地方之一。
+        <span class="credit">圖：Patho｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Neurofibrillary_tangles_in_the_Hippocampus_of_an_old_person_with_Alzheimer-related_pathology,_immunohistochemistry_for_tau_protein.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="5O3L" data-title="Tau 纖維(阿茲海默症腦,補充)" data-caption="看什麼:冷凍電子顯微鏡解出、取自阿茲海默症患者腦的 Tau 成對螺旋纖維(paired helical filament)核心。Tau 的一小段 β-sheet 區域一層層疊起來,就是糾結的骨架。僅供參考,結構細節不考。" data-style="依鏈上色"></div>
+
+    <div class="video" data-yt="Aqtspxbw2Ow" data-title="纏結的 Tau 與阿茲海默症(The tale of tangled tau in Alzheimer's disease,MRC LMB)" data-note="英國 MRC 分子生物學實驗室(MRC LMB)介紹 Tau 如何聚集成糾結、以及研究團隊如何解出這些纖維的結構。對應本節「Tau 一路出錯到聚集」的總串連;看的時候留意糾結出現在神經元內、和上面病理切片的紅色區域是同一種東西。內容較深,抓大意即可。"></div>
     <div class="box teacher"><p>老師最後的話：今天上的看起來很「生化」，但後面講疾病、講學習記憶怎麼形成，全部會用到。聽不懂的部分內容都很基本，YouTube 上找得到很多講解影片，也可以問 AI 幫忙理解；<strong>但考試是紙筆測驗，不能用 AI</strong>。</p></div>
 
     <div class="quiz" data-answer="2">
@@ -969,6 +1154,18 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td>Multipolar 多極</td><td>一條軸突+很多樹突，樹突樹很複雜</td><td>脊髓運動神經元；海馬迴 pyramidal neuron（本體三角形，有 apical 與 basal dendrite）；小腦 Purkinje neuron（樹突極度發達）</td></tr>
     </table></div>
     <div class="box plain"><p><span class="term" data-def="dendrite 樹突:神經元主要的接收天線,通常很多條、分支像樹。">dendrite（樹突）</span>是收訊端，<span class="term" data-def="axon 軸突:神經元唯一的一條輸出纜線,負責把動作電位傳到遠端。">axon（軸突）</span>是發訊端，一顆神經元通常只有一條軸突。<span class="term" data-def="neurite 神經突:神經元還沒分化完成、分不清是樹突還是軸突時,對突起的統稱。">neurite</span>則是還分不出樹突或軸突時的統稱。功能分類與形態分類是兩個獨立的維度：DRG 神經元功能上是 sensory、形態上是 pseudo-unipolar。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neurons_uni_bi_multi_pseudouni.svg/960px-Neurons_uni_bi_multi_pseudouni.svg.png" alt="四種神經元形態的線稿:單極、雙極、多極、偽單極" loading="lazy">
+      <figcaption>說明：編號 1 單極（unipolar）、2 雙極（bipolar）、3 多極（multipolar）、4 偽單極（pseudo-unipolar），對照上表。看突起怎麼從本體長出來：雙極在兩端各一條；多極有一整叢樹突加一條軸突（脊髓運動神經元、pyramidal、Purkinje 都是這型）；偽單極（背根神經節 DRG 的感覺神經元）是本體先伸出一條突起、再分岔成周邊支與中樞支，所以第 4 張的本體是「掛在側邊」的。考「DRG 是哪一型」時，要答 pseudo-unipolar，不是 bipolar。
+        <span class="credit">圖：Juoj8、Jonathan Haas｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Neurons_uni_bi_multi_pseudouni.svg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Purkinje_cell_by_Cajal.png" alt="Cajal 手繪的貓小腦 Purkinje 細胞,樹突樹像一面濃密的扇形" loading="lazy">
+      <figcaption>說明：Ramón y Cajal 用 Golgi 染色在顯微鏡下手繪的 Purkinje 細胞（貓小腦皮質；a=軸突、c=樹突）。對照老師的提醒：Purkinje neuron 的重點是「樹突樹極度發達、呈扁平扇形」，而軸突只有細細一條從本體下方伸出——簡報的螢光照片只染到樹突，不代表沒有軸突。這也是 multipolar 神經元「一條軸突、許多樹突」的極端例子。
+        <span class="credit">圖：Santiago Ramón y Cajal（手繪原作）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Purkinje_cell_by_Cajal.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <p>簡報上的 Purkinje neuron 螢光照片只看得到巨大的樹突樹；老師提醒下方其實有一條軸突，只是那個抗體沒染到。</p>
     <div class="quiz" data-answer="2">
       <p class="q">背根神經節（DRG）的感覺神經元，在形態上屬於哪一型？</p>
@@ -1042,6 +1239,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>數量：</strong>一條樹突上可以有幾百個，所以一棵樹突樹可接收的突觸數非常龐大。</li>
     </ul>
     <div class="box teacher"><p>老師要大家記的概念：<strong>spine 的數量與形狀是動態的（dynamic）</strong>，會隨突觸活動改變——突觸活動強，spine 結構更多、更穩固；活動弱，就可能萎縮退化。Dendritic spine 是<span class="term" data-def="synaptic plasticity 突觸可塑性:突觸連結的強度會依使用經驗而增強或減弱,被認為是學習與記憶的細胞基礎。">突觸可塑性（synaptic plasticity）</span>的結構基礎，這個詞之後的課會一再出現。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Pyramidal_hippocampal_neuron_40x.jpg/960px-Pyramidal_hippocampal_neuron_40x.jpg" alt="Golgi 染色的海馬迴 pyramidal 神經元,樹突上布滿細小突起" loading="lazy">
+      <figcaption>說明：Golgi 染色（把少數神經元整顆染黑）的人類海馬迴 pyramidal neuron,40 倍。中央三角形的深色團是本體，樹突上那些像細毛刺的小突起就是 dendritic spine——每一個通常是一個興奮性突觸的接收端。請對照本節：越遠的樹突仍有 spine，但 Golgi 體、rough ER 等合成胞器離本體越遠越少；spine 的數量與形狀會隨突觸活動改變（可塑性）。
+        <span class="credit">圖：MethoxyRoxy｜CC BY-SA 2.5｜<a href="https://commons.wikimedia.org/wiki/File:Pyramidal_hippocampal_neuron_40x.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="video" data-yt="WhowH0kb7n0" data-title="2 分鐘神經科學:突觸傳遞" data-note="看突觸前末梢的囊泡如何釋放傳導物質、突觸後受體如何接收;對應樹突棘頭上的 postsynaptic receptor。"></div>
     <div class="quiz" data-answer="2">
       <p class="q">關於神經元內胞器的分布，何者正確？</p>
@@ -1075,6 +1278,25 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>不是光溜溜的水管：</strong>上面結合著許多 <span class="term" data-def="MAP, microtubule-associated protein 微管結合蛋白:黏在微管上、調節其穩定度與排列的蛋白質。">MAP（微管結合蛋白）</span>，有的讓它更穩、有的讓它更不穩。細目不用背，老師只點名兩個：</li>
     </ul>
     <div class="box teacher"><p><strong>MAP2 主要在樹突</strong>，常被當成成熟神經元的 marker（用 MAP2 抗體一染就看得到成熟神經元）；<strong>Tau 主要在軸突</strong>，常用來染 neurite。阿茲海默症（Alzheimer's disease）患者腦內的 <span class="term" data-def="neurofibrillary tangle 神經纖維糾結:神經元內由異常 tau 蛋白堆成的纖維團塊,是阿茲海默症的病理特徵之一。">neurofibrillary tangle（神經纖維糾結）</span>，主要成分就是 Tau 蛋白。</p></div>
+    <figure class="fig" style="margin:16px 0"><svg viewBox="0 0 760 255" style="width:100%;max-width:760px" role="img" aria-label="微管動態不穩定示意圖:有 GTP cap 時生長,失去 cap 後原絲翻開並縮短">
+      <g font-size="13" fill="currentColor">
+      <text x="20" y="26" font-weight="700">① 生長中:+ 端帶著 GTP cap</text>
+      <rect x="90" y="40" width="360" height="22" rx="4" fill="var(--muted)" opacity=".35" stroke="var(--muted)"/>
+      <rect x="450" y="40" width="80" height="22" rx="4" fill="var(--accent)" stroke="var(--accent)"/>
+      <path d="M545 51 H590 M582 44 L592 51 L582 58" stroke="var(--accent)" stroke-width="3" fill="none"/>
+      <text x="55" y="56" text-anchor="middle" font-weight="700">− 端</text><text x="640" y="56" font-weight="700">+ 端</text>
+      <text x="490" y="85" text-anchor="middle" fill="var(--accent)">GTP-tubulin(新加入)</text>
+      <text x="270" y="85" text-anchor="middle" fill="var(--muted)">較舊的 tubulin,GTP 已水解成 GDP</text>
+      <text x="20" y="130" font-weight="700">② catastrophe:cap 消失,原絲向外翻開、快速縮短</text>
+      <rect x="90" y="144" width="290" height="22" rx="4" fill="var(--muted)" opacity=".35" stroke="var(--muted)"/>
+      <path d="M380 148 Q430 138 460 112 M380 155 Q440 160 480 150 M380 162 Q430 176 470 200" stroke="var(--warm)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M520 155 H475 M483 148 L473 155 L483 162" stroke="var(--warm)" stroke-width="3" fill="none"/>
+      <text x="55" y="160" text-anchor="middle" font-weight="700">− 端</text>
+      <text x="540" y="160" fill="var(--warm)">解聚 depolymerization</text>
+      <text x="20" y="238" font-weight="700">③ rescue:重新獲得 GTP cap,又回到生長(回到 ①)</text>
+      </g>
+    </svg>
+    <figcaption style="font-size:14px;color:var(--muted);margin-top:6px">示意圖：微管的「動態不穩定」（教科書概念，非老師逐項要求）。老師要你記住的是：tubulin 聚合用 GTP（不是 ATP）、+ 端是比較動態的一端；生長與縮短交替的現象（catastrophe/rescue 這些術語不用背），讓微管能快速重新組裝，例如受傷後長出新突起。</figcaption></figure>
     <div class="mol" data-pdb="1TUB" data-title="α/β 微管蛋白二聚體" data-style="依鏈上色" data-caption="看什麼:兩條鏈就是 α 與 β tubulin,各抓著一個核苷酸(GTP/GDP,綠色棍狀)。這個二聚體一顆顆頭尾相接成原絲,13 條原絲圍成微管;因為二聚體本身有頭尾之分,整根微管才有 + 端與 − 端。"></div>
 
     <h4>Neurofilament 神經絲</h4>
@@ -1087,7 +1309,15 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>presynaptic terminal（突觸前末梢）。</li>
       <li>dendritic spine：要形成新突觸、改變棘的形狀，靠的就是 actin remodeling。</li>
     </ul>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Neuronal_Growth_Cone.png/960px-Neuronal_Growth_Cone.png" alt="兩條神經突的末端:綠色微管束延伸到末端,粉紅色的 actin 在尖端呈扇形散開" loading="lazy">
+      <figcaption>說明：人類神經元的螢光染色，綠色=微管（microtubule）、粉紅色=actin 微絲。綠色的微管像鐵軌沿突起一路排到尖端；最前端的扇形就是 growth cone，裡面富含 actin，細細的絲狀突起負責往外探索。這正是老師說的分工：微管=長途運輸的軌道，微絲（ATP 驅動）=哪裡要改建就在哪裡搭鷹架（growth cone、突觸前末梢、樹突棘）。
+        <span class="credit">圖：Physicl｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Neuronal_Growth_Cone.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="1J6Z" data-title="肌動蛋白單體 G-actin" data-style="依鏈上色" data-caption="看什麼:這是一顆球狀的 actin 單體(G-actin),凹槽裡抓著一個核苷酸。許多這樣的單體頭尾相接、聚合成約 7 nm 的細絲(微絲),聚合與動態由 ATP 驅動,這點和微管用 GTP 不同。"></div>
     <div class="box plain"><p>一句話記三者：微管是<strong>鐵軌</strong>（長途運輸、有方向），神經絲是<strong>鋼筋</strong>（撐粗細、抗拉扯），微絲是<strong>鷹架</strong>（哪裡要改建就搭到哪裡）。能量也分開記：tubulin 用 GTP、actin 用 ATP；走在微管上的馬達蛋白用的也是 ATP（下一節）。</p></div>
+    <div class="video" data-yt="tO-W8mvBa78" data-title="細胞骨架動畫(Drew Berry,WEHI)" data-note="WEHI 的 Drew Berry 製作的細胞骨架動畫(約 1 分鐘);看的時候留意畫面中有哪幾種纖維、粗細與位置,並與本節微管、神經絲、微絲三種骨架對照。"></div>
     <div class="video" data-yt="wJyUtbn0O5Y" data-title="The Inner Life of the Cell(哈佛/XVIVO 動畫)" data-note="看微管與微絲如何不斷聚合、解聚,以及馬達蛋白拖著囊泡在微管上走——把本節的「動態」兩個字變成畫面。"></div>
     <div class="quiz" data-answer="3">
       <p class="q">下列細胞骨架的配對何者正確？</p>
@@ -1178,6 +1408,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p><strong>Dynein</strong>(cytoplasmic dynein):<strong>往微管 minus end 走</strong>，剛好和 kinesin 相反。軸突的 minus end 朝本體 → dynein 負責 <strong>retrograde 逆向運輸</strong>。<strong>Dynactin</strong> 不是馬達本身，而是輔助的蛋白複合體，幫 dynein 接上特定 cargo、提高運輸效率。簡報原文：Just remember dynein = retrograde / “–” end.</p></div>
     <div class="video" data-yt="y-uuk4Pr2i8" data-title="Kinesin 在微管上走路(3D 動畫)" data-note="看兩隻「腳」(馬達區)輪流抓住微管、尾巴拖著囊泡往前;每一步消耗一個 ATP,方向固定朝 + 端。"></div>
     <div class="mol" data-pdb="1BG2" data-title="Kinesin 馬達區(motor domain)" data-caption="看什麼:這是 kinesin 的一隻「腳」。中間綠色棍狀的小分子是 ADP,就夾在水解 ATP 的口袋裡;核苷酸狀態一變,構形跟著變,腳就鬆開或抓緊微管。"></div>
+    <div class="video" data-yt="UGc6pkpU8qM" data-title="Dynein 馬達蛋白(Dynein Motor Protein)" data-note="對應本節「dynein 往 minus end、逆向運輸」。看這支馬達蛋白動畫,留意它移動的方向,並和上方 kinesin 的影片對照(兩者方向相反,這一定會考)。"></div>
     <div class="video" data-yt="B2u1lQOQfP8" data-title="軸突運輸 Axonal Transport" data-note="把順向/逆向、kinesin/dynein、快/慢運輸整合複習一遍。"></div>
 
     <h4>逆向運輸的貨物與應用</h4>
@@ -1272,6 +1503,31 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td>一顆細胞包多少</td><td>伸出多條突起，<strong>同時包好幾條不同軸突</strong>的節段（老師說約可到八條）</td><td><strong>一顆只包一條軸突的一小段</strong></td></tr>
     </table></div>
     <p>髓鞘是什麼：膠細胞的細胞膜繞著軸突一圈又一圈纏上去，層與層壓緊（compaction），原本夾在中間的細胞質被擠出去，剩下一疊緊密的膜。成分約 70% 脂質、30% 蛋白質，蛋白質種類比一般細胞膜單純——是一層富含脂質的電絕緣體。簡報標題寫得很白：記概念，不用記術語。</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Myelinated_neuron.jpg" alt="有髓鞘軸突橫切的穿透式電子顯微鏡照片,髓鞘是一圈圈同心的深色薄層" loading="lazy">
+      <figcaption>說明：有髓鞘軸突的橫切（穿透式電子顯微鏡；右下比例尺 500 nm）。中間淡色的圓形區域是軸突（內有一個胞器，應是粒線體），外面一圈圈同心的深色薄層就是髓鞘：膠細胞的膜纏繞多圈、細胞質被擠出後壓緊的結果，所以才說它是「一疊緊密的膜」、富含脂質的絕緣體。此圖的來源說明未標示取自 CNS 或 PNS，看到的是共通的層狀結構。
+        <span class="credit">圖：Roadnottaken（Trinity College 電子顯微鏡中心製作）｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Myelinated_neuron.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="fig" style="margin:16px 0"><svg viewBox="0 0 760 265" style="width:100%;max-width:760px" role="img" aria-label="CNS 寡突膠細胞包多條軸突與 PNS 許旺細胞各包一段的比較圖">
+      <g font-size="13" fill="currentColor">
+      <text x="190" y="22" text-anchor="middle" font-weight="700">CNS:oligodendrocyte(一對多)</text>
+      <text x="570" y="22" text-anchor="middle" font-weight="700">PNS:Schwann cell(一顆一段)</text>
+      <path d="M375 10 V250" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
+      <circle cx="190" cy="62" r="22" fill="var(--warm-soft)" stroke="var(--warm)" stroke-width="2"/><circle cx="190" cy="62" r="8" fill="var(--warm)" opacity=".5"/>
+      <g stroke="var(--warm)" stroke-width="2" fill="none"><path d="M175 80 Q120 120 120 152"/><path d="M190 84 V185"/><path d="M205 80 Q260 120 260 214"/></g>
+      <g stroke="var(--sky)" stroke-width="5" fill="none"><path d="M20 160 H360"/><path d="M20 195 H360"/><path d="M20 230 H360"/></g>
+      <g fill="var(--warm-soft)" stroke="var(--warm)" stroke-width="2"><rect x="85" y="150" width="70" height="20" rx="6"/><rect x="155" y="185" width="70" height="20" rx="6"/><rect x="225" y="220" width="70" height="20" rx="6"/></g>
+      <text x="190" y="256" text-anchor="middle" font-size="12" fill="var(--muted)">一顆細胞伸出多條突起,各包不同軸突的一個節段</text>
+      <path d="M395 190 H745" stroke="var(--sky)" stroke-width="5" fill="none"/>
+      <g fill="var(--warm-soft)" stroke="var(--warm)" stroke-width="2"><rect x="410" y="178" width="100" height="24" rx="8"/><rect x="520" y="178" width="100" height="24" rx="8"/><rect x="630" y="178" width="100" height="24" rx="8"/></g>
+      <g fill="var(--warm)" opacity=".5"><ellipse cx="460" cy="190" rx="14" ry="6"/><ellipse cx="570" cy="190" rx="14" ry="6"/><ellipse cx="680" cy="190" rx="14" ry="6"/></g>
+      <path d="M515 150 V176 M625 150 V176" stroke="var(--bad)" stroke-width="2"/>
+      <text x="515" y="143" text-anchor="middle" font-size="12" fill="var(--bad)">node</text><text x="625" y="143" text-anchor="middle" font-size="12" fill="var(--bad)">node</text>
+      <text x="570" y="256" text-anchor="middle" font-size="12" fill="var(--muted)">一顆細胞只包同一條軸突的一小段</text>
+      </g>
+    </svg>
+    <figcaption style="font-size:14px;color:var(--muted);margin-top:6px">示意圖（俯視側面，非實際比例）：藍色是軸突，橘色是髓鞘包覆的節段，紅線標出節段之間裸露的 node of Ranvier。CNS 的 oligodendrocyte 一顆可同時包好幾條軸突的節段（老師說約可到八條），PNS 的 Schwann cell 一顆只包一條軸突的一段——考題最愛問這個對照。</figcaption></figure>
     <div class="video" data-yt="PqgmtqKZUSQ" data-title="髓鞘形成動畫 Myelination" data-note="看膠細胞的膜如何一圈圈纏上軸突、把細胞質擠出去變成緻密的髓鞘。"></div>
 
     <h4>髓鞘如何加快傳導</h4>
@@ -1305,6 +1561,14 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>好處：傳導更快；而且每個 node 都重新產生一次動作電位，所以軸突再長，訊號也不衰減。另外，有髓鞘時只有 node 處的膜需要讓離子進出，之後要把 Na⁺、K⁺ 梯度「還原」的離子幫浦（Na⁺/K⁺-ATPase）工作量少很多，所以也<strong>比較省 ATP</strong>（同學筆記的補充；屬教科書常識，老師口述未必有講）。<strong>軸突越粗傳導越快</strong>（接回第 5 節：neurofilament 決定口徑）。</p>
     <div class="box bridge"><p>把軸突當成一條會漏電的同軸電纜：軸漿是芯線(軸向電阻 r<sub>i</sub>)，膜是絕緣層(膜電阻 r<sub>m</sub>、膜電容 c<sub>m</sub>)。被動訊號能傳多遠由長度常數 λ=√(r<sub>m</sub>/r<sub>i</sub>) 決定。髓鞘把 r<sub>m</sub> 拉高、c<sub>m</sub> 壓低，所以 λ 變長、充電變快；軸突變粗則 r<sub>i</sub> 下降（∝1/d²），λ 也變長。node 就像長距離通訊每隔一段放一個中繼放大器（repeater），把衰減的訊號重新拉回滿振幅。類比失效處：這不是電磁波沿傳輸線傳播，而是擴散型的 RC 充電，所以速度只有每秒幾十到一百公尺上下，遠低於光速；「跳躍」也只是看起來像跳，internode 中間的電位仍是連續變化的。</p></div>
     <p>簡報上關於 node 的分子細節（Caspr2、ankyrin G、NrCAM、paranodal loop）標為進階參考，不用背。老師只補充一點：CNS 的 node 旁邊會有 astrocyte 的突起（perinodal process）靠過來。</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Nodes_of_Ranvier.png/960px-Nodes_of_Ranvier.png" alt="神經元與其軸突示意圖,放大顯示 CNS 與 PNS 的 node of Ranvier" loading="lazy">
+      <figcaption>說明：上圖是一顆神經元：軸突離開本體後，先有一段沒有髓鞘的 axon initial segment（對應老師說的「髓鞘在 AIS 處是沒有的」），之後才是一段一段的髓鞘。下圖放大 node of Ranvier（紅點處為裸露的軸突膜）：左邊 CNS 的髓鞘來自 oligodendrocyte,node 旁邊有 astrocyte 突起（perinodal）；右邊 PNS 由 Schwann cell 包覆。圖中的分子細節老師說不用背，只要看出「髓鞘是一段一段、node 是缺口」。
+        <span class="credit">圖：Mgcaptainzanko｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Nodes_of_Ranvier.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="1NEU" data-title="髓鞘蛋白 P0 的細胞外結構域" data-style="依鏈上色" data-caption="看什麼:P0 是 PNS 髓鞘裡最主要的膜蛋白,細胞外的這個免疫球蛋白樣結構域負責讓相鄰兩層膜黏緊(compaction)。髓鞘蛋白種類比一般細胞膜單純;老師說只記概念,不用背蛋白名稱。"></div>
+    <div class="video" data-yt="8yC--NvBn_M" data-title="跳躍式傳導(Saltatory conduction)動畫" data-note="對應本節跳躍式傳導:看訊號如何從一個 node of Ranvier 跳到下一個 node。留意髓鞘包住的區段與裸露的 node 各自扮演什麼角色。"></div>
     <div class="video" data-yt="5V7RZwDpmXE" data-title="2 分鐘神經科學:髓鞘" data-note="複習 oligodendrocyte 與 Schwann cell 的差別、node of Ranvier 與 saltatory conduction。"></div>
     <div class="video" data-yt="oa6rvUJlg7o" data-title="神經元的動作電位(Harvard Extension)" data-note="動作電位之後的課才細講;想先知道「鈉通道打開、去極化、再往下傳」是什麼意思可以先看。"></div>
     <div class="quiz" data-answer="2">
@@ -1323,6 +1587,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <h3>9. Astrocyte 星狀膠細胞的四項代表功能</h3>
     <p><span class="term" data-def="astrocyte 星狀膠細胞:CNS 中數量很多、突起高度分支的膠細胞;astro 是星星的意思。">Astrocyte</span> 是 CNS 裡數量非常多的膠細胞，名字裡的 astro 就是「星」：它伸出許多高度分支的突起，同時接觸神經元、突觸與微血管。相鄰的 astrocyte 各有自己的地盤，只在邊界處稍微重疊（螢光圖中紅綠交疊成黃色的窄帶），但彼此有連結。老師挑四個代表功能講。</p>
 
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/GFAP_16DIV_2.jpg/960px-GFAP_16DIV_2.jpg" alt="小鼠海馬迴星狀膠細胞的 GFAP 免疫螢光,細胞呈星形並伸出許多細長突起" loading="lazy">
+      <figcaption>說明：培養的小鼠海馬迴 astrocyte，用 GFAP（星狀膠細胞常用的標記，屬於中間絲蛋白，補充知識、老師未要求記）染色。可以看到每顆細胞以本體為中心向四面八方伸出細長分支，像星星，這些突起在體內會同時接觸神經元、突觸與微血管，這是 astrocyte 能做 K⁺ 緩衝、清 glutamate、維護 BBB 的結構基礎。
+        <span class="credit">圖：Yann Bernardinelli｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:GFAP_16DIV_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>(1) K⁺ buffering 鉀離子緩衝</h4>
     <p>神經元放電時 Na⁺ 流入、K⁺ 流出。如果連續放電，K⁺ 會在狹窄的細胞外空間累積；細胞外 K⁺ 太高會改變神經元的興奮性，影響它再次放電的能力（K⁺ 外流本來就是讓膜電位「復極化 repolarization」回來的力量，外面 K⁺ 變多，這個驅動力就變弱）。Astrocyte 在活躍的突觸旁把多餘的 K⁺ 吸收（uptake）進來，再透過 astrocyte 之間的網路以及和血管的接觸重新分配出去，讓細胞外環境回到恆定（homeostasis）。</p>
     <div class="box bridge"><p>為什麼這麼敏感？膜的靜止電位大致跟著鉀的 Nernst 電位走：E<sub>K</sub>=(RT/F)·ln([K⁺]<sub>外</sub>/[K⁺]<sub>內</sub>)。細胞外 K⁺ 平常只有約 4 mM，而且細胞外間隙體積很小——就像混合層很淺時，同樣的通量會造成很大的濃度變化。[K⁺]<sub>外</sub> 從 4 升到 8 mM,E<sub>K</sub> 就上移約 18 mV，整群神經元一起變得更靠近閾值。Astrocyte 的角色是把這個小儲庫接到一個大儲庫，增加系統的等效熱容量。</p></div>
@@ -1336,6 +1606,29 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>在 astrocyte 內轉成 glutamine</b><span>經酵素作用，glutamate（麩胺酸）變成 glutamine（麩醯胺酸）。</span></li>
       <li><b>送回突觸前神經元</b><span>glutamine 回到突觸前末梢，再轉回 glutamate 裝進囊泡重複使用。</span></li>
     </ol>
+    <figure class="fig" style="margin:16px 0"><svg viewBox="0 0 760 250" style="width:100%;max-width:760px" role="img" aria-label="三方突觸的 glutamate 與 glutamine 循環示意圖">
+      <g font-size="13" fill="currentColor">
+      <rect x="30" y="130" width="200" height="110" rx="14" fill="var(--sky-soft)" stroke="var(--sky)" stroke-width="2"/>
+      <text x="130" y="158" text-anchor="middle" font-weight="700">突觸前末梢</text>
+      <circle cx="75" cy="195" r="9" fill="none" stroke="var(--sky)" stroke-width="2"/><circle cx="105" cy="205" r="9" fill="none" stroke="var(--sky)" stroke-width="2"/><circle cx="135" cy="195" r="9" fill="none" stroke="var(--sky)" stroke-width="2"/>
+      <text x="130" y="232" text-anchor="middle" font-size="12" fill="var(--muted)">囊泡(內含 glutamate)</text>
+      <rect x="530" y="130" width="200" height="110" rx="14" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="630" y="158" text-anchor="middle" font-weight="700">突觸後(樹突棘)</text>
+      <text x="630" y="200" text-anchor="middle" font-size="12" fill="var(--muted)">受體:NMDA、AMPA…</text>
+      <path d="M230 160 V210 M530 160 V210" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="380" y="232" text-anchor="middle" font-size="12" fill="var(--muted)">突觸間隙 synaptic cleft</text>
+      <path d="M200 18 H560 Q585 18 585 42 V70 Q585 96 560 96 H200 Q175 96 175 70 V42 Q175 18 200 18 Z" fill="var(--warm-soft)" stroke="var(--warm)" stroke-width="2"/>
+      <text x="380" y="40" text-anchor="middle" font-weight="700" fill="var(--warm)">Astrocyte 突起</text>
+      <text x="380" y="72" text-anchor="middle" fill="var(--warm)">④ glutamate → glutamine</text>
+      <path d="M240 175 H520 M512 168 L522 175 L512 182" stroke="var(--ink,currentColor)" stroke-width="3" fill="none"/>
+      <text x="380" y="168" text-anchor="middle">① 釋放 glutamate、② 作用於突觸後受體</text>
+      <path d="M380 150 V104 M373 112 L380 102 L387 112" stroke="var(--warm)" stroke-width="3" fill="none"/>
+      <text x="392" y="125" fill="var(--warm)">③ transporter 回收</text>
+      <path d="M175 56 Q120 56 120 118 M113 108 L120 122 L127 108" stroke="var(--warm)" stroke-width="3" fill="none"/>
+      <text x="20" y="46" fill="var(--warm)">⑤ glutamine 送回</text>
+      </g>
+    </svg>
+    <figcaption style="font-size:14px;color:var(--muted);margin-top:6px">示意圖：三方突觸（tripartite synapse）的 glutamate–glutamine 循環，步驟編號對應上方 5 格流程。astrocyte 回收 glutamate 一方面讓訊號及時結束，一方面避免 glutamate 過多造成 excitotoxicity，同時把原料回收給神經元重複使用。</figcaption></figure>
     <div class="box teacher"><p>為什麼重要：<span class="term" data-def="excitotoxicity 興奮性毒性:glutamate 過多造成受體過度活化、大量鈣離子湧入細胞,最後導致神經元死亡的現象。">excitotoxicity（興奮性神經毒性）</span>。Glutamate 太多 → 受體過度活化（特別是 NMDA 受體）→ 大量 Ca²⁺ 湧入細胞 → 啟動一連串毒性反應 → 神經元死亡。這個現象最早在缺血性腦中風的研究中被大量討論，後來發現阿茲海默症等慢性神經退化疾病也有。Astrocyte 把多餘的 glutamate 清掉，就限制了 excitotoxicity。</p></div>
 
     <h4>(3) Ca²⁺ 訊號與 gap junction</h4>
@@ -1349,6 +1642,14 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>Astrocyte 的 end-feet（終足）：</strong>astrocyte 伸出的「腳」包覆在微血管外面，協助維持 BBB 的特性。</li>
     </ul>
     <p>腦仍需要從血液拿原料，例如葡萄糖，靠的是特定的 transporter(glucose transporter)與通道——是<strong>選擇性運輸，不是單純擴散</strong>。老師另外提到 astrocyte 還有滋養、抗氧化等功能，細節不講。</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Blood_brain_barrier.png" alt="一般微血管與腦微血管的比較:腦微血管內皮細胞緊密相接,並有 astrocyte 突起貼附" loading="lazy">
+      <figcaption>說明：左邊是一般組織的微血管：內皮細胞之間有縫隙（pores），物質容易滲出；右邊是腦微血管：內皮細胞之間以 tight junction 封死，外面還有 astrocyte 的突起（end-feet）貼附。請記得老師的分工：屏障的「牆」是內皮細胞與 tight junction,astrocyte 在外面協助維持，葡萄糖等養分則靠專屬 transporter 選擇性運輸。
+        <span class="credit">圖：David Nascari、Alan Sved｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Blood_brain_barrier.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="e9sN9gOEdG4" data-title="2 分鐘神經科學:血腦障壁(Blood-Brain Barrier)" data-note="對應本節 BBB 的構造與功能,兩分鐘速覽;看的時候留意主要屏障是內皮細胞與 tight junction,而 astrocyte 在外側的角色。"></div>
+    <div class="video" data-yt="noWwbvmdhL0" data-title="血腦障壁動畫(Blood Brain Barrier, Alila Medical Media)" data-note="較完整的 BBB 動畫(約 4.5 分鐘):留意腦微血管內皮細胞、tight junction 與外圍細胞的相對位置,以及物質如何通過或被擋下;並對照本節「葡萄糖靠 transporter 選擇性運輸」。"></div>
     <div class="box plain"><p>容易背錯的地方：BBB 的「牆」是內皮細胞之間的 tight junction;astrocyte 的 end-feet 是在牆外包覆並維護它，不是牆本身。</p></div>
     <div class="quiz" data-answer="4">
       <p class="q">神經元連續高頻放電時，Astrocyte 的 K⁺ buffering 主要在解決什麼問題？</p>
@@ -1382,6 +1683,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </table></div>
     <p>老師的兩個比喻：修剪突觸像<strong>園丁修剪花木</strong>，把多餘的枝修掉、修出樣子（雙光子影像中綠色的 microglia 突起與紅色神經元的樹突棘有重疊）；發炎過強則是<strong>「殺敵一千，自損八百」</strong>——microglia 是一把雙面刃。</p>
 
+    <div class="video" data-yt="mw-rwhpAQe4" data-title="Microglia(Khan Academy Medicine)" data-note="對應本節 microglia 作為 CNS 常駐免疫細胞(吞噬細胞)。留意它的功能描述;並記得老師強調的考點:microglia 的胚胎來源與其他神經系統細胞不同(卵黃囊的 myeloid progenitor)。"></div>
     <h4>Microglia 的狀態：M1/M2 太簡化</h4>
     <p>過去習慣二分：<strong>M1</strong>=促發炎（pro-inflammatory）、具神經毒性；<strong>M2</strong>=抗發炎、具保護性（astrocyte 也曾被分成 A1/A2）。現在認為這<strong>過度簡化</strong>。<span class="term" data-def="single-cell RNA sequencing 單細胞 RNA 定序:一次對一顆顆細胞分別測它表現了哪些基因,因此能把外觀相同、基因表現不同的細胞亞群分出來。">單細胞 RNA 定序（single-cell RNA-seq）</span>依基因表現把 microglia 分出更多依情境而變的狀態。簡報以阿茲海默症/神經退化模型為例：</p>
     <ul>
@@ -1397,6 +1699,18 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>Ependymal cell（室管膜細胞）：</strong>襯在腦室內壁，表面有<span class="term" data-def="cilia 纖毛:細胞表面會主動擺動的細毛狀構造,擺動需要消耗能量。">纖毛（cilia）</span>，主動耗能擺動，幫助 CSF 在腦室裡流動。</li>
       <li><strong>Choroid plexus（脈絡叢）：</strong>位在腦室內的特定位置，其上皮細胞覆蓋在微血管表面，從血液「過濾」並分泌出 CSF——<strong>大部分 CSF 由它製造</strong>。CSF 的成分由上皮細胞的 transporter 與通道調控。</li>
     </ul>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Choroid_plexus_%28human%29.jpg/960px-Choroid_plexus_%28human%29.jpg" alt="人類側腦室脈絡叢的 H&E 染色切片,單層上皮包著富含血管的基質" loading="lazy">
+      <figcaption>說明：脈絡叢（choroid plexus）的 H&E 切片。圖中標出：一層單層上皮（epithelium）覆蓋在含有微血管的基質（stroma）上，血管腔內可見紅血球。這層上皮細胞把血液中的水與離子「過濾」並分泌成腦脊髓液（CSF），所以大部分 CSF 由它製造；和用纖毛推動 CSF 流動的 ependymal cell 是兩回事，考題常把兩者對調。
+        <span class="credit">圖：Tulemo｜CC0｜<a href="https://commons.wikimedia.org/wiki/File:Choroid_plexus_(human).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/CSF_circulation.png/960px-CSF_circulation.png" alt="腦脊髓液循環示意圖:由脈絡叢產生,流經各腦室與蛛網膜下腔" loading="lazy">
+      <figcaption>說明：CSF 的循環路線：脈絡叢（紫色，位在側腦室與第三、第四腦室）產生 CSF，經腦室流到小腦下方的 cistern，再進入包圍腦與脊髓的蛛網膜下腔（subarachnoid space），最後在蛛網膜顆粒等處回到靜脈系統；右側放大圖是血管周圍的組織液流動（此為補充，老師未談）。老師這堂要求的是：誰製造（choroid plexus）、誰推動（ependymal cell 的纖毛）。
+        <span class="credit">圖：Mark D. Shen｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:CSF_circulation.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <p>分類上，這些細胞仍算在膠細胞裡。考題若把「製造 CSF」與「用纖毛推動 CSF」對調，要分得出來。</p>
     <div class="quiz" data-answer="2">
       <p class="q">關於 microglia 的來源，何者正確？</p>
@@ -1521,7 +1835,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td><span class="term" data-def="內分泌:訊號分子(荷爾蒙)進入血液循環,送到全身遠處的目標細胞">endocrine（內分泌）</span></td><td>全身</td><td>無線網路、網紅的爆紅影片</td><td>經由循環系統（bloodstream）送到遠端</td></tr>
     </table></div>
     <div class="box teacher"><p>「今天第一個要知道：訊息傳遞有三種方法。」老師當場帶全班複誦：自言自語是 autocrine、教室上課是 paracrine、網紅是 endocrine。另外他強調一件事：訊息傳給很多人，不代表每個人都收得到。<strong>細胞要有對應的受體（receptor）才算「有在聽」</strong>，老師用「同溫層」形容：訊號廣播出去，只有願意聽的那群會有反應。</p></div>
-    <div class="box bridge"><p>paracrine 像<strong>局地擴散</strong>：分子靠隨機碰撞散開，擴散時間約為 L²/D，距離加倍時間變四倍，所以只適合微米等級的鄰居。endocrine 像<strong>平流輸送</strong>：把分子丟進血流這個「平均風場」，幾十秒就能繞全身一圈，代價是被大幅稀釋。類比失效的地方：大氣裡污染物吹到哪裡就影響哪裡；荷爾蒙雖然流遍全身，卻只有帶著對應受體的細胞有反應，「誰收得到」是由接收端決定，不是由輸送路徑決定。</p></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Autocrine_and_Paracrine.png" alt="四種訊息傳播方式示意:intracrine、paracrine、autocrine、endocrine" loading="lazy">
+      <figcaption>這張圖把配體（藍色三角形）的去向畫成四格：autocrine（左下）是分泌後回頭結合自己細胞的受體 R;paracrine（上方）擴散到鄰近細胞；endocrine（右下）進入血管送到遠處。左上角多了一格 intracrine（配體在細胞內直接結合胞內受體，例如進核），老師沒有講，屬補充，考試只要會前三種。看圖時注意「受體 R 在誰身上」就是分辨三種方式的關鍵。
+        <span class="credit">圖：Anon490｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Autocrine_and_Paracrine.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<div class="box bridge"><p>paracrine 像<strong>局地擴散</strong>：分子靠隨機碰撞散開，擴散時間約為 L²/D，距離加倍時間變四倍，所以只適合微米等級的鄰居。endocrine 像<strong>平流輸送</strong>：把分子丟進血流這個「平均風場」，幾十秒就能繞全身一圈，代價是被大幅稀釋。類比失效的地方：大氣裡污染物吹到哪裡就影響哪裡；荷爾蒙雖然流遍全身，卻只有帶著對應受體的細胞有反應，「誰收得到」是由接收端決定，不是由輸送路徑決定。</p></div>
     <div class="quiz" data-answer="3">
       <p class="q">胰臟某細胞釋放的胰島素進入血液，作用在遠處的肌肉與脂肪細胞。這屬於哪一種訊息傳遞？</p>
       <ol><li>autocrine</li><li>paracrine</li><li>endocrine</li><li>ligand-gated</li></ol>
@@ -1606,7 +1926,50 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p><span class="term" data-def="配體:專一黏到受體上的分子;對膜受體來說通常就是 first messenger">ligand（配體）</span>就是「黏上去的那個東西」，也就是前面說的 first messenger。</p>
     <div class="box teacher"><p>講到 ligand-gated channel 時老師岔出一段物理：神經傳的是電訊號，鈉、鉀、氯離子進出細胞就是把電荷帶進帶出。<strong>細胞膜是一個很好的電容</strong>：中間的脂質是絕緣體，兩邊的水溶液是導體，和電容器構造一模一樣（他還提到做被動元件的國巨）。離子一流動，膜電位就變，訊號就傳下去。這部分下學期「腦科學概論」會細講。</p></div>
     <div class="box bridge"><p>受體只認特定配體，很像大氣分子的<strong>吸收譜線</strong>：輻射場裡什麼波長都有，CO₂ 只吃 15 μm 附近、O₃ 只吃 9.6 μm 附近。血液裡同時有幾十種荷爾蒙，每種細胞只對自己有受體的那幾種有反應。失效之處：譜線選擇性來自量子化的能階差；受體的選擇性來自形狀與電荷互補的「鎖與鑰匙」，而且是親和力高低的連續差別，所以結構相近的藥物可以冒充天然配體（例如鴉片類藥物冒充體內的 opioid 胜肽）。</p></div>
-    <div class="video" data-yt="WhowH0kb7n0" data-title="2 分鐘神經科學:突觸傳遞" data-note="看神經傳導物質(first messenger)被釋放、跨過突觸、黏上受體的過程;先有畫面,下學期再學細節。"></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Chemical_synapse_schema_cropped.jpg" alt="神經元與突觸的插圖,右下放大化學突觸:囊泡、神經傳導物質與受體" loading="lazy">
+      <figcaption>整個神經元（樹突、軸突）加上右下角放大的化學突觸：突觸前末梢內的囊泡裝著神經傳導物質（first messenger），釋放後跨過突觸間隙，結合突觸後膜的受體。這就是本堂所有 first messenger → 受體 → 細胞內反應的起點；受體可能是離子通道，也可能是 GPCR。
+        <span class="credit">圖：Christy Krames, MA, CMI（為美國 NIH 繪製）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Chemical_synapse_schema_cropped.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Electron_micrograph_of_neuromuscular_junction_(cross-section).jpg" alt="神經肌肉接合處的穿透式電子顯微鏡照片" loading="lazy">
+      <figcaption>真實的電子顯微鏡影像：神經肌肉接合處剖面，T 是軸突末梢、M 是肌纖維，箭頭指的是突觸後側的皺褶（junctional folds，含基底膜），尖端可見突觸後緻密區。這種皺褶把受體集中、增加接收面積；ACh 在這裡結合的是離子通道型受體（ligand-gated channel）。比例尺 0.3 µm，可以感受「突觸間隙」有多窄。
+        <span class="credit">圖：National Institute of Mental Health（由 Nrets 上傳）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Electron_micrograph_of_neuromuscular_junction_(cross-section).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="cZwb8zqAPXc" data-title="突觸傳遞:化學突觸動畫(Synaptic transmission, Alila Medical Media)" data-note="比 2 分鐘版更完整的化學突觸動畫:動作電位到達、鈣進入、囊泡融合釋放傳導物質、受體結合與清除;留意突觸後受體是離子通道時如何立刻產生電位變化。"></div>
+    <div class="video" data-yt="yg44T2HcA2o" data-title="神經傳導物質受體的類型(Types of neurotransmitter receptors, Khan Academy)" data-note="對應本節的 ligand-gated channel 與 GPCR 兩大類:看離子通道型(ionotropic)與代謝型(metabotropic)受體的差別、速度與持續時間;對照上面的比較圖。"></div>
+    <div class="video" data-yt="-dbRterutHY" data-title="細胞訊息傳遞入門(Intro to Cell Signaling, Amoeba Sisters)" data-note="入門概述:訊息分子、受體與反應的基本三步,以及 autocrine、paracrine、endocrine 等傳播距離;適合第 1 節與本節之間先暖身(高中生物程度)。"></div>
+    <figure class="fig"><svg viewBox="0 0 760 330" role="img" aria-label="離子通道型受體與 G protein 偶聯受體的比較示意圖">
+      <g fill="currentColor" font-size="14" font-weight="700" text-anchor="middle"><text x="190" y="22">配體閘控離子通道(ionotropic)</text><text x="570" y="22">G protein 偶聯受體(metabotropic)</text></g>
+      <rect x="20" y="110" width="340" height="56" rx="4" fill="var(--panel)" stroke="var(--line)"/>
+      <rect x="400" y="110" width="340" height="56" rx="4" fill="var(--panel)" stroke="var(--line)"/>
+      <!-- left channel -->
+      <g fill="var(--sky)" fill-opacity="0.4" stroke="var(--sky)" stroke-width="1.6"><rect x="150" y="98" width="30" height="80" rx="8"/><rect x="200" y="98" width="30" height="80" rx="8"/></g>
+      <circle cx="190" cy="52" r="9" fill="var(--accent)"/><text x="206" y="56" font-size="12" fill="currentColor">配體</text>
+      <path d="M190 64 L190 92" stroke="var(--accent)" stroke-width="2" fill="none"/>
+      <g fill="var(--warm)"><circle cx="178" cy="196" r="5"/><circle cx="202" cy="212" r="5"/></g>
+      <path d="M190 74 L190 136 L190 196" stroke="var(--warm)" stroke-width="2.4" fill="none" stroke-dasharray="5 4"/>
+      <g fill="currentColor" font-size="12"><text x="224" y="210">離子(Na⁺ 等)直接穿過通道</text></g>
+      <!-- right GPCR -->
+      <g fill="var(--sky)" fill-opacity="0.4" stroke="var(--sky)" stroke-width="1.6"><rect x="452" y="98" width="14" height="80" rx="7"/><rect x="472" y="98" width="14" height="80" rx="7"/><rect x="492" y="98" width="14" height="80" rx="7"/><rect x="512" y="98" width="14" height="80" rx="7"/></g>
+      <circle cx="490" cy="52" r="9" fill="var(--accent)"/><text x="506" y="56" font-size="12" fill="currentColor">配體</text>
+      <path d="M490 64 L490 92" stroke="var(--accent)" stroke-width="2" fill="none"/>
+      <ellipse cx="500" cy="200" rx="40" ry="16" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)" stroke-width="1.6"/><text x="500" y="204" font-size="12" text-anchor="middle" fill="currentColor">G protein</text>
+      <path d="M542 200 L584 200" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M584 200 L578 195 M584 200 L578 205" stroke="currentColor" fill="none" stroke-width="1.8"/>
+      <rect x="590" y="186" width="84" height="28" rx="6" fill="var(--warm)" fill-opacity="0.25" stroke="var(--warm)" stroke-width="1.6"/><text x="632" y="205" font-size="12" text-anchor="middle" fill="currentColor">酵素(AC/PLC)</text>
+      <path d="M632 214 L632 240" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M632 240 L627 233 M632 240 L637 233" stroke="currentColor" fill="none" stroke-width="1.8"/>
+      <text x="632" y="258" font-size="12" text-anchor="middle" fill="currentColor">second messenger</text>
+      <g fill="currentColor" font-size="12">
+        <text x="20" y="262" font-weight="700">特點</text>
+        <text x="20" y="282">受體本身就是通道,不經 second messenger</text>
+        <text x="20" y="300">反應快(約毫秒等級,補充)</text>
+        <text x="400" y="282">多一層轉換:可放大,效果可以持久</text>
+        <text x="400" y="300">反應較慢,但能啟動磷酸化與基因表現</text>
+      </g>
+    </svg><figcaption>示意圖（原創，簡化）：兩大類神經傳導物質受體的差別。左邊「直接通電」，像開關閘門；右邊「先轉手再放大」，像訊號經多級放大器。第 9 節的主題（電訊號留不住、要靠 second messenger 留下痕跡）就是右邊這條路的價值。時間等級為補充的教科書概數。</figcaption></figure>
+<div class="video" data-yt="WhowH0kb7n0" data-title="2 分鐘神經科學:突觸傳遞" data-note="看神經傳導物質(first messenger)被釋放、跨過突觸、黏上受體的過程;先有畫面,下學期再學細節。"></div>
     <div class="quiz" data-answer="1">
       <p class="q">依照老師「拆字」的讀法，receptor protein-tyrosine kinase 這個名字告訴我們什麼？</p>
       <ol><li>它是受體，本身也是激酶，專門在 tyrosine 上加磷酸</li><li>它是受體，需要與 G protein 結合才能產生 cAMP</li><li>它是離子通道，由 tyrosine 當配體打開</li><li>它是把 tyrosine 上磷酸拿掉的酵素</li></ol>
@@ -1620,7 +1983,51 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>GPCR 是動物基因體裡最大的一個蛋白質超家族，有上千種；每一種認的 ligand 不同，所以能接收五花八門的訊號。天然配體包括荷爾蒙、神經傳導物質、鴉片類衍生物、化學吸引物，連氣味分子、味道分子、光子都是靠 GPCR 偵測。</p>
     <p>結構上，它是一條胺基酸長鏈（簡報圖上每顆小珠子是一個胺基酸），在細胞膜裡來回穿了<strong>七次</strong>，每次穿膜都捲成一段 α 螺旋，所以又叫七次穿膜受體。埋在膜裡的那幾段幾乎都是脂溶性（非極性）的胺基酸，因為膜的內部是油。簡報用的例子是 β2-adrenergic receptor（β2 腎上腺素受體）。</p>
     <p>最重要的部位：<strong>第 5 與第 6 段穿膜螺旋之間、位於細胞內側的那個 loop</strong>（簡報標成紅色），是 G protein 的結合位置（G protein binding site）。平常它被收在裡面、被保護著，G protein 黏不上來。</p>
-    <div class="mol" data-pdb="2RH1" data-title="β2 腎上腺素受體(GPCR)" data-caption="看什麼:數一數穿過膜的 α 螺旋是不是七根;細胞內側那一端就是 G protein 要來結合的地方"></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/XBio_illustration_%E2%80%93_G_Protein_Coupled_Receptor_(GPCR).png/960px-XBio_illustration_%E2%80%93_G_Protein_Coupled_Receptor_(GPCR).png" alt="三種 GPCR 的 3D 結構帶狀圖:視紫質、β 腎上腺素受體、嗅覺受體,各自穿過細胞膜七次" loading="lazy">
+      <figcaption>三種不同的 GPCR（視紫質、β-adrenergic receptor、氣味受體）畫在同一張膜上，共通點就是「七根穿膜螺旋」。老師說 GPCR 家族上千種、認的配體各不相同（光、荷爾蒙、氣味），但骨架一致；這也是 G protein 能用同一套機制接收這麼多訊號的原因。圖中色彩只是從 N 端到 C 端的漸層，沒有生物意義。
+        <span class="credit">圖：explorebiology｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:XBio_illustration_–_G_Protein_Coupled_Receptor_(GPCR).png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="fig"><svg viewBox="0 0 760 350" role="img" aria-label="GPCR 七次穿膜結構與 G protein 三個次單元示意圖">
+      <g fill="currentColor" font-size="13">
+        <text x="14" y="104">細胞外</text><text x="14" y="232">細胞內</text>
+        <text x="14" y="170" fill="var(--muted)" font-size="11">細胞膜</text>
+      </g>
+      <rect x="60" y="120" width="470" height="80" rx="4" fill="var(--panel)" stroke="var(--line)"/>
+      <g fill="var(--sky)" fill-opacity="0.35" stroke="var(--sky)" stroke-width="1.6">
+        <rect x="128" y="110" width="24" height="100" rx="12"/><rect x="172" y="110" width="24" height="100" rx="12"/><rect x="216" y="110" width="24" height="100" rx="12"/><rect x="260" y="110" width="24" height="100" rx="12"/><rect x="304" y="110" width="24" height="100" rx="12"/><rect x="348" y="110" width="24" height="100" rx="12"/><rect x="392" y="110" width="24" height="100" rx="12"/>
+      </g>
+      <g fill="currentColor" font-size="11" text-anchor="middle"><text x="140" y="164">1</text><text x="184" y="164">2</text><text x="228" y="164">3</text><text x="272" y="164">4</text><text x="316" y="164">5</text><text x="360" y="164">6</text><text x="404" y="164">7</text></g>
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M184 110 Q206 78 228 110"/><path d="M272 110 Q294 76 316 110"/><path d="M360 110 Q382 78 404 110"/>
+        <path d="M140 210 Q162 240 184 210"/><path d="M228 210 Q250 240 272 210"/>
+        <path d="M140 110 Q132 84 98 74"/><path d="M404 210 Q418 240 470 252"/>
+      </g>
+      <path d="M316 210 Q338 262 360 210" fill="none" stroke="var(--warm)" stroke-width="3.4" stroke-linecap="round"/>
+      <g fill="currentColor" font-size="12">
+        <text x="30" y="68">N 端(細胞外)</text><text x="474" y="256">C 端(細胞內)</text>
+      </g>
+      <circle cx="294" cy="38" r="9" fill="var(--accent)"/><text x="310" y="42" font-size="12" fill="currentColor">配體(ligand)從外面結合,常嵌在七根螺旋圍成的口袋</text>
+      <path d="M294 50 L294 98" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+      <g stroke="var(--muted)" stroke-width="1.4" fill="none"><path d="M268 206 Q262 232 268 262"/><path d="M420 206 Q414 232 418 280"/></g>
+      <ellipse cx="300" cy="292" rx="56" ry="28" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)" stroke-width="1.6"/>
+      <ellipse cx="374" cy="292" rx="30" ry="26" fill="var(--warm)" fill-opacity="0.25" stroke="var(--warm)" stroke-width="1.6"/>
+      <ellipse cx="420" cy="298" rx="15" ry="14" fill="var(--sky)" fill-opacity="0.3" stroke="var(--sky)" stroke-width="1.6"/>
+      <g fill="currentColor" font-size="13" text-anchor="middle"><text x="300" y="290" font-weight="700">Gα</text><text x="300" y="307" font-size="11">GDP</text><text x="374" y="297" font-weight="700">Gβ</text><text x="420" y="302" font-weight="700">γ</text></g>
+      <g fill="currentColor" font-size="12">
+        <text x="548" y="132" font-weight="700">看圖重點</text>
+        <text x="548" y="154">七根穿膜 α 螺旋 (1–7)</text>
+        <text x="548" y="174"><tspan fill="var(--warm)" font-weight="700">橘線</tspan>:第 5–6 螺旋間的</text>
+        <text x="548" y="190">細胞內 loop,G protein</text>
+        <text x="548" y="206">結合處</text>
+        <text x="548" y="232">休息態:Gα 抓著 GDP,</text>
+        <text x="548" y="248">Gα 與 Gβγ 疊在一起</text>
+        <text x="548" y="272">灰線:Gα、Gγ 靠脂質</text>
+        <text x="548" y="288">錨附在膜內側</text>
+      </g>
+    </svg><figcaption>示意圖（原創，非實際比例；拓撲依標準 GPCR 畫法）：N 端在細胞外、C 端在細胞內，七次穿膜的連接順序是外-內-外交替，所以三個 extracellular loop 在上、三個 intracellular loop 在下。對照下方 2RH1（受體）與 3SN6（受體–Gs 複合體）的 3D 結構，可以找出同一批螺旋與 G protein 三條鏈。</figcaption></figure>
+<div class="mol" data-pdb="2RH1" data-title="β2 腎上腺素受體(GPCR)" data-caption="看什麼:數一數穿過膜的 α 螺旋是不是七根;細胞內側那一端就是 G protein 要來結合的地方"></div>
     <h4>三個演員</h4>
     <ul>
       <li><strong>receptor</strong>:GPCR 本身。</li>
@@ -1640,11 +2047,51 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <div class="box teacher"><p><strong>「狐狸尾巴跑出來了」幾乎必考。</strong>老師說（狐狸是學校吉祥物）已經好幾屆同學在考卷上寫「狐狸尾巴跑出來」，表示有來聽課，他會特別給高分。考法：他會<strong>給你彩色的圖</strong>（不用自己畫），要你解釋圖上每一個步驟在做什麼事。他形容這串過程像三分鐘短影音：每一幕都是誰不喜歡誰了、又喜歡上誰了。整串反應在毫秒到幾秒內完成，卻能產生非常多的 second messenger。</p></div>
     <div class="box plain"><p>老師反覆用的一個原理：<strong>蛋白質一處被拉，別處跟著變形</strong>。他比喻成拉同學的一隻手，同學身體另一邊的姿勢也會跟著變，原本握得好好的東西（GDP）就握不住了。整條路徑沒有任何「主動搬運」，全是「隨機碰撞 + 形狀合不合」：合就黏住，不合就彈開。</p></div>
     <div class="mol" data-pdb="3SN6" data-title="β2 腎上腺素受體–Gs 蛋白複合體" data-style="依鏈上色" data-caption="看什麼:上方七根螺旋是受體,下方掛著的三條不同顏色的鏈是 G protein 的 α、β、γ;這就是「尾巴露出來、G protein 被抓住」的那一瞬間"></div>
-    <div class="video" data-yt="jmYn1jJZ9BE" data-title="GPCR 3D 動畫" data-note="對照上面的七個步驟看:配體結合、受體變形、GDP 換 GTP、α 與 βγ 分開。"></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/GPCR_cycle.jpg/960px-GPCR_cycle.jpg" alt="G protein 循環:休息態、配體結合與核苷酸交換、Gα 解離、GTP 水解" loading="lazy">
+      <figcaption>這是老師「幾乎必考」的那張循環圖的另一種畫法，可對照你的筆記一步步走：（1） 休息態 Gα 抓 GDP、三個次單元疊在一起；（2） 配體結合，GDP 被換成 GTP;(3) Gα-GTP 與 Gβγ 分開，各自去推 effector;(4) Gα 自己水解 GTP 變回 GDP（圖中 RGS 蛋白能加快這一步，課堂未講），三者重新組合。注意「GTP 水解 = 內建計時器」。圖中 Gα 與 Gγ 的脂質錨標示與課堂略有出入處（如 GPI）不用記。
+        <span class="credit">圖：Repapetilto｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:GPCR_cycle.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="1AZS" data-title="Gsα 與 adenylyl cyclase 催化區的複合體" data-caption="看什麼:Gsα(結合 GTP 類似物)嵌在 adenylyl cyclase 兩個催化區上,這就是「活化的 α 去開 effector」的 3D 樣子;ATP 轉成 cAMP 的反應發生在催化區中間的口袋"></div>
+    <figure class="fig"><svg viewBox="0 0 760 290" role="img" aria-label="三類 G protein 與其下游效應酶對照圖">
+      <g fill="currentColor" font-size="13" text-anchor="middle" font-weight="700"><text x="90" y="30">G protein 型</text><text x="270" y="30">效應酶</text><text x="450" y="30">second messenger</text><text x="650" y="30">下游</text></g>
+      <g font-size="13" text-anchor="middle" fill="currentColor">
+        <rect x="30" y="50" width="120" height="44" rx="8" fill="var(--accent)" fill-opacity="0.22" stroke="var(--accent)" stroke-width="1.6"/><text x="90" y="77">Gs(stimulatory)</text>
+        <rect x="30" y="130" width="120" height="44" rx="8" fill="var(--muted)" fill-opacity="0.2" stroke="var(--muted)" stroke-width="1.6"/><text x="90" y="157">Gi(inhibitory)</text>
+        <rect x="30" y="210" width="120" height="44" rx="8" fill="var(--warm)" fill-opacity="0.22" stroke="var(--warm)" stroke-width="1.6"/><text x="90" y="237">Gq</text>
+        <rect x="210" y="50" width="120" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="270" y="77">adenylyl cyclase</text>
+        <rect x="210" y="130" width="120" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="270" y="157">adenylyl cyclase</text>
+        <rect x="210" y="210" width="120" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="270" y="237">PLCβ</text>
+        <rect x="380" y="50" width="140" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="450" y="77">cAMP 上升</text>
+        <rect x="380" y="130" width="140" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="450" y="157">cAMP 下降</text>
+        <rect x="380" y="210" width="140" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="450" y="237">IP3 + DAG</text>
+        <rect x="570" y="50" width="160" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="650" y="77">PKA 被活化</text>
+        <rect x="570" y="130" width="160" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="650" y="157">PKA 活性降低</text>
+        <rect x="570" y="210" width="160" height="44" rx="8" fill="var(--panel)" stroke="var(--line)" stroke-width="1.6"/><text x="650" y="231">IP3→ER 放 Ca²⁺</text><text x="650" y="247" font-size="11">DAG→PKC</text>
+      </g>
+      <g stroke="currentColor" stroke-width="1.8" fill="none">
+        <path d="M150 72 H206"/><path d="M200 66 L208 72 L200 78"/>
+        <path d="M330 72 H376"/><path d="M370 66 L378 72 L370 78"/><path d="M520 72 H566"/><path d="M560 66 L568 72 L560 78"/>
+        <path d="M150 152 H190"/><path d="M190 143 V161"/>
+        <path d="M330 152 H376"/><path d="M370 146 L378 152 L370 158"/><path d="M520 152 H566"/><path d="M560 146 L568 152 L560 158"/>
+        <path d="M150 232 H206"/><path d="M200 226 L208 232 L200 238"/>
+        <path d="M330 232 H376"/><path d="M370 226 L378 232 L370 238"/><path d="M520 232 H566"/><path d="M560 226 L568 232 L560 238"/>
+      </g>
+      <text x="170" y="144" font-size="11" fill="currentColor" text-anchor="middle">抑制 ⊣</text>
+    </svg><figcaption>示意圖（原創，整理）：課堂講了 Gs→cAMP 與 Gq→PLCβ 兩條路徑；Gi 是（補充）對照，作用相反，它的存在說明同樣的酵素可以被「踩油門」也可以被「踩煞車」。考試要會的是五段式骨架與這兩條路，不需要背 G protein 家族分類。</figcaption></figure>
+    <div class="video" data-yt="XIdBJm8DaFo" data-title="GPCR–cAMP 訊號 4K 動畫(GPCR cAMP signaling)" data-note="不同角度的 cAMP 路徑動畫(Rethink Biology):配體—GPCR—G protein—adenylyl cyclase—cAMP—PKA 的順序,可與上面的五段式與循環圖對照;留意 Gα 與 Gβγ 的分合時機。"></div>
+<div class="video" data-yt="jmYn1jJZ9BE" data-title="GPCR 3D 動畫" data-note="對照上面的七個步驟看:配體結合、受體變形、GDP 換 GTP、α 與 βγ 分開。"></div>
     <div class="video" data-yt="kMBb484zJQA" data-title="兩分鐘看完 GPCR–cAMP 路徑" data-note="快速複習版;注意 α-GTP 去活化 adenylyl cyclase,以及 cAMP 之後接 PKA。"></div>
     <h4>ATP、ADP、AMP、cAMP 到底差在哪</h4>
     <p>A 就是 ATCG 的 A（腺嘌呤核苷）。後面掛三個磷酸是 ATP(tri-)，兩個是 ADP(di-)，一個是 AMP(mono-)。adenylyl cyclase 把 ATP 切掉兩個磷酸，再把剩下那個磷酸的另一頭接回糖環上，形成環狀，就是 <span class="term" data-def="環狀腺苷單磷酸:由 ATP 經 adenylyl cyclase 製成的環狀小分子,是最經典的 second messenger">cyclic AMP（cAMP，環狀 AMP）</span>。cAMP 待久了會被水解，環被切開變回普通的 AMP;AMP 再被送回粒線體「充電」，把磷酸一個個加回去變成 ATP 重複使用。老師說這像拼樂高：拆了又組、組了又拆。</p>
-    <p>簡報對 second messenger 的總結：它讓細胞在<strong>單一個</strong>細胞外配體的刺激下，做出<strong>大規模、協調一致</strong>的反應。除了 cAMP，還有 Ca²⁺、phosphoinositide（磷脂醯肌醇類）、IP3、DAG、cGMP 和 NO。</p>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Cyclic-adenosine-monophosphate-from-xtal-3D-bs-17.png/960px-Cyclic-adenosine-monophosphate-from-xtal-3D-bs-17.png" alt="cAMP 分子的球棍模型" loading="lazy">
+      <figcaption>cAMP 的 3D 球棍模型（灰=碳、藍=氮、紅=氧、橘=磷、白=氫）。右上是腺嘌呤（A 就是 ATCG 的 A），左下磷酸基同時接在糖的 3' 與 5' 兩個碳上，形成一個環，這就是「cyclic」。把 ATP 切掉兩個磷酸再閉環，就是 adenylyl cyclase 做的事。
+        <span class="credit">圖：Ben Mills｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Cyclic-adenosine-monophosphate-from-xtal-3D-bs-17.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<p>簡報對 second messenger 的總結：它讓細胞在<strong>單一個</strong>細胞外配體的刺激下，做出<strong>大規模、協調一致</strong>的反應。除了 cAMP，還有 Ca²⁺、phosphoinositide（磷脂醯肌醇類）、IP3、DAG、cGMP 和 NO。</p>
     <div class="box bridge"><p><strong>GTP 水解是內建的鬆弛時間。</strong>α-GTP 的「開」狀態以一階過程衰減，數量隨時間呈 exp(−t/τ),τ 由 α 自己水解 GTP 的速率決定，就像受擾動的系統以特徵時間 τ 鬆弛回平衡。配體持續存在時不斷有新的 α 被打開，形成「強迫與鬆弛平衡」的穩態；配體一撤，輸出按 τ 衰退。<br><strong>cAMP 的擴散</strong>則像帶化學匯的點源擴散：AC 是膜上的點源，分解 cAMP 的酵素是遍布的一階匯，穩態濃度隨距離衰減的特徵長度約為 √(D/k)。匯愈強，訊號愈侷限在源頭附近。失效之處：細胞質不是均勻介質，裡面塞滿胞器與會暫時抓住 cAMP 的蛋白質。</p></div>
     <details class="deep"><summary>延伸：補充三個老師沒細講的名詞</summary>
       <p>（補充）G protein 有不同型：啟動 AC 的 α 叫 Gs（s 是 stimulatory），抑制 AC 的叫 Gi，啟動下一節 PLCβ 的叫 Gq。α 次單元自己水解 GTP 的能力叫 GTPase 活性。把 cAMP 水解成 AMP 的酵素叫 phosphodiesterase（PDE，磷酸二酯酶）；咖啡因的作用之一就是抑制它。</p>
@@ -1680,7 +2127,8 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><span class="term" data-def="攜鈣蛋白:細胞質中會結合鈣離子的小蛋白,結合後改變形狀去活化其他酵素(例如鈣/攜鈣蛋白依賴性激酶)">calmodulin（攜鈣蛋白）</span>:Ca²⁺ 的轉接頭。</li>
     </ul>
     <div class="box teacher"><p>老師說鈣離子在細胞裡「太可怕了，基本上是興奮劑」，一出來細胞就開始做很多事。考試提示：這張 PLC 圖<strong>也可能考</strong>，原話是「三個會考其中一個圖」。從上下文看，三張是 cAMP 循環圖、這張磷脂水解圖，以及下一節的 RTK 二聚化圖。</p></div>
-    <div class="mol" data-pdb="1CLL" data-title="calmodulin(攜鈣蛋白)" data-caption="看什麼:啞鈴形的小蛋白,兩端各抓兩顆鈣離子;抓到鈣之後才能去夾住並活化目標激酶"></div>
+        <div class="mol" data-pdb="1DJX" data-title="PLC-δ1 結合 IP3" data-caption="看什麼:PLC 酵素的一個催化口袋裡夾著 IP3(它切開 PIP2 後的水溶性產物);本堂講的是 PLCβ,亞型不同但催化核心類似,這裡借用來看「切 PIP2 的酵素」長什麼樣(補充)"></div>
+<div class="mol" data-pdb="1CLL" data-title="calmodulin(攜鈣蛋白)" data-caption="看什麼:啞鈴形的小蛋白,兩端各抓兩顆鈣離子;抓到鈣之後才能去夾住並活化目標激酶"></div>
     <div class="video" data-yt="erHdQ6cCu_s" data-title="IP3 與鈣離子訊號路徑" data-note="對照上面六步:PLC 切 PIP2、IP3 到 ER 放鈣、DAG 留在膜上活化 PKC。"></div>
     <h4>共同的五段式（簡報：synaptic second-messenger systems follow a common sequence）</h4>
     <p>老師把 GPCR 的兩條路徑收斂成同一個骨架：</p>
@@ -1765,7 +2213,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ol>
     <p>簡報列出被招募來的四類蛋白：adaptor protein（轉接蛋白，負責再接別的蛋白）、docking protein（提供更多可被磷酸化的 tyrosine 位點）、signaling enzyme（訊號酵素，例如 kinase）、transcription factor（轉錄因子）。老師口頭點到的下游有 PI3 kinase、Ras（「跟癌症有關」）、以及 STAT（兩個互相二聚化、被磷酸化後跑進細胞核）。</p>
     <div class="box teacher"><p>老師明講：<strong>SH2、PTB 這些名字「大家都不用記」</strong>。要會的是骨架：ligand 使受體 dimerize → 互相 phosphorylation → 構型改變 → recruit 下游分子 → 訊號傳下去。「protein tyrosine kinase 就是這麼簡單，它就是一個 dimerization。」這張圖他也可能印出來，請你說明訊息怎麼傳下去。</p></div>
-    <div class="mol" data-pdb="1IR3" data-title="胰島素受體的酪胺酸激酶區" data-caption="看什麼:這是 RTK 伸在細胞內的 kinase 區,處於已被磷酸化的活化態;中間的凹槽是抓 ATP 與目標 tyrosine 的地方"></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Activation_of_receptor_tyrosine_kinase.png/960px-Activation_of_receptor_tyrosine_kinase.png" alt="受體酪胺酸激酶活化四步驟:二聚化、激酶活化、自體磷酸化、招募下游蛋白" loading="lazy">
+      <figcaption>RTK 的四格漫畫：（1） 兩個閒置的受體；（2） 配體結合使它們靠攏成 dimer（此圖的配體本身是二聚體，有些配體是單體，結果相同）；(3) 兩個 kinase 區互相把對方的 tyrosine 磷酸化（autophosphorylation）；(4) 磷酸化的 tyrosine 成為下游蛋白的停靠點。對應老師要求的骨架：dimerize → 互相 phosphorylation → recruit 下游。SH2/PTB 這些 domain 名稱不用記。
+        <span class="credit">圖：Antónia Kurillová, Libor Kvítek, Aleš Panáček｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Activation_of_receptor_tyrosine_kinase.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<div class="mol" data-pdb="1IR3" data-title="胰島素受體的酪胺酸激酶區" data-caption="看什麼:這是 RTK 伸在細胞內的 kinase 區,處於已被磷酸化的活化態;中間的凹槽是抓 ATP 與目標 tyrosine 的地方"></div>
     <div class="video" data-yt="Miu2vEyfSXM" data-title="RTK 訊號傳遞動畫" data-note="看配體如何讓兩個受體靠攏、互相磷酸化,以及磷酸化的 tyrosine 如何成為下游蛋白的停靠點。"></div>
     <details class="deep"><summary>延伸：補充 Ras–MAPK 級聯（老師只提到 Ras 與癌症有關）</summary>
       <p>（補充）RTK 下游最有名的一條是 Ras–MAPK。Ras 是一顆「小型 G protein」，邏輯和上一節的 α 次單元一樣：綁 GDP 是關、綁 GTP 是開，靠自己水解 GTP 關機。RTK 磷酸化後經轉接蛋白把 Ras 的 GDP 換成 GTP,Ras-GTP 再啟動連續三層 kinase（Raf → MEK → ERK，統稱 MAP kinase cascade），最後 ERK 進核磷酸化轉錄因子，促進細胞生長分裂。Ras 若突變成無法水解 GTP，就等於計時器壞掉、開關永遠卡在「開」，細胞不停分裂，這是它與癌症的關聯。</p>
@@ -1789,7 +2243,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>回收</strong>：鈣很快被 pump（幫浦）打回去，所以訊號是一陣一陣的。老師：「刺激一下鈣離子跑出來，然後又會縮回去。」</li>
     </ul>
     <p>鈣訊號<strong>看得見</strong>：有些染劑（dye）與 Ca²⁺ 結合就會發螢光。簡報放的是血小板（platelet）的影像，整顆細胞亮起來，紅色是鈣最多的地方，可以看到鈣的釋放像波一樣掃過（calcium waves）。</p>
-    <div class="box plain"><p>（補充數字）細胞質游離 Ca²⁺ 約 0.1 μM，細胞外約 1–2 mM，相差一萬倍左右。這麼陡的梯度是細胞花 ATP 用幫浦維持出來的，等於預先把彈簧壓緊；通道一開，鈣順著梯度衝進來，不需要再臨時供能，所以反應非常快。</p></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Neuronal_calcium.gif" alt="Fura-2 鈣指示劑下的培養神經元,KCl 刺激後的螢光比值動畫" loading="lazy">
+      <figcaption>真實的鈣成像：培養的神經元加入螢光鈣指示劑 Fura-2 AM，再用氯化鉀（KCl）去極化刺激；左側色階是 Fura-2 的比值（越暖色代表胞內游離 Ca²⁺ 越高）。這是動態 GIF，會看到細胞一下子亮起來。對應老師說的「鈣看得見」：細胞膜去極化讓鈣通道打開、鈣湧入，染劑與鈣結合就改變螢光。
+        <span class="credit">圖：Freitashrphd｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Neuronal_calcium.gif" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<div class="box plain"><p>（補充數字）細胞質游離 Ca²⁺ 約 0.1 μM，細胞外約 1–2 mM，相差一萬倍左右。這麼陡的梯度是細胞花 ATP 用幫浦維持出來的，等於預先把彈簧壓緊；通道一開，鈣順著梯度衝進來，不需要再臨時供能，所以反應非常快。</p></div>
     <details class="deep"><summary>延伸：簡報上有、老師沒有口頭展開的 ryanodine receptor 與 CICR</summary>
       <p>簡報寫到 ER 膜上有兩種主要的鈣通道：IP3 receptor 與 ryanodine receptor（RyR，因為會結合一種有毒植物鹼 ryanodine 而得名）。RyR 主要在可興奮細胞（心肌、骨骼肌），動作電位到達後由它負責讓鈣升高。<strong>calcium-induced calcium release（CICR，鈣誘發鈣釋放）</strong>：從細胞膜通道流進來的少量鈣，去打開 ER 上的 RyR，放出更多的鈣；心臟每跳一下就重複一次。</p>
       <p>（補充）這是本堂唯一真正的<strong>正回饋</strong>：產物促進自己的釋放，所以會出現「點火後整片燒過去」的鈣波，類似條件性不穩定被觸發後自我維持的對流。它之所以不會失控，是因為 ER 的存量有限，而且幫浦一直在把鈣抽回去。</p>
@@ -1818,8 +2278,10 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ol>
     <div class="box teacher"><p><strong>「這我考試常考：為什麼我們要經過這麼麻煩的系統？」</strong>老師的答案：因為只有這樣才能「凡走過必留下痕跡，而不會船過水無痕」。經過 second messenger 與 signal transduction，才會產生新的蛋白質、產生新的記憶。沒有 cAMP，下游訊息傳不進去，記憶就不會存在腦裡。<br>他接著講了故事：「cAMP 對學習記憶很重要」這一句話就拿到諾貝爾生理醫學獎，得主是 Eric Kandel，也就是下學期那本很厚的教科書 Principles of Neural Science 的作者。實驗是把 cAMP 拿掉，結果神經與神經之間的連結，不管再刺激多少次都不會增強。</p></div>
     <div class="box bridge"><p>可以想成<strong>快變數與慢變數的耦合</strong>。膜電位是快變數，鬆弛時間是毫秒級，擾動過了就回到平衡，像邊界層裡一陣陣風；蛋白質的種類與數量是慢變數，時間尺度是小時到天，像海洋熱含量或土壤濕度。快變數本身沒有記憶，系統的「記憶」來自它把訊號積分進慢變數，慢變數再回頭調整快變數的響應強度。signal transduction 就是這兩個時間尺度之間的耦合項。失效之處：氣候的慢變數是連續的物理量；細胞這裡是離散的分子事件，而且要過「夠強、重複夠多次才啟動轉錄」的門檻。</p></div>
-    <div class="mol" data-pdb="1ATP" data-title="PKA 催化次單元" data-caption="看什麼:兩瓣夾成一個凹槽,ATP 就卡在中間,磷酸根從這裡被轉移到目標蛋白上;幾乎所有 kinase 都是這種雙瓣構造"></div>
-    <div class="video" data-yt="vL8pRySAGq8" data-title="cAMP 路徑:從 GPCR 到 PKA" data-note="重點看 cAMP 之後:PKA 如何被打開,以及它如何進細胞核影響基因表現。"></div>
+        <div class="mol" data-pdb="2QCS" data-title="PKA 全酵素(抑制態)" data-style="依鏈上色" data-caption="看什麼:調節次單元(R)把催化次單元(C)的凹槽堵住,所以沒有 cAMP 時 PKA 是關的;cAMP 結合 R 之後 R 放手,C 才被釋放去磷酸化目標蛋白(補充,細節老師沒講)"></div>
+<div class="mol" data-pdb="1ATP" data-title="PKA 催化次單元" data-caption="看什麼:兩瓣夾成一個凹槽,ATP 就卡在中間,磷酸根從這裡被轉移到目標蛋白上;幾乎所有 kinase 都是這種雙瓣構造"></div>
+        <div class="video" data-yt="DP9ZMbFnDMo" data-title="GPCR 如何開啟基因:cAMP–PKA–CREB(How a GPCR Turns Genes On)" data-note="對應本節「短期效應 vs 長期效應」:看 cAMP 活化 PKA 之後,PKA 如何進入細胞核、磷酸化 CREB、開啟基因表現,這就是「留下痕跡」的分子路徑;時間較長(約 12 分鐘),可挑 PKA 之後的部分看。"></div>
+<div class="video" data-yt="vL8pRySAGq8" data-title="cAMP 路徑:從 GPCR 到 PKA" data-note="重點看 cAMP 之後:PKA 如何被打開,以及它如何進細胞核影響基因表現。"></div>
     <details class="deep"><summary>延伸：補充 PKA 怎麼被 cAMP 打開、轉錄因子叫什麼</summary>
       <p>（補充）PKA 平常是四個次單元綁在一起：兩個 regulatory（調節）次單元壓住兩個 catalytic（催化）次單元。cAMP 黏上調節次單元後，催化次單元被放出來才有活性。長期效應裡被 PKA 磷酸化的轉錄因子，最有名的是 CREB(cAMP response element-binding protein)。Kandel 的實驗材料是海兔（Aplysia）的縮鰓反射。</p>
     </details>
@@ -1978,9 +2440,16 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>年紀大了以後深睡變得很少、睡眠很片段，清除的機會也跟著變少。</li>
       <li>所以長期不睡，代謝廢物會堆在腦裡，「很危險」。</li>
     </ul>
-    <div class="video" data-yt="MJK-dMlATmM" data-title="多睡一點的另一個理由(Jeff Iliff,TED)" data-note="老師簡報直接引用的影片:腦脊髓液如何在睡眠時沿血管周圍沖走 β-類澱粉蛋白,對應上面的膠淋巴系統。"></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Glymphatic_system_schematic.jpg/960px-Glymphatic_system_schematic.jpg" alt="膠淋巴系統示意:動脈周圍流入、對流穿過腦組織、靜脈周圍流出" loading="lazy">
+      <figcaption>膠淋巴通路示意（Iliff 的團隊所繪）：腦脊髓液從動脈旁（紅管、綠箭頭）流入，穿過星狀細胞終足上的 AQP4 水通道，在神經元之間形成對流（藍色大箭頭），把間質中的代謝廢物（棕色小條）帶向靜脈旁（藍管）排出。對應老師說睡眠時間隙變大、廢物被沖走；「對流」這個字很重要，不是單靠擴散。
+        <span class="credit">圖：Jeffrey J. Iliff｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Glymphatic_system_schematic.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<div class="video" data-yt="MJK-dMlATmM" data-title="多睡一點的另一個理由(Jeff Iliff,TED)" data-note="老師簡報直接引用的影片:腦脊髓液如何在睡眠時沿血管周圍沖走 β-類澱粉蛋白,對應上面的膠淋巴系統。"></div>
 
-    <h4>睡幾小時最好：U 型曲線</h4>
+        <div class="video" data-yt="x_go148NwkY" data-title="睡眠時大腦的清洗:膠淋巴系統(What Sleep Does to Your Brain, URMC)" data-note="羅徹斯特大學醫學中心的短片(約 1 分鐘):膠淋巴系統在睡眠時如何運作,可作為 Iliff TED 之外的快速複習;對照上面的膠淋巴示意圖。"></div>
+<h4>睡幾小時最好：U 型曲線</h4>
     <p>2002 年的大型追蹤研究（Arch Gen Psychiatry；約 63 萬女性、48 萬男性）：先問你平常睡幾小時，6 年後看死亡事件。以睡 7 小時左右（老師口頭講 7–8 小時）那組的死亡<span class="term" data-def="hazard ratio:兩組人單位時間內發生事件的比率相除;大於 1 表示風險比參考組高">風險比（hazard ratio）</span>當作 1，睡越少風險越高，<strong>睡太多風險也升高</strong>，男女都一樣。後來很多研究把縱軸換成各種慢性病，曲線形狀都差不多，只是隨年齡與疾病稍微偏移。</p>
     <p>「8 小時」的另一個來源：把人帶到山洞裡與社會隔離很久，自由睡醒的結果平均約 8 小時。但老師也說，很難證明每個人都是 8 小時最好（簡報：每人不同）。</p>
     <div class="box plain"><p>這是觀察性研究的相關，不是因果：睡很久的人可能本來就有病。老師也請大家「想一下睡太多那邊到底是什麼事」。作答時寫「7–8 小時附近風險最低、太短太長都較高」即可。</p></div>
@@ -2044,7 +2513,37 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 
     <div class="widget" data-widget="eeg"></div>
 
-    <h4>各期的 EEG、EMG、EOG（考題 4 的答案表）</h4>
+        <figure class="fig"><svg viewBox="0 0 760 442" role="img" aria-label="各睡眠期 EEG 波形與頻帶對照示意圖">
+<g fill="currentColor" font-size="12">
+<text x="8" y="56" font-weight="700">清醒・睜眼</text><text x="8" y="71" font-size="10.5" fill="var(--muted)">β &gt;13 Hz,低振幅、很密</text>
+<text x="8" y="120" font-weight="700">清醒・閉眼放鬆</text><text x="8" y="135" font-size="10.5" fill="var(--muted)">α 8–13 Hz</text>
+<text x="8" y="184" font-weight="700">N1</text><text x="8" y="199" font-size="10.5" fill="var(--muted)">θ 4–7 Hz 為主,低振幅混合</text>
+<text x="8" y="248" font-weight="700">N2</text><text x="8" y="263" font-size="10.5" fill="var(--muted)">θ 背景+紡錘波+K 複合波</text>
+<text x="8" y="312" font-weight="700">N3</text><text x="8" y="327" font-size="10.5" fill="var(--muted)">δ &lt;4 Hz,最大(&gt;75 µV)</text>
+<text x="8" y="376" font-weight="700">REM</text><text x="8" y="391" font-size="10.5" fill="var(--muted)">低振幅混合頻率,像清醒/N1</text>
+</g>
+<line x1="170" y1="58" x2="730" y2="58" stroke="var(--line)" stroke-width="1"/>
+<polyline fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linejoin="round" points="170.0,54.1 171.3,57.1 172.5,59.3 173.8,60.9 175.1,60.6 176.4,57.1 177.6,54.2 178.9,56.7 180.2,61.0 181.5,59.9 182.7,55.1 184.0,55.2 185.3,60.7 186.5,62.8 187.8,57.7 189.1,52.9 190.4,54.6 191.6,59.4 192.9,61.8 194.2,61.3 195.5,58.8 196.7,54.5 198.0,51.9 199.3,56.2 200.5,64.1 201.8,65.2 203.1,57.3 204.4,50.9 205.6,53.9 206.9,60.5 208.2,62.0 209.5,59.0 210.7,57.2 212.0,57.2 213.3,56.8 214.5,57.3 215.8,59.2 217.1,59.2 218.4,56.5 219.6,56.1 220.9,60.4 222.2,62.3 223.5,57.1 224.7,51.6 226.0,54.6 227.3,62.3 228.5,64.4 229.8,59.3 231.1,54.1 232.4,53.5 233.6,55.8 234.9,59.5 236.2,63.3 237.5,62.5 238.7,55.9 240.0,50.8 241.3,54.6 242.5,62.4 243.8,63.5 245.1,57.6 246.4,54.3 247.6,57.0 248.9,59.7 250.2,58.4 251.5,56.9 252.7,57.6 254.0,58.4 255.3,58.5 256.5,59.4 257.8,59.8 259.1,56.4 260.4,52.8 261.6,55.8 262.9,63.5 264.2,65.0 265.5,57.4 266.7,50.7 268.0,53.1 269.3,60.0 270.5,63.0 271.8,61.3 273.1,58.1 274.4,54.9 275.6,53.3 276.9,56.5 278.2,62.3 279.5,63.0 280.7,57.1 282.0,53.2 283.3,56.7 284.5,61.3 285.8,59.5 287.1,55.2 288.4,55.9 289.6,60.1 290.9,61.1 292.2,58.4 293.5,56.1 294.7,55.5 296.0,55.8 297.3,58.5 298.5,63.0 299.8,63.0 301.1,55.8 302.4,49.9 303.6,53.9 304.9,63.0 306.2,65.3 307.5,59.2 308.7,53.7 310.0,54.1 311.3,57.1 312.5,59.3 313.8,60.9 315.1,60.6 316.4,57.1 317.6,54.2 318.9,56.7 320.2,61.0 321.5,59.9 322.7,55.1 324.0,55.2 325.3,60.7 326.5,62.8 327.8,57.7 329.1,52.9 330.4,54.6 331.6,59.4 332.9,61.8 334.2,61.3 335.5,58.8 336.7,54.5 338.0,51.9 339.3,56.2 340.5,64.1 341.8,65.2 343.1,57.3 344.4,50.9 345.6,53.9 346.9,60.5 348.2,62.0 349.5,59.0 350.7,57.2 352.0,57.2 353.3,56.8 354.5,57.3 355.8,59.2 357.1,59.2 358.4,56.5 359.6,56.1 360.9,60.4 362.2,62.3 363.5,57.1 364.7,51.6 366.0,54.6 367.3,62.3 368.5,64.4 369.8,59.3 371.1,54.1 372.4,53.5 373.6,55.8 374.9,59.5 376.2,63.3 377.5,62.5 378.7,55.9 380.0,50.8 381.3,54.6 382.5,62.4 383.8,63.5 385.1,57.6 386.4,54.3 387.6,57.0 388.9,59.7 390.2,58.4 391.5,56.9 392.7,57.6 394.0,58.4 395.3,58.5 396.5,59.4 397.8,59.8 399.1,56.4 400.4,52.8 401.6,55.8 402.9,63.5 404.2,65.0 405.5,57.4 406.7,50.7 408.0,53.1 409.3,60.0 410.5,63.0 411.8,61.3 413.1,58.1 414.4,54.9 415.6,53.3 416.9,56.5 418.2,62.3 419.5,63.0 420.7,57.1 422.0,53.2 423.3,56.7 424.5,61.3 425.8,59.5 427.1,55.2 428.4,55.9 429.6,60.1 430.9,61.1 432.2,58.4 433.5,56.1 434.7,55.5 436.0,55.8 437.3,58.5 438.5,63.0 439.8,63.0 441.1,55.8 442.4,49.9 443.6,53.9 444.9,63.0 446.2,65.3 447.5,59.2 448.7,53.7 450.0,54.1 451.3,57.1 452.5,59.3 453.8,60.9 455.1,60.6 456.4,57.1 457.6,54.2 458.9,56.7 460.2,61.0 461.5,59.9 462.7,55.1 464.0,55.2 465.3,60.7 466.5,62.8 467.8,57.7 469.1,52.9 470.4,54.6 471.6,59.4 472.9,61.8 474.2,61.3 475.5,58.8 476.7,54.5 478.0,51.9 479.3,56.2 480.5,64.1 481.8,65.2 483.1,57.3 484.4,50.9 485.6,53.9 486.9,60.5 488.2,62.0 489.5,59.0 490.7,57.2 492.0,57.2 493.3,56.8 494.5,57.3 495.8,59.2 497.1,59.2 498.4,56.5 499.6,56.1 500.9,60.4 502.2,62.3 503.5,57.1 504.7,51.6 506.0,54.6 507.3,62.3 508.5,64.4 509.8,59.3 511.1,54.1 512.4,53.5 513.6,55.8 514.9,59.5 516.2,63.3 517.5,62.5 518.7,55.9 520.0,50.8 521.3,54.6 522.5,62.4 523.8,63.5 525.1,57.6 526.4,54.3 527.6,57.0 528.9,59.7 530.2,58.4 531.5,56.9 532.7,57.6 534.0,58.4 535.3,58.5 536.5,59.4 537.8,59.8 539.1,56.4 540.4,52.8 541.6,55.8 542.9,63.5 544.2,65.0 545.5,57.4 546.7,50.7 548.0,53.1 549.3,60.0 550.5,63.0 551.8,61.3 553.1,58.1 554.4,54.9 555.6,53.3 556.9,56.5 558.2,62.3 559.5,63.0 560.7,57.1 562.0,53.2 563.3,56.7 564.5,61.3 565.8,59.5 567.1,55.2 568.4,55.9 569.6,60.1 570.9,61.1 572.2,58.4 573.5,56.1 574.7,55.5 576.0,55.8 577.3,58.5 578.5,63.0 579.8,63.0 581.1,55.8 582.4,49.9 583.6,53.9 584.9,63.0 586.2,65.3 587.5,59.2 588.7,53.7 590.0,54.1 591.3,57.1 592.5,59.3 593.8,60.9 595.1,60.6 596.4,57.1 597.6,54.2 598.9,56.7 600.2,61.0 601.5,59.9 602.7,55.1 604.0,55.2 605.3,60.7 606.5,62.8 607.8,57.7 609.1,52.9 610.4,54.6 611.6,59.4 612.9,61.8 614.2,61.3 615.5,58.8 616.7,54.5 618.0,51.9 619.3,56.2 620.5,64.1 621.8,65.2 623.1,57.3 624.4,50.9 625.6,53.9 626.9,60.5 628.2,62.0 629.5,59.0 630.7,57.2 632.0,57.2 633.3,56.8 634.5,57.3 635.8,59.2 637.1,59.2 638.4,56.5 639.6,56.1 640.9,60.4 642.2,62.3 643.5,57.1 644.7,51.6 646.0,54.6 647.3,62.3 648.5,64.4 649.8,59.3 651.1,54.1 652.4,53.5 653.6,55.8 654.9,59.5 656.2,63.3 657.5,62.5 658.7,55.9 660.0,50.8 661.3,54.6 662.5,62.4 663.8,63.5 665.1,57.6 666.4,54.3 667.6,57.0 668.9,59.7 670.2,58.4 671.5,56.9 672.7,57.6 674.0,58.4 675.3,58.5 676.5,59.4 677.8,59.8 679.1,56.4 680.4,52.8 681.6,55.8 682.9,63.5 684.2,65.0 685.5,57.4 686.7,50.7 688.0,53.1 689.3,60.0 690.5,63.0 691.8,61.3 693.1,58.1 694.4,54.9 695.6,53.3 696.9,56.5 698.2,62.3 699.5,63.0 700.7,57.1 702.0,53.2 703.3,56.7 704.5,61.3 705.8,59.5 707.1,55.2 708.4,55.9 709.6,60.1 710.9,61.1 712.2,58.4 713.5,56.1 714.7,55.5 716.0,55.8 717.3,58.5 718.5,63.0 719.8,63.0 721.1,55.8 722.4,49.9 723.6,53.9 724.9,63.0 726.2,65.3 727.5,59.2 728.7,53.7 730.0,54.1"/>
+<line x1="170" y1="122" x2="730" y2="122" stroke="var(--line)" stroke-width="1"/>
+<polyline fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linejoin="round" points="170.0,118.6 171.3,115.3 172.5,114.0 173.8,115.3 175.1,118.8 176.4,123.4 177.6,127.6 178.9,130.1 180.2,130.1 181.5,127.5 182.7,123.0 184.0,118.2 185.3,114.4 186.5,113.1 187.8,114.6 189.1,118.4 190.4,123.5 191.6,128.2 192.9,131.0 194.2,130.9 195.5,128.0 196.7,123.1 198.0,117.8 199.3,113.8 200.5,112.3 201.8,113.9 203.1,118.2 204.4,123.7 205.6,128.7 206.9,131.6 208.2,131.5 209.5,128.4 210.7,123.2 212.0,117.5 213.3,113.3 214.5,111.8 215.8,113.5 217.1,118.0 218.4,123.7 219.6,129.0 220.9,132.0 222.2,131.9 223.5,128.6 224.7,123.2 226.0,117.4 227.3,113.1 228.5,111.6 229.8,113.4 231.1,117.9 232.4,123.7 233.6,129.0 234.9,132.0 236.2,131.8 237.5,128.6 238.7,123.2 240.0,117.5 241.3,113.2 242.5,111.8 243.8,113.6 245.1,118.0 246.4,123.7 247.6,128.8 248.9,131.7 250.2,131.5 251.5,128.3 252.7,123.1 254.0,117.7 255.3,113.7 256.5,112.3 257.8,114.0 259.1,118.3 260.4,123.6 261.6,128.4 262.9,131.0 264.2,130.8 265.5,127.8 266.7,123.1 268.0,118.0 269.3,114.3 270.5,113.1 271.8,114.7 273.1,118.6 274.4,123.5 275.6,127.8 276.9,130.2 278.2,130.0 279.5,127.3 280.7,123.0 282.0,118.4 283.3,115.1 284.5,114.1 285.8,115.5 287.1,119.0 288.4,123.3 289.6,127.1 290.9,129.3 292.2,129.1 293.5,126.7 294.7,122.8 296.0,118.9 297.3,116.0 298.5,115.0 299.8,116.3 301.1,119.3 302.4,123.1 303.6,126.5 304.9,128.4 306.2,128.2 307.5,126.1 308.7,122.7 310.0,119.2 311.3,116.7 312.5,115.9 313.8,117.0 315.1,119.7 316.4,123.0 317.6,126.0 318.9,127.6 320.2,127.5 321.5,125.6 322.7,122.7 324.0,119.5 325.3,117.2 326.5,116.5 327.8,117.5 329.1,119.9 330.4,122.9 331.6,125.6 332.9,127.2 334.2,127.1 335.5,125.4 336.7,122.6 338.0,119.7 339.3,117.5 340.5,116.8 341.8,117.7 343.1,120.0 344.4,122.9 345.6,125.5 346.9,127.0 348.2,127.0 349.5,125.3 350.7,122.6 352.0,119.7 353.3,117.5 354.5,116.7 355.8,117.6 357.1,119.9 358.4,122.9 359.6,125.6 360.9,127.3 362.2,127.2 363.5,125.5 364.7,122.6 366.0,119.5 367.3,117.2 368.5,116.3 369.8,117.2 371.1,119.7 372.4,123.0 373.6,126.0 374.9,127.8 376.2,127.8 377.5,125.9 378.7,122.7 380.0,119.2 381.3,116.6 382.5,115.6 383.8,116.6 385.1,119.4 386.4,123.1 387.6,126.5 388.9,128.6 390.2,128.6 391.5,126.4 392.7,122.8 394.0,118.9 395.3,115.8 396.5,114.7 397.8,115.9 399.1,119.1 400.4,123.3 401.6,127.2 402.9,129.5 404.2,129.5 405.5,127.0 406.7,122.9 408.0,118.4 409.3,115.0 410.5,113.7 411.8,115.1 413.1,118.7 414.4,123.4 415.6,127.8 416.9,130.4 418.2,130.4 419.5,127.6 420.7,123.0 422.0,118.0 423.3,114.2 424.5,112.8 425.8,114.3 427.1,118.3 428.4,123.6 429.6,128.4 430.9,131.2 432.2,131.2 433.5,128.1 434.7,123.1 436.0,117.7 437.3,113.6 438.5,112.1 439.8,113.8 441.1,118.1 442.4,123.7 443.6,128.8 444.9,131.8 446.2,131.7 447.5,128.5 448.7,123.2 450.0,117.5 451.3,113.2 452.5,111.7 453.8,113.5 455.1,117.9 456.4,123.7 457.6,129.0 458.9,132.0 460.2,131.9 461.5,128.6 462.7,123.2 464.0,117.4 465.3,113.1 466.5,111.6 467.8,113.4 469.1,118.0 470.4,123.7 471.6,129.0 472.9,131.9 474.2,131.8 475.5,128.5 476.7,123.2 478.0,117.5 479.3,113.4 480.5,111.9 481.8,113.7 483.1,118.1 484.4,123.7 485.6,128.7 486.9,131.5 488.2,131.3 489.5,128.2 490.7,123.1 492.0,117.8 493.3,113.9 494.5,112.6 495.8,114.2 497.1,118.4 498.4,123.6 499.6,128.2 500.9,130.8 502.2,130.6 503.5,127.7 504.7,123.0 506.0,118.2 507.3,114.6 508.5,113.4 509.8,115.0 511.1,118.7 512.4,123.4 513.6,127.6 514.9,129.9 516.2,129.7 517.5,127.1 518.7,122.9 520.0,118.6 521.3,115.4 522.5,114.4 523.8,115.8 525.1,119.1 526.4,123.2 527.6,126.9 528.9,128.9 530.2,128.8 531.5,126.4 532.7,122.8 534.0,119.0 535.3,116.2 536.5,115.3 537.8,116.5 539.1,119.4 540.4,123.1 541.6,126.3 542.9,128.1 544.2,127.9 545.5,125.9 546.7,122.7 548.0,119.4 549.3,116.9 550.5,116.1 551.8,117.2 553.1,119.7 554.4,123.0 555.6,125.8 556.9,127.4 558.2,127.3 559.5,125.5 560.7,122.6 562.0,119.6 563.3,117.4 564.5,116.6 565.8,117.6 567.1,119.9 568.4,122.9 569.6,125.6 570.9,127.1 572.2,127.0 573.5,125.3 574.7,122.6 576.0,119.7 577.3,117.6 578.5,116.8 579.8,117.7 581.1,120.0 582.4,122.9 583.6,125.5 584.9,127.1 586.2,127.0 587.5,125.3 588.7,122.6 590.0,119.7 591.3,117.4 592.5,116.6 593.8,117.5 595.1,119.9 596.4,122.9 597.6,125.7 598.9,127.4 600.2,127.4 601.5,125.6 602.7,122.7 604.0,119.5 605.3,117.0 606.5,116.1 607.8,117.1 609.1,119.6 610.4,123.0 611.6,126.2 612.9,128.0 614.2,128.0 615.5,126.1 616.7,122.8 618.0,119.1 619.3,116.3 620.5,115.3 621.8,116.4 623.1,119.3 624.4,123.2 625.6,126.7 626.9,128.9 628.2,128.9 629.5,126.6 630.7,122.9 632.0,118.7 633.3,115.5 634.5,114.4 635.8,115.6 637.1,118.9 638.4,123.3 639.6,127.4 640.9,129.8 642.2,129.8 643.5,127.2 644.7,123.0 646.0,118.3 647.3,114.7 648.5,113.4 649.8,114.8 651.1,118.6 652.4,123.5 653.6,128.0 654.9,130.7 656.2,130.7 657.5,127.8 658.7,123.1 660.0,117.9 661.3,114.0 662.5,112.5 663.8,114.1 665.1,118.2 666.4,123.6 667.6,128.6 668.9,131.5 670.2,131.4 671.5,128.3 672.7,123.2 674.0,117.6 675.3,113.4 676.5,111.9 677.8,113.6 679.1,118.0 680.4,123.7 681.6,128.9 682.9,131.9 684.2,131.8 685.5,128.5 686.7,123.2 688.0,117.5 689.3,113.1 690.5,111.6 691.8,113.4 693.1,117.9 694.4,123.8 695.6,129.0 696.9,132.0 698.2,131.9 699.5,128.6 700.7,123.2 702.0,117.5 703.3,113.2 704.5,111.7 705.8,113.5 707.1,118.0 708.4,123.7 709.6,128.9 710.9,131.8 712.2,131.6 713.5,128.4 714.7,123.2 716.0,117.6 717.3,113.5 718.5,112.1 719.8,113.9 721.1,118.2 722.4,123.6 723.6,128.5 724.9,131.3 726.2,131.1 727.5,128.0 728.7,123.1 730.0,117.9"/>
+<line x1="170" y1="186" x2="730" y2="186" stroke="var(--line)" stroke-width="1"/>
+<polyline fill="none" stroke="var(--sky)" stroke-width="1.3" stroke-linejoin="round" points="170.0,186.2 171.3,189.7 172.5,193.1 173.8,195.6 175.1,197.0 176.4,197.0 177.6,195.4 178.9,192.7 180.2,189.2 181.5,185.4 182.7,181.9 184.0,179.1 185.3,177.4 186.5,176.9 187.8,177.4 189.1,178.7 190.4,180.6 191.6,182.6 192.9,184.6 194.2,186.4 195.5,187.9 196.7,189.3 198.0,190.6 199.3,191.7 200.5,192.7 201.8,193.3 203.1,193.4 204.4,192.9 205.6,191.5 206.9,189.2 208.2,186.2 209.5,182.9 210.7,179.6 212.0,177.0 213.3,175.3 214.5,175.0 215.8,176.2 217.1,178.7 218.4,182.2 219.6,186.0 220.9,189.8 222.2,192.9 223.5,194.9 224.7,195.7 226.0,195.3 227.3,193.9 228.5,191.8 229.8,189.5 231.1,187.2 232.4,185.1 233.6,183.4 234.9,182.1 236.2,181.0 237.5,180.2 238.7,179.6 240.0,179.2 241.3,179.2 242.5,179.8 243.8,181.0 245.1,183.0 246.4,185.6 247.6,188.6 248.9,191.7 250.2,194.4 251.5,196.2 252.7,196.8 254.0,195.9 255.3,193.8 256.5,190.5 257.8,186.6 259.1,182.7 260.4,179.4 261.6,177.0 262.9,175.9 264.2,176.1 265.5,177.4 266.7,179.6 268.0,182.3 269.3,184.9 270.5,187.3 271.8,189.2 273.1,190.6 274.4,191.5 275.6,192.1 276.9,192.4 278.2,192.4 279.5,192.2 280.7,191.5 282.0,190.4 283.3,188.7 284.5,186.4 285.8,183.7 287.1,180.9 288.4,178.3 289.6,176.4 290.9,175.6 292.2,176.1 293.5,177.9 294.7,180.9 296.0,184.7 297.3,188.7 298.5,192.2 299.8,195.0 301.1,196.4 302.4,196.5 303.6,195.2 304.9,193.0 306.2,190.2 307.5,187.2 308.7,184.4 310.0,182.3 311.3,180.7 312.5,179.8 313.8,179.5 315.1,179.5 316.4,179.8 317.6,180.3 318.9,181.1 320.2,182.2 321.5,183.8 322.7,185.8 324.0,188.1 325.3,190.7 326.5,193.1 327.8,194.9 329.1,195.9 330.4,195.7 331.6,194.2 332.9,191.5 334.2,188.0 335.5,184.0 336.7,180.3 338.0,177.3 339.3,175.5 340.5,175.1 341.8,176.1 343.1,178.3 344.4,181.3 345.6,184.5 346.9,187.6 348.2,190.1 349.5,191.9 350.7,192.9 352.0,193.1 353.3,192.8 354.5,192.2 355.8,191.3 357.1,190.3 358.4,189.1 359.6,187.6 360.9,185.9 362.2,183.8 363.5,181.7 364.7,179.5 366.0,177.8 367.3,176.7 368.5,176.7 369.8,177.9 371.1,180.2 372.4,183.5 373.6,187.3 374.9,191.1 376.2,194.3 377.5,196.4 378.7,197.1 380.0,196.4 381.3,194.3 382.5,191.4 383.8,187.9 385.1,184.5 386.4,181.7 387.6,179.6 388.9,178.5 390.2,178.2 391.5,178.7 392.7,179.6 394.0,180.8 395.3,182.2 396.5,183.6 397.8,185.0 399.1,186.6 400.4,188.4 401.6,190.2 402.9,192.0 404.2,193.6 405.5,194.6 406.7,194.8 408.0,193.9 409.3,191.9 410.5,188.9 411.8,185.3 413.1,181.6 414.4,178.3 415.6,175.9 416.9,174.8 418.2,175.2 419.5,177.1 420.7,180.0 422.0,183.5 423.3,187.1 424.5,190.3 425.8,192.7 427.1,194.1 428.4,194.5 429.6,193.9 430.9,192.7 432.2,191.2 433.5,189.5 434.7,187.9 436.0,186.3 437.3,184.8 438.5,183.2 439.8,181.7 441.1,180.2 442.4,178.9 443.6,178.1 444.9,177.9 446.2,178.6 447.5,180.2 448.7,182.9 450.0,186.2 451.3,189.7 452.5,193.1 453.8,195.6 455.1,197.0 456.4,197.0 457.6,195.4 458.9,192.7 460.2,189.2 461.5,185.4 462.7,181.9 464.0,179.1 465.3,177.4 466.5,176.9 467.8,177.4 469.1,178.7 470.4,180.6 471.6,182.6 472.9,184.6 474.2,186.4 475.5,187.9 476.7,189.3 478.0,190.6 479.3,191.7 480.5,192.7 481.8,193.3 483.1,193.4 484.4,192.9 485.6,191.5 486.9,189.2 488.2,186.2 489.5,182.9 490.7,179.6 492.0,177.0 493.3,175.3 494.5,175.0 495.8,176.2 497.1,178.7 498.4,182.2 499.6,186.0 500.9,189.8 502.2,192.9 503.5,194.9 504.7,195.7 506.0,195.3 507.3,193.9 508.5,191.8 509.8,189.5 511.1,187.2 512.4,185.1 513.6,183.4 514.9,182.1 516.2,181.0 517.5,180.2 518.7,179.6 520.0,179.2 521.3,179.2 522.5,179.8 523.8,181.0 525.1,183.0 526.4,185.6 527.6,188.6 528.9,191.7 530.2,194.4 531.5,196.2 532.7,196.8 534.0,195.9 535.3,193.8 536.5,190.5 537.8,186.6 539.1,182.7 540.4,179.4 541.6,177.0 542.9,175.9 544.2,176.1 545.5,177.4 546.7,179.6 548.0,182.3 549.3,184.9 550.5,187.3 551.8,189.2 553.1,190.6 554.4,191.5 555.6,192.1 556.9,192.4 558.2,192.4 559.5,192.2 560.7,191.5 562.0,190.4 563.3,188.7 564.5,186.4 565.8,183.7 567.1,180.9 568.4,178.3 569.6,176.4 570.9,175.6 572.2,176.1 573.5,177.9 574.7,180.9 576.0,184.7 577.3,188.7 578.5,192.2 579.8,195.0 581.1,196.4 582.4,196.5 583.6,195.2 584.9,193.0 586.2,190.2 587.5,187.2 588.7,184.4 590.0,182.3 591.3,180.7 592.5,179.8 593.8,179.5 595.1,179.5 596.4,179.8 597.6,180.3 598.9,181.1 600.2,182.2 601.5,183.8 602.7,185.8 604.0,188.1 605.3,190.7 606.5,193.1 607.8,194.9 609.1,195.9 610.4,195.7 611.6,194.2 612.9,191.5 614.2,188.0 615.5,184.0 616.7,180.3 618.0,177.3 619.3,175.5 620.5,175.1 621.8,176.1 623.1,178.3 624.4,181.3 625.6,184.5 626.9,187.6 628.2,190.1 629.5,191.9 630.7,192.9 632.0,193.1 633.3,192.8 634.5,192.2 635.8,191.3 637.1,190.3 638.4,189.1 639.6,187.6 640.9,185.9 642.2,183.8 643.5,181.7 644.7,179.5 646.0,177.8 647.3,176.7 648.5,176.7 649.8,177.9 651.1,180.2 652.4,183.5 653.6,187.3 654.9,191.1 656.2,194.3 657.5,196.4 658.7,197.1 660.0,196.4 661.3,194.3 662.5,191.4 663.8,187.9 665.1,184.5 666.4,181.7 667.6,179.6 668.9,178.5 670.2,178.2 671.5,178.7 672.7,179.6 674.0,180.8 675.3,182.2 676.5,183.6 677.8,185.0 679.1,186.6 680.4,188.4 681.6,190.2 682.9,192.0 684.2,193.6 685.5,194.6 686.7,194.8 688.0,193.9 689.3,191.9 690.5,188.9 691.8,185.3 693.1,181.6 694.4,178.3 695.6,175.9 696.9,174.8 698.2,175.2 699.5,177.1 700.7,180.0 702.0,183.5 703.3,187.1 704.5,190.3 705.8,192.7 707.1,194.1 708.4,194.5 709.6,193.9 710.9,192.7 712.2,191.2 713.5,189.5 714.7,187.9 716.0,186.3 717.3,184.8 718.5,183.2 719.8,181.7 721.1,180.2 722.4,178.9 723.6,178.1 724.9,177.9 726.2,178.6 727.5,180.2 728.7,182.9 730.0,186.2"/>
+<line x1="170" y1="250" x2="730" y2="250" stroke="var(--line)" stroke-width="1"/>
+<polyline fill="none" stroke="var(--sky)" stroke-width="1.3" stroke-linejoin="round" points="170.0,248.0 171.3,245.9 172.5,244.2 173.8,243.2 175.1,242.9 176.4,243.3 177.6,244.5 178.9,246.2 180.2,248.1 181.5,250.2 182.7,252.0 184.0,253.5 185.3,254.5 186.5,255.0 187.8,255.1 189.1,254.7 190.4,254.1 191.6,253.3 192.9,252.4 194.2,251.6 195.5,250.7 196.7,249.8 198.0,248.9 199.3,248.0 200.5,247.1 201.8,246.2 203.1,245.4 204.4,244.9 205.6,244.7 206.9,245.1 208.2,245.9 209.5,247.2 210.7,249.0 212.0,251.1 213.3,253.1 214.5,255.0 215.8,256.3 217.1,257.1 218.4,257.1 219.6,256.3 220.9,254.8 222.2,252.8 223.5,250.6 224.7,248.4 226.0,246.5 227.3,245.0 228.5,244.2 229.8,244.0 231.1,244.3 232.4,245.2 233.6,246.3 234.9,247.6 236.2,248.9 237.5,250.1 238.7,251.1 240.0,252.0 241.3,252.7 242.5,253.2 243.8,253.7 245.1,254.0 246.4,254.3 247.6,254.3 248.9,254.0 250.2,253.4 251.5,252.5 252.7,251.1 254.0,249.5 255.3,247.8 256.5,246.0 257.8,244.6 259.1,243.5 260.4,243.2 261.6,243.5 262.9,244.6 264.2,246.3 265.5,248.4 266.7,250.7 268.0,252.9 269.3,254.8 270.5,256.1 271.8,256.8 273.1,256.7 274.4,256.0 275.6,254.9 276.9,253.5 278.2,252.1 279.5,250.9 280.7,250.3 282.0,250.2 283.3,250.8 284.5,252.0 285.8,253.9 287.1,256.4 288.4,259.1 289.6,262.1 290.9,265.2 292.2,268.0 293.5,270.6 294.7,272.6 296.0,274.2 297.3,275.0 298.5,275.1 299.8,274.4 301.1,273.0 302.4,270.8 303.6,267.9 304.9,264.4 306.2,260.4 307.5,256.2 308.7,251.9 310.0,247.8 311.3,244.1 312.5,241.0 313.8,238.7 315.1,237.3 316.4,236.7 317.6,236.8 318.9,237.4 320.2,238.4 321.5,239.4 322.7,240.3 324.0,240.8 325.3,240.9 326.5,240.6 327.8,239.8 329.1,238.8 330.4,237.5 331.6,236.3 332.9,235.1 334.2,234.0 335.5,233.1 336.7,232.3 338.0,231.7 339.3,231.2 340.5,230.8 341.8,230.5 343.1,230.5 344.4,230.8 345.6,231.5 346.9,232.7 348.2,234.5 349.5,236.9 350.7,239.6 352.0,242.6 353.3,245.6 354.5,248.3 355.8,250.5 357.1,252.0 358.4,252.7 359.6,252.5 360.9,251.6 362.2,250.2 363.5,248.4 364.7,246.6 366.0,245.0 367.3,243.8 368.5,243.2 369.8,243.2 371.1,243.7 372.4,244.7 373.6,245.9 374.9,247.3 376.2,248.7 377.5,249.9 378.7,251.0 380.0,251.9 381.3,252.6 382.5,253.2 383.8,253.7 385.1,254.0 386.4,254.2 387.6,254.3 388.9,254.0 390.2,253.4 391.5,252.5 392.7,251.1 394.0,249.5 395.3,247.8 396.5,246.0 397.8,244.6 399.1,243.5 400.4,243.2 401.6,243.5 402.9,244.6 404.2,246.3 405.5,248.4 406.7,250.7 408.0,252.9 409.3,254.8 410.5,256.1 411.8,256.7 413.1,256.6 414.4,255.8 415.6,254.5 416.9,252.9 418.2,251.2 419.5,249.6 420.7,248.1 422.0,247.1 423.3,246.3 424.5,245.9 425.8,245.8 427.1,245.9 428.4,246.1 429.6,246.5 430.9,246.9 432.2,247.5 433.5,248.3 434.7,249.3 436.0,250.5 437.3,251.8 438.5,253.2 439.8,254.5 441.1,255.5 442.4,256.1 443.6,256.1 444.9,255.5 446.2,254.2 447.5,252.4 448.7,250.3 450.0,248.0 451.3,245.9 452.5,244.2 453.8,243.2 455.1,242.9 456.4,243.3 457.6,244.5 458.9,246.2 460.2,248.1 461.5,250.2 462.7,252.0 464.0,253.5 465.3,254.5 466.5,255.0 467.8,255.1 469.1,254.7 470.4,254.1 471.6,253.3 472.9,252.4 474.2,251.6 475.5,250.7 476.7,249.8 478.0,248.9 479.3,248.0 480.5,247.1 481.8,246.2 483.1,245.4 484.4,244.9 485.6,244.7 486.9,245.1 488.2,245.9 489.5,247.2 490.7,249.0 492.0,251.1 493.3,253.1 494.5,254.9 495.8,256.3 497.1,257.0 498.4,257.0 499.6,256.4 500.9,255.1 502.2,253.1 503.5,250.7 504.7,248.1 506.0,245.8 507.3,244.3 508.5,243.8 509.8,244.3 511.1,245.4 512.4,246.5 513.6,247.2 514.9,247.3 516.2,247.3 517.5,247.9 518.7,249.5 520.0,252.0 521.3,254.6 522.5,256.3 523.8,256.3 525.1,254.6 526.4,252.2 527.6,250.4 528.9,250.3 530.2,251.9 531.5,254.3 532.7,255.6 534.0,254.5 535.3,250.4 536.5,244.7 537.8,239.7 539.1,237.4 540.4,239.1 541.6,243.9 542.9,249.5 544.2,253.4 545.5,254.0 546.7,251.6 548.0,248.4 549.3,247.0 550.5,249.1 551.8,254.3 553.1,260.4 554.4,264.0 555.6,262.9 556.9,256.9 558.2,248.6 559.5,241.5 560.7,238.8 562.0,241.4 563.3,247.5 564.5,253.4 565.8,255.8 567.1,253.2 568.4,246.7 569.6,240.0 570.9,236.7 572.2,239.0 573.5,246.0 574.7,254.4 576.0,260.4 577.3,261.3 578.5,257.2 579.8,251.0 581.1,246.4 582.4,246.2 583.6,250.6 584.9,257.2 586.2,262.2 587.5,262.3 588.7,256.9 590.0,248.0 591.3,239.4 592.5,234.8 593.8,235.8 595.1,241.3 596.4,248.2 597.6,253.0 598.9,253.8 600.2,251.0 601.5,247.0 602.7,244.7 604.0,246.1 605.3,250.8 606.5,256.7 607.8,261.0 609.1,261.6 610.4,258.3 611.6,252.9 612.9,248.0 614.2,245.6 615.5,246.4 616.7,249.2 618.0,252.0 619.3,252.9 620.5,251.1 621.8,247.5 623.1,243.6 624.4,241.2 625.6,241.3 626.9,243.5 628.2,246.8 629.5,249.9 630.7,251.8 632.0,252.6 633.3,252.8 634.5,253.3 635.8,254.4 637.1,255.8 638.4,257.0 639.6,257.2 640.9,256.1 642.2,253.7 643.5,250.8 644.7,248.0 646.0,245.8 647.3,244.5 648.5,244.0 649.8,244.1 651.1,244.6 652.4,245.4 653.6,246.4 654.9,247.6 656.2,248.9 657.5,250.1 658.7,251.1 660.0,252.0 661.3,252.7 662.5,253.2 663.8,253.7 665.1,254.0 666.4,254.3 667.6,254.3 668.9,254.0 670.2,253.4 671.5,252.5 672.7,251.1 674.0,249.5 675.3,247.8 676.5,246.0 677.8,244.6 679.1,243.5 680.4,243.2 681.6,243.5 682.9,244.6 684.2,246.3 685.5,248.4 686.7,250.7 688.0,252.9 689.3,254.8 690.5,256.1 691.8,256.7 693.1,256.6 694.4,255.8 695.6,254.5 696.9,252.9 698.2,251.2 699.5,249.6 700.7,248.1 702.0,247.1 703.3,246.3 704.5,245.9 705.8,245.8 707.1,245.9 708.4,246.1 709.6,246.5 710.9,246.9 712.2,247.5 713.5,248.3 714.7,249.3 716.0,250.5 717.3,251.8 718.5,253.2 719.8,254.5 721.1,255.5 722.4,256.1 723.6,256.1 724.9,255.5 726.2,254.2 727.5,252.4 728.7,250.3 730.0,248.0"/>
+<line x1="170" y1="314" x2="730" y2="314" stroke="var(--line)" stroke-width="1"/>
+<polyline fill="none" stroke="var(--warm)" stroke-width="1.3" stroke-linejoin="round" points="170.0,314.0 171.3,314.1 172.5,314.7 173.8,315.8 175.1,317.7 176.4,319.9 177.6,322.3 178.9,324.4 180.2,325.9 181.5,327.0 182.7,327.7 184.0,328.5 185.3,329.6 186.5,331.3 187.8,333.5 189.1,335.9 190.4,338.3 191.6,340.2 192.9,341.2 194.2,341.5 195.5,341.2 196.7,340.6 198.0,340.1 199.3,339.9 200.5,340.0 201.8,340.1 203.1,340.0 204.4,339.2 205.6,337.5 206.9,335.0 208.2,332.0 209.5,328.7 210.7,325.7 212.0,323.2 213.3,321.1 214.5,319.4 215.8,317.7 217.1,315.7 218.4,313.2 219.6,310.2 220.9,307.0 222.2,303.9 223.5,301.5 224.7,299.8 226.0,298.9 227.3,298.5 228.5,298.4 229.8,298.1 231.1,297.4 232.4,296.3 233.6,294.9 234.9,293.7 236.2,293.0 237.5,292.9 238.7,293.5 240.0,294.5 241.3,295.5 242.5,296.2 243.8,296.3 245.1,295.8 246.4,294.9 247.6,294.0 248.9,293.5 250.2,293.6 251.5,294.3 252.7,295.4 254.0,296.5 255.3,297.4 256.5,297.8 257.8,297.8 259.1,297.5 260.4,297.4 261.6,297.8 262.9,299.1 264.2,301.0 265.5,303.6 266.7,306.3 268.0,308.9 269.3,311.0 270.5,312.7 271.8,314.2 273.1,315.8 274.4,317.8 275.6,320.4 276.9,323.6 278.2,327.0 279.5,330.4 280.7,333.3 282.0,335.5 283.3,336.9 284.5,337.6 285.8,338.1 287.1,338.7 288.4,339.6 289.6,340.8 290.9,342.0 292.2,342.9 293.5,343.2 294.7,342.6 296.0,341.2 297.3,339.2 298.5,336.9 299.8,334.9 301.1,333.3 302.4,332.2 303.6,331.3 304.9,330.5 306.2,329.2 307.5,327.4 308.7,325.1 310.0,322.4 311.3,319.9 312.5,317.7 313.8,316.3 315.1,315.5 316.4,315.2 317.6,314.9 318.9,314.3 320.2,313.3 321.5,311.7 322.7,309.7 324.0,307.7 325.3,306.1 326.5,305.1 327.8,304.6 329.1,304.4 330.4,304.1 331.6,303.5 332.9,302.2 334.2,300.3 335.5,298.0 336.7,295.6 338.0,293.7 339.3,292.3 340.5,291.6 341.8,291.3 343.1,291.2 344.4,290.8 345.6,290.1 346.9,288.9 348.2,287.7 349.5,286.6 350.7,286.2 352.0,286.7 353.3,288.0 354.5,290.0 355.8,292.3 357.1,294.5 358.4,296.3 359.6,297.8 360.9,299.2 362.2,300.7 363.5,302.7 364.7,305.4 366.0,308.7 367.3,312.4 368.5,316.0 369.8,319.3 371.1,321.8 372.4,323.7 373.6,325.0 374.9,326.1 376.2,327.4 377.5,329.0 378.7,331.0 380.0,333.1 381.3,334.9 382.5,336.2 383.8,336.7 385.1,336.4 386.4,335.6 387.6,334.6 388.9,333.9 390.2,333.6 391.5,333.9 392.7,334.4 394.0,334.9 395.3,335.1 396.5,334.6 397.8,333.6 399.1,332.2 400.4,330.8 401.6,329.8 402.9,329.4 404.2,329.5 405.5,330.0 406.7,330.4 408.0,330.5 409.3,329.8 410.5,328.5 411.8,326.7 413.1,324.8 414.4,323.1 415.6,321.8 416.9,321.0 418.2,320.3 419.5,319.5 420.7,318.1 422.0,316.0 423.3,313.2 424.5,310.0 425.8,306.7 427.1,303.6 428.4,301.2 429.6,299.4 430.9,298.0 432.2,296.6 433.5,295.1 434.7,293.2 436.0,290.9 437.3,288.5 438.5,286.3 439.8,284.8 441.1,284.2 442.4,284.4 443.6,285.4 444.9,286.6 446.2,287.8 447.5,288.7 448.7,289.3 450.0,289.7 451.3,290.3 452.5,291.5 453.8,293.4 455.1,296.0 456.4,299.0 457.6,302.0 458.9,304.7 460.2,306.7 461.5,308.2 462.7,309.1 464.0,310.0 465.3,311.2 466.5,312.8 467.8,314.8 469.1,317.1 470.4,319.3 471.6,321.0 472.9,322.1 474.2,322.5 475.5,322.5 476.7,322.4 478.0,322.7 479.3,323.6 480.5,325.0 481.8,326.9 483.1,328.7 484.4,330.3 485.6,331.3 486.9,331.7 488.2,331.8 489.5,331.9 490.7,332.3 492.0,333.3 493.3,334.9 494.5,336.7 495.8,338.4 497.1,339.6 498.4,340.0 499.6,339.7 500.9,338.8 502.2,337.7 503.5,336.6 504.7,335.9 506.0,335.5 507.3,335.2 508.5,334.7 509.8,333.5 511.1,331.5 512.4,328.7 513.6,325.3 514.9,321.9 516.2,318.6 517.5,315.9 518.7,313.6 520.0,311.8 521.3,310.0 522.5,307.9 523.8,305.4 525.1,302.4 526.4,299.3 527.6,296.4 528.9,294.0 530.2,292.5 531.5,291.9 532.7,291.8 534.0,292.0 535.3,292.1 536.5,291.9 537.8,291.3 539.1,290.5 540.4,289.9 541.6,289.8 542.9,290.4 544.2,291.6 545.5,293.3 546.7,295.1 548.0,296.5 549.3,297.3 550.5,297.6 551.8,297.4 553.1,297.3 554.4,297.4 555.6,298.2 556.9,299.5 558.2,301.2 559.5,302.8 560.7,304.2 562.0,305.0 563.3,305.3 564.5,305.3 565.8,305.4 567.1,306.0 568.4,307.3 569.6,309.4 570.9,311.9 572.2,314.5 573.5,316.9 574.7,318.9 576.0,320.4 577.3,321.6 578.5,322.9 579.8,324.5 581.1,326.8 582.4,329.5 583.6,332.6 584.9,335.5 586.2,338.0 587.5,339.6 588.7,340.5 590.0,340.8 591.3,340.8 592.5,340.9 593.8,341.2 595.1,341.8 596.4,342.5 597.6,342.8 598.9,342.5 600.2,341.4 601.5,339.4 602.7,336.8 604.0,334.0 605.3,331.4 606.5,329.2 607.8,327.6 609.1,326.2 610.4,324.8 611.6,323.1 612.9,320.8 614.2,318.0 615.5,315.0 616.7,312.1 618.0,309.7 619.3,308.0 620.5,307.0 621.8,306.6 623.1,306.3 624.4,305.8 625.6,304.8 626.9,303.3 628.2,301.6 629.5,299.9 630.7,298.7 632.0,298.0 633.3,298.0 634.5,298.3 635.8,298.7 637.1,298.6 638.4,298.0 639.6,296.7 640.9,295.1 642.2,293.5 643.5,292.2 644.7,291.6 646.0,291.6 647.3,292.0 648.5,292.5 649.8,292.8 651.1,292.7 652.4,292.1 653.6,291.4 654.9,290.9 656.2,291.0 657.5,291.9 658.7,293.6 660.0,296.0 661.3,298.6 662.5,301.1 663.8,303.2 665.1,304.9 666.4,306.4 667.6,308.1 668.9,310.2 670.2,312.9 671.5,316.3 672.7,320.0 674.0,323.6 675.3,326.8 676.5,329.3 677.8,331.0 679.1,332.1 680.4,333.0 681.6,334.1 682.9,335.4 684.2,337.0 685.5,338.8 686.7,340.2 688.0,341.0 689.3,341.0 690.5,340.2 691.8,338.8 693.1,337.2 694.4,335.8 695.6,334.9 696.9,334.4 698.2,334.2 699.5,334.0 700.7,333.4 702.0,332.2 703.3,330.5 704.5,328.4 705.8,326.3 707.1,324.7 708.4,323.7 709.6,323.3 710.9,323.3 712.2,323.3 713.5,322.9 714.7,321.9 716.0,320.4 717.3,318.4 718.5,316.4 719.8,314.6 721.1,313.3 722.4,312.5 723.6,312.0 724.9,311.4 726.2,310.2 727.5,308.5 728.7,306.0 730.0,303.1"/>
+<line x1="170" y1="378" x2="730" y2="378" stroke="var(--line)" stroke-width="1"/>
+<polyline fill="none" stroke="var(--muted)" stroke-width="1.3" stroke-linejoin="round" points="170.0,373.7 171.3,372.4 172.5,373.3 173.8,376.2 175.1,379.9 176.4,383.0 177.6,384.1 178.9,383.2 180.2,381.0 181.5,378.5 182.7,376.5 184.0,375.2 185.3,374.3 186.5,373.3 187.8,372.0 189.1,371.1 190.4,371.4 191.6,373.4 192.9,377.0 194.2,381.2 195.5,384.4 196.7,385.6 198.0,384.5 199.3,381.8 200.5,379.2 201.8,377.9 203.1,378.4 204.4,380.3 205.6,382.1 206.9,382.6 208.2,381.3 209.5,378.5 210.7,375.5 212.0,373.3 213.3,372.6 214.5,373.1 215.8,374.1 217.1,374.9 218.4,375.4 219.6,376.1 220.9,377.4 222.2,379.7 223.5,382.4 224.7,384.4 226.0,384.6 227.3,382.3 228.5,378.3 229.8,373.8 231.1,370.7 232.4,370.1 233.6,371.9 234.9,375.1 236.2,378.1 237.5,379.9 238.7,380.1 240.0,379.3 241.3,378.6 242.5,378.8 243.8,380.0 245.1,381.5 246.4,382.5 247.6,382.6 248.9,381.7 250.2,380.6 251.5,380.0 252.7,380.1 254.0,380.4 255.3,379.9 256.5,378.0 257.8,374.7 259.1,370.9 260.4,368.3 261.6,368.1 262.9,370.6 264.2,375.0 265.5,379.8 266.7,383.1 268.0,384.2 269.3,383.1 270.5,380.9 271.8,378.9 273.1,377.8 274.4,377.6 275.6,377.7 276.9,377.3 278.2,376.4 279.5,375.4 280.7,375.0 282.0,375.7 283.3,377.5 284.5,379.5 285.8,380.7 287.1,380.4 288.4,378.9 289.6,377.2 290.9,376.6 292.2,377.9 293.5,380.8 294.7,384.1 296.0,386.2 297.3,385.9 298.5,383.0 299.8,378.6 301.1,374.3 302.4,371.3 303.6,370.2 304.9,370.7 306.2,371.8 307.5,373.0 308.7,373.9 310.0,374.9 311.3,376.6 312.5,379.0 313.8,381.7 315.1,383.5 316.4,383.7 317.6,382.0 318.9,379.2 320.2,376.6 321.5,375.5 322.7,376.4 324.0,378.6 325.3,380.9 326.5,381.8 327.8,380.7 329.1,378.0 330.4,375.1 331.6,373.3 332.9,373.4 334.2,375.4 335.5,378.3 336.7,380.8 338.0,382.3 339.3,382.6 340.5,382.4 341.8,382.1 343.1,382.0 344.4,381.5 345.6,380.0 346.9,377.1 348.2,373.4 349.5,369.9 350.7,368.0 352.0,368.6 353.3,371.6 354.5,375.8 355.8,379.5 357.1,381.4 358.4,381.2 359.6,379.6 360.9,378.0 362.2,377.5 363.5,378.6 364.7,380.6 366.0,382.5 367.3,383.2 368.5,382.5 369.8,380.9 371.1,379.2 372.4,378.0 373.6,377.5 374.9,377.2 376.2,376.4 377.5,375.0 378.7,373.4 380.0,372.7 381.3,373.8 382.5,376.8 383.8,381.0 385.1,384.7 386.4,386.5 387.6,385.5 388.9,382.1 390.2,377.7 391.5,374.0 392.7,372.2 394.0,372.3 395.3,373.5 396.5,374.8 397.8,375.4 399.1,375.2 400.4,374.9 401.6,375.2 402.9,376.5 404.2,378.4 405.5,380.0 406.7,380.7 408.0,380.4 409.3,379.7 410.5,379.5 411.8,380.5 413.1,382.7 414.4,384.8 415.6,385.7 416.9,384.3 418.2,380.6 419.5,375.8 420.7,371.6 422.0,369.5 423.3,370.0 424.5,372.7 425.8,376.0 427.1,378.8 428.4,380.3 429.6,380.6 430.9,380.3 432.2,380.3 433.5,380.5 434.7,380.6 436.0,379.9 437.3,378.2 438.5,375.7 439.8,373.6 441.1,372.7 442.4,373.7 443.6,375.9 444.9,378.2 446.2,379.4 447.5,378.8 448.7,376.8 450.0,374.7 451.3,373.9 452.5,375.2 453.8,378.6 455.1,382.6 456.4,385.9 457.6,387.1 458.9,386.3 460.2,383.9 461.5,381.2 462.7,379.0 464.0,377.3 465.3,375.9 466.5,374.4 467.8,372.6 469.1,371.1 470.4,370.8 471.6,372.3 472.9,375.4 474.2,379.1 475.5,382.0 476.7,382.8 478.0,381.5 479.3,378.8 480.5,376.2 481.8,375.0 483.1,375.8 484.4,377.9 485.6,380.1 486.9,381.1 488.2,380.3 489.5,378.1 490.7,375.7 492.0,374.1 493.3,373.9 494.5,374.9 495.8,376.3 497.1,377.5 498.4,378.2 499.6,379.1 500.9,380.5 502.2,382.7 503.5,385.3 504.7,387.0 506.0,386.8 507.3,384.1 508.5,379.6 509.8,374.6 511.1,370.9 512.4,369.7 513.6,370.9 514.9,373.6 516.2,376.2 517.5,377.6 518.7,377.4 520.0,376.4 521.3,375.6 522.5,375.7 523.8,377.0 525.1,378.7 526.4,380.1 527.6,380.5 528.9,380.1 530.2,379.5 531.5,379.5 532.7,380.1 534.0,381.0 535.3,381.1 536.5,379.6 537.8,376.8 539.1,373.4 540.4,371.1 541.6,371.0 542.9,373.6 544.2,378.0 545.5,382.6 546.7,385.8 548.0,386.5 549.3,385.0 550.5,382.4 551.8,379.9 553.1,378.2 554.4,377.4 555.6,376.9 556.9,376.0 558.2,374.6 559.5,373.1 560.7,372.4 562.0,372.9 563.3,374.5 564.5,376.5 565.8,377.7 567.1,377.5 568.4,376.3 569.6,375.0 570.9,374.8 572.2,376.6 573.5,380.1 574.7,383.9 576.0,386.6 577.3,386.8 578.5,384.5 579.8,380.6 581.1,376.6 582.4,374.0 583.6,373.1 584.9,373.7 586.2,374.9 587.5,375.9 588.7,376.6 590.0,377.4 591.3,378.7 592.5,380.7 593.8,382.8 595.1,384.1 596.4,383.7 597.6,381.4 598.9,378.1 600.2,375.0 601.5,373.4 602.7,373.9 604.0,375.8 605.3,377.9 606.5,378.7 607.8,377.6 609.1,375.1 610.4,372.4 611.6,370.9 612.9,371.5 614.2,374.0 615.5,377.4 616.7,380.5 618.0,382.5 619.3,383.4 620.5,383.7 621.8,383.9 623.1,384.2 624.4,384.0 625.6,382.8 626.9,380.1 628.2,376.4 629.5,372.8 630.7,370.8 632.0,371.2 633.3,373.8 634.5,377.6 635.8,380.8 637.1,382.2 638.4,381.4 639.6,379.2 640.9,377.0 642.2,376.0 643.5,376.6 644.7,378.2 646.0,379.8 647.3,380.3 648.5,379.5 649.8,377.8 651.1,376.2 652.4,375.3 653.6,375.1 654.9,375.1 656.2,374.8 657.5,373.8 658.7,372.8 660.0,372.7 661.3,374.3 662.5,377.9 663.8,382.6 665.1,386.8 666.4,388.9 667.6,388.2 668.9,385.0 670.2,380.7 671.5,377.1 672.7,375.1 674.0,374.9 675.3,375.9 676.5,376.7 677.8,376.8 679.1,376.1 680.4,375.3 681.6,375.1 682.9,375.8 684.2,377.1 685.5,378.2 686.7,378.5 688.0,377.8 689.3,376.8 690.5,376.5 691.8,377.5 693.1,379.7 694.4,382.0 695.6,383.1 696.9,382.1 698.2,378.8 699.5,374.5 700.7,370.8 702.0,369.3 703.3,370.4 704.5,373.6 705.8,377.5 707.1,380.7 708.4,382.6 709.6,383.2 710.9,383.2 712.2,383.3 713.5,383.5 714.7,383.5 716.0,382.7 717.3,380.6 718.5,377.8 719.8,375.2 721.1,373.9 722.4,374.2 723.6,375.9 724.9,377.7 726.2,378.3 727.5,377.2 728.7,374.7 730.0,372.2"/>
+<g fill="currentColor" font-size="11"><text x="303" y="216" text-anchor="middle">K 複合波</text><text x="576" y="220" text-anchor="middle">紡錘波 (11–16 Hz)</text></g>
+<line x1="170" y1="410" x2="730" y2="410" stroke="currentColor" stroke-width="1"/>
+<line x1="170" y1="410" x2="170" y2="415" stroke="currentColor"/><text x="170" y="428" font-size="11" text-anchor="middle" fill="currentColor">0 s</text>
+<line x1="310" y1="410" x2="310" y2="415" stroke="currentColor"/><text x="310" y="428" font-size="11" text-anchor="middle" fill="currentColor">1 s</text>
+<line x1="450" y1="410" x2="450" y2="415" stroke="currentColor"/><text x="450" y="428" font-size="11" text-anchor="middle" fill="currentColor">2 s</text>
+<line x1="590" y1="410" x2="590" y2="415" stroke="currentColor"/><text x="590" y="428" font-size="11" text-anchor="middle" fill="currentColor">3 s</text>
+<line x1="730" y1="410" x2="730" y2="415" stroke="currentColor"/><text x="730" y="428" font-size="11" text-anchor="middle" fill="currentColor">4 s</text>
+<text x="170" y="16" font-size="12" fill="var(--muted)">時間窗 4 秒;振幅為相對示意(N3 最大),波形為合成,非真實紀錄</text>
+</svg><figcaption>示意圖（原創合成波形，非真實紀錄）：把考題 4 的頻帶與標記並排。看三件事：（1） 從上到下頻率變慢；（2） N3 振幅最大；（3） REM 與清醒、N1 的 EEG 看起來都是低振幅混合頻率，所以不能只靠 EEG 分 REM，要加 EMG 與 EOG。N1 以 θ(4–7 Hz)為主，不是 8–13 Hz;8–13 Hz 的 α 是閉眼清醒。</figcaption></figure>
+<h4>各期的 EEG、EMG、EOG（考題 4 的答案表）</h4>
     <div class="tablewrap"><table>
       <tr><th>階段</th><th>EEG 腦波</th><th>EMG 肌電</th><th>EOG 眼動</th><th>佔整夜比例</th></tr>
       <tr><td>(a) 清醒 Stage W</td><td>睜眼：β 波（&gt;13 Hz），低振幅快波。閉眼放鬆：α 波（8–13 Hz）佔該頁 50% 以上</td><td>張力高</td><td>有眨眼與隨意的眼球運動</td><td>健康人入睡後很少</td></tr>
@@ -2058,10 +2557,24 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>NREM 也可能有夢，但是片段的；REM 的夢才是完整、有故事性的。</li>
       <li>REM 可再細分：<strong>tonic REM</strong>（肌電消失或很低、沒有眼動爆發的時段）與 <strong>phasic REM</strong>（出現一陣一陣的快速眼動）。老師只說「用眼動再分成兩期」，沒有細講。</li>
     </ul>
-    <div class="box teacher"><p>老師反覆問的一題：<strong>只看腦波，分得出 REM 和 N1 嗎？</strong>不太容易，兩者腦波很像。所以要加肌電：REM 時全身肌肉失去張力（這樣才不會把夢境演出來），EMG 幾乎沒有訊號；再加眼動：REM 有快速眼動的特殊波形。這就是為什麼分期一定要三個訊號一起看。另一個容易答錯的點：α 波多的時候是「睡著了嗎？」——不是，是<strong>清醒</strong>（閉眼放鬆）。</p></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Sleep_EEG_Stage_2.jpg" alt="PSG 軟體畫面:N2 期,紅框為 EEG 通道、紅線標出睡眠紡錘波" loading="lazy">
+      <figcaption>真實 PSG 螢幕截圖（30 秒一頁）：最上面三條是 LEOG、REOG（眼動）與 Chin（下巴肌電），紅框是 EEG 各通道，紅線標出兩串 sleep spindle（短暫、中間大兩頭小的快波）。對應考題 4 的 N2：有紡錘波或 K 複合波、眼動平坦、肌電低。再往下是呼吸、心電、血氧等通道，可以體會「為什麼 PSG 要貼那麼多線」。
+        <span class="credit">圖：MrSandman（英文維基百科上傳）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Sleep_EEG_Stage_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleep_EEG_REM.png" alt="PSG 軟體畫面:REM 期,EOG 出現快速眼動" loading="lazy">
+      <figcaption>同一套 PSG 畫面的 REM 頁：紅線標出 EOG（LEOG、REOG）上一對反相、尖銳的快速眼動；紅框內的 EEG 是低振幅混合頻率，看起來很像清醒或 N1，所以光看 EEG 分不出 REM。Chin 肌電只剩規律的小尖峰（應為心跳干擾），沒有肌肉收縮的爆發，對應老師強調的 REM 肌肉失去張力（atonia）。
+        <span class="credit">圖：MrSandman（英文維基百科上傳）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Sleep_EEG_REM.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<div class="box teacher"><p>老師反覆問的一題：<strong>只看腦波，分得出 REM 和 N1 嗎？</strong>不太容易，兩者腦波很像。所以要加肌電：REM 時全身肌肉失去張力（這樣才不會把夢境演出來），EMG 幾乎沒有訊號；再加眼動：REM 有快速眼動的特殊波形。這就是為什麼分期一定要三個訊號一起看。另一個容易答錯的點：α 波多的時候是「睡著了嗎？」——不是，是<strong>清醒</strong>（閉眼放鬆）。</p></div>
     <div class="box teacher"><p>N2 的 spindle 與 K complex 被稱為「睡眠的音符」，是最好判的一期。N1 其實很少也不好判，技師通常是先抓到 N2，再回頭確定前面哪一段是 N1。</p></div>
     <div class="box plain"><p>簡報的第一張總覽圖把頻帶簡化成三級：清醒 &gt;13 Hz、第一期 8–13 Hz、深睡 &lt;4 Hz，老師照著圖講時說「第一期是 8–13 Hz、波變得比較疏」；但下一張詳細圖與老師接下來的說明是「閉眼清醒 α、N1 以 θ 為主」。作答時建議寫後者（也是 AASM 的規則），並點出「α 從 &gt;50% 降到 &lt;50%」這個入睡判準。</p></div>
-    <div class="video" data-yt="H25DD0sztSA" data-title="睡眠生理學動畫(Alila Medical Media)" data-note="前半段看各期腦波與 REM/NREM 的差別,對應上面這張表;後半段的 VLPO、TMN、orexin 睡醒調控對應 B6。"></div>
+        <div class="video" data-yt="iWo90uxkNM0" data-title="2 分鐘神經科學:睡眠的各期(Stages of Sleep, Neuroscientifically Challenged)" data-note="兩分鐘版睡眠分期:快速複習 N1–N3 與 REM 的腦波特徵;注意影片若寫 N1 的頻帶,以課堂/AASM 的「θ 為主、α 降到 50% 以下」為準。"></div>
+    <div class="video" data-yt="fNlp0UMqUtM" data-title="睡眠階段與日夜節律(Sleep stages and circadian rhythms, Khan Academy)" data-note="Khan Academy MCAT 課程:把睡眠各期腦波與日夜節律放在一起講,可銜接 B4 與 B7;留意各期腦波頻率與 REM 的特徵。"></div>
+<div class="video" data-yt="H25DD0sztSA" data-title="睡眠生理學動畫(Alila Medical Media)" data-note="前半段看各期腦波與 REM/NREM 的差別,對應上面這張表;後半段的 VLPO、TMN、orexin 睡醒調控對應 B6。"></div>
     <div class="quiz" data-answer="3">
       <p class="q">某一頁 30 秒的記錄：腦波是低振幅混合頻率，下巴肌電幾乎是一條平線，眼動頻道出現一陣陣快速偏轉。這一頁最可能是？</p>
       <ol><li>清醒（Stage W）</li><li>N1</li><li>REM</li><li>N3</li></ol>
@@ -2101,7 +2614,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
         <line x1="155" y1="70" x2="165" y2="70"/><line x1="250" y1="70" x2="270" y2="70"/><line x1="360" y1="70" x2="390" y2="70"/><line x1="460" y1="70" x2="500" y2="70"/><line x1="560" y1="70" x2="605" y2="70"/>
       </g>
     </svg>
-    <p>從清醒進 N1（可能來回幾次）→ N2 → N3 → 變淺 → REM，這樣算<strong>一個週期（cycle）</strong>，一夜有 4–5 個週期。深睡主要在前面的週期；年紀大後深睡變少、中途醒來變多。</p>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Sleep_Hypnogram.svg/960px-Sleep_Hypnogram.svg.png" alt="一夜睡眠 hypnogram,標示入睡潛伏期、REM、NREM 1–3 與短暫醒來" loading="lazy">
+      <figcaption>標準的一夜階層圖（縱軸由上到下：清醒、REM、N1、N2、N3）。可以讀出：入睡潛伏期（SOL，綠條）、N3（深睡）集中在前半夜、愈到後半夜 REM（紅線）愈長、夜間常有短暫醒來。上方原創圖是示意，這張是同一種圖的另一種畫法，N3 以下就是老師說的慢波睡眠。注意此圖用 AASM 的 N1–N3 三期，沒有舊制第 4 期。
+        <span class="credit">圖：RazerM｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Sleep_Hypnogram.svg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<p>從清醒進 N1（可能來回幾次）→ N2 → N3 → 變淺 → REM，這樣算<strong>一個週期（cycle）</strong>，一夜有 4–5 個週期。深睡主要在前面的週期；年紀大後深睡變少、中途醒來變多。</p>
     <div class="tablewrap"><table>
       <tr><th>指標</th><th>定義</th></tr>
       <tr><td>TRT（total recording time，總記錄時間）</td><td>關燈請受試者閉眼準備睡，到開燈停止記錄</td></tr>
@@ -2128,7 +2647,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td>心電圖（ECG）</td><td>心律；老師實驗室再拿來算 HRV 看自律神經</td></tr>
       <tr><td>血壓</td><td>一般醫院不測，是老師實驗室加的</td></tr>
     </table></div>
-    <div class="video" data-yt="rsB17m6GP4c" data-title="PSG 睡眠檢查是怎麼做的" data-note="看實際貼線的樣子與每條線量什麼,對應上面「為什麼要貼這麼多條線」。"></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Polysomnography_tester.jpg/960px-Polysomnography_tester.jpg" alt="受檢者身上貼著 PSG 的電極、鼻氣流管、胸腹帶與指夾血氧" loading="lazy">
+      <figcaption>PSG 的實際樣子：臉上貼的是 EEG/EOG 與下巴 EMG 電極，鼻下是氣流感測管，胸腹繞著呼吸帶，手指夾血氧計，右邊是把所有導線集中的接線盒。對照老師說的「睡覺是全身在睡，所以要貼二十條線」：每個感測器對應一個器官系統的問題。這是示範場景的照片，醫院的實際配置會依檢查目的而異。
+        <span class="credit">圖：邱鈺鋒｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Polysomnography_tester.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<div class="video" data-yt="rsB17m6GP4c" data-title="PSG 睡眠檢查是怎麼做的" data-note="看實際貼線的樣子與每條線量什麼,對應上面「為什麼要貼這麼多條線」。"></div>
 
     <h4>PSG 與 R&amp;K 判讀的優缺點</h4>
     <div class="tablewrap"><table>
@@ -2197,7 +2722,32 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
 
     <h4>Flip-flop switch：睡醒像電燈開關</h4>
     <p>清醒系統與 VLPO <strong>互相抑制</strong>。清醒那邊活性強，就壓住 VLPO，人處在清醒；睡眠那邊訊號強，就壓住清醒核區，人處在睡眠。這種電路叫 <span class="term" data-def="正反器:電子學裡兩個互相抑制的元件組成的雙穩態開關,只會停在其中一邊">flip-flop switch（正反器）</span>，特性是（簡報三點）：自我強化（self-reinforcing loop）、切換很快、切換受恆定力量（homeostatic forces，即累積的睡眠壓力等）推動——啟動的力量要夠大才會翻過去。所以正常人不會一直在半睡半醒之間晃。<span class="term" data-def="又稱 hypocretin,外側下視丘分泌的神經胜肽,作用是穩定清醒狀態;缺乏時會出現猝睡症">Orexin（食慾素）</span>在這裡扮演穩定開關的角色。</p>
-    <div class="box bridge"><p>互相抑制等於正回饋，形成雙穩態系統：兩個穩定平衡態中間隔著一個不穩定點，外部強迫要推過門檻才會跳到另一邊，而且跳過去之後會自己維持（遲滯）。這跟氣候系統裡講的多重平衡與 regime shift 是同一種動力結構。失效之處：大氣的 regime 轉換常是噪音觸發、難以預報；睡醒開關則有兩個很規律的慢變量在推（下一節的 Process S 與 Process C），所以每天切換的時間相當固定。</p></div>
+        <figure class="fig"><svg viewBox="0 0 760 330" role="img" aria-label="睡醒 flip-flop 開關示意圖">
+      <g fill="currentColor" font-size="13" text-anchor="middle">
+        <rect x="50" y="110" width="220" height="80" rx="10" fill="var(--warm)" fill-opacity="0.22" stroke="var(--warm)" stroke-width="1.8"/>
+        <text x="160" y="142" font-weight="700">清醒核區(上行喚醒系統)</text><text x="160" y="164" font-size="12">如 TMN(組織胺)等</text>
+        <rect x="490" y="110" width="220" height="80" rx="10" fill="var(--sky)" fill-opacity="0.25" stroke="var(--sky)" stroke-width="1.8"/>
+        <text x="600" y="142" font-weight="700">VLPO(睡眠中樞)</text><text x="600" y="164" font-size="12">GABA 神經元</text>
+      </g>
+      <g stroke="currentColor" stroke-width="2" fill="none">
+        <path d="M270 134 H470"/><path d="M470 124 V144"/>
+        <path d="M490 168 H290"/><path d="M290 158 V178"/>
+      </g>
+      <g fill="currentColor" font-size="12" text-anchor="middle"><text x="380" y="126">清醒 ⊣ 睡眠(互相抑制)</text><text x="380" y="190">睡眠 ⊣ 清醒</text></g>
+      <rect x="50" y="20" width="220" height="40" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+      <text x="160" y="45" font-size="12" text-anchor="middle" fill="currentColor">Orexin(外側下視丘):穩定清醒</text>
+      <path d="M160 60 V104" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M154 98 L160 106 L166 98" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <rect x="490" y="20" width="220" height="40" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+      <text x="600" y="38" font-size="12" text-anchor="middle" fill="currentColor">推向睡眠的力量</text><text x="600" y="53" font-size="11" text-anchor="middle" fill="currentColor">睡眠壓力(腺苷)累積+日夜節律</text>
+      <path d="M600 60 V104" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M594 98 L600 106 L606 98" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <g fill="currentColor" font-size="13">
+        <text x="50" y="236" font-weight="700">兩個穩定狀態</text>
+        <text x="50" y="258"><tspan fill="var(--warm)" font-weight="700">清醒態</tspan>:清醒核區活性高,壓住 VLPO。</text>
+        <text x="50" y="278"><tspan fill="var(--sky)" font-weight="700">睡眠態</tspan>:VLPO 活性高,壓住清醒核區。</text>
+        <text x="50" y="304" font-size="12">切換很快、自我強化;要有夠大的推力(睡眠壓力累積到一定程度)才會翻過去。</text>
+      </g>
+    </svg><figcaption>示意圖（原創，簡化）：「flip-flop switch」就是兩組互相抑制的神經元，只會穩定停在其中一邊，所以人不會長時間半睡半醒。兩種啟動因子（睡眠壓力、日夜節律）不是直接決定睡或醒，而是把這個開關推過門檻。清醒核區只畫了老師提過的 TMN 作代表，實際上有多個核。</figcaption></figure>
+<div class="box bridge"><p>互相抑制等於正回饋，形成雙穩態系統：兩個穩定平衡態中間隔著一個不穩定點，外部強迫要推過門檻才會跳到另一邊，而且跳過去之後會自己維持（遲滯）。這跟氣候系統裡講的多重平衡與 regime shift 是同一種動力結構。失效之處：大氣的 regime 轉換常是噪音觸發、難以預報；睡醒開關則有兩個很規律的慢變量在推（下一節的 Process S 與 Process C），所以每天切換的時間相當固定。</p></div>
     <details class="deep"><summary>延伸（補充）：orexin 壞掉會怎樣</summary>
       <p>老師只說 orexin 負責「穩定睡眠、穩定清醒」。補充背景：如果製造 orexin 的神經元死掉，開關就少了一隻壓住它的手指，會在清醒時突然掉進睡眠甚至直接進入 REM 的肌肉無力狀態，這就是猝睡症（narcolepsy）。這也是影片 H25DD0sztSA 後段提到 orexin 的原因。</p>
     </details>
@@ -2240,7 +2790,20 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>褪黑激素分泌後會到 VLPO 影響睡眠，也會回到 SCN 抑制它的活性（SCN 活性強時人比較有活力），並幫忙調整時鐘的相位。細節老師說不多講。</li>
       <li><strong>35 歲以後褪黑激素總分泌量會降到很低</strong>——「35 歲沒有很老，所以要趁現在好好睡」。年紀越大，深睡等也越來越少。</li>
     </ul>
-    <div class="box bridge"><p>SCN 是一個自持振盪器，固有週期接近但不等於 24 小時；日光是週期性外強迫，把它相位鎖定（entrainment）到 24 小時。關燈之後看到的「節律還在但慢慢漂移」就是自由運轉（free-running），漂移速率等於固有週期與 24 小時的差。這跟日變化不同：大氣的日變化是被太陽直接強迫出來的響應，強迫拿掉就沒了；生物時鐘則是強迫拿掉後還會自己轉，所以才有時差這種「內部相位跟不上外部強迫」的現象。</p></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Suprachiasmatic_Nucleus.jpg/960px-Suprachiasmatic_Nucleus.jpg" alt="人腦正中矢狀切面,標示視交叉上核、視交叉、下視丘與松果體" loading="lazy">
+      <figcaption>腦的正中切面插圖，標出生物時鐘 SCN 的位置：在下視丘底部、視交叉（optic chiasm）的正上方，這就是名字 suprachiasmatic（supra=在上、chiasm=交叉）的由來。SCN 離視神經很近，所以能直接接收視網膜來的光訊息；同一張圖也能看到松果體（分泌褪黑激素）。SCN 只有幾萬個神經元，體積極小，圖中是示意性標示。
+        <span class="credit">圖：黃雨伞｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Suprachiasmatic_Nucleus.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Input_and_output_pathways_of_the_suprachiasmatic_nuclei_(SCN).png/960px-Input_and_output_pathways_of_the_suprachiasmatic_nuclei_(SCN).png" alt="SCN 的光與非光輸入、輸出路徑示意:視網膜、RHT、GHT、IGL、raphe、松果體" loading="lazy">
+      <figcaption>這張圖把老師的「光的路徑」畫出來：視網膜 → RHT（視網膜下視丘束）→ SCN,SCN 的輸出再間接通到松果體。圖中其餘結構（GHT、IGL、raphe 的非光輸入）老師沒有講，考試不用記；重點是「光是日夜節律最主要的外部校正訊號」，光抑制松果體分泌褪黑激素。
+        <span class="credit">圖：Christine Blume, Corrado Garbazza, Manuel Spitschan｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Input_and_output_pathways_of_the_suprachiasmatic_nuclei_(SCN).png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="DHpCBmq_z60" data-title="2 分鐘神經科學:視交叉上核(Suprachiasmatic Nucleus, Neuroscientifically Challenged)" data-note="對應「因子一:日夜節律」:SCN 的位置、它如何接收光訊息、並調控全身節律與褪黑激素;兩分鐘內講完重點。"></div>
+<div class="box bridge"><p>SCN 是一個自持振盪器，固有週期接近但不等於 24 小時；日光是週期性外強迫，把它相位鎖定（entrainment）到 24 小時。關燈之後看到的「節律還在但慢慢漂移」就是自由運轉（free-running），漂移速率等於固有週期與 24 小時的差。這跟日變化不同：大氣的日變化是被太陽直接強迫出來的響應，強迫拿掉就沒了；生物時鐘則是強迫拿掉後還會自己轉，所以才有時差這種「內部相位跟不上外部強迫」的現象。</p></div>
 
     <h4>因子二：睡眠壓力（sleep pressure）——腺苷</h4>
     <ul>
@@ -2249,7 +2812,15 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><strong>實驗證據</strong>(Behavioural Brain Research 2000)：在動物腦中不同區域測腺苷濃度。不讓動物睡，基底前腦的腺苷越來越高；讓牠恢復睡眠就降下來。老師說這個高低變化「是有實驗做出來的，不是隨便講的」。</li>
       <li><strong>咖啡因</strong>：結構與腺苷很像，會佔住腺苷的受體（是拮抗劑 antagonist），腺苷就無法作用，人就不想睡。但腺苷的濃度<strong>還是高的</strong>，只是暫時沒辦法作用。</li>
     </ul>
-    <div class="box bridge"><p>這就是睡眠研究裡的 two-process model:Process S（睡眠壓力）醒著時向上飽和式累積、睡著時近似指數衰減；Process C（生物時鐘）是一個約 24 小時的正弦振盪，決定「切換門檻」隨時間怎麼擺。S 碰到上門檻就入睡、降到下門檻就醒來——結構上是一個門檻被日週期調變的<strong>鬆弛振盪</strong>（像間歇泉或對流的充放：慢慢蓄積、快速釋放）。你在 Sleep-EDF 裡看到的 δ 功率逐週期遞減，正是 Process S 在睡眠中消散的痕跡。類比的限制：真實的 S 不只是腺苷一種物質，C 與 S 也不是完全獨立。老師上課沒有用 Process S/C 這兩個名稱，考試請寫「日夜節律（褪黑激素）」與「睡眠壓力（腺苷）」。</p></div>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Caffeine_and_adenosine.svg/960px-Caffeine_and_adenosine.svg.png" alt="咖啡因與腺苷的結構式並排" loading="lazy">
+      <figcaption>咖啡因與腺苷的化學結構：兩者都有「雙環含氮」的嘌呤骨架（圖中左邊咖啡因的雙環，與右邊腺苷的腺嘌呤環相似），所以咖啡因能卡進腺苷受體而不啟動它（拮抗劑）。這就是老師說的「結構很像、佔住受體」；腺苷濃度仍然高，只是暫時作用不了，咖啡因代謝掉後睡意會補回來。
+        <span class="credit">圖：Wikimedia Commons 使用者（作者未標示，檔案頁標為公有領域）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Caffeine_and_adenosine.svg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="5MZP" data-title="腺苷 A2A 受體與咖啡因複合體" data-caption="看什麼:一個 GPCR(七根穿膜螺旋,與 A 段 GPCR 同一類),咖啡因就卡在它的配體口袋裡,所以腺苷進不去;這支 A2A 受體為研究用的穩定化版本,並加了融合蛋白 bRIL(補充,課堂未講)"></div>
+    <div class="video" data-yt="vSK9uJt2fbU" data-title="咖啡因:阻斷腺苷以降低睡眠壓力(Caffeine: Blocking Adenosine, Scintropy)" data-note="對應「因子二:睡眠壓力」:咖啡因與腺苷受體的關係;留意「咖啡因不是消除腺苷,而是暫時擋住受體」,與老師說法一致。"></div>
+<div class="box bridge"><p>這就是睡眠研究裡的 two-process model:Process S（睡眠壓力）醒著時向上飽和式累積、睡著時近似指數衰減；Process C（生物時鐘）是一個約 24 小時的正弦振盪，決定「切換門檻」隨時間怎麼擺。S 碰到上門檻就入睡、降到下門檻就醒來——結構上是一個門檻被日週期調變的<strong>鬆弛振盪</strong>（像間歇泉或對流的充放：慢慢蓄積、快速釋放）。你在 Sleep-EDF 裡看到的 δ 功率逐週期遞減，正是 Process S 在睡眠中消散的痕跡。類比的限制：真實的 S 不只是腺苷一種物質，C 與 S 也不是完全獨立。老師上課沒有用 Process S/C 這兩個名稱，考試請寫「日夜節律（褪黑激素）」與「睡眠壓力（腺苷）」。</p></div>
 
     <h4>兩個系統怎麼被自己搞亂</h4>
     <div class="tablewrap"><table>
@@ -2329,7 +2900,8 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>短暫醒來</b><span>缺氧把人弄醒（多半自己不知道），大口吸氣恢復氣流，常伴隨很大的鼾聲。</span></li>
       <li><b>再睡著、再堵住</b><span>這個循環一夜可重複很多次。老師展示的重度案例大約每 30 秒血氧掉一次，等於每 30 秒就要醒一下（簡報標註相當於每小時上百次）。</span></li>
     </ol>
-    <h4>定義與嚴重度：AHI</h4>
+        <div class="video" data-yt="za4tDIyd3fg" data-title="打鼾、阻塞型睡眠呼吸中止與治療動畫(Snoring, Obstructive Sleep Apnea and Treatment, Alila Medical Media)" data-note="對應「阻塞型是怎麼發生的」:看睡眠時舌頭與軟顎後移、氣道塌陷的動畫,以及 CPAP 等治療如何撐開氣道。"></div>
+<h4>定義與嚴重度：AHI</h4>
     <ul>
       <li><strong>Apnea（呼吸暫停）</strong>：氣流下降 &gt;90%，持續 &gt;10 秒。</li>
       <li><strong>Hypopnea（呼吸不足）</strong>：氣流比基準下降 &gt;30%、持續 &gt;10 秒，並伴隨血氧下降 &gt;3% 或一次 arousal。</li>
@@ -2366,7 +2938,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td>口內裝置 OA(oral appliance)</td><td>牙科訂做，調整下顎位置讓呼吸道較通暢；適合輕到中度</td><td>要訂做、也貴；效果不如 PAP</td></tr>
       <tr><td>手術</td><td>耳鼻喉科；小孩（扁桃腺）很多靠手術。屬第二線，PAP 或 OA 無法耐受時考慮</td><td>疼痛、恢復期長；老師說有效但一段時間後可能又回來</td></tr>
     </table></div>
-    <h4>與失智的關聯（實驗室進行中的研究）</h4>
+        <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/CPAP.png" alt="連續正壓呼吸器:機器、管路與鼻面罩" loading="lazy">
+      <figcaption>CPAP 的整體配置：床邊的主機持續送出氣流，經管路到鼻（或口鼻）面罩，靠氣壓把塌陷的上呼吸道「撐」開（氣動夾板）。這是老師說的第一線治療，優點是幾乎對所有嚴重度有效，缺點是不舒服、噪音、攜帶不便，所以遵從性是最大問題。
+        <span class="credit">圖：PruebasBMA｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:CPAP.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+<h4>與失智的關聯（實驗室進行中的研究）</h4>
     <p>失智模式小鼠在還沒失智前，睡眠就已經不好。實驗室測試各種因子：性別差異不大（錄音中另一個因子聽不清楚）；但<strong>給予睡眠呼吸中止模式（間歇缺氧）影響非常大，動物會提早失智</strong>。那給安眠藥幫牠睡會改善嗎？有的會，有的反而更嚴重，<strong>不同安眠藥效果不同</strong>，較新的安眠藥副作用較少；也有人提出用光線介入，實驗室做起來似乎也有效。這些老師說仍在整理發表中。</p>
     <div class="quiz" data-answer="2">
       <p class="q">某人整夜 PSG 結果 AHI = 22 次/小時，屬於？</p>
@@ -2590,6 +3168,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>老師說，一百多年前的科學家多半是「通才」，同時懂生物與物理，想知道生命與世界運作的原理；地表 70% 是海洋，所以最早的模式生物很多來自海裡。第一站是英國 Plymouth 的 Marine Biological Association（MBA，海洋生物學會）：他們把英吉利海峽捕到的烏賊（<em>Loligo</em>）送進實驗室，<strong>J. Z. Young（1930 年代）</strong>發現烏賊體內有一條粗到肉眼可見的軸突，稱為 <span class="term" data-def="squid giant axon，烏賊巨大軸突：負責控制噴水推進逃跑反應的神經纖維，直徑可達約 1 mm，粗到可以用肉眼看見並插入電極">squid giant axon（烏賊巨大軸突）</span>。</p>
     <div class="box teacher"><p><strong>★ 必背數字：</strong>squid giant axon 直徑約 <strong>400–1,000 μm</strong>（最粗約 1 mm，老師比喻成吸管的粗細）；人類軸突只有 <strong>0.5–2 μm</strong>。巨大軸突肉眼可見，是研究軸突生物特性的理想模型。老師的論點：如果當年 Hodgkin 與 Huxley 一開始就拿人的軸突來做，在那個年代根本插不進去，我們可能到現在都還不知道神經是靠電訊號傳遞。</p></div>
     <div class="box plain"><p>想像要研究一條水管裡的水流，你會想先找一條粗到可以伸手進去量的管子，而不是頭髮粗的毛細管。烏賊的巨大軸突就是那條「可以伸手進去量」的神經：它之所以粗，是因為需要快速收縮外套膜、噴水逃命，粗的軸突傳導得快。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Giant_Axon_of_Squid_%2814356033761%29.jpg" alt="從烏賊取出的巨大軸突:一條細絲被玻璃吸管操作" loading="lazy">
+      <figcaption>這是實驗者從烏賊體內取出的巨大軸突（培養皿中那條可見的細絲，旁邊以玻璃管操作）。一般神經軸突細到要顯微鏡才看得見，這條卻肉眼就能拿起來，正是老師強調的「大」：直徑約 400–1,000 μm，所以 Hodgkin 與 Huxley 才能把電極直接放進去量動作電位。
+        <span class="credit">圖：NIH History Office(Bethesda)｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Giant_Axon_of_Squid_(14356033761).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>Hodgkin 與 Huxley 的故事（老師的版本）</h4>
     <ul>
       <li>兩人起初帶著「物理學家」的想法：把軸突取出，往裡面滴水銀、用毛細管注射，想從黏滯性（viscosity）與擴散來推算神經訊號傳導的物理性質，希望導出公式。這個構想<strong>失敗了</strong>（水銀的內聚力太強，注射不進去）。</li>
@@ -2620,6 +3204,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   <section class="topic" id="w4-t3">
     <h3>3. 海兔 Aplysia：學習與記憶的細胞機制</h3>
     <p>第二站同樣在海裡：<span class="term" data-def="Aplysia californica，加州海兔（sea hare / sea slug）：一種軟體動物，神經元少而大，是研究學習記憶的經典模式生物">Aplysia（海兔，又叫 sea hare、sea slug）</span>。受外界刺激時牠會釋放物質（老師說是用來嚇退敵人）；科學家好奇牠的神經系統怎麼感知並反應。<strong>Eric Kandel</strong> 以海兔研究學習與記憶，獲得 <strong>2000 年諾貝爾生理醫學獎</strong>。（老師提到，在鄭老師實驗室做過實習的同學對這段應該很熟。）</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Aplysia_californica%2C_Monterey.jpg/960px-Aplysia_californica%2C_Monterey.jpg" alt="海底的加州海兔 Aplysia californica" loading="lazy">
+      <figcaption>活體的加州海兔（sea hare / sea slug），體長可達數十公分，看起來就是一隻沒有殼的大海蛞蝓。牠的神經系統只有約 20,000 顆神經元，但單顆神經元很大，所以 Kandel 能在同一顆已辨識的細胞上注射 serotonin、記錄突觸變強：對照下方「簡單、大、可辨識」三個優勢。
+        <span class="credit">圖：Chad King / NOAA MBNMS｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Aplysia_californica,_Monterey.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>★ Why Sea Slugs? 三個優勢</h4>
     <div class="tablewrap"><table>
       <thead><tr><th>優勢</th><th>內容</th><th>為什麼有用</th></tr></thead>
@@ -2630,6 +3220,28 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       </tbody>
     </table></div>
     <div class="box teacher"><p>老師對比顯微鏡倍率：觀察哺乳類神經元（約 10–20 μm）常用 40 倍物鏡，要看細胞核內部細節得放大到 1,200 倍左右；海兔的大神經元則可能肉眼就能看到一個點。<strong>神經元聚集成的塊狀結構叫 ganglion（神經節）</strong>——周邊神經系統用 ganglion，腦中神經元聚集處則叫 nucleus（神經核）。投影片列出海兔各 ganglia（buccal、cerebral、pleural、pedal、abdominal 等）的位置，老師說這幾個名稱<strong>不會考</strong>，僅供之後做海兔實驗的人參考。真正要記的是「少、大、迴路可辨識」三項。</p></div>
+    <figure class="fig"><svg viewBox="0 0 780 290" role="img" aria-label="神經元與軸突尺寸對照(對數座標)">
+      <g font-size="14" fill="currentColor">
+        <text x="20" y="24" font-weight="700">尺寸對照(μm,對數座標;每格 = 10 倍)</text>
+        <line x1="140" y1="236" x2="740" y2="236" stroke="currentColor" opacity=".5"/>
+        <g text-anchor="middle" font-size="13">
+          <line x1="140" y1="40" x2="140" y2="240" stroke="var(--line)"/><text x="140" y="256">0.1</text>
+          <line x1="260" y1="40" x2="260" y2="240" stroke="var(--line)"/><text x="260" y="256">1</text>
+          <line x1="380" y1="40" x2="380" y2="240" stroke="var(--line)"/><text x="380" y="256">10</text>
+          <line x1="500" y1="40" x2="500" y2="240" stroke="var(--line)"/><text x="500" y="256">100</text>
+          <line x1="620" y1="40" x2="620" y2="240" stroke="var(--line)"/><text x="620" y="256">1,000</text>
+          <line x1="740" y1="40" x2="740" y2="240" stroke="var(--line)"/><text x="740" y="256">10,000</text>
+        </g>
+        <rect x="224" y="52" width="72" height="26" rx="5" fill="var(--muted)"/>
+        <text x="20" y="70">人類軸突</text><text x="304" y="70" fill="var(--muted)">0.5–2 μm</text>
+        <rect x="380" y="104" width="36" height="26" rx="5" fill="var(--accent)"/>
+        <text x="20" y="122">哺乳類神經元(細胞體)</text><text x="424" y="122" fill="var(--muted)">約 10–20 μm</text>
+        <rect x="500" y="156" width="120" height="26" rx="5" fill="var(--sky)"/>
+        <text x="20" y="174">海兔神經元</text><text x="628" y="174" fill="var(--muted)">100–1,000 μm</text>
+        <rect x="572" y="198" width="48" height="26" rx="5" fill="var(--warm)"/>
+        <text x="20" y="216">烏賊巨大軸突</text><text x="628" y="216" fill="var(--muted)">約 400–1,000 μm</text>
+      </g></svg><figcaption>老師星號頁的數字放在同一條對數尺上：烏賊巨大軸突比人類軸突粗約 200–2,000 倍（0.5–2 μm 對 400–1,000 μm），海兔神經元比哺乳類神經元大約一到兩個量級，所以前者能插電極、後者要靠精密的玻璃微電極。條帶長度即數值範圍；烏賊軸突與海兔神經元的尺寸範圍有重疊。</figcaption></figure>
+    <div class="video" data-yt="ZoNP1gwMsU8" data-title="海兔如何揭露人類記憶的化學(Sea slug brain chemistry,NSF 新聞)" data-note="對應海兔「簡單、大、可辨識」的神經元與學習記憶研究;看研究者為何選海兔、牠的神經化學如何類比人類記憶。細節以影片為準,這裡只用來連結本節。"></div>
     <h4>Kandel 的發現：serotonin → cAMP → 基因表現</h4>
     <ol class="flow">
       <li><b>刺激（5-HT）</b><span>神經元大，可在周圍直接注射神經傳遞物質 serotonin（5-HT，血清素，與情緒、警覺有關）。</span></li>
@@ -2660,6 +3272,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   <section class="topic" id="w4-t4">
     <h3>4. 線蟲 C. elegans:302 顆神經元的完整地圖</h3>
     <p>老師用雷文霍克（Leeuwenhoek）的故事轉場：他是荷蘭布商，為了檢查布料紋理發展出顯微鏡，一個雨天一滴水掉進鏡下，意外發現水裡有許多會游動的小生物。老師順手出了回家作業：把印表機印出來的紙放到普通顯微鏡下看看，會有意想不到的發現。<span class="term" data-def="C. elegans（秀麗隱桿線蟲）：約 1 mm 長的透明線蟲，神經系統僅 302 顆神經元，是第一個完整繪出連接圖的動物">C. elegans</span> 就是這類水中微小生物之一。（老師稱它來自池塘水，教科書上它主要是土壤線蟲，這點不影響結論。）</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Adult_Caenorhabditis_elegans.jpg/960px-Adult_Caenorhabditis_elegans.jpg" alt="C. elegans 成蟲的 DIC 顯微照片" loading="lazy">
+      <figcaption>成年 C. elegans 在 DIC（微分干涉）顯微鏡下的樣子：身長約 1 mm，身體透明到連內部器官與卵都看得見（左端為頭部、右端細尾），不必染色就能在活體上追蹤神經元。這就是它 302 顆神經元能被逐一標定、畫成完整 connectome 的物理基礎之一。
+        <span class="credit">圖：Kbradnam（English Wikipedia 原上傳者）｜CC BY-SA 2.5｜<a href="https://commons.wikimedia.org/wiki/File:Adult_Caenorhabditis_elegans.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="zjqLwPgLnV0" data-title="C. elegans 簡介(A brief introduction to C. elegans,OpenWorm)" data-note="對應線蟲的高頻考點:約 1 mm、透明、神經元很少且連接圖完整;看牠的身體結構與為何成為模式生物。"></div>
     <h4>★ 為什麼線蟲是好模型：考試高頻組合</h4>
     <div class="tablewrap"><table>
       <thead><tr><th>特色</th><th>內容</th></tr></thead>
@@ -2722,12 +3341,45 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>用 Gal4-UAS 把這些 opsin（光敏蛋白）限制在特定神經元，再打光，就能測試「活化／抑制這群神經元會不會改變行為」。斑馬魚早期透明，光容易到達腦，所以特別好用。小鼠就麻煩得多：要把光纖手術植入腦裡；魚很小，手術容易讓牠活不下來。</p>
     <div class="mol" data-pdb="3UG9" data-title="Channelrhodopsin（光敏離子通道）" data-caption="看什麼:穿膜的螺旋束圍成通道，中央包著吸光分子 retinal；吸光後構型改變，通道打開讓離子通過。"></div>
     <div class="video" data-yt="0jX8hSWQMkA" data-title="光遺傳學:神經元的光開關" data-note="看光敏通道如何被送進特定神經元、用光控制放電，對應上面 channelrhodopsin 與 halorhodopsin。"></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Optogenetics_imetronic.JPG/960px-Optogenetics_imetronic.JPG" alt="光遺傳實驗室裡兩個透明的動物實驗箱,箱內亮著藍光" loading="lazy">
+      <figcaption>實際的光遺傳實驗裝置：兩個實驗箱頂端接了光纖，箱內可見藍光點。動物頭上植入的光纖（圖中從上方垂下的細線）把光送進腦內特定位置，再由電腦控制何時開、何時關。這就是老師說「小鼠要做手術植入光纖、不像透明的斑馬魚直接照光」的實況。
+        <span class="credit">圖：Bd008｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Optogenetics_imetronic.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="fig"><svg viewBox="0 0 780 330" role="img" aria-label="ChR2 通道與 halorhodopsin 氯離子泵的離子流向">
+      <g font-size="14" fill="currentColor">
+        <text x="20" y="26" font-weight="700">ChR2:光閘通道(藍光)</text>
+        <text x="410" y="26" font-weight="700">NpHR(halorhodopsin):氯離子泵(黃光)</text>
+        <text x="20" y="60" fill="var(--muted)">細胞外</text><text x="20" y="300" fill="var(--muted)">細胞內</text>
+        <rect x="20" y="135" width="340" height="30" fill="var(--muted)" opacity=".35"/>
+        <rect x="410" y="135" width="340" height="30" fill="var(--muted)" opacity=".35"/>
+        <rect x="165" y="124" width="50" height="52" rx="10" fill="var(--sky)"/><text x="190" y="156" text-anchor="middle" font-size="13" fill="#fff">ChR2</text>
+        <rect x="555" y="124" width="50" height="52" rx="10" fill="var(--warm)"/><text x="580" y="156" text-anchor="middle" font-size="12" fill="#fff">NpHR</text>
+        <path d="M190 38v52" stroke="var(--sky)" stroke-width="5"/><polygon points="180,84 190,102 200,84" fill="var(--sky)"/><text x="206" y="72" fill="var(--sky)">藍光 ~470 nm</text>
+        <path d="M580 38v52" stroke="var(--warm)" stroke-width="5"/><polygon points="570,84 580,102 590,84" fill="var(--warm)"/><text x="596" y="72" fill="var(--warm)">黃光 ~590 nm</text>
+        <path d="M190 190v70" stroke="currentColor" stroke-width="3" stroke-dasharray="2 5"/><polygon points="181,258 190,276 199,258" fill="currentColor"/>
+        <text x="206" y="222">Na⁺(及 H⁺、Ca²⁺)順濃度梯度流入</text>
+        <path d="M580 190v70" stroke="currentColor" stroke-width="3"/><polygon points="571,258 580,276 589,258" fill="currentColor"/>
+        <text x="596" y="222">Cl⁻ 被泵入</text>
+        <text x="20" y="320" font-weight="700" fill="var(--accent)">正電荷進來 → 去極化 → 放電(活化)</text>
+        <text x="410" y="320" font-weight="700" fill="var(--accent)">負電荷進來 → 超極化 → 不易放電(抑制)</text>
+      </g></svg><figcaption>兩種光遺傳工具一開一關：通道是離子「順梯度流過去」，幫浦是吸光後「主動搬運」。嚴格說 halorhodopsin 是氯離子泵（老師口述為通道），結果仍是細胞內變負、被抑制；光色與離子種類為簡化。考試只要記：ChR2 活化、halorhodopsin 抑制。</figcaption></figure>
+    <div class="mol" data-pdb="3A7K" data-title="Halorhodopsin(氯離子泵,抑制性光遺傳)" data-caption="看什麼:同樣是 7 根穿膜螺旋圍著吸光的 retinal,但它是氯離子泵(吸光後把 Cl⁻ 抽進細胞),不是通道;黃光下讓細胞內變負而被抑制。老師口述為通道,考試記「抑制」即可。"></div>
+    <div class="video" data-yt="Nb07TLkJ3Ww" data-title="光遺傳學解說(Explained: Optogenetics,MIT)" data-note="與上面兩支不同角度的短講解:光敏蛋白如何被送進特定神經元、用光控制活動;對照老師講的 Boyden(MIT)與 Deisseroth(Stanford)。"></div>
     <div class="video" data-yt="eKkaYDTOauQ" data-title="斑馬魚全腦成像（HHMI）" data-note="看透明的斑馬魚幼魚如何在活體狀態下同時記錄全腦神經元活動。對應透明 + 螢光指示劑的優勢。"></div>
+    <div class="video" data-yt="662nJsV7GSI" data-title="斑馬魚如何推進腦科學研究(How are zebrafish advancing brain research?,NSF BRAIN Initiative)" data-note="對應斑馬魚三大優勢(發育快、早期透明、基因工具成熟);留意研究者用牠看腦、研究腦的哪些問題。"></div>
     <div class="box bridge"><p>光遺傳學是神經科學版本的強迫實驗：不是被動觀測，而是主動在特定位置、特定時間「施加強迫（forcing）」，看系統的響應。你熟悉的敏感度實驗也是如此。它的長處是時間與空間解析度高，缺點跟模式一樣——你看到的是「把這群細胞打開」的結果，不一定等於自然狀態下它們的功能。</p></div>
     <h4>成魚不透明怎麼辦？Danionella</h4>
     <p>老師引用今年的 <em>Science</em> 報導：有研究者逛水族館時發現某種小魚（錄音聽起來是 <em>Danionella</em>，名字聽寫可能有誤）長大後身體仍然透明，把牠買回實驗室繁殖後，現在 HHMI 的實驗室用牠研究成體的神經迴路，並結合 AI 重建迴路（錄音提到 HHMI 投入大量資源，具體金額聽不清楚）。重點是：<strong>科學家仍在持續探索自然界，模式生物的選擇會隨需求改變</strong>。</p>
     <h4>★ 再生：斑馬魚與 Axolotl</h4>
     <p>老師說這一頁右上角有星星（錄音有明確提到這點）。斑馬魚的視網膜受損（可以誘導視網膜退化）後能重新長出來，神經再生能力強。另一個物種是 <strong>axolotl（墨西哥鈍口螈，老師稱「六角恐龍」，頭後有六條外鰓）</strong>：把腦部的神經細胞用機械方式破壞造成缺口，腦室周圍的 reactive neural stem cells（反應性神經幹細胞）會被活化並補回缺損；斷手、斷尾也能完整再長，甚至腦也可再長。科學家想找出這些再生因子，期望未來能幫助人類受損的神經組織恢復。這提醒我們：很多模型的價值來自「牠有而人類缺乏的能力」。</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ambystoma_mexicanum_1.jpg/960px-Ambystoma_mexicanum_1.jpg" alt="正面看的 axolotl(墨西哥鈍口螈)" loading="lazy">
+      <figcaption>Axolotl（墨西哥鈍口螈）的正面照：頭兩側可見老師說的「六角恐龍」外鰓（每側三條羽狀的鰓），牠成年後仍保持水生幼體的樣貌。考試重點是再生：腦部受傷後，腦室周圍的細胞會被活化、補回缺損的神經元，哺乳類做不到。
+        <span class="credit">圖：Stan Shebs｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Ambystoma_mexicanum_1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="quiz" data-answer="2">
       <p class="q">下列何者是斑馬魚的「核心優勢」組合（星號頁）？</p>
       <ol><li>302 顆神經元、成魚透明、無基因工具</li><li>發育快、早期透明、基因工具成熟</li><li>巨大軸突、壽命長、皺褶腦</li><li>卵極大、可注射 cRNA、成魚壽命很短</li></ol>
@@ -2783,6 +3435,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   <section class="topic" id="w4-t7">
     <h3>7. 果蠅 Drosophila：緊湊但夠複雜的神經系統</h3>
     <p>最後一個「小動物」是陸地上、餐桌旁最常見的果蠅（老師打趣說牠很討厭）。把牠的頭部放在顯微鏡下，會看到巨大的複眼；剖開腦會發現眼睛後面有一群感覺處理系統，其中一個結構叫 <span class="term" data-def="mushroom body，蕈狀體：果蠅腦中形似香菇的結構，是嗅覺等感覺資訊整合、聯想學習與記憶的重要中心">mushroom body（蕈狀體）</span>。</p>
+    <div class="video" data-yt="GAxoRvLMOzA" data-title="果蠅如何幫助我們研究腦(How fruitflies are helping our study of the brain,AZPM)" data-note="對應果蠅「神經元約 14 萬、夠複雜又夠簡單」的定位;看研究者用牠回答哪類腦與行為問題。"></div>
     <div class="box teacher"><p>★ <strong>Drosophila 重點事實：</strong>神經元約 <strong>140,000–166,000 顆</strong>（老師口述 14 萬到 16 萬），神經迴路已相當清楚（established neural circuitry），maturation time（成熟時間）短，基因操作容易（Gal4-UAS）。</p></div>
     <ul>
       <li><strong>蕈狀體：</strong>接受外界的感覺輸入（如嗅覺），整合後送往腦的其他區域，是感覺處理與聯想學習的中心；上面有很多多巴胺受體。</li>
@@ -2814,6 +3467,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       </tbody>
     </table></div>
     <p>(錄音中老師講「猴子完全發育需要 25–40 年、狨猴 10–15 年」，與講義表中 25–40 年是<strong>壽命</strong>相符，應是口誤；成熟時間是上表的 3–5 年與 12–18 個月。)</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Callithrix_jacchus_in_Parque_Bondinho_P%C3%A3o_de_A%C3%A7%C3%BAcar%2C_Rio_de_Janeiro.jpg/960px-Callithrix_jacchus_in_Parque_Bondinho_P%C3%A3o_de_A%C3%A7%C3%BAcar%2C_Rio_de_Janeiro.jpg" alt="樹上的普通狨猴 Callithrix jacchus" loading="lazy">
+      <figcaption>普通狨猴(common marmoset,<em>Callithrix jacchus</em>)是南美的小型猿猴，體型約松鼠大小，耳旁有白色耳簇。老師把牠定位在小鼠與獼猴之間：皺褶中等、成熟約 12–18 個月、社會行為複雜，所以日本實驗室大量使用並發展轉基因工具。
+        <span class="credit">圖：Wilfredor｜CC0｜<a href="https://commons.wikimedia.org/wiki/File:Callithrix_jacchus_in_Parque_Bondinho_Pão_de_Açúcar,_Rio_de_Janeiro.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="box teacher"><p><strong>皺褶（gyrification）：</strong>小鼠與大鼠的皮質是平的（lissencephalic，老師講的 decent cephalic 為聽寫誤差）；靈長類有腦迴（gyrencephalic）。這三個物種都適合研究「皺褶是怎麼來的」：例如用 single-cell transcriptomics 比較靈長類有、小鼠幾乎沒有的基因，把它們在小鼠表現，真的會出現皺褶（老師說有人活化某條發育訊號路徑，小鼠腦出現一個皺褶，但只在特定區域，顯示我們的了解仍很有限）。老師也提到綿羊腦也有許多皺褶，有人用來研究。<strong>皺褶多一定比較聰明嗎？</strong>老師拋出這個問題請大家想想（用「羊群效應」的玩笑帶過）。</p></div>
     <ul>
       <li><strong>狨猴：</strong>介於小鼠與獼猴之間——皺褶中等、成熟時間不太長也不太短；日本實驗室已大量使用，也開始發展轉基因工具研究基因對靈長類的影響。老師說上個月 TSFN（台灣神經科學年會）有很多相關報告。</li>
@@ -2836,9 +3495,22 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>Cre 剪掉 loxP 之間的序列</b><span>在有 Cre 的細胞，stop 被剪掉，基因得以表現（knock-in 版）；或把基因本身剪掉，就成了條件式 knockout。</span></li>
     </ol>
     <div class="box bridge"><p>Cre-lox 與 Gal4-UAS 一樣是「兩把鑰匙」的設計：組織專一的 Cre 決定位置，floxed 基因決定內容。差別是 Cre 的剪切是永久且遺傳的（細胞一旦被剪過，後代細胞也都剪過），Gal4-UAS 是持續活化。像一個是「寫入記憶體」，一個是「持續送訊號」。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Somatosensory_cortex_of_a_mouse_brain_slice_-_GFP_expressed_-_20x_magnification.jpg/960px-Somatosensory_cortex_of_a_mouse_brain_slice_-_GFP_expressed_-_20x_magnification.jpg" alt="小鼠體感覺皮質切片中發綠色螢光的錐體神經元" loading="lazy">
+      <figcaption>小鼠體感覺皮質的腦切片，只有表現 GFP 的神經元發綠光：下方亮點是細胞本體，向上延伸到皮質表面的細長線條是它們的頂樹突。這就是「用基因工具讓特定細胞自己發光」的成果——promoter 決定哪些細胞表現 GFP(where),GFP 決定看到什麼（what），與 Gal4-UAS、Cre-lox 是同一種設計思維。
+        <span class="credit">圖：Robert Cudmore(Marseille)｜CC BY-SA 2.0｜<a href="https://commons.wikimedia.org/wiki/File:Somatosensory_cortex_of_a_mouse_brain_slice_-_GFP_expressed_-_20x_magnification.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Brainbow_%28Lichtman_2008%29.jpg" alt="Brainbow 小鼠腦組織中多色標記的神經元與軸突" loading="lazy">
+      <figcaption>Brainbow（Livet、Lichtman、Sanes 團隊）的成果：用 Cre-lox 重組讓每顆神經元隨機表現不同比例的紅、綠、藍螢光蛋白，組合出上百種顏色，於是緊貼在一起的細胞與軸突束能被分辨（a 為軸突束，b、c 為細胞密集的區域）。它是 Cre-lox 的延伸應用，考試不會考，但讓你看到「重組酶」不只用來剔除基因。
+        <span class="credit">圖：Jeff W. Lichtman、Joshua R. Sanes｜CC BY 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Brainbow_(Lichtman_2008).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="video" data-yt="pk2Z5T5jaS0" data-title="Cre-loxP 技術" data-note="看 Cre 重組酶如何辨認兩個 loxP 位點並剪掉中間序列，對應上面 flow 的第三步。"></div>
     <div class="video" data-yt="PooN1OvgDKE" data-title="Knockout mice（基因剔除小鼠）" data-note="看基因剔除小鼠怎麼製造，以及如何用它研究基因功能。"></div>
     <div class="mol" data-pdb="4OO8" data-style="依鏈上色" data-title="Cas9 – guide RNA – 目標 DNA" data-caption="看什麼:Cas9 蛋白把 guide RNA 與目標 DNA 夾在中間，RNA 與 DNA 配對的地方就是被切開的位置；依鏈上色可分辨蛋白、RNA、兩股 DNA。"></div>
+    <div class="mol" data-pdb="1CRX" data-title="Cre 重組酶–loxP DNA 複合體" data-caption="看什麼:Cre 蛋白抱住 loxP DNA(依鏈上色可分蛋白與兩股 DNA),這是 Cre 辨認並切剪 loxP 位點的結構;對應上面 flow 的第二、三步。" data-style="依鏈上色"></div>
     <p>老師感謝 <strong>Emmanuelle Charpentier 與 Jennifer Doudna</strong>（2020 諾貝爾獎）：他們研究細菌如何抵禦病毒入侵時，意外發現 CRISPR-Cas9 這套系統。老師藉此強調：科學常常是借用自然界中我們看不到的生物機制，才發展出研究神經系統的工具。</p>
     <div class="quiz" data-answer="2">
       <p class="q">下列關於小鼠、狨猴、獼猴的敘述，何者正確？</p>
@@ -2860,6 +3532,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>重新編程</b><span>加入轉錄因子（Yamanaka factors），使成熟細胞回到多能（pluripotent）幹細胞狀態。（John Gurdon 與山中伸彌，2012 諾貝爾獎。）</span></li>
       <li><b>分化</b><span>用固定的配方（protocol）誘導成神經元、星狀膠細胞、寡突膠細胞、微膠細胞，或 3D 的腦類器官（organoid）。</span></li>
     </ol>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Human_iPS_cells_colonies.png" alt="培養皿中的人類 iPS 細胞群落(相位差顯微鏡)" loading="lazy">
+      <figcaption>人類 iPS 細胞在培養皿中長成的群落（相位差顯微鏡影像）：細胞緊密擠成邊界清楚的圓形小丘，周圍是支持用的餵養細胞。這就是老師流程中「重新編程」後得到的多能幹細胞，下一步才依配方分化成神經元、膠細胞或類器官。
+        <span class="credit">圖：Christine Hale、Amy Yeung、David Goulding、Derek Pickard、Kaur Alasoo 等（Wellcome Sanger Institute）｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Human_iPS_cells_colonies.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="video" data-yt="xUbbehjvIck" data-title="從幹細胞到腦模型" data-note="看幹細胞如何被誘導成神經元與腦類器官，對應上面 flow。"></div>
     <div class="video" data-yt="PMN2H6oVGyM" data-title="什麼是腦類器官？" data-note="看類器官長得多像腦、能做什麼、有什麼限制。"></div>
     <h4>★ iPSC vs 小鼠：互補，不是取代</h4>
@@ -2882,6 +3560,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li><b>種入人類腦類器官</b><span>把 human iPSC 長出的 cerebral organoid（腦類器官）移植到這隻缺皮質小鼠的腦中。</span></li>
       <li><b>結果</b><span>切片可看到用螢光標示的人類細胞形成完整的皮質樣結構；MRI 追蹤纖維發現，人類類器官的神經纖維與小鼠的腦幹、小腦、中腦等區域形成連結。</span></li>
     </ol>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Transplantation_of_human_cortical_organoids_in_the_developing_rat_cortex.webp/960px-Transplantation_of_human_cortical_organoids_in_the_developing_rat_cortex.webp.png" alt="人類皮質類器官移植進大鼠皮質的流程與結果" loading="lazy">
+      <figcaption>這張是 Revah 等人 2022 年 <em>Nature</em> 的研究圖：把 hiPSC 分化成人類皮質類器官（hCO），移植進新生大鼠的體感覺皮質（a），MRI 看得到移植物（b），切片上人類細胞（HNA 標記）已長進宿主腦（e–f）。它與老師講的 Stanford「xenocortication」是不同研究（後者是小鼠、缺皮質），但概念相同：讓人類類器官在活體腦裡長出連結。圖很密，看 a 的流程與 e 的切片即可，其餘不必讀。
+        <span class="credit">圖：Omer Revah、Felicity Gore、Kevin W. Kelley、Jimena Andersen 等｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Transplantation_of_human_cortical_organoids_in_the_developing_rat_cortex.webp" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <p>接著大家被問：這隻有人類皮質的小鼠，是變得比較聰明，還是比較笨？老師請同學舉手表態（有人說變笨），然後看行為測試的結果：</p>
     <h4>三種小鼠行為測試</h4>
     <div class="tablewrap"><table>
@@ -2892,6 +3576,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
         <tr><td>Social tests（社交測試，三箱）</td><td>中間箱放受試鼠，一側放一隻陌生鼠，另一側放無生命物體，量與陌生鼠互動的時間（sociability）。再放一隻新陌生鼠，看是否偏好新鼠（social novelty）</td><td>正常鼠互動約 100 秒，無皮質鼠約 50 秒（顯著降低）；種入類器官後<strong>統計上無顯著差異</strong>，只有一隻離群值表現很好。Social novelty：無皮質鼠分不出新舊，種入後與野生型對照相近</td></tr>
       </tbody>
     </table></div>
+    <div class="video" data-yt="fpjY1Nj7iHg" data-title="Morris 水迷宮實驗(Morris Water Maze Experiment,JoVE 方法預覽)" data-note="補充:老師課堂講的三種行為測試是 open field、情境恐懼制約與三箱社交;Morris 水迷宮是另一個經典的空間學習與記憶測試,與這節的行為測試邏輯相同。看小鼠如何學會找平台。"></div>
     <div class="box teacher"><p>老師的結論：<strong>人類的神經元並沒有讓小鼠「變得更聰明」</strong>，至少在這些測試中沒有；結果多半是回到對照水準。他留了兩個問題給大家想：人類基因做出的神經元真的保證比其他物種更聰明嗎？人類這個物種又為何如此特別？另外他回答了一個同學的問題：圖上的星號（*）代表兩組之間統計上有顯著差異。這個例子的重點是示範「iPSC / 類器官 + 動物模型」結合的新方向——也要注意這樣的雜交模型帶來的倫理與解讀限制。</p></div>
     <div class="quiz" data-answer="3">
       <p class="q">human iPSC 相較於 transgenic mouse，主要「優勢」是？</p>
@@ -2908,6 +3593,21 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
   <section class="topic" id="w4-t10">
     <h3>10. 如何選模型、諾貝爾獎對照與展望</h3>
     <p>老師最後把課程總結成「這些科學家與他們用的模型」：Cajal（Golgi 染色、各種動物）、Hodgkin 與 Huxley（烏賊巨大軸突）、Kandel（海兔）、Tsien（螢光蛋白，用於 cAMP 感測）、Charpentier 與 Doudna（CRISPR）、Gurdon 與山中伸彌（iPSC）。他們都值得獲獎，而且<strong>很多重大發現來自失敗實驗中的意外</strong>。</p>
+    <figure class="fig"><svg viewBox="0 0 780 360" role="img" aria-label="模式生物取捨概念圖">
+      <g font-size="14" fill="currentColor">
+        <line x1="70" y1="310" x2="740" y2="310" stroke="currentColor"/><line x1="70" y1="40" x2="70" y2="310" stroke="currentColor"/>
+        <text x="740" y="338" text-anchor="end">與人腦的相似/複雜度 →</text>
+        <text x="20" y="28" font-weight="700">↑ 實驗便利(快、便宜、基因工具、可成像)</text>
+        <path d="M110 80 C 300 130, 470 220, 700 285" stroke="var(--muted)" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+        <circle cx="120" cy="84" r="9" fill="var(--sky)"/><text x="136" y="76">線蟲(302 顆)</text>
+        <circle cx="228" cy="118" r="9" fill="var(--sky)"/><text x="244" y="110">果蠅</text>
+        <circle cx="300" cy="150" r="9" fill="var(--sky)"/><text x="316" y="142">斑馬魚(早期透明)</text>
+        <circle cx="440" cy="205" r="9" fill="var(--accent)"/><text x="456" y="197">小鼠</text>
+        <circle cx="560" cy="248" r="9" fill="var(--warm)"/><text x="576" y="240">狨猴</text>
+        <circle cx="660" cy="280" r="9" fill="var(--warm)"/><text x="560" y="294" text-anchor="end">獼猴</text>
+        <rect x="95" y="210" width="190" height="64" rx="8" fill="none" stroke="var(--accent)" stroke-dasharray="4 4"/>
+        <text x="105" y="232">iPSC/類器官:人類基因、</text><text x="105" y="252">高通量,但迴路不完整、</text><text x="105" y="270">不能測行為</text>
+      </g></svg><figcaption>概念示意（補充，非定量）：越往右越接近人腦的複雜度，但越難飼養、越貴、越難改基因，所以沒有「最好」的模型，只有最適合問題的模型。老師的結論是動物模型與 iPSC 互補：iPSC 有人類基因但無完整迴路，小鼠有完整迴路與行為但基因有物種差異。位置為相對排序，不代表精確數值。</figcaption></figure>
     <div class="tablewrap"><table>
       <thead><tr><th>如果你的問題是…</th><th>首選模型</th><th>理由</th></tr></thead>
       <tbody>
@@ -3088,6 +3788,14 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <tr><td>Leeuwenhoek（雷文霍克，荷蘭）</td><td>單透鏡顯微鏡；發現微生物、精子</td><td>金屬板上鑲一顆很凸、像小珠子的透鏡，用針固定樣本、螺絲調距離。嚴格說只是<strong>倍率很高的放大鏡</strong>（只有一片透鏡，不算複式顯微鏡）。他沒有發明顯微鏡，但把看到的東西畫成圖譜，被稱為<strong>顯微鏡學之父</strong>，也是最早發現單細胞生物的人。</td></tr>
       <tr><td>Hooke（虎克，英國）</td><td>命名 <strong>cell</strong>；改良照明</td><td>用油燈加水晶球把光聚到樣本上，<strong>contrast 變好</strong>。把軟木塞切成薄片，看到一格一格像小房間（cell）的構造——其實是木頭的細胞壁。另一個留名的是彈簧的虎克定律。老師：「白天做研究，晚上喝點小酒，增加靈感。」</td></tr>
     </table></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Micrographia_Schem_11.jpg/960px-Micrographia_Schem_11.jpg" alt="Hooke《Micrographia》1665 年軟木塞薄片的蜂窩狀細胞版畫" loading="lazy">
+      <figcaption>Hooke 1665 年出版的《Micrographia》中，透過自製複式顯微鏡畫下的軟木塞薄片：一格一格像蜂巢的小室，他以修道院的小房間（cell）命名。他看到的其實是死亡植物細胞留下的細胞壁空腔，不是活細胞。這就是上表「Hooke：命名 cell」的原始圖；早期顯微鏡的紀錄方式是手繪與版畫，對照下方老師講的「記錄方式的演進」。
+        <span class="credit">圖：Robert Hooke（1665 年版畫）｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Micrographia_Schem_11.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="video" data-yt="ePnbkNVdPio" data-title="雷文霍克看見微生物世界(Seeing the Invisible: van Leeuwenhoek)" data-note="對應上表的 Leeuwenhoek:HHMI BioInteractive 製作,講他的單透鏡顯微鏡如何第一次看到微生物。留意他的觀察對象與手繪紀錄。"></div>
+    <div class="video" data-yt="y4B3kl9Rvrs" data-title="雷文霍克:第一位顯微鏡大師(Leeuwenhoek: The First Master of Microscopes)" data-note="Journey to the Microcosmos 頻道的史話,補充早期顯微鏡的歷史;可搭配上表的 Leeuwenhoek 與 Hooke。"></div>
     <h4>現代顯微鏡的構造</h4>
     <p>加了很多電子零件，但基本構造沒變：<span class="term" data-def="靠近樣本的那顆鏡頭,負責第一次放大並形成實像">物鏡（objective）</span>、<span class="term" data-def="靠近眼睛的那顆鏡頭,功能等於放大鏡,把物鏡形成的像再放大">目鏡（eyepiece）</span>、放樣本的<span class="term" data-def="放玻片或培養皿的平台">載物台（stage）</span>、光源，以及把光聚到樣本上的<span class="term" data-def="位於光源與樣本之間的聚光透鏡,就是虎克那顆水晶球的後代">聚光鏡（condenser）</span>；對焦用粗調節輪與細調節輪（移動 stage 或移動 objective）。</p>
     <div class="tablewrap"><table>
@@ -3139,15 +3847,33 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </table></div>
     <p>便宜、好用、能把細胞形狀染出來，所以是最常見的組織染色。切片裡特別紅的是紅血球（自帶顏色）。病理科看 H&amp;E 主要看<strong>細胞核大小、細胞質多寡與相對位置</strong>：癌細胞不受控地一直分裂，來不及長大就又分裂，所以會看到一團細胞裡擠滿很多小小的細胞核。</p>
     <div class="box teacher"><p>老師：「不要覺得生物跟歷史地理一樣都是強記強背，所有的生物學都是物理化學的概念。」正電染料抓負電分子，就這麼簡單。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/CEREBELLUM_HE.jpg/960px-CEREBELLUM_HE.jpg" alt="小腦皮質 H&E 染色:深藍紫色細胞核與粉紅色組織" loading="lazy">
+      <figcaption>小腦皮質的 H&amp;E 染色（圖中標籤為德文：Körnerschicht = 顆粒層 granular layer;Molekularschicht = 分子層 molecular layer;Purkinjezellen = 浦金耶細胞）。<strong>深藍紫色的小點是細胞核（hematoxylin 染 DNA），粉紅色是細胞質與纖維（eosin 染蛋白質）。</strong>左邊顆粒層細胞核擠得密密麻麻、粉紅色很少，右邊分子層幾乎都是粉紅色的纖維網、核稀疏。看圖辨識：亮視野、白底、染成粉紅加藍紫，就是 H&amp;E。
+        <span class="credit">圖：Sbrandner｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:CEREBELLUM_HE.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>Nissl 染色（Franz Nissl,19 世紀末）</h4>
     <ul>
       <li>用<strong>鹼性染料</strong>（帶正電），結合帶負電的 <strong>RNA</strong>，染成藍紫色。</li>
       <li>RNA 多的地方有兩處：細胞核裡的<span class="term" data-def="細胞核內製造核糖體 RNA 的區域,RNA 密度特別高">核仁（nucleolus）</span>；以及細胞質中正在做 translation 的<span class="term" data-def="由 RNA 與蛋白質組成、負責把 mRNA 轉譯成蛋白質的機器">核糖體（ribosome）</span>聚集處——當年看到一顆一顆的小點，稱為 <strong>Nissl granule（尼氏小體）</strong>，後來才知道就是核糖體。</li>
       <li>神經元的核糖體集中在<strong>細胞體</strong>，軸突與樹突很少 → Nissl 染色把細胞本體染深、神經纖維幾乎不染 → 一眼分出<strong>灰質（gray matter，細胞體多）與白質（white matter，纖維多）</strong>。在脊髓叫灰質/白質，在大腦叫皮質（cortex）/白質。</li>
     </ul>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Nissl_bodies_in_neurons_of_the_spinal_cord.jpg/960px-Nissl_bodies_in_neurons_of_the_spinal_cord.jpg" alt="脊髓前角神經元的 Nissl 染色(cresyl violet)與髓鞘 luxol fast blue 染色" loading="lazy">
+      <figcaption>脊髓前角運動神經元，用 cresyl violet（一種鹼性染料）染 Nissl body，呈紫色顆粒狀，集中在<strong>細胞體（箭頭）</strong>；細胞核中央的深色小圓點是核仁。對應上面講的：帶正電的鹼性染料結合 RNA，而神經元的核糖體集中在細胞體。注意這張另外用 luxol fast blue 把周圍的髓鞘染成<strong>亮藍色</strong>，單純的 Nissl 染色不會有這些藍色纖維；它也呈現「細胞體被染、纖維幾乎沒被 Nissl 染到」的反差。
+        <span class="credit">圖：Tulemo｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Nissl_bodies_in_neurons_of_the_spinal_cord.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>Golgi 染色：改變神經科學的技術</h4>
     <p>高基（Camillo Golgi）把福馬林固定過的腦組織先泡<strong>重鉻酸鉀</strong>（potassium dichromate，橘色），再泡<strong>硝酸銀</strong>（無色），兩者反應生成不溶於水的<strong>黑色鉻酸銀沉澱</strong>——高中化學就有的反應。神奇之處：<strong>只有約 5–10% 的神經細胞會被染黑</strong>，其餘完全不上色；原因至今沒人知道（老師：「管它的，能用就好」）。而被染到的細胞，<strong>從細胞體到樹突、軸突的最末端都染得一清二楚</strong>。</p>
     <div class="box bridge"><p>稀疏標記為什麼反而是優點？想像做流場可視化：把整缸水都染黑，什麼流線都看不到；只放幾顆示蹤粒子（或幾顆探空氣球），每一條軌跡才追得出來。腦組織裡神經纖維密到互相纏繞，全部染色等於「把白螢幕換成黑螢幕」；隨機只染 5% 才能看出單一神經元的完整形狀。類比失效處：示蹤粒子是你決定放哪裡，Golgi 染色染到誰完全隨機、無法指定。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Pyramidal_hippocampal_neuron_40x.jpg/960px-Pyramidal_hippocampal_neuron_40x.jpg" alt="Golgi 染色的人類海馬迴錐體神經元,黑色的細胞體與滿布小棘的樹突" loading="lazy">
+      <figcaption>Golgi 染色的海馬迴錐體神經元（癲癇病人的組織，40× 物鏡）。黑色的細胞體、粗大的頂樹突與分支，連樹突上細小的棘（spine）都被染出來，而周圍絕大多數細胞完全沒有上色（只有模糊的灰影）——這就是老師說的「只隨機染 5–10% 但染到的整顆都黑」。這張也是亮視野影像：白（淺灰）背景加黑色的樣本。
+        <span class="credit">圖：MethoxyRoxy｜CC BY-SA 2.5｜<a href="https://commons.wikimedia.org/wiki/File:Pyramidal_hippocampal_neuron_40x.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <p><strong>從技術到學說：</strong>西班牙的 Santiago Ramón y Cajal（卡哈爾）學了這個方法並加以改良（例如重複染），畫出大量圖譜（如視網膜各層細胞）。當時的大辯論是：已知神經用電傳訊，那麼訊號怎麼從腦傳到腳？</p>
     <ul>
       <li><strong>舊模型</strong>（流行很久）：所有神經細胞的膜打通、融合（fuse）成一個連續的網，像灌滿電解液的水管。它<strong>唯一解釋不了的是：為什麼神經傳導是單方向的</strong>。</li>
@@ -3156,6 +3882,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ul>
     <p>Golgi 與 Cajal 在 <strong>1906 年</strong>共同獲得諾貝爾生理醫學獎，被稱為現代神經科學之父。（老師口誤說兩位都是西班牙人；Golgi 是義大利人。）</p>
     <div class="box teacher"><p>老師的總結：<strong>一個染色技術的突破 → 新的假說 → 開創整個現代神經科學。技術與知識相輔相成。</strong></p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Purkinje_cell_by_Cajal.png" alt="Cajal 手繪的貓小腦浦金耶細胞" loading="lazy">
+      <figcaption>Cajal 用 Golgi 染色後以暗箱描圖器（camera lucida）畫下的貓小腦浦金耶細胞（Purkinje cell）：a 是軸突、b 是側枝、c 是樹突。樹突像一把張開的扇子，密到幾乎看不清單一枝條，卻被染得清清楚楚。Cajal 靠這類手繪圖譜主張神經細胞是一顆一顆獨立的（神經元學說），與前面「那時還沒有相機能記錄顯微影像」的手繪時代呼應。
+        <span class="credit">圖：Santiago Ramón y Cajal｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Purkinje_cell_by_Cajal.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>另外兩種染色（老師帶過）</h4>
     <ul>
       <li><strong>四氧化鋨（osmium tetroxide）</strong>：含重金屬、本身黑色，喜歡結合<span class="term" data-def="脂質;細胞膜與髓鞘的主要成分">lipid</span>。主要給電子顯微鏡用（重金屬會散射電子），光學顯微鏡下也看得到——神經橫切面上一圈一圈黑黑的就是<span class="term" data-def="包在軸突外面、由多層細胞膜構成的絕緣層,富含脂質(第 2 週)">髓鞘（myelin）</span>。</li>
@@ -3184,6 +3916,33 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>Bright field 與 dark field 是一體的兩面。Discovery 影片裡黑背景中游動的發亮微生物就是暗視野。</li>
     </ul>
     <div class="box bridge"><p>這正是「消光法」對「散射法」。亮視野像太陽光度計：量直達光被削弱了多少，訊號是大背景上的小缺口（100→99），背景本身的雜訊就把它淹沒。暗視野像濁度計（nephelometer）或日冕儀：把直達光擋掉，只收被散射出來的光，訊號建立在近乎零的背景上，對比 (I−I₀)/I₀ 從 1% 變成趨近無限大。白天看不到星星、晚上看得到，星光本身並沒有變。類比失效處：暗視野影像的亮度取決於散射角分布與物鏡收光角，不能直接反推濃度或光學厚度，它是定性的。</p></div>
+    <figure class="fig"><svg viewBox="0 0 700 330" role="img" aria-label="亮視野與暗視野的照明光路比較">
+      <defs><marker id="w5a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" fill="currentColor"/></marker></defs>
+      <g font-size="13" fill="currentColor">
+      <text x="175" y="20" text-anchor="middle" font-weight="700">亮視野 Bright field</text>
+      <text x="525" y="20" text-anchor="middle" font-weight="700">暗視野 Dark field</text>
+      <!-- left panel center x=175 -->
+      <ellipse cx="175" cy="75" rx="45" ry="7" fill="none" stroke="currentColor" stroke-width="2"/><text x="235" y="79" font-size="12" fill="var(--muted)">物鏡</text>
+      <line x1="120" y1="148" x2="230" y2="148" stroke="currentColor" stroke-width="3"/><circle cx="175" cy="143" r="6" fill="var(--accent)"/><text x="238" y="152" font-size="12" fill="var(--muted)">樣本</text>
+      <ellipse cx="175" cy="230" rx="62" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><text x="245" y="234" font-size="12" fill="var(--muted)">聚光鏡</text>
+      <line x1="145" y1="230" x2="175" y2="137" stroke="var(--warm)" stroke-width="2"/><line x1="205" y1="230" x2="175" y2="137" stroke="var(--warm)" stroke-width="2"/>
+      <line x1="175" y1="230" x2="175" y2="80" stroke="var(--warm)" stroke-width="2"/>
+      <line x1="175" y1="137" x2="150" y2="80" stroke="var(--warm)" stroke-width="2"/><line x1="175" y1="137" x2="200" y2="80" stroke="var(--warm)" stroke-width="2"/>
+      <line x1="175" y1="300" x2="175" y2="262" stroke="var(--warm)" stroke-width="2" marker-end="url(#w5a1)"/><text x="175" y="318" text-anchor="middle" font-size="12" fill="var(--muted)">光源(由下往上照)</text>
+      <text x="175" y="45" text-anchor="middle" font-size="12" fill="var(--sky)">直射光進入物鏡</text>
+      <!-- right panel center x=525 -->
+      <ellipse cx="525" cy="75" rx="45" ry="7" fill="none" stroke="currentColor" stroke-width="2"/><text x="585" y="79" font-size="12" fill="var(--muted)">物鏡</text>
+      <line x1="470" y1="148" x2="580" y2="148" stroke="currentColor" stroke-width="3"/><circle cx="525" cy="143" r="6" fill="var(--accent)"/><text x="588" y="152" font-size="12" fill="var(--muted)">樣本</text>
+      <ellipse cx="525" cy="230" rx="62" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><text x="595" y="234" font-size="12" fill="var(--muted)">聚光鏡</text>
+      <rect x="493" y="262" width="64" height="9" fill="currentColor"/><text x="567" y="271" font-size="12" fill="currentColor">遮擋片</text>
+      <line x1="470" y1="230" x2="525" y2="137" stroke="var(--warm)" stroke-width="2"/><line x1="580" y1="230" x2="525" y2="137" stroke="var(--warm)" stroke-width="2"/>
+      <line x1="525" y1="137" x2="575" y2="80" stroke="var(--warm)" stroke-width="2" stroke-dasharray="4 3"/><line x1="525" y1="137" x2="475" y2="80" stroke="var(--warm)" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="570" y="100" font-size="11" fill="var(--muted)">直射光斜著穿過</text><text x="570" y="113" font-size="11" fill="var(--muted)">進不了物鏡</text>
+      <line x1="525" y1="137" x2="508" y2="80" stroke="var(--sky)" stroke-width="2.5"/><line x1="525" y1="137" x2="542" y2="80" stroke="var(--sky)" stroke-width="2.5"/>
+      <text x="525" y="45" text-anchor="middle" font-size="12" fill="var(--sky)">只有樣本散射的光進入物鏡</text>
+      <line x1="525" y1="300" x2="525" y2="276" stroke="var(--warm)" stroke-width="2" marker-end="url(#w5a1)"/><text x="525" y="318" text-anchor="middle" font-size="12" fill="var(--muted)">光源(中央被擋,只剩外圈斜光)</text>
+      </g></svg><figcaption>示意圖（原創，簡化）：兩者用同一顆物鏡，差別只在聚光鏡下方有沒有那片圓盤遮擋片。亮視野的直射光會進入物鏡，背景亮、透明樣本只在亮背景上留下極淡的暗影；暗視野把中央光擋掉，只剩斜射的外圈光，斜到直射光進不了物鏡，所以沒樣本時全黑，有樣本時只有被散射的光（藍色）進入物鏡，樣本因此在黑背景上發亮。注意與下面相位差的差別：相位差的環狀照明直射光「會」進入物鏡。</figcaption></figure>
+    <div class="video" data-yt="vr4tYUnaHNQ" data-title="相位差與暗視野顯微鏡(Phase contrast and dark field microscopes)" data-note="La Physique Autrement 的短片,同時比較暗視野與相位差的光路與影像;看時留意暗視野為何是黑背景、相位差為何需要環狀光闌。"></div>
     <h4>Phase contrast 相位差（Zernike,1930 年代發明；1953 年獨得諾貝爾物理獎）</h4>
     <p>眼睛與相機只偵測<strong>強度（振幅）</strong>。擦得很乾淨的玻璃門幾乎不吸光，所以你看不到它（老師趕公車撞過，「很痛，所以講三次」）。但光穿過玻璃並非什麼都沒變：玻璃折射率高 → 光在裡面跑得慢 → 頻率不變、波長變短 → 出來時和沒穿過玻璃的光「步調錯開」，這就是<span class="term" data-def="描述一個波在自己的週期中走到哪個位置;兩道波步調錯開的量叫相位差">相位（phase）</span>不同。</p>
     <div class="box teacher"><p><strong>老師教相位：想成時鐘。</strong>波一個週期就是指針繞一圈。一圈可以標成 0–12 點，也可以標成 0–360°，或者 0–2π——只是刻度換了，觀念一模一樣（6 點 = 180° = π;3 點 = 90° = π/2;9 點 = 270° = 3π/2）。老師開玩笑說物理學家是嫌太好懂才改成 2π。</p></div>
@@ -3201,6 +3960,38 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>便宜：相位板只是在鏡頭裡鍍一層膜，有沒有 phase contrast 鏡頭價錢幾乎一樣。缺點是那圈鍍膜會擋掉 1–2% 的光，拿同一顆鏡頭拍亮視野或螢光時稍微吃虧。</li>
     </ul>
     <div class="box bridge"><p>「介質透明、不吸收，但折射率讓波延遲」——這就是 GNSS 對流層延遲與無線電掩星。大氣對 L 波段幾乎完全透明，振幅沒什麼可量的，但折射率（尤其水氣）讓相位延遲了幾公分到幾公尺，靠量相位就能反演可降水量與溫濕剖線。InSAR 用兩次觀測的相位差量出毫米級地表形變，也是同一招。類比失效處：微波頻率低到接收機可以直接追蹤載波相位；可見光頻率約 5×10¹⁴ Hz，沒有偵測器跟得上，只能讓它和一道參考光干涉，把相位「翻譯」成強度。相位差顯微鏡的巧妙就是拿樣本自己的直射光當參考光。</p></div>
+    <figure class="fig"><svg viewBox="0 0 700 360" role="img" aria-label="相位差顯微鏡光路:condenser annulus 與 phase plate">
+      <defs><marker id="w5a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" fill="currentColor"/></marker></defs>
+      <g font-size="13" fill="currentColor">
+      <!-- axis x=250 ; y: plate 55, objective 100, sample 170, condenser 235, annulus 285, lamp 335 -->
+      <text x="250" y="22" text-anchor="middle" font-size="12" fill="var(--muted)">↑ 兩道光在這之後會合、干涉,成為影像的亮暗</text>
+      <!-- phase plate -->
+      <line x1="120" y1="55" x2="380" y2="55" stroke="currentColor" stroke-width="2"/>
+      <rect x="190" y="49" width="12" height="12" fill="var(--warm)"/><rect x="298" y="49" width="12" height="12" fill="var(--warm)"/>
+      <text x="400" y="52" fill="currentColor"><tspan font-weight="700">phase plate</tspan>(相位板)</text>
+      <text x="400" y="69" font-size="12" fill="var(--muted)">環狀鍍膜,正好對準直射光,把它推遲 ¼ 波長</text>
+      <!-- objective -->
+      <ellipse cx="250" cy="105" rx="55" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><text x="400" y="109" fill="currentColor">物鏡</text>
+      <!-- sample -->
+      <line x1="170" y1="170" x2="330" y2="170" stroke="currentColor" stroke-width="3"/><circle cx="250" cy="164" r="7" fill="var(--accent)"/><text x="400" y="174" fill="currentColor">樣本(折射率與周圍不同)</text>
+      <!-- condenser -->
+      <ellipse cx="250" cy="235" rx="75" ry="8" fill="none" stroke="currentColor" stroke-width="2"/><text x="400" y="239" fill="currentColor">聚光鏡</text>
+      <!-- annulus -->
+      <rect x="150" y="285" width="46" height="9" fill="currentColor"/><rect x="204" y="285" width="92" height="9" fill="currentColor"/><rect x="304" y="285" width="46" height="9" fill="currentColor"/>
+      <text x="400" y="294" fill="currentColor"><tspan font-weight="700">condenser annulus</tspan>(環狀光闌)</text>
+      <text x="400" y="311" font-size="12" fill="var(--muted)">黑色處擋光,只留一圈環形的縫讓光通過</text>
+      <!-- direct light: from gaps x=200 and 300 at y=285 to sample (250,170) then to plate at x=300 and 200 -->
+      <line x1="200" y1="285" x2="250" y2="168" stroke="var(--sky)" stroke-width="2.5"/><line x1="300" y1="285" x2="250" y2="168" stroke="var(--sky)" stroke-width="2.5"/>
+      <line x1="250" y1="168" x2="300" y2="58" stroke="var(--sky)" stroke-width="2.5"/><line x1="250" y1="168" x2="200" y2="58" stroke="var(--sky)" stroke-width="2.5"/>
+      <!-- scattered -->
+      <line x1="250" y1="168" x2="140" y2="58" stroke="var(--warm)" stroke-width="2" stroke-dasharray="5 3"/><line x1="250" y1="168" x2="360" y2="58" stroke="var(--warm)" stroke-width="2" stroke-dasharray="5 3"/><line x1="250" y1="168" x2="250" y2="58" stroke="var(--warm)" stroke-width="2" stroke-dasharray="5 3"/>
+      <!-- lamp -->
+      <line x1="250" y1="345" x2="250" y2="300" stroke="currentColor" stroke-width="2" marker-end="url(#w5a2)"/><text x="262" y="345" font-size="12" fill="var(--muted)">光源</text>
+      <!-- legend -->
+      <line x1="440" y1="215" x2="480" y2="215" stroke="var(--sky)" stroke-width="2.5"/><text x="488" y="219" font-size="12" fill="currentColor">直射光(沒被樣本偏折)</text>
+      <line x1="440" y1="238" x2="480" y2="238" stroke="var(--warm)" stroke-width="2" stroke-dasharray="5 3"/><text x="488" y="242" font-size="12" fill="currentColor">被樣本折射、散射的光</text>
+      </g></svg><figcaption>示意圖（原創，簡化，省略聚光鏡與物鏡的折射細節）：相位差的兩個必備零件就是 <strong>condenser annulus</strong>（聚光鏡處，只讓一圈環形光通過）與 <strong>phase plate</strong>（物鏡後方，環形鍍膜）。直射光（藍）被環形光闌安排成一個環，穿過樣本後剛好落在相位板的環上，被推遲約 ¼ 波長；被樣本偏折、散射的光（橘）散布在整個孔徑，多半避開那一圈、沒被額外推遲。兩者重新疊合時，原本看不見的相位差就變成亮暗差。兩個零件的環要<strong>對準（match）</strong>，所以物鏡上的 Ph1、Ph2 要配聚光鏡轉盤上相同編號。</figcaption></figure>
+    <div class="video" data-yt="f9aQdIJ9nZw" data-title="相位差顯微鏡的原理(The Principle of Phase Contrast Microscopy)" data-note="ibidi 公司(細胞培養耗材,常做教學動畫)的短片,對照上圖:看環狀光闌的直射光如何通過相位環、被推遲後與散射光干涉。"></div>
     <h4>DIC（differential interference contrast;Nomarski,1950 年代）</h4>
     <p>名字裡的 differential 就是<strong>微分</strong>：它偵測的是相位的<strong>梯度（gradient）</strong>——相鄰兩點的相位差了多少。影像看起來像立體浮雕：阿米巴原蟲在亮視野下扁扁的，在 DIC 下「凸起來」。<strong>那是假的立體</strong>：細胞邊緣剛好是相位變化最劇烈的地方，所以邊緣被強調成一面亮、一面暗。</p>
     <ol class="flow">
@@ -3227,6 +4018,33 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ul>
     <details class="deep"><summary>延伸：DIC 像地形圖的暈渲（hillshade）——類比與它失效的地方</summary><p>DIC 影像最貼切的對應是地形圖的暈渲（hillshade）：它不是高度本身，而是高度沿某個方向的導數，所以迎光坡亮、背光坡暗，大腦自動解讀成立體。DIC 畫的是「光程差的方向導數」。類比失效處有兩個：（1）它的「高度」是折射率 × 厚度，不是真實地形，折射率高的扁平顆粒也會「凸起來」；（2）只對剪切方向上的梯度敏感，和剪切方向平行的邊緣幾乎沒有對比。</p></details>
     <div class="video" data-yt="SiX9ynt46Nc" data-title="DIC 與相位差顯微鏡的差異" data-note="把這一節兩種方法並排比較:注意相位差影像的光暈(halo)與 DIC 的浮雕陰影,以及各自需要的光學零件。"></div>
+    <div class="video" data-yt="dahH1Yq8bSg" data-title="DIC 顯微鏡影片導覽(A Video Guide to Differential Interference Contrast)" data-note="Scientifica 公司(電生理顯微鏡製造商)的導覽,看 DIC 影像的浮雕感,並留意光路上需要的零件:polarizer、analyzer、Nomarski prism。"></div>
+    <h4>同一樣本、四種成像法：真實影像對照（考「看圖辨識」請先看這裡）</h4>
+    <p>老師預告考試會給網路上的新圖，問是哪一種顯微鏡。最好的練習，是看<strong>同一種樣本在不同方法下長什麼樣</strong>。下面四張是同一批舟形矽藻(<em>Pleurosigma angulatum</em>，一種單細胞藻類，外殼是透明的二氧化矽)，由同一位攝影者依序以四種照明方式拍攝。口訣：<strong>亮視野=白背景；暗視野=黑背景；相位差=灰背景加光暈；DIC=灰（或單色）背景加浮雕、一邊亮一邊暗</strong>。</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Mikrofoto.de-Pleurosigma_angulatum-9.jpg/960px-Mikrofoto.de-Pleurosigma_angulatum-9.jpg" alt="同一批舟形矽藻(Pleurosigma angulatum)的亮視野影像:背景亮白,透明殼只有淡淡輪廓" loading="lazy">
+      <figcaption><strong>(1) Bright field 亮視野。</strong>背景亮白、近乎無色；矽藻殼幾乎透明，只剩淡淡的輪廓與少許彩邊，細節很少。辨識重點：<strong>背景亮、樣本對比很低</strong>——這就是老師說的「透明樣本在亮視野下只比背景暗 1%」。下面三張是同一批矽藻，只換成像方法，請依序比較。
+        <span class="credit">圖：Frank Fox (Mikrofoto.de)｜CC BY-SA 3.0 DE｜<a href="https://commons.wikimedia.org/wiki/File:Mikrofoto.de-Pleurosigma_angulatum-9.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Mikrofoto.de-Pleurosigma_angulatum-2.jpg/960px-Mikrofoto.de-Pleurosigma_angulatum-2.jpg" alt="同一批矽藻的暗視野影像:全黑背景上殼緣與花紋發亮" loading="lazy">
+      <figcaption><strong>(2) Dark field 暗視野。</strong>背景<strong>全黑</strong>，矽藻殼的邊緣與細紋被散射光照得發亮、顏色鮮豔。辨識重點：<strong>黑背景、發亮的樣本</strong>。注意它和螢光影像也是黑背景，但暗視野沒有染劑也沒有 filter cube，亮的是「被散射的照明光」，不是樣本自己發的光。
+        <span class="credit">圖：Frank Fox (Mikrofoto.de)｜CC BY-SA 3.0 DE｜<a href="https://commons.wikimedia.org/wiki/File:Mikrofoto.de-Pleurosigma_angulatum-2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Mikrofoto.de-Pleurosigma_angulatum-8.jpg/960px-Mikrofoto.de-Pleurosigma_angulatum-8.jpg" alt="同一批矽藻的相位差影像:灰褐背景,每個樣本外圍有一圈亮暈" loading="lazy">
+      <figcaption><strong>(3) Phase contrast 相位差。</strong>背景<strong>灰褐色（中灰）</strong>，每片矽藻<strong>外圍都有一圈亮亮的光暈（halo）</strong>，邊緣顯得又亮又銳。辨識重點：<strong>灰背景 + 亮光暈</strong>，沒有「一邊亮一邊暗」的方向性。
+        <span class="credit">圖：Frank Fox (Mikrofoto.de)｜CC BY-SA 3.0 DE｜<a href="https://commons.wikimedia.org/wiki/File:Mikrofoto.de-Pleurosigma_angulatum-8.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Mikrofoto.de-Pleurosigma_angulatum-3.jpg/960px-Mikrofoto.de-Pleurosigma_angulatum-3.jpg" alt="同一批矽藻的 DIC 影像:背景均勻帶藍色,樣本邊緣一側亮一側暗像浮雕" loading="lazy">
+      <figcaption><strong>(4) DIC 微分干涉對比。</strong>背景均勻、<strong>沒有光暈</strong>，樣本像<strong>浮雕</strong>：邊緣一側亮、另一側暗，看起來有立體感（那是假的立體）。辨識重點：<strong>一邊亮一邊暗 + 假立體</strong>。這張的背景偏藍是 DIC 的色調/補償設定造成的；DIC 背景可以是灰色，也可以被調成有色，看邊緣特徵比看背景顏色可靠。若樣本自己有顏色（例如葉綠體），顏色會照樣顯示，但立體浮雕感不變，這就是老師那題「綠色纖毛蟲」的答案為什麼是 DIC。
+        <span class="credit">圖：Frank Fox (Mikrofoto.de)｜CC BY-SA 3.0 DE｜<a href="https://commons.wikimedia.org/wiki/File:Mikrofoto.de-Pleurosigma_angulatum-3.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>看圖辨識：老師當場帶大家練習的判斷法</h4>
     <div class="tablewrap"><table>
       <tr><th>方法</th><th>背景</th><th>樣本長相</th><th>必備零件</th><th>可看活細胞？</th></tr>
@@ -3298,6 +4116,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
       <li>也有一個 cube 同時讓三種螢光通過的<strong>多頻帶 filter cube</strong>（穿透率曲線有三個峰，老師：「很可怕」），目視或用手機可以一次看到三色。但它在每個波段都損失強度、激發也不能給太強，所以真正做研究還是單色分次拍再疊加。</li>
     </ul>
     <div class="box bridge"><p>這和氣象衛星成像儀一模一樣：每個頻道的偵測器都只輸出灰階亮度，用雙色分光鏡加帶通濾光片把入射光分到各頻道；你看到的「真彩色」或各種 RGB 合成產品，是事後把三張單頻道灰階影像指定給紅綠藍疊出來的。多頻帶 cube 的取捨也類似寬頻與窄頻頻道：一次收多段比較方便，但頻道間的隔離與每段的訊雜比都變差。類比失效處：衛星是被動接收地氣系統自己的輻射，螢光顯微鏡是主動照明，而且激發光比訊號強上百萬倍，所以濾光片的截止深度要求嚴苛得多。</p></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/FluorescentCells.jpg" alt="牛肺動脈內皮細胞的三色螢光影像:藍色細胞核、綠色微管、紅色肌動蛋白" loading="lazy">
+      <figcaption>牛肺動脈內皮細胞（培養細胞）的三色螢光影像，正好對應老師的「DAPI、FITC、Texas Red 三色搭配」：<strong>藍色 = DAPI 染的細胞核（DNA）</strong>;<strong>綠色 = 微管蛋白（tubulin）的免疫螢光</strong>（這張用的綠色染劑是 BODIPY FL 標記的二級抗體，與 FITC 同屬綠色波段）；<strong>紅色 = 以 Texas Red 標記的 phalloidin 染的肌動蛋白纖維（F-actin）</strong>。特徵：全黑背景、發出彩色光。注意這是黑白相機分頻道拍攝後由電腦套色合成的偽彩色（老師強調的），不是肉眼直接看到的顏色。
+        <span class="credit">圖：NIH ImageJ 範例影像（Molecular Probes 示範玻片），Wikimedia 上傳者 Splette｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <h4>三種要認得的螢光染劑</h4>
     <div class="tablewrap"><table>
       <tr><th>染劑</th><th>螢光顏色</th><th>老師講的重點</th></tr>
@@ -3332,6 +4156,7 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <div class="box plain"><p>間接法的三個好處：（1）<strong>便宜、通用</strong>——廠商賣的二級抗體只分「抗小鼠」「抗大鼠」「抗兔」，同一瓶可以配任何來自該物種的一級抗體；（2）一級抗體不必經過化學標記，不浪費；（3）<strong>訊號放大</strong>——一個一級抗體上可以同時黏好幾個二級抗體，螢光更亮。</p></div>
     <div class="video" data-yt="-9eRkKiXhiA" data-title="直接免疫螢光法動畫" data-note="先看最單純的直接法:螢光標記抗體直接結合抗原。"></div>
     <div class="video" data-yt="wtUGnq-7Xl8" data-title="免疫螢光組織染色流程" data-note="實際操作流程:固定、一級抗體、二級抗體、封片;對照上面的間接法步驟。"></div>
+    <div class="mol" data-pdb="1IGT" data-title="免疫球蛋白 IgG(抗體)" data-caption="看什麼:Y 形的抗體由四條鏈(兩重鏈、兩輕鏈)組成。兩隻 Y 的「手臂」(Fab)負責專一辨認抗原,「尾巴」(Fc)就是老師說打進牛羊馬驢、讓它們產生二級抗體的那一段。" data-style="依鏈上色"></div>
     <h4>綠色螢光蛋白 GFP(green fluorescent protein)</h4>
     <ul>
       <li>來自<strong>水母</strong>。它是蛋白質 → 有基因 → 可以把基因拿出來，送進本來不會發光的生物（小鼠、豬、培養細胞、果蠅、線蟲）讓它表現。</li>
@@ -3342,6 +4167,13 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ul>
     <div class="mol" data-pdb="1EMA" data-title="綠色螢光蛋白 GFP" data-caption="看什麼:11 條 β 股圍成一個桶子(β-barrel),真正發光的發色團藏在桶子正中央,被保護著不受外界水分子干擾。"></div>
     <div class="video" data-yt="Lm3OZNfRoDg" data-title="GFP 的 3D 分子動畫" data-note="看 β-barrel 如何包住中央的發色團,以及發色團是由蛋白質自己的三個胺基酸形成的,不需外加輔因子。"></div>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/CA2_amigo2_eGFP_mouse.jpg/960px-CA2_amigo2_eGFP_mouse.jpg" alt="表現 GFP 的小鼠海馬迴冠狀切片,CA2 區神經元發綠色螢光" loading="lazy">
+      <figcaption>小鼠海馬迴的冠狀切片：這隻轉基因小鼠讓 GFP 只在 amigo2 基因的啟動子啟動時表現，於是<strong>只有 CA2 區的神經元發出綠色螢光</strong>（其他區的灰藍點是細胞核）。這是「把 GFP 基因接到特定基因的調控序列」的用法：不必染色，綠色的位置就等於那個基因表現的位置。對比前面的 Golgi 隨機染色，這是可指定的標記。
+        <span class="credit">圖：Dudek, Serena; Curuana, Douglas; Carstens, Kelly（GENSAT 報告株）｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:CA2_amigo2_eGFP_mouse.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
+    <div class="mol" data-pdb="2H5Q" data-title="mCherry(紅色螢光蛋白)" data-caption="看什麼:同樣是 β 桶包著中央發色團,和 GFP 的外形幾乎一樣,只是發色團周邊的胺基酸被改過,發光顏色就從綠變成紅。這是老師講的「在發光團附近突變、做出各種顏色」的實例(mCherry 源自珊瑚的 DsRed 家族,而非水母 GFP,但同為 β 桶折疊)。" data-style="卡通"></div>
     <p>課堂上有同學問：這些影像肉眼看得到嗎、顏色是不是後來上的？老師回答：純化出來的 GFP 在試管裡肉眼就看得到是綠的，整隻發光的線蟲（約 1 mm）也勉強看得到；但顯微鏡影像大多是黑白相機拍的，顏色是事後套上去的。</p>
     <div class="tablewrap"><table>
       <tr><th></th><th>免疫螢光</th><th>GFP（螢光蛋白）</th></tr>
@@ -3380,6 +4212,38 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     </ol>
     <p><strong>缺點：慢。</strong>點偵測，一次一個點，掃一張可能二十秒，一整疊就是幾分鐘；老師說學生常常坐在裡面半小時掃一個樣本。</p>
     <div class="video" data-yt="QFtZFbug1SA" data-title="共軛焦顯微鏡原理動畫" data-note="看針孔如何只讓焦平面的光通過,以及雷射光點逐點掃描、逐層疊成 3D 的過程。"></div>
+    <figure class="fig"><svg viewBox="0 0 640 340" role="img" aria-label="共軛焦顯微鏡光路:雷射、雙色鏡、物鏡、針孔與偵測器">
+      <g font-size="13" fill="currentColor">
+      <!-- detector & pinhole -->
+      <rect x="230" y="6" width="60" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="300" y="18" fill="currentColor">偵測器(PMT)</text>
+      <rect x="190" y="48" width="62" height="7" fill="currentColor"/><rect x="268" y="48" width="62" height="7" fill="currentColor"/><text x="340" y="56" fill="currentColor"><tspan font-weight="700">pinhole</tspan>(針孔)</text>
+      <!-- tube lens -->
+      <ellipse cx="260" cy="100" rx="45" ry="6" fill="none" stroke="currentColor" stroke-width="2"/><text x="315" y="104" font-size="12" fill="var(--muted)">管透鏡</text>
+      <!-- dichroic -->
+      <line x1="235" y1="135" x2="285" y2="185" stroke="var(--accent)" stroke-width="4"/><text x="296" y="150" fill="currentColor"><tspan font-weight="700">dichroic mirror</tspan></text><text x="296" y="166" font-size="12" fill="var(--muted)">反射雷射、讓長波長螢光通過</text>
+      <!-- laser -->
+      <rect x="20" y="148" width="60" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="50" y="164" text-anchor="middle" font-size="12">雷射</text>
+      <line x1="80" y1="160" x2="260" y2="160" stroke="var(--sky)" stroke-width="2.5"/><line x1="260" y1="160" x2="260" y2="222" stroke="var(--sky)" stroke-width="2.5"/>
+      <!-- objective -->
+      <rect x="215" y="222" width="90" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><text x="315" y="234" font-size="12" fill="currentColor">物鏡</text>
+      <!-- sample -->
+      <line x1="170" y1="298" x2="350" y2="298" stroke="currentColor" stroke-width="3"/><circle cx="260" cy="293" r="6" fill="var(--accent)"/><text x="360" y="302" fill="currentColor">樣本焦平面</text>
+      <text x="360" y="322" font-size="12" fill="var(--muted)">(雷射聚在這一個點,逐點掃描)</text>
+      <!-- excitation cone -->
+      <line x1="225" y1="238" x2="260" y2="294" stroke="var(--sky)" stroke-width="2"/><line x1="295" y1="238" x2="260" y2="294" stroke="var(--sky)" stroke-width="2"/>
+      <!-- emission in focus: parallel up and refocus to pinhole gap -->
+      <line x1="262" y1="294" x2="225" y2="238" stroke="var(--accent)" stroke-width="2"/><line x1="262" y1="294" x2="295" y2="238" stroke="var(--accent)" stroke-width="2"/>
+      <line x1="225" y1="238" x2="225" y2="104" stroke="var(--accent)" stroke-width="2"/><line x1="295" y1="238" x2="295" y2="104" stroke="var(--accent)" stroke-width="2"/>
+      <line x1="225" y1="104" x2="260" y2="52" stroke="var(--accent)" stroke-width="2"/><line x1="295" y1="104" x2="260" y2="52" stroke="var(--accent)" stroke-width="2"/>
+      <!-- out of focus: gray, hits bar -->
+      <line x1="260" y1="265" x2="222" y2="238" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="260" y1="265" x2="298" y2="238" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="222" y1="238" x2="207" y2="104" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="298" y1="238" x2="313" y2="104" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="207" y1="104" x2="226" y2="52" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="313" y1="104" x2="294" y2="52" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="470" y="250" font-size="12" fill="var(--sky)">藍:激發雷射</text>
+      <text x="470" y="268" font-size="12" fill="var(--accent)">綠:焦點發出的螢光,聚在針孔的洞口通過</text>
+      <text x="470" y="286" font-size="12" fill="var(--muted)">灰虛線:焦點上方的失焦螢光,到針孔處是大光斑,多被擋掉</text>
+      </g></svg><figcaption>示意圖（原創，簡化）：共軛焦的「共軛」指針孔與焦點在光學上互為共軛——只有從焦點發出的螢光會剛好聚在針孔洞口、通過後被偵測；焦點上下方的失焦螢光到針孔處散成大光斑，絕大部分被擋掉。因此一次只取一個點的訊號，靠雷射逐點掃描一層層疊成 3D。老師給的數字：共軛焦約 150 µm 深，雙光子約 400–500 µm。</figcaption></figure>
+    <div class="video" data-yt="j1Krn0kkSUg" data-title="寬場與共軛焦螢光顯微鏡(Widefield and Confocal Fluorescence Microscopy)" data-note="Professor Dave Explains 的講解:對照「寬場螢光整個樣本一起亮、失焦光糊成一片」與共軛焦「針孔擋掉失焦光」的差別。"></div>
     <div class="box bridge"><p>兩個對應。（1）<strong>掃描方式</strong>：寬場螢光顯微鏡像凝視型的面陣列相機，一次曝光拿到整張；共軛焦像掃描式輻射儀（whiskbroom），單一偵測器配掃描鏡逐點掃出影像——換到了乾淨的單點量測，代價是時間。（2）<strong>3D 重建</strong>：一層掃完換一層再疊起來，就是雷達體積掃描：每個仰角一張 PPI，疊出 3D 回波場。類比失效處：雷達和光達的深度資訊來自<strong>時間閘</strong>（回波延遲）；顯微鏡的尺度太小，光走 1 μm 只要幾飛秒，無法用時間分辨深度，所以共軛焦改用<strong>空間濾波</strong>——針孔的角色等同望遠鏡或光達接收端的視場光闌，把不是從目標體積來的光擋在外面。</p></div>
     <h4>Two-photon 雙光子顯微鏡（multiphoton 多光子顯微鏡的一種）</h4>
     <p>先講單光子：一般螢光是分子吸收<strong>一顆</strong>光子、跳到激發態、再放出一顆光子。量子力學說兩個能階之間沒有穩定的中間能階，光子的能量必須一次到位；波長太長（每顆能量太小）的光，強度再高也沒用——這是愛因斯坦光電效應的結論。</p>
@@ -3422,6 +4286,12 @@ footer{color:var(--muted);font-size:13px;margin-top:40px;border-top:1px solid va
     <p>應用：把小鼠的頭骨磨薄或打開一個窗，用雙光子直接看活著的大腦皮質——一路看到約 500 μm 深（老師的圖看到皮質第五層），越深越暗。先用螢光標記神經細胞，就能看到神經突起上的細微構造、血管、免疫細胞，這些都是 MRI、PET 看不到的。</p>
     <h4>補充：為什麼雙光子的解析度比較差——繞射極限</h4>
     <p>（這一小段老師沒有講公式，也說了不考公式；放在這裡是因為它一句話就能解釋上表的「解析度」那一列，而且你一定熟。）任何透鏡都無法把光聚成無限小的點，能分辨的最小距離約為 d = λ / (2·NA)，其中<span class="term" data-def="numerical aperture;等於介質折射率乘上物鏡收光半角的正弦,代表物鏡收集光的角度範圍有多大">數值孔徑 NA</span> = n·sinθ。波長越短、收光角越大，解析度越好。雙光子用的波長大約是單光子的兩倍，光點自然比較胖（強度平方會讓有效光點縮小一些，但補不回來）。</p>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Airy_disk_spacing_near_Rayleigh_criterion.png" alt="兩個 Airy disk 在三種間距下的繞射圖樣" loading="lazy">
+      <figcaption>這張圖解釋<strong>繞射極限</strong>為什麼存在。一個理想的點光源經過圓形透鏡，在影像上不會是一個點，而是中央亮斑加同心暗環。上、中、下三張依序是兩個點光源距離「兩倍、一倍、半倍」第一暗環半徑：相隔夠遠時分得開（上）；剛好等於第一暗環半徑時是 Rayleigh 判據，中間只剩淺淺的凹陷（中）；再靠近就糊成一團（下）。這就是繞射極限：跟雷達波束寬、衛星成像儀的解析度同一個道理；此圖採用非線性色階（四次方根）以顯出暗環。
+        <span class="credit">圖：Spencer Bliven｜公有領域｜<a href="https://commons.wikimedia.org/wiki/File:Airy_disk_spacing_near_Rayleigh_criterion.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </figcaption>
+    </figure>
     <div class="widget" data-widget="abbe"></div>
     <details class="deep"><summary>延伸：補充：繞射極限與雷達波束寬、衛星解析度是同一條式子</summary><p>這和雷達波束寬 θ ≈ λ/D、衛星成像儀的繞射極限是同一條式子：NA 扮演「口徑/距離」的角色。玩法建議：固定 NA = 1.0，把波長從 500 nm 拉到 950 nm，看兩個相距 250 nm 的點從分得開變成糊在一起——這就是共軛焦換成雙光子時付出的代價。同理，10 cm 波長的 S 波段雷達要達到和 3 cm 的 X 波段相同的波束寬，天線得大三倍。類比失效處：遙測的解析度以角度計、隨距離變差；顯微鏡物鏡貼著樣本，NA 可以超過 1（浸油讓 n &gt; 1），所以解析度可以小於半個波長，但也就到此為止。順帶一提：目鏡再怎麼放大，也放不出物鏡沒解析到的細節（空放大），就像把 25 km 的模式場內插到 1 km 不會多出資訊。</p></details>
     <div class="quiz" data-answer="2">
@@ -3671,6 +4541,17 @@ $$('.widget[data-widget]').forEach(el=>{const f=W[el.dataset.widget]; if(f)f(el)
 /* wrap SVG diagrams so they can scroll sideways on phones */
 $$('main svg').forEach(s=>{ if(s.closest('.svgscroll,.stage')||s.parentNode.classList.contains('svgscroll')) return;
   const w=document.createElement('div'); w.className='svgscroll'; s.parentNode.insertBefore(w,s); w.appendChild(s); });
+/* licensed photos: click to enlarge, graceful fallback if an image cannot load */
+(function(){
+  const lb=document.createElement('div'); lb.id='lightbox'; lb.innerHTML='<img alt="">'; document.body.appendChild(lb);
+  const lbi=lb.querySelector('img');
+  lb.onclick=()=>lb.classList.remove('show');
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('show')});
+  $$('figure.photo img').forEach(img=>{
+    img.onclick=()=>{lbi.src=img.src; lbi.alt=img.alt; lb.classList.add('show')};
+    img.addEventListener('error',()=>{const d=document.createElement('div'); d.className='broken'; d.textContent='圖片暫時無法載入（可點下方來源連結查看）'; img.replaceWith(d)});
+  });
+})();
 /* search */
 const sIn=$('#search'); let marks=[];
 function clearMarks(){marks.forEach(m=>{const p=m.parentNode; if(p){p.replaceChild(document.createTextNode(m.textContent),m); p.normalize()}}); marks=[]}
